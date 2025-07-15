@@ -1,0 +1,2239 @@
+[
+  {
+    "title": "Leksikologjia e Gjuhës Shqipe",
+    "subtitles": [
+      {
+        "subtitle": "Fjala si Njësi Bazë e Leksikut",
+        "context": "Fjala është njësia më e vogël dhe e pavarur e gjuhës me kuptim leksikor. Ajo ka formë fonetike-gramatikore dhe përmbajtje leksikore. Quhet edhe leksemë dhe ndryshon gjatë përdorimit përmes mbaresave (p.sh., mal – mali – i malit)."
+      },
+      {
+        "subtitle": "Kuptimi Leksikor i Fjalës",
+        "context": "Kuptimi leksikor është ana thelbësore e fjalës që nuk ndryshon me lakim. Ai bën që një fjalë të dallohet nga tjetra dhe përcaktohet nga shoqëria që e flet gjuhën."
+      },
+      {
+        "subtitle": "Fjalët me Shumë Kuptime",
+        "context": "Shumë fjalë kanë më shumë se një kuptim. Këto janë polisemi (p.sh., bëj, këmbë, frymë). Fjalët mund të kenë edhe ngjyrime emocionale pozitive (hipokoristike) ose negative (pejorative)."
+      },
+      {
+        "subtitle": "Sinonimet",
+        "context": "Fjalë me kuptim të njëjtë ose të afërt, por me formë të ndryshme, p.sh., rrugë – udhë. Ato pasurojnë gjuhën dhe stilin, por nuk janë gjithmonë të zëvendësueshme."
+      },
+      {
+        "subtitle": "Antonimet",
+        "context": "Fjalë me kuptim të kundërt si dritë – errësirë, blej – shes. Ato përdoren për të theksuar kontraste dhe japin gjuhës gjallëri."
+      },
+      {
+        "subtitle": "Homonimet",
+        "context": "Fjalë me formë të njëjtë por kuptime të ndryshme (p.sh., verë, zë, vesh). Ato mund të krijojnë paqartësi dhe zakonisht zëvendësohen në gjuhët e zhvilluara."
+      },
+      {
+        "subtitle": "Shtresat e Leksikut të Gjuhës Shqipe",
+        "context": "Fjalët ndahen në ato të trashëguara nga indoevropianishtja (dorë, ujë) dhe në huazime nga gjuhë të tjera (latinisht, turqisht etj.). Disa janë bërë pjesë e fjalorit bazë, ndërsa të tjerat përdoren për nuanca emocionale ose terminologjike."
+      },
+      {
+        "subtitle": "Shtresat e Leksikut sipas Përdorimit",
+        "context": "Ndahen në fjalë të përgjithshme që përdoren nga të gjithë dhe fjalë të kufizuara si fjalë të vjetruara, dialektore, profesionale ose shkencore."
+      },
+      {
+        "subtitle": "Arkaizmat",
+        "context": "Fjalë të vjetruara që nuk përdoren më, p.sh., mokër, përderës. Ato zëvendësohen nga fjalë moderne për shkak të ndryshimeve sociale e teknologjike."
+      },
+      {
+        "subtitle": "Historizmat",
+        "context": "Fjalë që përshkruajnë sende apo tituj historikë, si kobure, pasha, topuz. Ato lidhen me periudha të caktuara historike."
+      },
+      {
+        "subtitle": "Dialektizmat dhe Krahinarizmat",
+        "context": "Fjalë karakteristike për një dialekt ose krahinë. Disa prej tyre janë futur në standard dhe përdoren për të pasuruar gjuhën letrare. Përdoren edhe për tipizim në letërsi."
+      },
+      {
+        "subtitle": "Profesionalizmat",
+        "context": "Fjalë të përdorura në profesione të caktuara (bujqësia, barinj, shtypshkronja, shkencat). Ato janë të njohura vetëm nga grupe të caktuara njerëzish."
+      },
+      {
+        "subtitle": "Neologjizmat",
+        "context": "Fjalë të reja që sapo kanë hyrë në përdorim (p.sh., bashkëbisedim, drejtshkrim). Ato krijohen për të zëvendësuar huazimet dhe për të përballuar zhvillimet teknologjike e shkencore."
+      },
+      {
+        "subtitle": "Njësitë Frazeologjike",
+        "context": "Shprehje të përbëra që funksionojnë si një fjalë dhe kanë kuptim figurshëm (p.sh., më bëhet zemra mal, i hedh hi syve). Ato janë pjesë e rëndësishme stilistike dhe pasurojnë gjuhën."
+      },
+      {
+        "subtitle": "Fjalorët – Llojet e Fjalorëve",
+        "context": "Fjalorët ndahen në enciklopedikë dhe gjuhësorë. Gjuhësorët përfshijnë fjalorë shpjegues, dygjuhësh, drejtshkrimorë, frazeologjikë, etimologjikë, terminologjikë etj. Fjalorët japin edhe veçori gramatikore dhe përdorime të fjalëve."
+      }
+    ]
+  },
+  {
+    "title": "Mbiemrat në Gjuhën Shqipe",
+    "subtitles": [
+      {
+        "subtitle": "Përkufizimi i mbiemrave",
+        "context": "Mbiemrat janë fjalë që shërbejnë për të emërtuar tipare të frymorëve dhe sendeve. Ata tregojnë cilësi, gjendje, formë, përbërje, përkatësi, etj., dhe përdoren gjithmonë pranë ndonjë emri. Shembuj: i pashëm, i butë, gazeta e sotme, bukë e grunjtë."
+      },
+      {
+        "subtitle": "Klasifikimi i mbiemrave sipas kuptimit",
+        "context": "Mbiemrat ndahen në dy lloje: (1) cilësorë që tregojnë vetitë fizike, mendore, shpirtërore etj.; (2) marrëdhëniorë që tregojnë përkatësi. Shembuj: bukuria natyrore, gjuha amtare."
+      },
+      {
+        "subtitle": "Klasifikimi i mbiemrave sipas ndërtimit morfologjik",
+        "context": "Mbiemrat ndahen në: (1) të nyjshëm që kanë nyjë përparme (p.sh. i bukur, i mençur); (2) të panyjshëm që nuk kanë nyjë (p.sh. shok besnik, gjuhë amtare)."
+      },
+      {
+        "subtitle": "Gjinia e mbiemrave",
+        "context": "Gjinia e mbiemrit varet nga gjinia e emrit. Mbiemrat kanë forma të ndryshme për gjininë mashkullore dhe femërore. Shembuj: nxënës i zellshëm - nxënëse e zellshme."
+      },
+      {
+        "subtitle": "Formimi i gjinisë femërore të mbiemrave",
+        "context": "Formimi ndodh: (1) duke ndryshuar nyjën i në e; (2) duke shtuar mbaresa si -e ose -ore; (3) për mbiemra të përbërë mbaresa shtesë si -zë, -e. Shembuj: i keq - e keqe, i ri - e re, i zi - e zezë."
+      },
+      {
+        "subtitle": "Numri i mbiemrave",
+        "context": "Numri i mbiemrave varet nga numri i emrit që cilësojnë. Në njëjës përdoret mbiemri në njëjës, dhe në shumës në shumës. Shembuj: nxënës i sjellshëm - nxënës të sjellshëm."
+      },
+      {
+        "subtitle": "Formimi i numrit shumës të mbiemrave të gjinisë mashkullore",
+        "context": "Mbiemrat e nyjshëm ndryshojnë nyjën nga 'i' në 'të', ose marrin mbaresa si -inj, -enj, -ër. Shembuj: i keq - të këqij, i vogël - të vegjël, i ri - të rinj."
+      },
+      {
+        "subtitle": "Formimi i numrit shumës të mbiemrave të gjinisë femërore",
+        "context": "Formimi bëhet: (1) duke ndryshuar nyjën nga 'e' në 'të'; (2) duke shtuar mbaresën -a. Shembuj: e kuqe - të kuqe; e bukur - të bukura; e edukuar - të edukuara."
+      },
+      {
+        "subtitle": "Shkallët e mbiemrave",
+        "context": "Mbiemrat cilësorë kanë tri shkallë: pohore (p.sh. mollë e kuqe), krahasore (p.sh. më i bukur se...), dhe sipërore (p.sh. shumë i zgjuar)."
+      }
+    ]
+  },
+  {
+    "title": "Përemrat",
+    "subtitles": [
+      {
+        "subtitle": "Përkufizimi i përemrave",
+        "context": "Përemrat janë fjalë që përdoren në vend të emrave, mbiemrave apo numërorëve. Ata tregojnë frymorë, sende, tipare ose sasi në mënyrë të përgjithshme dhe ndahen në lloje të ndryshme: vetorë, vetvetorë, dëftorë, pronorë, pyetës, lidhorë dhe të pacaktuar."
+      },
+      {
+        "subtitle": "Përemrat vetorë",
+        "context": "Përemrat që tregojnë vetat: veta e parë (unë, ne), e dytë (ti, ju) dhe e tretë (ai, ajo, ata, ato). Vetat e para nuk kanë gjini, ndryshe nga e treta. Ata përdoren për të zëvendësuar emrat në komunikim."
+      },
+      {
+        "subtitle": "Lakimi i përemrave vetorë",
+        "context": "Çdo përemër vetor lakohet sipas vetës, numrit dhe rasës. Shembujt përfshijnë format në rasat emërore, gjinore, dhanore, kallëzore dhe rrjedhore. Ka ndryshime fonetike dhe trajta të bashkuara të formave të shkurtra në përdorim të përditshëm dhe në ndërtim të fjalive."
+      },
+      {
+        "subtitle": "Vendi i trajtave të shkurtra",
+        "context": "Trajtat e shkurtra përdoren para ose pas foljes, varësisht nga mënyra foljore. Në format analitike, ato vendosen mes pjesëzës dhe foljes. Ka përdorim me urdhërore dhe raste të veçanta në vendosje të drejtë të trajtave me parafjalë dhe pjesëza."
+      },
+      {
+        "subtitle": "Përemrat dëftorë",
+        "context": "Përemra që tregojnë frymorë/sende afër ose larg folësit. Ky, kjo, këta, këto tregojnë afërsi; ai, ajo, ata, ato tregojnë largësi. Ata pësojnë lakim dhe përdoren edhe si përcaktorë me emrin. Kanë kategori të rasës dhe përdoren në fjali me ndajfolje si 'këtu', 'atje'."
+      },
+      {
+        "subtitle": "Përemrat pronorë",
+        "context": "Tregojnë përkatësinë e një sendi ndaj një vetë. Kanë kategori vetës, numri, gjinie dhe rase. Përdoren me ose pa nyje sipas rregullave të gjuhës standarde. Në shumës, përdoren nyjet rregullisht. Disa gabime në përdorim janë të zakonshme, sidomos në gjini dhe nyje."
+      },
+      {
+        "subtitle": "Përemrat pyetës",
+        "context": "Përdoren për të pyetur për njerëz, sende, sasi etj. Shembuj: kush, cili, çfarë, sa. Cili ka forma për gjini dhe numër. Përdoren në fjali pyetëse të drejta dhe të zhdrejta. Disa mund të përdoren edhe si përemra lidhorë në fjali të varura."
+      },
+      {
+        "subtitle": "Përemrat lidhorë",
+        "context": "Përdoren për të lidhur fjalinë e varur me atë kryesore. Përemrat lidhorë janë 'që' dhe 'i cili'. 'Që' është më i zakonshmi, por jo i lakueshëm. Përdoren edhe përemrat pyetës në funksion lidhës në fjali të varura."
+      },
+      {
+        "subtitle": "Përemrat e pacaktuar",
+        "context": "Tregojnë njerëz, sende ose sasi në mënyrë të pacaktuar. Shembuj: dikush, askush, disa, diçka, asgjë, shumë, pak, çdo, ndonjë. Disa përdoren me emra, të tjerë pa emra. Disa janë të lakueshëm, të tjerë jo. Shprehje të zakonshme: të gjithë, çdo libër, dikush po vjen."
+      }
+    ]
+  },
+  {
+    "title": "Pjesët e Pandryshueshme të Ligjëratës",
+    "subtitles": [
+      {
+        "subtitle": "Përkufizimi",
+        "context": "Pjesët e ligjëratës ndahen në të ndryshueshme (emër, përemër, nyje, folje) dhe të pandryshueshme (ndajfolje, parafjalë, lidhëza, pjesëza, pasthirrma). Sipas funksionit sintaksor, ndahen në fjalë të mëvetësishme dhe të pamëvetësishme."
+      },
+      {
+        "subtitle": "Ndajfoljet",
+        "context": "Fjalë të pandryshueshme që tregojnë tipare të veprimit ose gjendjes dhe rrethana (vendi, koha, mënyra, shkaku, sasia). Përdoren kryesisht me folje."
+      },
+      {
+        "subtitle": "Ndajfoljet e mënyrës",
+        "context": "Tregojnë mënyrën e veprimit (p.sh.: mirë, bukur, haptas). Formohen me prapashtesa të ndryshme ose si lokucione të përsëritura (shkallë-shkallë)."
+      },
+      {
+        "subtitle": "Ndajfoljet e kohës",
+        "context": "Tregojnë kohën e veprimit (p.sh.: sot, nesër, dje, atëherë, gjithmonë). Përdoren edhe si lokucione (ditë për ditë, herë pas here)."
+      },
+      {
+        "subtitle": "Ndajfoljet e vendit",
+        "context": "Tregojnë vendin ku ndodh veprimi (p.sh.: këtu, atje, andej, lart, poshtë). Disa prej tyre përdoren edhe si parafjalë kur ndodhen para emrave."
+      },
+      {
+        "subtitle": "Ndajfoljet e sasisë",
+        "context": "Tregojnë sasinë e veprimit (p.sh.: shumë, pak, mjaft, aq, kaq). Përdoren si ndajfolje kur shoqërojnë folje dhe si përemra të pacaktuar kur qëndrojnë më vete."
+      },
+      {
+        "subtitle": "Shkallët e ndajfoljeve",
+        "context": "Disa ndajfolje mund të përdoren në shkallë krahasimi (p.sh.: bukur – më bukur – shumë bukur), ndërsa të tjera nuk krahasohen."
+      },
+      {
+        "subtitle": "Parafjalët",
+        "context": "Fjalë të pandryshueshme që vendosen para fjalëve emërore për të treguar marrëdhënie kohore, vendore, shkakore, etj. Janë të thjeshta, të përngjitura ose shprehje parafjalore."
+      },
+      {
+        "subtitle": "Lidhëzat",
+        "context": "Fjalë shërbyese që lidhin fjali ose gjymtyrë. Janë bashkërenditëse (e, por, edhe, ose) dhe nënrenditëse (kur, që, nëse, sepse). Dallohen në të thjeshta, të përngjitura dhe shprehje lidhëzore (p.sh.: edhe pse, me qëllim që)."
+      },
+      {
+        "subtitle": "Pjesëzat",
+        "context": "Fjalë që shprehin nuanca kuptimore/emocionale (p.sh.: mu, veç, afro) ose përdoren për formimin e formave gramatikore (të, do, duke, për të, u). Disa shërbejnë për pohim/mohim (po, jo, mos, nuk)."
+      },
+      {
+        "subtitle": "Pasthirrmat",
+        "context": "Tinguj apo fjalë që shprehin emocione, ndjenja, dëshira, urdhra etj. Shembuj: oh, ah, oj, urra, bravo, mirëdita, bam-bum. Disa imitojnë tinguj të kafshëve ose natyrës dhe përdoren në fjali të pagjymtyrëzueshme."
+      }
+    ]
+  },
+  {
+    "title": "Sintaksa e Fjalisë",
+    "subtitles": [
+      {
+        "subtitle": "Fjalia",
+        "context": "Fjalia është njësia themelore sintaksore që përmban një kumtim dhe formohet nga një ose më shumë fjalë të lidhura gramatikisht. Ajo shpreh një mendim, ndjenjë, pyetje ose urdhër. Tiparet kryesore të saj janë lidhja e fjalëve sipas rregullave sintaksore, kallëzuesia dhe intonacioni i mbarimit."
+      },
+      {
+        "subtitle": "Tipat e fjalive sipas llojit të kumtimit",
+        "context": "Fjalitë ndahen sipas qëllimit në: dëftore, pyetëse, dëshirore, nxitëse dhe thirrmore. Këto forma pasqyrojnë qëllimin e komunikimit si informim, pyetje, dëshirë, nxitje apo thirrje."
+      },
+      {
+        "subtitle": "Fjalitë dëftore",
+        "context": "Fjalitë që tregojnë ekzistencën apo ndodhjen e diçkaje. Përdoren në përshkrime, informime, zakonisht me mënyrën dëftore të foljes. Intonacioni është i qartë dhe përfundon me pikë. Mund të jenë edhe dëftore-thirrmore nëse shprehin ndjenja."
+      },
+      {
+        "subtitle": "Fjalitë dëshirore dhe nxitëse",
+        "context": "Fjalitë dëshirore shprehin dëshira, urime apo mallkime dhe përdorin mënyrën dëshirore ose lidhore. Fjalitë nxitëse shprehin urdhra, këshilla ose lutje dhe zakonisht kanë mënyrën urdhërore. Intonacioni varet nga fuqia e ndjenjës dhe mund të përfundojnë me pikë ose pikëçuditje."
+      },
+      {
+        "subtitle": "Fjalitë pyetëse",
+        "context": "Fjalitë që kërkojnë informacion. Përdorin përemra, ndajfolje dhe pjesëza pyetëse (kush, ku, a, vallë, etj.). Janë tërësore (po/jo) ose të pjesshme. Përdoren edhe si pyetje retorike për theksim. Dallohen nga intonacioni, edhe nëse struktura është si fjali dëftore."
+      },
+      {
+        "subtitle": "Fjalitë pohore dhe mohore",
+        "context": "Fjalitë pohore pohojnë një fakt (shprehur me ose pa pjesëza si: po, mirë, natyrisht). Fjalitë mohore shprehin mohim duke përdorur pjesëza si: nuk, mos, s’, si dhe përemra e ndajfolje mohuese. Dy mohime mund të shprehin pohim (p.sh.: nuk është i pabesë = është besnik)."
+      },
+      {
+        "subtitle": "Tipat e fjalive sipas ndërtimit",
+        "context": "Sipas strukturës, fjalitë ndahen në: (1) njëkryegjymtyrëshe (p.sh.: Agon.), (2) dykryegjymtyrëshe (p.sh.: Njeriu gjykon.), (3) të paplota (p.sh.: Nëntë.), dhe (4) të pagjymtyrëzueshme (p.sh.: Hajt!, Vazhdo!)."
+      }
+    ]
+  },
+  {
+    "title": "Gjymtyrët e Dyta të Fjalisë",
+    "subtitles": [
+      {
+        "subtitle": "Përkufizimi",
+        "context": "Gjymtyrët e dyta janë pjesë të fjalisë që lidhen me gjymtyrët kryesore dhe shërbejnë për t’i plotësuar ose përcaktuar ato. Ato konkretizojnë kuptimin e fjalëve në fjalinë dhe ndërtohen në formën e togfjalëshave."
+      },
+      {
+        "subtitle": "Klasifikimi i gjymtyrëve të dyta",
+        "context": "Gjymtyrët e dyta ndahen në: 1) përcaktorë, 2) kundrina, 3) rrethanorë. Përcaktorët cilësojnë emrat, kundrinat plotësojnë kuptimin e kallëzuesit, dhe rrethanorët shprehin rrethana të veprimit si kohë, vend, mënyrë etj."
+      },
+      {
+        "subtitle": "Përcaktori",
+        "context": "Gjymtyrë e dytë që cilëson ose përcakton një emër. Përcaktorët ndahen sipas llojit të lidhjes në: me përshtatje (me mbiemra, përemra), me drejtim (me emra në gjinore, kallëzore etj.) dhe me bashkim (me numërorë, forma të foljes, ndajfolje)."
+      },
+      {
+        "subtitle": "Rendi i përcaktorëve të një gjymtyre",
+        "context": "Renditja e përcaktorëve varet nga forma dhe funksioni i tyre. Përcaktorët zakonisht ndjekin rendin: përemër → mbiemër → emër. Ka rregulla specifike për rastet me mbiemra të nyjshëm, emra të përveçëm, dhe përdorim të parafjalëve."
+      },
+      {
+        "subtitle": "Ndajshtimi",
+        "context": "Ndajshtimi është gjymtyrë e dytë që konkretizon një emër të përgjithshëm. Mund të jetë para ose pas emrit. Shprehet me emra të pashquar (zakonisht për profesione) ose emra të përveçëm (në thonjëza ose jo)."
+      },
+      {
+        "subtitle": "Rrethanori",
+        "context": "Rrethanori është gjymtyrë që tregon rrethana të veprimit. Shprehet me ndajfolje, emra me ose pa parafjalë, forma të foljes, apo togfjalësha. Llojet janë: vendi, koha, shkaku, qëllimi, mënyra, kushti, lejimi, sasia."
+      },
+      {
+        "subtitle": "Rrethanori i vendit",
+        "context": "Tregon vendin ku ndodh veprimi. Shprehet me ndajfolje vendi, emra me parafjalë (në, mbi, prej, afër, etj.), ose pa parafjalë. U përgjigjet pyetjeve: ku?, nga?, në ç'vend?"
+      },
+      {
+        "subtitle": "Rrethanori i kohës",
+        "context": "Tregon kohën kur ndodh veprimi. Shprehet me ndajfolje kohe, emra të kohës (mëngjes, natë, vit), me apo pa parafjalë. U përgjigjet pyetjeve: kur?, që kur?, deri kur?"
+      },
+      {
+        "subtitle": "Rrethanori i shkakut",
+        "context": "Tregon shkakun e veprimit. Shprehet me ndajfolje si pse, përse, emra me parafjalë (nga, për, prej), forma të pashtjelluara dhe lokucione si 'për shkak të'. U përgjigjet pyetjeve: pse?, për ç’arsye?"
+      },
+      {
+        "subtitle": "Rrethanori i qëllimit",
+        "context": "Tregon qëllimin e veprimit. Shprehet me ndajfolje përse, emra në kallëzore me parafjalë për, me paskajore dhe togfjalësha. U përgjigjet pyetjeve: përse?, për çfarë qëllimi?"
+      },
+      {
+        "subtitle": "Rrethanori i mënyrës",
+        "context": "Tregon mënyrën e kryerjes së veprimit. Shprehet me ndajfolje mënyre, emra me parafjalë (me, në, pa), forma të foljes dhe lokucione. U përgjigjet pyetjeve: si?, qysh?, në ç'mënyrë?"
+      },
+      {
+        "subtitle": "Rrethanori i sasisë",
+        "context": "Tregon masën ose shkallën e një veprimi ose cilësie. Shprehet me ndajfolje sasie (shumë, pak), emra që tregojnë kohë, peshë, hapësirë. U përgjigjet pyetjeve: sa?, sa herë?"
+      },
+      {
+        "subtitle": "Rrethanori i kushtit",
+        "context": "Tregon kushtin nga i cili varet veprimi. Shprehet me emra të paraprirë nga lokucione si 'në rast', 'pa', ose forma të pashtjelluara. P.sh.: Pa punuar, nuk arrihet asgjë."
+      },
+      {
+        "subtitle": "Rrethanori i lejimit",
+        "context": "Tregon një fakt kundër të cilit ndodh veprimi. Shprehet me emra të paraprirë nga 'me gjithë' ose 'me', p.sh.: Me gjithë vështirësitë, ai nuk hoqi dorë."
+      }
+    ]
+  },
+  {
+    "title": "Gjuha - Mjeti Universal i Komunikimit",
+    "subtitles": [
+      {
+        "subtitle": "Përkufizimi i gjuhës",
+        "context": "Gjuha është mjeti universal i komunikimit që shërben për të shprehur mendimet dhe ndjenjat. Ajo lindi në shoqërinë primitive dhe u zhvillua me përparimin e shoqërisë. Është mjeti i njohjes së realitetit dhe ruan dijet dhe kulturën ndër breza. Gjuha është një sistem shenjash (fonema, fjalë, fjali) dhe rregullash të lidhura ngushtë."
+      },
+      {
+        "subtitle": "Ndërtimi i gjuhës",
+        "context": "Gjuha është një sistem i ndërlikuar me nënsisteme: fonetik, leksikor dhe gramatikor. Ajo ka karakter të nyjëtuar, ku njësitë më të vogla formojnë njësi më të mëdha. Kjo strukturë e bën gjuhën ekonomike dhe efikase në komunikim. Njësitë gjuhësore janë të ndërlidhura dhe të varura nga njëra-tjetra."
+      },
+      {
+        "subtitle": "Funksionet e gjuhës",
+        "context": "Gjuha përmbush funksione të ndryshme: (1) shenjues/emërtues – për informim; (2) shprehës – për ndjenja dhe emocione; (3) i përshtypjes – për ndikim te bashkëbiseduesi. Çdo funksion përmbush nevoja të ndryshme komunikimi në jetën shoqërore."
+      },
+      {
+        "subtitle": "Gjuha dhe sistemet e tjera të komunikimit",
+        "context": "Përveç gjuhës përdoren edhe sisteme të tjera si alfabeti Mors, Braille, alfabeti i shurdhmemecëve, tabela sinjalizuese etj., por këto kanë fushë të kufizuar. Gjuha ka mundësi më të mëdha për të shprehur mendime dhe ndjenja, për të kaluar informacion në kohë dhe hapësirë."
+      },
+      {
+        "subtitle": "Zhvillimi i gjuhës",
+        "context": "Gjuha është një dukuri shoqërore me karakter historik dhe zhvillohet vazhdimisht. Ndryshimet në shoqëri ndikojnë gjuhën. Leksiku ndryshon më shpejt, ndërsa gramatika dhe fonetika janë më të qëndrueshme. Zhvillimi ndikohet nga faktorë të brendshëm (gjuhësorë) dhe të jashtëm (shoqërorë)."
+      },
+      {
+        "subtitle": "Rëndësia e gjuhës",
+        "context": "Gjuha është mjet themelor për organizimin e jetës shoqërore, për ndërtimin e kulturës materiale dhe shpirtërore. Ajo është mënyra përmes së cilës njeriu shoqërizohet dhe transformohet. Sipas një filozofi, 'njerëzit janë fakte gjuhësore', duke theksuar rëndësinë e saj për zhvillimin e njerëzimit."
+      }
+    ]
+  },
+  {
+    "title": "Gjuha Popullore dhe Gjuha Standarde",
+    "subtitles": [
+      {
+        "subtitle": "Përkufizimi",
+        "context": "Gjuha popullore është përdorimi i përditshëm i shqipes nëpërmjet dialekteve të ndryshme, ndërsa së bashku me gjuhën standarde përbëjnë gjuhën kombëtare. Shqipja është pjesë e familjes indoevropiane dhe ruan tipare nga ajo periudhë."
+      },
+      {
+        "subtitle": "Tipare të veçanta të shqipes",
+        "context": "Shqipja ka humbur disa tipare indoevropiane dhe ka zhvilluar të reja: theks të ngulitur, lakim në të dy trajtat, mënyrën habitore, përdorimin e parafjalëve 'nga' dhe 'te', dhe përdorimin e nyjës për emrat e farefisnisë."
+      },
+      {
+        "subtitle": "Prejardhja e gjuhës shqipe",
+        "context": "Shqipja rrjedh nga ilirishtja, gjuhë e popullsisë ilire. Këtë e tregojnë toponimet, emrat personalë, dhe vijimësia e emrit Arbën/Arbër. Të dhënat historike dhe arkeologjike e mbështesin këtë prejardhje."
+      },
+      {
+        "subtitle": "Kur është shkruar gjuha shqipe?",
+        "context": "Gjuha shqipe ka dokumente të shkruara që datojnë para vitit 1555, si 'Formula e pagëzimit' (1462), 'Perikopeja e Ungjillit', fraza nga 'Epirotai' (1483), dhe fjalorë të hershëm. 'Meshari' i Gjon Buzukut (1555) është vepra e parë e plotë në shqip dhe shënon fillimin e historisë së saj të shkruar."
+      }
+    ]
+  },
+  {
+    "title": "Gjuha Letrare dhe Dialektet",
+    "subtitles": [
+      {
+        "subtitle": "Gjuha standarde dhe historia e saj",
+        "context": "Shqipja standarde është forma e përpunuar e gjuhës që përdoret në komunikim zyrtar dhe shkrimor. Ajo u standardizua pas vitit 1944, mbi bazën e dialektit të toskërishtes, por përmban edhe elemente të gegërishtes."
+      },
+      {
+        "subtitle": "Dialektet e shqipes",
+        "context": "Shqipja ka dy dialekte kryesore: gegërishtja (veri) dhe toskërishtja (jug), të ndara nga lumi Shkumbin. Secili përmban nëndialekte dhe të folme lokale. Megjithatë, janë të kuptueshme ndërmjet shqiptarëve dhe përfaqësojnë një gjuhë të vetme kombëtare."
+      },
+      {
+        "subtitle": "Marrëdhëniet gjuhë standarde - dialekt",
+        "context": "Gjuha standarde ka përhapje të gjerë dhe funksione të shumta. Ajo përthith vlera nga dialektet e shqipes. Dialektet kufizohen gjeografikisht, por ndikojnë në gjuhën standarde me fjalë dhe shprehje të pasura."
+      }
+    ]
+  },
+  {
+    "title": "Gjuhësia dhe Degët e Saj",
+    "subtitles": [
+      {
+        "subtitle": "Përkufizimi i gjuhësisë",
+        "context": "Gjuhësia ka evoluar nga një mendim filozofik në një shkencë më vete që studion gjuhën si sistem dhe të folurën si akt individual. Ajo analizon njësitë gjuhësore (fonema, morfema, fjalia, etj.) dhe rregullat që i lidhin ato."
+      },
+      {
+        "subtitle": "Degët e gjuhësisë",
+        "context": "Gjuhësia ndahet në disa degë: fonetikë (tingujt), fonologji (funksioni i tingujve), leksikologji (fjalori), dhe gramatikë (morfologji dhe sintaksë). Secila degë trajton aspekte specifike të sistemit gjuhësor."
+      }
+    ]
+  },
+  {
+    "title": "Fonetika dhe Fonologjia",
+    "subtitles": [
+      {
+        "subtitle": "Aparati i të folurit",
+        "context": "Përshkruan organet që përbëjnë aparatin e të folurit dhe ndarjen e tij në tri pjesë: të sipërme (gojë, hundë), të mesme (laring), dhe të poshtme (mushkëri). Shpjegon se si përftohen tingujt nga ky aparat."
+      },
+      {
+        "subtitle": "Tingujt dhe fonemat",
+        "context": "Shpjegon ndryshimin midis tingullit dhe fonemës. Fonema ka funksion dallues në fjalë, ndërsa tingulli është variant shqiptimi. Jep shembuj të dallimeve kuptimore nëpërmjet fonemave si: plakë - pllakat etj."
+      }
+    ]
+  },
+  {
+    "title": "Sintaksa – Kundrinorët dhe Rrethanorët",
+    "subtitles": [
+      {
+        "subtitle": "Kundrinori i zhdrejtë",
+        "context": "Shpjegon dy forma të kundrinorit të zhdrejtë: me dhe pa parafjalë. Jep shembuj dhe pyetje ndihmëse për identifikimin e tyre në fjali si 'kujti?', 'me kë?', 'me çfarë?'."
+      },
+      {
+        "subtitle": "Llojet e rrethanorëve",
+        "context": "Përshkruan llojet e rrethanorëve sipas kuptimit: vendi, kohe, mënyre, shkaku, qëllimi, sasie. Jep mënyrat se si ndërtohen: me emër, grup emëror, ndajfolje ose formë të pashtjelluar."
+      },
+      {
+        "subtitle": "Kryefjala",
+        "context": "Shpjegon rolin e kryefjalës në ndërtimin e fjalisë. Tregon format e shprehjes së saj: me emër të shquar, të pashquar, me përemra ose grupe emërore. Kjo gjymtyrë është bazë e fjalisë dykryegjymtyrëshe."
+      }
+    ]
+  },
+  {
+    "title": "Morfologjia – Ndërtimi dhe Funksioni i Fjalës",
+    "subtitles": [
+      {
+        "subtitle": "Fjala dhe pjesët e saj",
+        "context": "Shpjegon dallimin midis fjalës dhe morfemës. Tregon klasifikimin e morfemave në fjalëformuese (rrënja, parashtesa, prapashtesa) dhe trajtëformuese (mbaresa)."
+      },
+      {
+        "subtitle": "Tema e fjalës",
+        "context": "Dallon temat e parme dhe jo të parme, si dhe temat fjalëformuese dhe morfologjike. Jepen shembuj si 'detar', 'besnikëri', etj."
+      },
+      {
+        "subtitle": "Mënyrat e formimit të fjalëve",
+        "context": "Përshkruan mënyrat: prejardhje, kompozim, përngjitje, paranyjëzim dhe konversion. Jep shembuj për secilën mënyrë si 'përbuz', 'bregdet', 'gjithmonë', 'i qeshur', 'kuq'."
+      },
+      {
+        "subtitle": "Kuptimet dhe format gramatikore",
+        "context": "Çdo fjalë përveç kuptimit leksikor mbart edhe kuptim gramatikor (numri, gjinia, rasa, koha). Jep shembuj për mënyrat sintentike dhe analitike të formave gramatikore."
+      },
+      {
+        "subtitle": "Klasifikimi dhe përdorimi i foljeve",
+        "context": "Shpjegon klasifikimin e foljeve në ndihmëse dhe gjysmëndihmëse. Tregon përdorimin e pjesores, përcjellores, paskajores dhe formave mohuese."
+      }
+    ]
+  },
+  {
+    "title": "Sintaksa e Periudhës",
+    "subtitles": [
+      {
+        "subtitle": "1.1 Njësitë sintaksore",
+        "context": "Periudha është njësi sintaksore e përbërë nga dy ose më shumë fjali të pamëvetësishme të lidhura ndërmjet tyre. Fjalitë që formojnë periudhën janë të paplota në rrafshin kuptimor dhe ndërtimor kur qëndrojnë më vete, por së bashku formojnë një tërësi kuptimore dhe intonacionore."
+      },
+      {
+        "subtitle": "1.2 Mjetet gjuhësore të formimit të periudhave",
+        "context": "Periudhat ndërtohen përmes: a) lidhëzave; b) fjalëve lidhëse (përemra e ndajfolje); c) pa lidhëza, vetëm me intonacion. Lidhëzat mund të jenë bashkërenditëse ose nënrenditëse. Fjalët lidhëse shërbejnë njëkohësisht si mjete lidhëse dhe si gjymtyrë fjale."
+      },
+      {
+        "subtitle": "1.3 Klasifikimi i periudhave",
+        "context": "Periudhat ndahen në: a) lidhëzore – me fjali të lidhura me lidhëza; b) palidhëzore (asidentike) – me fjali të pranëvëna vetëm me intonacion. Periudhat lidhëzore ndahen më tej në: periudha me bashkërenditje dhe periudha me nënrenditje."
+      }
+    ]
+  },
+  {
+    "title": "Marrëdhëniet e Fjalive në Periudhë",
+    "subtitles": [
+      {
+        "subtitle": "Bashkërenditja dhe nënrenditja",
+        "context": "Në një periudhë, fjalitë mund të jenë në marrëdhënie barazie (bashkërenditje) ose varësie (nënrenditje). Fjalia kryesore ka pavarësi kuptimore, ndërsa fjalitë e nënrenditura varen prej saj. Fjalitë nënrenditore mund të varen nga e gjithë fjalia kryesore ose një gjymtyrë e saj."
+      },
+      {
+        "subtitle": "Periudhat e përziera",
+        "context": "Në një periudhë mund të kombinohen fjalitë me bashkërenditje, me nënrenditje dhe me bashkim pa lidhëza. Këto quhen periudha të përziera. Ato janë të zakonshme në ligjërimin natyror dhe tregojnë fleksibilitetin sintaksor të shqipes."
+      }
+    ]
+  },
+  {
+    "title": "Tipat e Periudhës me Bashkërenditje",
+    "subtitles": [
+      {
+        "subtitle": "3.1 Periudha me bashkërenditje",
+        "context": "Përbëhet nga dy ose më shumë fjali të barabarta të lidhura me lidhëza bashkërenditëse. Mund të jetë e hapur (me shumë fjali) ose e mbyllur (me dy fjali). Fjalitë nuk ndërfuten njëra tek tjetra."
+      },
+      {
+        "subtitle": "3.3 Periudha me marrëdhënie këpujore",
+        "context": "Fjalitë lidhen me lidhëza si: dhe, e, as, edhe, hem... hem, etj. Shprehin marrëdhënie numërimi, shkak-pasojë, mospajtim, shkallëzim dhe shtesë. Shembuj të përdorimit për secilin rast jepen në tekst."
+      },
+      {
+        "subtitle": "3.4 Periudha me marrëdhënie kundërshtore",
+        "context": "Karakterizohet nga dy pjesë ku njëra kundërshton tjetrën. Lidhëzat: por, mirëpo, megjithatë, etj. Këto periudha mund të shprehin kundërshtim të drejtpërdrejtë, kufizim, lejim apo përjashtim."
+      },
+      {
+        "subtitle": "3.5 Periudha me marrëdhënie veçuese",
+        "context": "Fjalitë përjashtojnë njëra-tjetrën. Lidhëzat: ose, o, ja... ja, herë... herë, etj. Dallohen ngjyrime përjashtuese tërësore ose alternative, ku një veprim përjashton tjetrin në mënyrë reciproke ose të përsëritur."
+      },
+      {
+        "subtitle": "3.5 Periudha përmbyllëse",
+        "context": "Fjalia e dytë përmbyll ose pason logjikisht përmbajtjen e të parës. Lidhëza përmbyllëse: prandaj, andaj, ndaj, pra, pa. Përdoren si në stilin bisedor ashtu edhe në atë publicistiko-shkencor."
+      }
+    ]
+  },
+  {
+    "title": "Periudha me Fjali të Nënrenditura",
+    "subtitles": [
+      {
+        "subtitle": "Karakteristikat",
+        "context": "Fjalitë e nënrenditura varen nga fjalia kryesore dhe mund të plotësojnë atë tërësisht ose vetëm një gjymtyrë. Lidhja bëhet me lidhëza ose fjalë lidhëse (përemra, ndajfolje). Ato kanë rend të lirë ose të ngulitur, në varësi të fjalës mbështetëse."
+      },
+      {
+        "subtitle": "Periudha me fjali kryefjalore dhe kundrinore",
+        "context": "Këto quhen edhe periudha ftilluese, sepse fjalia e varur plotëson një rol të ngjashëm me kryefjalën ose kundrinorin. Lidhen me 'se', 'që', ose forma pyetëse. Mund të zëvendësojnë fjalë në fjali si 'kjo', 'këtë'."
+      },
+      {
+        "subtitle": "Periudha me fjali kallëzuesore",
+        "context": "Fjalia e varur kryen funksionin e pjesës emërore të kallëzuesit. Lidhet me lidhëzat 'se', 'që', 'sikur', si dhe me përemra ose ndajfolje lidhore dhe pyetëse."
+      },
+      {
+        "subtitle": "Periudha me fjali përcaktore",
+        "context": "Këto fjali shprehin një cilësi, dallim, përshkrim apo shtesë për një emër ose përemër në fjalinë kryesore. Dallohen në: dalluese, përshkruese, ftilluese, shtesore dhe me ngjyrime rrethanore."
+      },
+      {
+        "subtitle": "Periudha me fjali rrethanore",
+        "context": "Shprehin rrethana vendi, kohe, mënyre, krahasimi, qëllimi, shkaku, rrjedhimi, kushti dhe leja. Lidhen me lidhëza specifike për çdo lloj. Dallohen në korrelative dhe jokorrelative në varësi të përdorimit të ndajfoljeve ndihmëse."
+      }
+    ]
+  },
+  {
+    "title": "Periudha Paralidhëzore (Asidentike)",
+    "subtitles": [
+      {
+        "subtitle": "Përkufizim",
+        "context": "Periudha asidentike është e ndërtuar pa lidhëza, vetëm me intonacion ose shenja pikësimi (zakonisht presje). Përdoret në të folur dhe të shkruar për të lidhur fjali në mënyrë të lirshme."
+      },
+      {
+        "subtitle": "Tipat e marrëdhënieve në periudha asidentike",
+        "context": "Këto përfshijnë: marrëdhënie numërimi (këpujore), sqaruese, përcaktore, shkakore, kushtore, si dhe të tjera si kryefjalore, kundrinore, rrjedhimore, kohore, lejore dhe mënyrore. Shembuj konkretë shoqërojnë secilën kategori për të sqaruar funksionin."
+      }
+    ]
+  },
+  {
+    "title": "Fjalitë e Ndërmjetme",
+    "subtitles": [
+      {
+        "subtitle": "Përkufizim",
+        "context": "Fjalitë e ndërmjetme përfshihen në një periudhë, por nuk janë të lidhura drejtpërdrejt me fjalitë e tjera. Ato shprehin qëndrimin e folësit dhe mund të hiqen pa prishur kuptimin kryesor."
+      },
+      {
+        "subtitle": "Llojet e fjalive të ndërmjetme",
+        "context": "Dallohen: a) të shkallës së vërtetësisë (dyshim, siguri), b) të vlerësimit emocional (urim, mallkim, etj.), c) të burimit të informacionit (e dëgjuar, e njohur), d) të karakterit të thënies, e) të tërheqjes së vëmendjes dhe f) të lidhjes logjike të kumtimeve."
+      }
+    ]
+  },
+  {
+    "title": "Ligjërata e Drejtë",
+    "subtitles": [
+      {
+        "subtitle": "Përkufizimi",
+        "context": "Ligjërata e drejtë është riprodhim i fjalëve të një tjetri pa asnjë ndryshim. Ka dy pjesë: pjesa lajmëruese (autori) dhe pjesa përmendëse (fjalët e thëna)."
+      },
+      {
+        "subtitle": "Shenjat e pikësimit në ligjëratën e drejtë",
+        "context": "Përdoren dy pika, thonjëza ose vizë. Nëse pjesa lajmëruese vjen para, pas, apo në mes të pjesës përmendëse, ndryshojnë shenjat e pikësimit dhe rregullat gramatikore. P.sh.: Iliri tha: “Duhet të dimë të punojmë me njerëzit.”"
+      }
+    ]
+  },
+  {
+    "title": "Ligjërata e Zhdrejtë",
+    "subtitles": [
+      {
+        "subtitle": "Krahasimi me ligjëratën e drejtë",
+        "context": "Ligjërata e zhdrejtë është forma e riprodhimit të fjalëve të dikujt tjetër me ndryshime gramatikore. Ndryshimet përfshijnë: a) vetën e përemrit dhe të foljes, b) përdorimin e lidhëzës 'se', c) ndryshimin e strukturës së fjalisë, d) eliminimin e pjesëzave dhe pasthirrmave."
+      }
+    ]
+  },
+  {
+    "title": "Shenjat e Pikësimit që Përdoren Brenda dhe në Fund të Fjalisë",
+    "subtitles": [
+      {
+        "subtitle": "Përkufizimi",
+        "context": "Shenjat e pikësimit udhëzojnë lexuesin si të lexojë dhe të kuptojë tekstin. Mospërdorimi i saktë i tyre mund të çojë në keqkuptim. Disa prej tyre janë: pika, presja, pikëpyetja, pikëçuditja, shumëpikëshi, dy pikat, kllapat, thonjëzat, viza."
+      },
+      {
+        "subtitle": "Shenjat që përdoren në fund të fjalisë",
+        "context": "Pika, pikëpyetja, pikëçuditja dhe shumëpikëshi përdoren për të mbyllur fjali në varësi të intonacionit dhe qëllimit të thënies. Çdo shenjë ka rregulla specifike përdorimi dhe shoqërohet me shembuj përkatës."
+      },
+      {
+        "subtitle": "Shenjat që përdoren brenda fjalisë",
+        "context": "Presja dhe pikëpresja ndajnë pjesë të fjalisë ose togfjalësha. Dy pikat paralajmërojnë pjesë të caktuara si citime ose numërime. Kllapat përdoren për sqarime. Thonjëzat dhe viza përdoren në ligjëratë të drejtë dhe për emërtime specifike."
+      }
+    ]
+  },
+  {
+    "title": "Stilistika",
+    "subtitles": [
+      {
+        "subtitle": "Përkufizimi",
+        "context": "Stilistika ka dy kuptime: (1) si degë e gjuhësisë që studion stilet e ligjërimit dhe veçoritë shprehëse të gjuhës, dhe (2) si degë e teorisë së letërsisë që merret me ndërtimin gjuhësor të veprave artistike. Ajo tregon lidhjen midis gjuhës dhe letërsisë."
+      },
+      {
+        "subtitle": "Zhvillimi i stilistikës",
+        "context": "Stilistika u zhvillua në shek. XX me veprën e Charles Bally. Më vonë, gjuhëtarët filluan të studiojnë gjuhën artistike, ndërsa kritikët letrarë përdorën terma gjuhësorë për analizë (strukturë, mesazh, plan përmbajtjeje)."
+      },
+      {
+        "subtitle": "Ndikimi i stilistikës në komunikim",
+        "context": "Komunikimi nuk bazohet vetëm në rregulla gramatikore, por në përshtatjen logjike dhe kontekstuale të gjuhës. Shembuj konkretë tregojnë ndryshimet midis mënyrave të ndryshme të të shprehurit në gjuhë të ndryshme."
+      },
+      {
+        "subtitle": "Pjesët e stilistikës",
+        "context": "Stilistika ndahet në: stilistikë të përgjithshme (aspekti i përgjithshëm stilistik i gjuhës), përshkruese (e një gjuhe të veçantë), dhe krahasuese (krahasimi i stileve të gjuhëve të ndryshme)."
+      },
+      {
+        "subtitle": "Stilistika e gjuhës shqipe",
+        "context": "Shqipja ka një histori stilistike që nis në Rilindjen Kombëtare. Studiues si Xhevat Lloshi, Rexhep Qosja, dhe Sabri Hamiti kanë kontribuar në zhvillimin e saj."
+      },
+      {
+        "subtitle": "Stilistika letrare",
+        "context": "Stilistika letrare shqyrton mënyrën si është ndërtuar gjuhësisht një tekst. Ajo analizon figurat, fushat leksikore, epokën, stilin, gjininë, e të tjera veçori shprehëse të tekstit artistik."
+      }
+    ]
+  },
+  {
+    "title": "Gjuha e Letërsisë Artistike",
+    "subtitles": [
+      {
+        "subtitle": "Marrëdhënia e gjuhës me letërsinë",
+        "context": "Letërsia nuk është thjesht përdorim i gjuhës, por është vetë mënyra se si funksionon gjuha në tekst që e bën një vepër letërsi. Gjuha artistike është dinamike dhe e pasur me figura."
+      },
+      {
+        "subtitle": "Roli i formës në letërsi",
+        "context": "Me kalimin e kohës, forma e shprehjes është bërë gjithnjë e më e rëndësishme në letërsi. Gjuha është kthyer në qëllim, veçanërisht në poezi."
+      },
+      {
+        "subtitle": "Gjuha e figurshme",
+        "context": "Gjuha e figurshme përdor shmangien për të krijuar efekte estetike. Ajo 'nuk thotë atë që thotë', në kontrast me gjuhën e drejtpërdrejtë. Shpjegohen metaforat dhe figurat letrare përmes shembujve nga poezia moderne."
+      },
+      {
+        "subtitle": "Shmangia si mjet letrar",
+        "context": "Shmangia është mënyra për të krijuar kuptim figurativ. Në analizën e poezisë, përmes ndryshimeve gramatikore dhe leksikore, zbulohet dimensioni metaforik i gjuhës. Shmangia ndërton një kuptim të ri duke e larguar tekstin nga gjuhësia e zakonshme."
+      },
+      {
+        "subtitle": "Ndërthurja e stilit figurativ me atë të drejtpërdrejtë",
+        "context": "Në një tekst letrar, gjuha figurative dhe ajo e drejtpërdrejtë bashkëjetojnë. Secila mbart karakteristika të veçanta që i japin thellësi dhe shumëkuptimshmëri ligjërimit letrar."
+      }
+    ]
+  },
+  {
+    "title": "Gjuha Letrare dhe Gjuha e Letërsisë Artistike",
+    "subtitles": [
+      {
+        "subtitle": "Përkufizime dhe dallime",
+        "context": "Gjuha letrare ka dy kuptime: si gjuhë standarde dhe si gjuhë e letërsisë artistike. Gjuha standarde është më e përpunuar dhe përdoret në administratë, arsim, media. Ndërsa gjuha e letërsisë mbështetet në standarden por e tejkalon atë artistikisht."
+      },
+      {
+        "subtitle": "Gjuha si mjet dhe qëllim i letërsisë",
+        "context": "Gjuha nuk është vetëm mjeti i krijimit letrar, por edhe forma konkrete e letërsisë. Veprat letrare janë krijime gjuhësore, dhe shkrimtarët shfrytëzojnë të gjitha mundësitë shprehëse të gjuhës, përtej normës standarde."
+      },
+      {
+        "subtitle": "Funksioni estetik i ligjërimit letrar",
+        "context": "Gjuha letrare është figurative, shpreh bukuri, ngjall ndjenja estetike. Ajo përdor nëntekst, figura gjuhësore dhe letrare, struktura të veçanta, të folur popullor, madje edhe trajta të vjetra e jo standarde për efekt artistik."
+      },
+      {
+        "subtitle": "Roli i autorit në formësimin e gjuhës letrare",
+        "context": "Shkrimtarët punojnë me të gjitha aspektet e gjuhës – nga tingujt te strukturat komplekse – për të realizuar funksione të shumanshme artistike. Letërsia bëhet një laborator i zhvillimit të gjuhës."
+      }
+    ]
+  },
+  {
+    "title": "Rilindja Kombëtare dhe Romantizmi Shqiptar",
+    "subtitles": [
+      {
+        "subtitle": "Çështje terminologjike",
+        "context": "Letërsia e Rilindjes Kombëtare dhe ajo e romantizmit shqiptar janë dy terma që shpesh ndërthuren. I pari lidhet me aspektin historik-politik dhe i dyti me stilin letrar sipas teorive moderne."
+      },
+      {
+        "subtitle": "Konteksti historik",
+        "context": "Romantizmi shqiptar zhvillohet në shek. XIX, nën sundimin osman. Karakterizohet nga tema patriotike dhe politike, me përpjekje për çlirim kombëtar. Pashallëqet shqiptare dhe Lidhja e Prizrenit ishin momente kyçe."
+      },
+      {
+        "subtitle": "Veçori të romantizmit shqiptar",
+        "context": "Romantizmi shqiptar dallon nga ai evropian për karakterin e tij patriotik, kthimin te e kaluara heroike dhe lidhjen me folklorin. Shfaq dashurinë për atdheun, për traditat dhe problemet kombëtare."
+      },
+      {
+        "subtitle": "Veprimtaria kulturore",
+        "context": "Rilindësit punuan për përhapjen e gjuhës dhe arsimit shqip. U hapën shkolla, shoqëri, revista dhe shtypshkronja. Më 1887 u hap shkolla e parë shqipe në Korçë. Gazetat e kohës si 'Albania' dhe 'Flamuri i Arbërit' luajtën rol të rëndësishëm në ndërgjegjësimin kombëtar."
+      }
+    ]
+  },
+  {
+    "title": "Jeronim de Rada dhe Poemat e Tij",
+    "subtitles": [
+      {
+        "subtitle": "Jeta dhe vepra",
+        "context": "De Rada ishte poet, publicist, filolog dhe patriot arbëresh. Lindi më 1814 në Kalabri dhe shkroi vepra të rëndësishme si 'Këngët e Milosaos' dhe 'Serafina Topia'. Ishte aktiv politikisht dhe kontribuoi në gazetarinë shqiptare me 'Arbëreshi i Italisë'."
+      },
+      {
+        "subtitle": "Poetika e Serafina Topia",
+        "context": "Një poemë epiko-lirike që ndërthur dashurinë romantike me atdhedashurinë. Serafina sakrifikon ndjenjat për hir të bashkimit kombëtar. Figura e saj është shumëdimensionale: e bukur, e mençur dhe e përkushtuar ndaj atdheut."
+      },
+      {
+        "subtitle": "Skënderbeu i pafaan",
+        "context": "Poema pasqyron epokën e Skënderbeut si kohë lavdie dhe tragjedie. Personazhet shfaqin virtyte kombëtare, e veçanërisht femrat që përfaqësojnë guxim, pastërti morale dhe përkushtim kombëtar. De Rada e trajton Skënderbeun si simbol të vetëflijimit për kombin."
+      },
+      {
+        "subtitle": "Vepra dhe ndikimi",
+        "context": "De Rada ka shkruar edhe tragjedi, vepra shkencore, autobiografi. Ai themeloi shkolla shqipe dhe botoi revista. Mbajti lidhje me dijetarë europianë dhe u bë figurë kyçe në letërsinë e romantizmit shqiptar dhe rilindjes kombëtare."
+      }
+    ]
+  },
+  {
+    "title": "Anton Santori dhe Kontributi i Tij në Romantizmin Shqiptar",
+    "subtitles": [
+      {
+        "subtitle": "Jeta dhe veprat",
+        "context": "Anton Santori ishte shkrimtar arbëresh që u mor me poezi, prozë, drama dhe vepra gjuhësore. Jetoi në varfëri, por krijoi shumë vepra që mbetën në dorëshkrim. Vepra më e njohur e tij është drama 'Emira'."
+      },
+      {
+        "subtitle": "Poetika dhe ndikimi i De Radës",
+        "context": "Ndikimi i Jeronim de Radës është i dukshëm në veprën e Santorit, veçanërisht në përmbledhjen 'Këngëtorja arbëreshe'. Të dy shkrimtarët ndajnë temat e dashurisë, por Santori fokusohet vetëm në ndjenjat romantike pa ngarkesë patriotike."
+      },
+      {
+        "subtitle": "Poemat dhe prozat",
+        "context": "Santori shkroi poema si 'Valle e haresë së madhe' dhe 'I burgosuri politik' me karakter romantik dhe ide demokratike. Satirat dhe novelat e tij trajtojnë probleme të përditshme të shoqërisë arbëreshe, me humor dhe kritikë sociale."
+      },
+      {
+        "subtitle": "Drama 'Emira'",
+        "context": "'Emira' është një tragjikomedi që pasqyron jetën e arbëreshëve dhe problemet e tyre me cubat. Dashuria e protagonistëve pengohet nga faktorë të jashtëm dhe xhelozia. Drama përmban elemente romantike, realiste dhe sentimentale dhe konsiderohet një nga dramat më të plota të romantizmit shqiptar."
+      }
+    ]
+  },
+  {
+    "title": "Pashko Vasa",
+    "subtitles": [
+      {
+        "subtitle": "Të dhëna për personalitetin e shkrimtarit",
+        "context": "Pashko Vasa ishte diplomat, shkrimtar dhe atdhetar shqiptar. Jetoi mes Shqipërisë, Italisë dhe Perandorisë Osmane. Mori pjesë në luftën për bashkimin e Italisë, më pas punoi në administratën osmane dhe u bë figurë kyçe e Lidhjes së Prizrenit. U angazhua për alfabetin shqip dhe shkroi në gjuhë të huaja për të sensibilizuar opinionin ndërkombëtar mbi çështjen shqiptare."
+      },
+      {
+        "subtitle": "Vepra letrare",
+        "context": "1. 'Burgimi im' – roman autobiografik për kohën në Venedik. 2. 'Trëndafila e gjemba' – poezi me tema romantike dhe pikëllim personal. 3. 'Shqypnija dhe shqyptarët' – artikull për lashtësinë e shqiptarëve. 4. 'E vërteta për Shqipërinë dhe shqiptarët' – vepër e rëndësishme në frëngjisht për diplomacinë evropiane. 5. 'Mori Shqypni, e mjera Shqypni' – poezi ikonike për Rilindjen Kombëtare. 6. 'Bardha e Temalit' – roman i parë shqiptar me elemente romantike, sociale dhe etnografike."
+      },
+      {
+        "subtitle": "Poetika e poezisë 'Mori Shqypni, e mjera Shqypni'",
+        "context": "Poema përfaqëson një platformë për bashkim kombëtar dhe përshkruan gjendjen e Shqipërisë përmes kontrasteve: lavdia e kaluar, e tashmja e degraduar dhe shpresa për të ardhmen. Shkruar me emocion, figuracion popullor dhe intonacion kushtrimtar."
+      },
+      {
+        "subtitle": "Romani 'Bardha e Temalit'",
+        "context": "Romani përshkruan historinë tragjike të dashurisë së një vajze aristokrate dhe një malësori. Përplasja mes zakoneve dhe dashurisë përbën temën qendrore. Përmban linja të tjera si konfrontimi me pushtuesin, me traditat dhe dallime klasore. Stili është sentimental e romantik, me karaktere si Bardha dhe Aradi që përfaqësojnë viktimën dhe luftëtarin për ndryshim."
+      }
+    ]
+  },
+  {
+    "title": "Gavril Dara i Ri",
+    "subtitles": [
+      {
+        "subtitle": "Biografia",
+        "context": "Gavril Dara i Ri u lind në Palac Adriano, Siçili në një familje letrare arbëreshe. Studioi drejtësi dhe u përfshi në lëvizjet për bashkimin e Italisë. U mor me gazetari, shkencë dhe krijimtari në gjuhën italiane dhe shqipe. Vdiq në varfëri më 1885."
+      },
+      {
+        "subtitle": "Vepra letrare dhe shkencore",
+        "context": "Vepra të rëndësishme: 'Disa poezi', 'Ana Maria Kominiate', 'Të zezat tona', dhe më e njohura 'Kënka e sprasme e Balës' – një poemë romantike arbëreshe. Po ashtu, botoi studime shkencore mbi topografinë dhe historinë arbëreshe."
+      },
+      {
+        "subtitle": "Trashëgimia letrare",
+        "context": "Gavril Dara u bë simbol i romantizmit shqiptar me një stil të ndjeshëm, të kombinuar me motive atdhetare dhe elemente të trashëgimisë arbëreshe. Vepra e tij është më cilësore se sasiore dhe ruan vlera historike e letrare."
+      }
+    ]
+  },
+  {
+    "title": "Zef Serembe",
+    "subtitles": [
+      {
+        "subtitle": "Jeta dhe ndikimi",
+        "context": "Zef Serembe u lind në Strigari, Kalabri dhe u ndikua nga mësuesi i tij De Rada. Jetoi në varfëri, dashuria e tij e parealizuar ndikoi thellë në jetën e tij dhe u kthye në temë qendrore të poezisë së tij. Vdiq në Brazil në kushte të rënda psikologjike e ekonomike."
+      },
+      {
+        "subtitle": "Vepra letrare",
+        "context": "1. 'Poezi italiane dhe këngë origjinale' (1883); 2. 'Ushtari i kthyer' (1893); 3. 'Flamuri shqiptar'; 4. 'Zef Serembe – Vepra' (botime pas vdekjes). Shumë dorëshkrime të humbura në Brazil. Poezia e tij është lirike, patriotike, dashurore dhe filozofike."
+      },
+      {
+        "subtitle": "Poetika",
+        "context": "1. Lirika patriotike për Arbërinë, historinë dhe bashkimin kombëtar. Shquhet për ndjenja të thella dhe përshkrime të trishtuara. 2. Lirika dashurore romantike dhe tragjike. Dashuria e parealizuar e shndërron në poezinë më të bukur të erotikës shqiptare. Stili është i ndjerë, i thjeshtë dhe i fuqishëm."
+      }
+    ]
+  },
+  {
+    "title": "Naim Frashëri",
+    "subtitles": [
+      {
+        "subtitle": "Jeta dhe veprimtaria",
+        "context": "Naim Frashëri është figura më përfaqësuese e Rilindjes Kombëtare. Ai lindi më 1846 në Frashër dhe u edukua në Janinë e Stamboll. U angazhua në Lëvizjen Kombëtare, siguroi hapjen e shkollës së parë shqipe në Korçë (1887), dhe botoi shumë vepra në gjuhën shqipe. Vdiq në 1900 pa e parë pavarësinë që ëndërroi."
+      },
+      {
+        "subtitle": "Personaliteti",
+        "context": "Naimi ishte poet i ndjeshëm, patriot i përkushtuar dhe mendimtar. Ai frymëzonte të rinjtë dhe mbante kontakte me figura të rëndësishme të kohës si Sevasti Qiriazi dhe Andon Z. Çajupi. Përshkrimet e bashkëkohësve e paraqesin si figurë magnetike dhe intelektual të jashtëzakonshëm."
+      },
+      {
+        "subtitle": "Veprat letrare",
+        "context": "Vepra e Naimit është e pasur dhe e larmishme: shkroi poezi lirike, epike, prozë, vepra fetare e filozofike. Në veprën e tij dominojnë temat patriotike, dashurore dhe filozofike. Ai krijoi në shqip, turqisht, persisht dhe greqisht."
+      },
+      {
+        "subtitle": "Poetika letrare",
+        "context": "Naimi është poet lirik në thelb edhe në epikë. Poemat 'Bagëti e Bujqësia' dhe 'Historia e Skënderbeut' janë kryevepra të romantizmit shqiptar. Vargjet e tij janë plot dashuri për natyrën, atdheun, gjuhën dhe kombin. Përdor simbolikë, apostrofë dhe figura letrare me mjeshtëri."
+      }
+    ]
+  },
+  {
+    "title": "Ndre Mjeda",
+    "subtitles": [
+      {
+        "subtitle": "Biografia",
+        "context": "Ndre Mjeda lindi në Shkodër më 1866. U shkollua në institucione fetare dhe europiane. U përfshi në veprimtari kulturore dhe politike, si themelimi i shoqërisë 'Agimi' dhe pjesëmarrja në Kongresin e Manastirit. Vdiq në 1937 si famullitar dhe profesor."
+      },
+      {
+        "subtitle": "Portreti dhe personaliteti",
+        "context": "Përshkruhet si i thjeshtë, i përvuajtur dhe i zoti në artin e fjalës. Ishte kundër lavdisë dhe eksibicionizmit. Ish-nxënësit e kujtojnë për dhomën e tij të çrregullt, por plot dije."
+      },
+      {
+        "subtitle": "Veprat",
+        "context": "Ndau krijimtarinë në letrare, shkencore dhe fetare. Vepra më e njohur letrare është 'Juvenilia', që përfshin poemën simbolike 'Vaji i bylbylit'. Ndër veprat shkencore përmendim studime gjuhësore dhe toponomastike."
+      },
+      {
+        "subtitle": "Poetika",
+        "context": "'Vaji i bylbylit' përdor simbole si bilbili dhe kafazi për të paraqitur Shqipërinë dhe robërinë osmane. 'Andra e jetës' është poemë realiste e ndarë në tri pjesë, me personazhe simbolikë si Trina (rinia e këputur), Zoga (vazhdimësia), Lokja (përvoja)."
+      },
+      {
+        "subtitle": "Poemat tingëllimore",
+        "context": "Poemat 'Lirija', 'Lissus' dhe 'Shkodra' janë ndër më të realizuarat për ndërtimin e tyre artistik. Mjeda është mjeshtër i formës së sonetit në letërsinë shqipe."
+      }
+    ]
+  },
+  {
+    "title": "Andon Zako Çajupi",
+    "subtitles": [
+      {
+        "subtitle": "Biografia",
+        "context": "Çajupi lindi më 1866 në Sheper të Gjirokastrës. Studioi në Aleksandri dhe Gjenevë, ku mori ndikime europiane. Jetoi kryesisht në Egjipt. Vdiq në Kajro më 1930. Humbja e gruas dhe djalit ndikuan thellë në jetën dhe veprën e tij."
+      },
+      {
+        "subtitle": "Veprimtaria letrare dhe politike",
+        "context": "Çajupi nisi me poezi romantike por kaloi në realizëm. Mori pjesë në debatet për alfabetin dhe e mbështeti qeverinë e Ismail Qemalit. Ishte aktiv në koloninë shqiptare të Misirit dhe kritik i regjimit të Zogut."
+      },
+      {
+        "subtitle": "Veprat",
+        "context": "Kryevepra 'Baba Tomorri' shënon kalimin në realizëm. Vepra të tjera: '14 vjeç dhëndërr' (komedi), 'Pas vdekjes', 'Baba Musa lakuriq' etj. Poezitë dhe artikujt trajtojnë tema patriotike, erotike dhe shoqërore."
+      },
+      {
+        "subtitle": "Poetika",
+        "context": "Temat patriotike theksojnë dobësitë e kombit dhe nevojën për vetëdije kombëtare. Satira dhe ironia shërbejnë për të sulmuar korrupsionin dhe robërinë. Lirika erotike trajton dashurinë në forma estetike, sensuale dhe tragjike. Veçanërisht elegjia 'Vaje' pas vdekjes së gruas është një kryevepër."
+      }
+    ]
+  },
+  {
+    "title": "Aleks Stavre Drenova - Asdreni",
+    "subtitles": [
+      {
+        "subtitle": "Jeta dhe veprimtaria",
+        "context": "Asdreni, poet i realizmit kritik dhe i letërsisë moderne shqiptare, lindi më 1872 në Drenovë. Emigroi në Rumani për shkollim dhe punë. U përfshi në lëvizjen kombëtare në Bukuresht, ku botoi veprat kryesore dhe shërbeu në konsullatë. Mori pjesë në përgatitjet për shpalljen e pavarësisë. Jetoi në vetmi dhe vdiq në Bukuresht më 1947."
+      },
+      {
+        "subtitle": "Personaliteti",
+        "context": "Njihet për përkushtim ndaj kombit dhe letërsisë. Ishte vetmitar dhe thellësisht i lidhur me atdheun. Vlerësohej nga figura të tjera si Odhise Paskali për përkushtimin dhe ndjeshmërinë e tij."
+      },
+      {
+        "subtitle": "Veprat letrare",
+        "context": "Veprat më të rëndësishme përfshijnë: 'Rreze dielli' (1904), 'Ëndrra e lotë' (1912), 'Psallme murgu' (1930), artikuj publicistikë dhe poezi të mbetura dorëshkrim si 'Këmbana e Krujës'. Ai shkroi në poezi, prozë dhe publicistikë për më shumë se 40 vjet."
+      },
+      {
+        "subtitle": "Poetika e veprave",
+        "context": "Poetika e tij ndërthur realizmin me ndikime simboliste dhe moderne. Lirika atdhetare-shoqërore është thelbësore, me motive për liri kombëtare dhe sociale. Ai trajtoi temat e natyrës dhe meditimit me ndjeshmëri, duke përfshirë në poezi figura të shtresave të ndryshme të shoqërisë dhe një përkushtim ndaj harmonisë me natyrën."
+      }
+    ]
+  },
+  {
+    "title": "Humanizmi dhe Renesansa",
+    "subtitles": [
+      {
+        "subtitle": "Përkufizimi dhe ndryshimet historike",
+        "context": "Humanizmi ishte një lëvizje e gjerë kulturore dhe filozofike që ndodhi pas ndryshimeve ekonomike dhe politike në fund të mesjetës, duke ndërtuar një rend të ri që i dha peshë njeriut, dijes dhe iniciativës personale."
+      },
+      {
+        "subtitle": "Zbulimet gjeografike dhe shkencore",
+        "context": "Zbulimet si baruti, busolla dhe udhëtimet tejoqeanike sollën ndryshime epokale që forcuan klasën borgjeze dhe krijuan rrethana të favorshme për zhvillimin e humanizmit dhe renesansës."
+      },
+      {
+        "subtitle": "Ideologjia e re",
+        "context": "Njeriu i ri duhej të ishte i çliruar nga dogmat fetare dhe të besonte në fuqinë e arsyes. Humanizmi solli kthesë drejt dijes, përparimit dhe vetëbesimit për përmirësimin e botës."
+      },
+      {
+        "subtitle": "Shkencat dhe lindja e renesansës",
+        "context": "Shkenca si anatomia, astronomia dhe botanika lindi në këtë periudhë. Humanizmi gjeti mbështetje në letërsinë greko-romake. Renesansa ishte rilindja e kulturës antike me përmasa më të gjera se vetë humanizmi."
+      },
+      {
+        "subtitle": "Letërsia e renesansës",
+        "context": "Letërsia vendosi në qendër njeriun dhe jetën tokësore. Ajo u largua nga temat fetare, përdori gjuhën amtare dhe përfaqësohet nga autorë si Dante, Petrarka, Bokaçio, Shekspiri, Cervantes, dhe Barleti."
+      }
+    ]
+  },
+  {
+    "title": "Dante Aligieri dhe Komedia Hyjnore",
+    "subtitles": [
+      {
+        "subtitle": "Jeta dhe veprimtaria",
+        "context": "Dante Aligieri lindi në Firence më 1265. U angazhua në politikën e qytetit dhe pas përçarjes së partive u syrgjynos. Gjatë mërgimit krijoi veprën 'Komedia hyjnore'. Vdiq në Ravenë më 1321."
+      },
+      {
+        "subtitle": "Personaliteti",
+        "context": "I njohur për krenarinë dhe ndershmërinë. Refuzoi të kthehej në Firence nën kushte poshtëruese. Ishte i përkushtuar ndaj dashurisë dhe poezisë, siç e shpreh në 'Jeta e re'."
+      },
+      {
+        "subtitle": "Veprat letrare",
+        "context": "Veprat përfshijnë: 'Jeta e re', 'Gostia', 'Monarkia' dhe kryevepra 'Komedia hyjnore', e cila përfaqëson fundin e mesjetës dhe fillimin e renesansës."
+      },
+      {
+        "subtitle": "Struktura dhe përmbajtja e Komedisë Hyjnore",
+        "context": "E ndarë në tre pjesë: Ferri, Purgatori dhe Parajsa me 100 këngë. Vepra ka formë unike poetike me shtresime alegorike, filozofike dhe religjioze. Subjekti është një udhëtim imagjinar për të pasqyruar të metat e shoqërisë bashkëkohore."
+      },
+      {
+        "subtitle": "Personazhet dhe përfundimi",
+        "context": "Personazhe historike e mitike shfaqen në forma alegorike për të përcjellë mesazhe morale dhe shoqërore. Dante vetë është personazh që udhëhiqet nga Virgjili dhe Beatriçja. Komedia hyjnore konsiderohet një nga veprat më të mëdha të letërsisë botërore."
+      }
+    ]
+  },
+  {
+    "title": "Migel Servantes dhe Don Kishoti",
+    "subtitles": [
+      {
+        "subtitle": "Jeta dhe konteksti",
+        "context": "Migel Servantes u lind më 1547 në një Spanjë me kontraste të mëdha sociale. Luftoi në betejën e Lepantos dhe u plagos rëndë. Pas robërimit në Algjeri, kaloi një jetë të vështirë në varfëri. Përkundër dështimeve të para si shkrimtar, arriti suksesin me romanin 'Don Kishoti', botuar në dy pjesë (1605, 1615)."
+      },
+      {
+        "subtitle": "Veprat letrare",
+        "context": "Krijimtaria e tij përfshin: 1. 'Numantia' (tragjedi), 2. 'Novela moralizuese' (prozë të shkurtëra), 3. 'Tetë pjesë teatrale', 4. 'Don Kishoti' (roman satirik)."
+      },
+      {
+        "subtitle": "Poetika e 'Don Kishotit'",
+        "context": "Romani është kritikë e shoqërisë feudale dhe iluzioneve kalorësiake. Përmes groteskut dhe humorit, zbulon absurditetin e ndikimit të romaneve kalorësiake në jetën reale. Don Kishoti përfaqëson një psikologji të dyfishtë: herë i zhytur në iluzione, herë humanist racional. Sanço Panço është kundërpeshë realiste. Romani përmban thellësi psikologjike dhe mesazhe humaniste të fuqishme."
+      },
+      {
+        "subtitle": "Rëndësia e romanit",
+        "context": "'Don Kishoti' është një nga veprat më të rëndësishme të letërsisë botërore, sepse ndërthur iluzionin me realitetin, ironinë me kritikën shoqërore, dhe përçon mesazhin humanist të përballjes me të vërtetën për të ndërtuar një shoqëri më të drejtë."
+      }
+    ]
+  },
+  {
+    "title": "Uiliam Shekspir dhe Tragjedia 'Hamleti'",
+    "subtitles": [
+      {
+        "subtitle": "Jeta dhe karriera",
+        "context": "Shekspiri u lind më 1564 në Stratford. U edukua me vlera humaniste dhe tradita popullore. Punoi në Londër si aktor dhe më pas dramaturg. U bë figura më e rëndësishme e teatrit anglez. Vdiq më 1616 në kulmin e famës."
+      },
+      {
+        "subtitle": "Veprat",
+        "context": "Shkroi 37 vepra artistike në tri faza: 1) komeditë dhe lirika optimiste; 2) tragjeditë si 'Hamleti', 'Othello', 'Magbethi'; 3) veprat e vona me frymë humaniste si 'Stuhia'. Vepra pasqyron konfliktin mes forcave feudale dhe borgjeze dhe mbështet idealet humaniste."
+      },
+      {
+        "subtitle": "Poetika e 'Hamletit'",
+        "context": "Tragjedia përqendrohet në luftën kundër korrupsionit dhe hipokrizisë së pushtetit. Hamleti është intelektual humanist që përballet me komplotin familjar dhe kërkon të humanizojë botën. Ngjarja përshkruan një proces të vështirë të zbulimit të së vërtetës. Hamletit i bashkohen figura si Ofelia, Gertruda, Laerti, Horati, që përfaqësojnë tipare të ndryshme etike dhe shoqërore."
+      },
+      {
+        "subtitle": "Rëndësia",
+        "context": "Shekspiri është një nga dramaturgët më të mëdhenj. Ai solli risitë e dramës moderne dhe pasqyroi me mjeshtëri shoqërinë e shek. XVI. Vepra e tij e tejkalon kohën përmes humanizmit dhe pasqyrimit të thellë psikologjik të personazheve."
+      }
+    ]
+  },
+  {
+    "title": "Klasicizmi – Lëvizje Letrare dhe Estetike",
+    "subtitles": [
+      {
+        "subtitle": "Përkufizimi dhe origjina",
+        "context": "Klasicizmi u zhvillua në Francë në shek. XVII, pas Humanizmit dhe Renesancës. U përkrah nga mbretëria absolute e Luigjit XIV dhe artistët e saj prodhuan vepra sipas rregullave të përcaktuara në oborrin mbretëror. Përfaqësonte stabilitetin, harmoninë dhe hierarkinë shoqërore."
+      },
+      {
+        "subtitle": "Parimet e klasicizmit",
+        "context": "U ndikua nga racionalizmi i Dekartit dhe teoria e Boalos në 'Arti poetik'. Parimet përfshijnë arsyen mbi emocionin, ndarjen e veprave në të larta dhe të ulëta, respektimin e tre njësive të dramës (koha, vendi, veprimi), dhe theksin mbi moralin dhe edukimin përmes artit."
+      },
+      {
+        "subtitle": "Zhanret dhe përfaqësuesit",
+        "context": "Vepra të larta: tragjedia, epopeja, oda. Vepra të ulëta: komedia, satira, fabula. Përfaqësues të klasicizmit përfshijnë Rasinin dhe Kornejin në tragjedi, Molierin në komedi, dhe La Fontenin në fabulë."
+      },
+      {
+        "subtitle": "Estetika dhe ndikimi",
+        "context": "Klasicizmi kontribuoi në zhvillimin e stilit të qartë, simetrik dhe objektiv. Refuzonte përzierjen e stileve dhe preferonte struktura të rregullta dhe heronj racionalë që sakrifikojnë interesat personale për ideale kombëtare."
+      }
+    ]
+  },
+  {
+    "title": "Molieri dhe Komedia 'Tartufi'",
+    "subtitles": [
+      {
+        "subtitle": "Jeta dhe karriera",
+        "context": "Zhan Batist Pokëlen (Molieri), lindi në Paris më 1622. Ndonëse filloi studimet për drejtësi, u tërhoq nga teatri. Formoi një trupë teatrore dhe udhëtoi nëpër Francë për 15 vjet, duke mbledhur përvoja që do të pasqyrohen më vonë në veprat e tij. Më 1658, mbreti Luigji XIV i dha përkrahje. U bë i njohur si komediograf, aktor dhe regjisor. Vdiq më 1673 pas një shfaqjeje të 'I sëmuri për mend'."
+      },
+      {
+        "subtitle": "Vepra letrare",
+        "context": "Shkroi shumë komedi të njohura si: 'Shkolla e burrave', 'Tartufi', 'Don Zhuani', 'Mizantropi', 'Koprraci', 'I së muri imagjinar', etj. Komeditë e tij kritikojnë veset dhe hipokrizinë e shoqërisë franceze të shek. XVII."
+      },
+      {
+        "subtitle": "Poetika e 'Tartufit'",
+        "context": "'Tartufi' u shfaq fillimisht në 1664 dhe u ndalua për përmbajtje kritike ndaj klerit. Pas disa përpunimeve, u lejua më 1669. Tema qendrore është hipokrizia klerikale dhe naiviteti borgjez. Tartufi mashtroi Orgonin, një borgjez që i beson verbërisht, duke përfituar pasuri dhe të bijën për martesë. Elmira, gruaja e Orgonit, arrin ta zbulojë të vërtetën. Shteti ndërhyn dhe Tartufi burgoset."
+      },
+      {
+        "subtitle": "Struktura dhe personazhet",
+        "context": "Komedia ka një strukturë të përsosur me pesë akte. Karakteret janë të ndara në dy grupe: ata që mashtrohen dhe ata që e kuptojnë hipokrizinë e Tartufit. Tartufi përfaqëson tipin klasik të hipokritit. Orgoni përfaqëson shtresën borgjeze naive, ndërsa Dorina është personazhi më i mençur dhe me guxim që i kundërvihet hipokrizisë."
+      },
+      {
+        "subtitle": "Rëndësia e veprës",
+        "context": "Molieri ngriti komedinë në art të vërtetë. Veprat e tij trajtojnë tema shoqërore të përhershme dhe favorizojnë drejtësinë, arsyen dhe humanizmin përkundrejt shtirjes dhe padrejtësisë."
+      }
+    ]
+  },
+  {
+    "title": "Poetika e Bajronit dhe Pushkinit",
+    "subtitles": [
+      {
+        "subtitle": "Çajld Haroldi – Poema e Bajronit",
+        "context": "Poema romantike e ndarë në katër këngë është ditari poetik i udhëtimeve të Bajronit. Heroi Haroldi është figurë autobiografike që pasqyron pezmatimin ndaj shoqërisë dhe kërkimin për qetësi shpirtërore në vende me lavdi historike si Spanja, Greqia dhe Shqipëria. Në Shqipëri, Bajroni vlerëson natyrën, mikpritjen, karakterin dhe folklorin shqiptar. Kënga e katërt përmbyll ciklin me përshkrime të Italisë antike."
+      },
+      {
+        "subtitle": "Rëndësia e veprës së Bajronit",
+        "context": "Bajroni solli tipin e 'heroit bajronian', një njeri i përçudnuar nga shoqëria, që largohet i dëshpëruar për të ruajtur integritetin dhe idealet. Ndikoi fuqishëm në romantizmin evropian dhe te Pushkini."
+      },
+      {
+        "subtitle": "Aleksandër S. Pushkini – Jeta dhe vepra",
+        "context": "Pushkini, poeti i parë i letërsisë moderne ruse, lindi në Moskë më 1799. Jetoi mes revolucionit, censurës dhe internimeve për shkak të poezive lirike dhe shoqërore. Mbështeti dekabristët dhe u përball me shtypjen cariste. Vdiq në duel më 1837."
+      },
+      {
+        "subtitle": "Poetika e veprave letrare të Pushkinit",
+        "context": "Pushkini shkroi poezi lirike me tema patriotike, dashurore dhe natyrore. Poezia 'Liria' është manifest për çlirimin e popujve nga tirania. 'Fshati' dhe 'Mbrëmje dimërore' paraqesin harmoni dhe melankoli. Poezitë janë të sinqerta, emocionale dhe me figuracion të pasur."
+      },
+      {
+        "subtitle": "Eugjen Onjegini – Roman në vargje",
+        "context": "Një roman enciklopedik që pasqyron jetën ruse në fillim të shek. XIX. Onjegini është aristokrat i zbrazët shpirtërisht, Tatjana përfaqëson virtytet popullore, Lenski është poeti idealist. Romani përmban elemente epike dhe lirike dhe kritikon shtresat aristokrate ruse."
+      }
+    ]
+  },
+  {
+    "title": "Arti, Letërsia dhe Shkenca e Saj",
+    "subtitles": [
+      {
+        "subtitle": "Origjina dhe funksioni i artit",
+        "context": "Arti ka lindur nga nevoja njerëzore për të interpretuar botën dhe të bukurën. Në fillim kishte funksion praktik, më pas estetik. Arti pasqyron ndjenjat dhe edukon ndjeshmërinë estetike përmes bukurisë."
+      },
+      {
+        "subtitle": "Letërsia si art i fjalës",
+        "context": "Letërsia përdor gjuhën si mjet artistik. Ndryshe nga librat shkencorë, ajo komunikon në mënyrë të tërthortë, përmes figurave dhe emocioneve. Letërsia ndërton realitete imagjinare që ndikojnë në shpirtin e lexuesit."
+      },
+      {
+        "subtitle": "Gjuha e figurshme vs. gjuha shkencore",
+        "context": "Gjuha shkencore është e saktë dhe informative, ndërsa ajo letrare është figurative dhe emocionale. Letërsia përfaqëson përjetime individuale që kanë vlerë universale përmes figurave konkrete si personazhet dhe ngjarjet."
+      },
+      {
+        "subtitle": "Karakteristikat e letërsisë",
+        "context": "Letërsia është figurative, emocionale dhe imagjinative. Këto cilësi e dallojnë atë nga shkencat dhe e bëjnë të veçantë në shprehjen e realitetit dhe të përjetimeve njerëzore."
+      },
+      {
+        "subtitle": "Shkenca e letërsisë",
+        "context": "Përfshin teorinë e letërsisë (ç’është letërsia, gjinia, forma), historinë e letërsisë (zhvillimi i saj në kohë) dhe kritikën letrare (vlerësimi i veprës). Secila nga këto degë ndihmon në kuptimin e thellë të letërsisë."
+      }
+    ]
+  },
+  {
+    "title": "Struktura e Veprës Letrare",
+    "subtitles": [
+      {
+        "subtitle": "Përmbajtja dhe Forma",
+        "context": "Çdo vepër letrare ka përmbajtje dhe formë: përmbajtja paraqet ngjarjet, personazhet dhe qëndrimin e autorit ndaj realitetit, ndërsa forma është mënyra se si organizohet materiali letrar përmes mjeteve shprehëse si fabula, subjekti, kompozicioni, etj. Në analizën e poemës 'Kënga e Sprasme e Balës', përmbajtja përqendrohet në luftën kundër osmanëve dhe dramën e dashurisë, ndërsa forma e saj reflekton ndërlidhjen e këtyre linjave me mjete romantike."
+      },
+      {
+        "subtitle": "Mbarështrimi",
+        "context": "Poema ndahet në katër pjesë dhe përmban afërsisht 2000 vargje. Ajo ndërthur rrëfime të shumta që ndërlidhen përmes ngjarjeve dhe retrospektivave. Subjekti i poemës përbëhet nga një rrëfim i gjatë i plakut Balë që kujton ngjarje si takimet, betejat dhe dashuritë, duke ndërtuar një vijë rrëfimi të ndërthurur me përshkrime të natyrës dhe heroizmit."
+      },
+      {
+        "subtitle": "Kompozicioni",
+        "context": "Kompozicioni është harmonizimi i tërësishëm i rrëfimit. Përfshin ekspozicionin, zhvillimin e ngjarjes, pikëlidhjen, kulmin dhe rrjedhimin. Në poemë, kjo strukturë ndihmon në ndërthurjen e linjës dashurore me atë historike, duke përshkruar betejat, ndjenjat dhe rrjedhojat tragjike të historisë."
+      }
+    ]
+  },
+  {
+    "title": "Klasifikimi i Letërsisë në Gjinë dhe Lloje",
+    "subtitles": [
+      {
+        "subtitle": "Gjinia Lirike",
+        "context": "Fokusuar në emocionet e autorit, përfshin lloje si himni, oda, ditirambi, epitafi, idila dhe elegjia. Lirika moderne ndahet në lirikë shoqërore, patriotike, erotike, mendimtare dhe të peizazhit, varësisht nga temat që trajton."
+      },
+      {
+        "subtitle": "Gjinia Epike",
+        "context": "Karakterizohet nga rrëfimi i ngjarjeve. Përfshin eposet, këngët epike, romanet, novelat dhe tregimet. Këto vepra paraqesin zhvillimin e botës përmes rrëfimeve, personazheve dhe ndërlikimeve të ngjarjeve."
+      },
+      {
+        "subtitle": "Gjinia Dramatike",
+        "context": "Bazohet në dialog dhe veprim. Përfaqësohet nga tragjedia, komedia dhe drama. Në këtë gjini nuk rrëfehet ngjarja por shfaqet përmes veprimit dhe ndërveprimit të personazheve."
+      }
+    ]
+  },
+  {
+    "title": "Stilistika",
+    "subtitles": [
+      {
+        "subtitle": "Përkufizimi i stilistikës",
+        "context": "Stilistika studion karakteristikat gjuhësore dhe shprehëse të stilit letrar. Ajo identifikon veçantitë e shkrimtarëve dhe epokave letrare përmes analizës së gjuhës dhe mjeteve stilistike si figura letrare."
+      },
+      {
+        "subtitle": "Figurat stilistike",
+        "context": "Ndër figurat përmendim: epiteti, personifikimi, krahasimi, paralelizmi figurativ, simboli, alegoria, hiperbola dhe metafora. Këto figura ndihmojnë në pasurimin kuptimor dhe emocional të tekstit duke krijuar ndjeshmëri të veçantë te lexuesi."
+      }
+    ]
+  },
+  {
+    "title": "Metrika dhe Elementet e Poezisë",
+    "subtitles": [
+      {
+        "subtitle": "Metrika",
+        "context": "Metrika është një degë e teorisë së letërsisë që studion origjinën dhe ndërtimin e vargut letrar, duke përfshirë ritmin, rimën, theksin ritmik, dhe rrokjen. Në letërsinë shqipe hasim vargje popullore, të huazuara dhe të krijuara. Metrika ndahet në sisteme antike greko-romake (me këmbë ritmike si trokeji, jambi, daktili, etj.), dhe sisteme moderne si ai tonik dhe toniko-silabik."
+      },
+      {
+        "subtitle": "Ritmi",
+        "context": "Ritmi është përsëritja e rregullt e elementeve të tingullit dhe kuptimit në poezi, që krijon efekte estetike dhe emocionale. Ai ndihmon në harmoninë e tekstit dhe përcjell emocione te lexuesi apo dëgjuesi."
+      },
+      {
+        "subtitle": "Theksi tonik",
+        "context": "Theksi tonik është rrokja e fjalës që shqiptohet me më shumë forcë. Në gjuhën shqipe, lëvizja e theksit ndryshon kuptimin e fjalës. Fjalët ndahen në oksitone, paroksitone dhe proparoksitone, sipas vendit të theksit."
+      },
+      {
+        "subtitle": "Theksi ritmik",
+        "context": "Theksi ritmik është vendosja e theksit brenda një vargu për të krijuar ritëm. Ndryshe nga theksi tonik që është fiks për fjalët, ai ritmik ndihmon në ndërtimin melodik të poezisë. Përputhja e theksave ritmikë me ata tonikë është ideale, por poetët shpesh eksperimentojnë për efekt stilistik."
+      },
+      {
+        "subtitle": "Rima",
+        "context": "Rima është përsëritja e tingujve në fund të vargjeve. Ajo mund të jetë mashkullore, femërore ose daktilike dhe ndahet në lloje si e puthur, alternuar dhe kryqëzuar."
+      },
+      {
+        "subtitle": "Soneti",
+        "context": "Soneti është një formë poetike e përbërë nga katërmbëdhjetë vargje të ndara në katrena dhe tercina. I përdorur nga Petrarka e Mjeda në letërsinë shqiptare, ai paraqet tema të thella me ndërtim të rreptë formal."
+      },
+      {
+        "subtitle": "Vargjet popullore",
+        "context": "Vargjet popullore përfshijnë format katër, gjashtë, tetë dhe dhjetërrokëshe. Ato shfaqen në letërsinë gojore dhe të shkruar, duke pasqyruar ndjeshmërinë dhe natyrën kombëtare shqiptare."
+      },
+      {
+        "subtitle": "Vargjet e huazuara",
+        "context": "Vargjet pesërrokëshe, shtatërrokëshe, nëntërrokëshe dhe njëmbëdhjetërrokëshe janë marrë nga metrika e huaj. Poetë si Mjeda, Poradeci dhe Noli i kanë përsosur në letërsinë shqipe."
+      },
+      {
+        "subtitle": "Vargjet e krijuara",
+        "context": "Këto vargje krijohen nga kombinimi i formave të ndryshme të vargjeve, si dymbëdhjetërrokëshi apo gjashtëmbëdhjetërrokëshi. Përdorur nga Çajupi, Naimi dhe Poradeci, ato sjellin inovacion në ndërtimin poetik."
+      }
+    ]
+  },
+  {
+    "title": "Tiparet dhe Vlerat e Folklorit",
+    "subtitles": [
+      {
+        "subtitle": "Përkufizimi dhe përmbajtja",
+        "context": "Folklori përfshin gjithë krijimtarinë artistike popullore të trashëguar gojarisht, si këngët, përrallat, legjendat, fjalët e urta, vallet, etj. Ai ndahet në katër fusha: letrar, muzikor, koreografik dhe dramatik."
+      },
+      {
+        "subtitle": "Tiparet e folklorit",
+        "context": "Folklori ka karakter kolektiv, anonim, sinkretik, popullor dhe improvizues. Ai formësohet nga krijimtaria individuale që pastaj përpunohet nga kolektivi popullor ndër breza."
+      },
+      {
+        "subtitle": "Vlerat e folklorit",
+        "context": "Folklori është dokument i gjallë historik dhe artistik që pasqyron ndjenjat, qëndresën, ëndrrat dhe moralin e popullit. Ai ndikon edhe në artet e tjera si letërsia dhe muzika. Autorë si Shekspiri, Verdi dhe Kadare janë frymëzuar nga folklori."
+      },
+      {
+        "subtitle": "Folkloristika shqiptare",
+        "context": "Folkloristika është shkenca që studion folklorin. Lidhjet e saj janë të ngushta me etnografinë, gjuhësinë, muzikologjinë dhe letërsinë. Figura të njohura janë Frang Bardhi, Thimi Mitko, De Rada dhe studiues modernë si Zihni Sako dhe Anton Çela."
+      },
+      {
+        "subtitle": "Institucionet sot",
+        "context": "Sot, institucione si Instituti i Kulturës Popullore në Tiranë dhe ai i Studimeve Albanologjike në Prishtinë punojnë për ruajtjen dhe studimin e folklorit. Botohen antologji, këngë, përralla dhe epika në mënyrë të organizuar shkencore."
+      }
+    ]
+  },
+  {
+    "title": "Llojet e Folklorit Letrar",
+    "subtitles": [
+      {
+        "subtitle": "Përkufizimi",
+        "context": "Folklori letrar është ai ku fjala është mjeti kryesor i shprehjes. Ai përfshin poezinë lirike, epike dhe liriko-epike, si dhe prozën popullore."
+      },
+      {
+        "subtitle": "Lirika familjare",
+        "context": "Përfshin ninullat, këngët e dasmës dhe vajet. Ato shprehin ndjenja intime si dashuria, gëzimi, malli dhe dhimbja për familjen dhe të dashurit."
+      },
+      {
+        "subtitle": "Lirika shoqërore",
+        "context": "Përfshin këngët e kurbetit (ekonomik, politik, ushtarak), këngët për padrejtësitë dhe për natyrën. Ato pasqyrojnë jetën shoqërore dhe sakrificat individuale."
+      },
+      {
+        "subtitle": "Këngët e kurbetit",
+        "context": "Një fond i pasur i këngëve që paraqet vuajtjen e mërgimtarëve, ndarjen nga familja dhe dashuria për atdheun."
+      },
+      {
+        "subtitle": "Lirika intime",
+        "context": "Dashuria trajtohet si ndjenja më e bukur dhe e sinqertë. Figurat e vajzës dhe djalit janë të barabarta në ndjeshmëri dhe forcë shprehëse."
+      }
+    ]
+  },
+  {
+    "title": "Poezia Popullore Epike",
+    "subtitles": [
+      {
+        "subtitle": "Këngët epike legjendare",
+        "context": "Janë këngë me karakter fantastik ku heronjtë janë të jashtëzakonshëm dhe veprimet e tyre përcillen me elemente përrallore. Ndahen në këngë të murosjes, të vëllait të vogël dhe të rinjohjes. Forma më e përsosur e tyre është eposi heroik legjendar, me tre tipare: epizëm, legjendaritet dhe frymë heroike."
+      },
+      {
+        "subtitle": "Përmbajtja e eposit",
+        "context": "Epika legjendare shqiptare përfaqësohet nga cikli i kreshnikëve, me personazhe si Muji dhe Halili, që mbrojnë trojet shqiptare me trimëri. Këngët janë të hiperbolizuara, përfshijnë figura mitologjike dhe këndohen me lahutë nga rapsodë."
+      },
+      {
+        "subtitle": "Kur u krijua eposi",
+        "context": "Eposi nuk është i një kohe të vetme, por vjen nga një lashtësi që përfshin shpirtizimin e natyrës dhe mitet e lashta. Ai përmbledh konflikte të hershme historike mes shqiptarëve dhe sllavëve. Ka elemente të Mesjetës dhe dëshmi të toponimeve ilire."
+      },
+      {
+        "subtitle": "Personazhet e eposit",
+        "context": "Figura qëndrore janë Muji dhe Halili, të pajisur me cilësi mbinatyrore dhe njerëzore. Muji është prijës, i drejtë, trim dhe familjar. Figurat si Ajkuna, motra e Gjergj Elez Alisë dhe Zanat përfaqësojnë ndjenja të forta dhe besnikëri, ndërsa armiqtë janë të ashpër, por jo të guximshëm si kreshnikët."
+      },
+      {
+        "subtitle": "Veçoritë kryesore të eposit",
+        "context": "Këngët janë të ndërtuara sipas formulave artistike tradicionale, me vargje dhjetërrokëshe, elemente lirike dhe përshkrime të natyrës që reflektojnë ndjenjat. Lahuta është instrumenti shoqërues. Çdo këngë është një njësi artistike me strukturë të vetën."
+      }
+    ]
+  },
+  {
+    "title": "Shkrimi i Vjetër Shqip (Dokumentet e Para)",
+    "subtitles": [
+      {
+        "subtitle": "Konteksti historik",
+        "context": "Shkrimi shqip fillon vonë përkundër kulturës së lashtë shqiptare. Kultura popullore ka mbijetuar ndër shekuj, ndërsa ajo e shkruar është më e ndikuar dhe e kontrolluar. Dëshmitë e para të shqipes së shkruar datojnë në shekullin XV."
+      },
+      {
+        "subtitle": "Formula e Pagëzimit (1462)",
+        "context": "Dokumenti më i vjetër në shqip, shkruar nga Pal Engjëlli, përfshin frazën 'Un të pagëzoj pr emnit t'Atit e t'Birit e t'Shpertit Shenjt'. Është shkruar për të ndihmuar banorët në pagëzime jashtë kishës."
+      },
+      {
+        "subtitle": "Fjalorthi i Arnold von Harf (1497)",
+        "context": "Kalorësi gjerman gjatë udhëtimit shënon një fjalorth me 26 fjalë shqip, disa fraza dhe numra, i cili ndihmon në dëshminë e hershme të gjuhës shqipe."
+      },
+      {
+        "subtitle": "Ungjilli i Pashkëve",
+        "context": "Pjesë e një dorëshkrimi grek, përfshin përkthime të vargjeve të Ungjillit të Mateut dhe një këngë pashkësh në shqip, e shkruar me alfabet grek. Është dokumenti i parë në dialektin toskë."
+      }
+    ]
+  },
+  {
+    "title": "Letërsia e Vjetër Shqiptare",
+    "subtitles": [
+      {
+        "subtitle": "Përkufizim dhe rëndësi",
+        "context": "Letërsia e vjetër shqipe përfshin periudhën nga Marin Barleti te Jeronim de Rada dhe përfaqëson vlera gjuhësore e letrare të rëndësishme. Ajo dëshmon për identitetin gjuhësor dhe kulturor shqiptar dhe ruan larmi tipologjike."
+      },
+      {
+        "subtitle": "Karakteri i letërsisë",
+        "context": "Letërsia e vjetër shqipe është pa vazhdimësi të qartë ndërmjet autorëve, por shfaqet me karaktere të dallueshme sipas funksionit dhe periudhës. Ajo përfaqëson trashëgiminë kulturore në kushte të vështira historike."
+      },
+      {
+        "subtitle": "Tri periudhat letrare",
+        "context": "1. Letërsia e humanizmit (shek. XVI) me Marin Barletin. 2. Letërsia filobiblike me autorë si Gjon Buzuku, Pjetër Budi, Frang Bardhi. 3. Letërsia barok-klerikale dhe iluministe që përmbyll periudhën klasike të letërsisë së vjetër."
+      }
+    ]
+  },
+  {
+    "title": "Humanizmi Shqiptar",
+    "subtitles": [
+      {
+        "subtitle": "Përkufizimi dhe konteksti",
+        "context": "Humanizmi në Shqipëri u zhvillua nën ndikimin e Humanizmit Italian, por kishte karakteristika vendase. Ai u përhap në qytetet mesdhetare dhe qendrat tregtare si Venediku. U zhvillua në shkolla, arte figurative dhe muzikë."
+      },
+      {
+        "subtitle": "Tiparet kryesore",
+        "context": "Humanizmi shqiptar u karakterizua nga qëndresa kundër pushtimit osman dhe ruajtja e identitetit kulturor. Kjo u mishërua në figurën e Skënderbeut, e cila u bë simbol i lirisë dhe shpirtit shqiptar."
+      },
+      {
+        "subtitle": "Autorët kryesorë",
+        "context": "Krijues si Martin Segoni, Marin Barleti, Dhimitër Frëngu dhe Beçikemi i përkasin kësaj rryme. Veprat e tyre, të shkruara në latinisht, ngritën figurën e Skënderbeut si hero jetësor dhe kulturor."
+      },
+      {
+        "subtitle": "Rëndësia kulturore",
+        "context": "Vepra si ajo e Barletit ndërthuren midis letërsisë dhe historisë, duke krijuar një model kombëtar. Këto shkrime kontribuan në ndërtimin e identitetit letrar dhe kombëtar shqiptar."
+      }
+    ]
+  },
+  {
+    "title": "Marin Barleti dhe Vepra e Tij",
+    "subtitles": [
+      {
+        "subtitle": "Jeta dhe formimi",
+        "context": "Barleti, humanisti më i madh shqiptar, lindi në Shkodër rreth vitit 1460 dhe mori pjesë në mbrojtjen e qytetit. Pas rënies së Shkodrës, shkoi në Venedik dhe më vonë në Romë, ku botoi veprat e tij."
+      },
+      {
+        "subtitle": "Veprat kryesore",
+        "context": "'Rrethimi i Shkodrës' (1504), 'Historia e Skënderbeut' (1508–1510), dhe 'Shkurtore e jetës së papëve' (1513). Barleti ndërtoi figurën e Skënderbeut si hero kombëtar dhe letrar, me ndikim të madh në kulturën shqiptare dhe më gjerë."
+      },
+      {
+        "subtitle": "Stili dhe qëllimi",
+        "context": "Vepra 'Historia e Skënderbeut' përfshin 13 libra dhe përshkruan jetën e heroit nga betejat deri te vdekja. Barleti synon të ruajë kujtimin e lavdisë shqiptare dhe ta paraqesë Skënderbeun si model universal të heroizmit dhe kulturës."
+      },
+      {
+        "subtitle": "Stili letrar",
+        "context": "Përdor krahasime dhe antiteza për të ndërtuar një tekst historik me shtresë letrare. Ai krijon një hero të përjetshëm kombëtar përmes përshkrimesh dhe fjalimeve, duke e lidhur veprën me frymën e humanizmit dhe çlirimit kombëtar."
+      }
+    ]
+  },
+  {
+    "title": "Letërsia Filobiblike",
+    "subtitles": [
+      {
+        "subtitle": "Përkufizimi dhe konteksti",
+        "context": "Letërsia filobiblike është krijuar nga priftërinj shqiptarë të formuar në Itali, të cilët shkruan përmes shkrimit biblik me qëllime fetare e shpirtërore. Veprat e tyre u botuan kryesisht nga Propaganda Fide."
+      },
+      {
+        "subtitle": "Vlerat letrare dhe kulturore",
+        "context": "Edhe pse qëllimi i tyre nuk ishte letrar në kuptimin modern, këto vepra ngritën gjuhën shqipe në nivel letrar, shpesh me përmbajtje fetare dhe kombëtare. Ato kontribuan në formimin e vetëdijes gjuhësore dhe identitetit kombëtar."
+      },
+      {
+        "subtitle": "Autorët dhe veprat",
+        "context": "Autorë si Buzuku, Budi, Bardhi, Bogdani, Kazazi, Matranga dhe Variboba sollën krijimtari me tematika biblike dhe shqiptare. Ata shkruan lutje, vargje, përkthime, cikle letrare, dhe vepra origjinale në shqip."
+      },
+      {
+        "subtitle": "Karakteristikat",
+        "context": "Letërsia filobiblike përdor alfabetin latin, është ndikuar nga kultura latine dhe italiane, dhe përfaqëson një periudhë të veçantë të zhvillimit të letërsisë shqiptare. Secili autor ka stil dhe temperament të veçantë krijues."
+      }
+    ]
+  },
+  {
+    "title": "Gjon Buzuku dhe 'Meshari'",
+    "subtitles": [
+      {
+        "subtitle": "Jeta dhe vepra",
+        "context": "Gjon Buzuku është autori i librit të parë në gjuhën shqipe – 'Meshari' (1555). Lindi pranë liqenit të Shkodrës dhe jetoi në Venedik, ku e shkroi dhe botoi veprën e tij. Libri përmban tekste liturgjike dhe është një dëshmi monumentale e gjuhës shqipe në shekullin XVI."
+      },
+      {
+        "subtitle": "Konteksti historik dhe gjuhësor",
+        "context": "'Meshari' u botua në një kohë kur feja katolike përpiqej të ruante terren në zonat e rrezikuara nga islamizmi osman. Libri u shkrua me alfabet latin dhe disa shenja cirilike. Ai përmban 188 faqe dhe mbi 154,000 fjalë."
+      },
+      {
+        "subtitle": "Përmbajtja dhe vlerat letrare",
+        "context": "Vepra përmban përkthime nga Dhiata e Vjetër dhe e Re, psalme, himne dhe litanitë që janë të ngjashme me poezi liturgjike. Ato shfaqin emocione njerëzore dhe stil të pasur letrar. Psikologjia fetare dhe krenaria gjuhësore duken qartë te Buzuku, i cili shkroi 'Mesharin' si mision për 'me zdritun mendet'."
+      },
+      {
+        "subtitle": "Stili dhe ndikimi",
+        "context": "Shkrimi i Buzukut pasqyron një vetëdije të lartë gjuhësore e kulturore. Ai përdor figura stilistike dhe përsëritje që ndikojnë emocionalisht te lexuesi. Meshari është një vepër letrare, shpirtërore dhe gjuhësore e rëndësisë themelore për kulturën shqiptare."
+      }
+    ]
+  },
+  {
+    "title": "Pjetër Budi – Poeti dhe Martiri i Letërsisë së Vjetër",
+    "subtitles": [
+      {
+        "subtitle": "Jeta dhe aktiviteti",
+        "context": "Pjetër Budi (1566–1622) lindi në Gur të Bardhë të Matit. Shërbeu si prift dhe më vonë si ipeshkëv i Zadrimës. U angazhua në aktivitete patriotike dhe fetare, derisa vdiq tragjikisht duke kaluar lumin Drin."
+      },
+      {
+        "subtitle": "Veprat",
+        "context": "Botoi katër vepra në Romë: 'Doktrina e Kërshtenë', 'Rituali roman', 'Kush thotë meshë këto kafshë i duhet me shërbyem', dhe 'Pasëqyra e t’rrëfyemit'. Këto janë përkthime dhe përshtatje me elementë origjinalë që dalin si vepra më vete."
+      },
+      {
+        "subtitle": "Vepra poetike dhe krijimtaria",
+        "context": "Ka shkruar rreth 3200 vargje tetërrokëshe me rima të alternuara. Poezitë ndahen në biblike, personale dhe okazionale. Budi shfaq ndjeshmëri të madhe shpirtërore, patriotizëm dhe vetëdije krijuese që e bëjnë poetin e parë të mirëfilltë shqiptar."
+      },
+      {
+        "subtitle": "Stili dhe ndikimi",
+        "context": "Budi përdor varg të rregullt, rimë dhe përsëritje për efekte mnemonic. Poezia e tij është didaktike, me qëllim arsimimi dhe ndërgjegjësimi. Ai përdor krahasime, epitete dhe figura të tjera të thjeshta, duke qenë krijues autentik në kushtet e kohës së tij."
+      }
+    ]
+  },
+  {
+    "title": "Frang Bardhi – Gjuhëtar dhe Patriot i Letërsisë së Vjetër",
+    "subtitles": [
+      {
+        "subtitle": "Jeta dhe kontributi",
+        "context": "Frang Bardhi (1606–1643) lindi në Zadrimë dhe studioi në Itali. U bë ipeshkëv dhe shërbeu në vendlindje. Ishte dijetar, letrar dhe një nga figurat më të ndritura të letërsisë së vjetër shqiptare."
+      },
+      {
+        "subtitle": "Fjalori latino-shqip",
+        "context": "Fjalori i Bardhit (1635) është vepra e parë shqipe pa përmbajtje fetare. Përmban rreth 5000 fjalë dhe shtojca me gramatikë, proverba dhe dialogë. Ai tregon njohjen e disa gjuhëve dhe vlerën kulturore të fjalëve të urta shqiptare."
+      },
+      {
+        "subtitle": "Apologjia për Skënderbeun",
+        "context": "Vepra 'Skënderbeu' (1636) mbron origjinën shqiptare të heroit kundër pohimeve të huaja. Është një tekst polemik, historik dhe letrar që shpreh vetëdijen kombëtare të Bardhit për Skënderbeun dhe popullin e tij."
+      },
+      {
+        "subtitle": "Rëndësia kulturore",
+        "context": "Frang Bardhi është ndër të parët që hodhi themelet e shkencës shqiptare: gjuhësisë, folkloristikës, etnografisë dhe historiografisë. Ai dëshmoi identitetin kulturor e gjuhësor të shqiptarëve dhe ngriti zërin për arsimimin kombëtar."
+      }
+    ]
+  },
+  {
+    "title": "Pjetër Bogdani dhe 'Çeta e Profetëve'",
+    "subtitles": [
+      {
+        "subtitle": "Jeta dhe kontributi",
+        "context": "Pjetër Bogdani (1630–1689) është figura më e rëndësishme e letërsisë së vjetër shqiptare. Ai u shkollua në Loreto dhe Romë dhe u bë arqipeshkv i Shkupit. Ishte dijetar, filozof, shkrimtar dhe udhëheqës shpirtëror. Punoi mbi 10 vite për veprën 'Çeta e profetëve'. Vdiq në Prishtinë, ku më pas trupin ia zhvarrosën turqit si hakmarrje."
+      },
+      {
+        "subtitle": "'Çeta e profetëve' (Cuneus Prophetarum)",
+        "context": "Vepra është e para në prozë e shkruar drejtpërdrejt në shqip dhe latinisht. Botuar në Padovë më 1685, ajo përbëhet nga dy vëllime: i pari trajton krijimin e botës, profetët dhe Sibilat, ndërsa i dyti jetën e Krishtit. Vepra ndërthur filozofi, teologji, poezi dhe histori."
+      },
+      {
+        "subtitle": "Poezia e krijimit",
+        "context": "Poema përshkruan metafizikisht fillimin e gjithësisë me elemente si dheu, qielli, dielli, pa rend apo jetë. Vlerësohet nga Lasgush Poradeci si poezi e krahasueshme me tekstet kozmogonike hebraike e hinduiste."
+      },
+      {
+        "subtitle": "Poezia e Sibilave",
+        "context": "Këngët e Sibilave lidhen me ardhjen e Krishtit dhe paraqesin figuracion poetik të fuqishëm e origjinal. Figura mitike quhen sipas toponimeve shqiptare si Shkodranja, Hasjanja etj. Janë shkruar në formë stancash, me vargje 11-rrokëshe."
+      },
+      {
+        "subtitle": "Poezia përkushtuese",
+        "context": "Përfshin poezi kushtuar vetë Bogdanit dhe figurave të tjera. Ato ndërthurin motive fetare, kombëtare dhe filozofike, duke përfaqësuar Prizrenin, Shkodrën dhe Shkupin si qytete simbol të identitetit kombëtar."
+      }
+    ]
+  },
+  {
+    "title": "Letërsia Arbëreshe",
+    "subtitles": [
+      {
+        "subtitle": "Zhvillimi historik",
+        "context": "Letërsia arbëreshe lindi në Itali pas migrimeve shqiptare, sidomos pas vdekjes së Skënderbeut. Shqiptarët themeluan komunitete në Italinë e Jugut dhe ruajtën gjuhën e zakonet. Letërsia u zhvillua në shekuj si shprehje identiteti."
+      },
+      {
+        "subtitle": "Lekë Matranga dhe 'Dottrina Christiana'",
+        "context": "Lekë Matranga (1560–1619) botoi veprën 'Dottrina Christiana' më 1592, e cila përmban edhe vjershën e parë të shkruar në shqip. Vepra është me vlera gjuhësore, kulturore dhe letrare, e shkruar në toskërishten e hershme."
+      },
+      {
+        "subtitle": "Krijimtaria në shek. XVII-XVIII",
+        "context": "Pas një pauze në shek. XVII, në shek. XVIII letërsia arbëreshe u gjallërua nga poetë si Nikollë Brankanti, Nikollë Filja, Nikollë Keta, dhe veçanërisht Jul Variboba, që hodhi themelet e kësaj letërsie si rrymë letrare më vete."
+      }
+    ]
+  },
+  {
+    "title": "Jul Variboba dhe 'Gjella e Shën Mërisë Virgjër'",
+    "subtitles": [
+      {
+        "subtitle": "Jeta dhe karakteri",
+        "context": "Jul Variboba (1724–1788) lindi në Kalabri, studioi në San Benedeto dhe u bë prift. I pasionuar, shpirtëror dhe rebel, ai jetoi në Romë pas largimit nga vendlindja dhe u nderua për urtësinë e tij."
+      },
+      {
+        "subtitle": "'Gjella e Shën Mërisë Virgjër'",
+        "context": "Vepra e tij përmban dy poema të lidhura dhe shumë vjersha shpirtërore. Poemat 'Shën Mëria' dhe 'Shën Bambini' pasqyrojnë jetën e shenjtorëve përmes një lirie poetike që i sjell ata në realitetin arbëresh. Shkrimi ndërthur prozë dhe poezi, me tone lirike, dramatike e jetësore."
+      },
+      {
+        "subtitle": "Stili dhe rëndësia",
+        "context": "Variboba përdor vargje të llojeve të ndryshme (5–14 rrokëshe), rima të alternuara dhe krijon strukturë poetike origjinale. Figuracioni është emocional dhe befasues. Disa pjesë të vajtimeve të Shën Mërisë arrijnë kulmin e lirikës shqiptare."
+      },
+      {
+        "subtitle": "Vlerësimi kritik",
+        "context": "Vepra ka pasur vlerësime të ndryshme, nga madhështore në mosbesuese, për shkak të gjuhës dialektore dhe formës personale të shkrimit. Por është pranuar si vepra e parë letrare e mirëfilltë në shqip dhe një bazë e rëndësishme e poezisë arbëreshe."
+      }
+    ]
+  },
+  {
+    "title": "Letërsia e Bejtexhinjve",
+    "subtitles": [
+      {
+        "subtitle": "Shpjegim i përgjithshëm",
+        "context": "Letërsia e bejtexhinjve zhvillohet në shek. XVIII në qendrat jugore të Shqipërisë dhe përfaqësohet nga autorë si Muhamed Kyçyku, Nezimi, Sylejman Ramazani dhe Hasan Zyko Kamberi. Kjo është letërsi laike dhe qytetare, pa frymëzime fetare apo atdhetare, me përmbajtje personale dhe shoqërore. Shkrimet përdorin alfabetin arab dhe ndikime turko-arabe. Veprat kanë karakter krijues të ndërgjegjshëm dhe përfaqësojnë autorin si subjekt krijues të vetëdijshëm."
+      },
+      {
+        "subtitle": "Karakteristikat e bejtexhinjve",
+        "context": "Shkrimet nuk trajtojnë tema fetare dhe karakterizohen nga forma letrare të ndërliqshme si divani (Nezimi) dhe poemat (Kyçyku). Për herë të parë autori shfaqet si zë krijues. Veprat u ruajtën në dorëshkrime ose u përhapën gojarisht, shpesh duke humbur autorësinë."
+      }
+    ]
+  },
+  {
+    "title": "Hasan Zyko Kamberi",
+    "subtitles": [
+      {
+        "subtitle": "Jeta dhe krijimtaria",
+        "context": "Lindi në Kolonjë në shek. XVIII. Jetoi në kushte të vështira dhe mori pjesë në luftën turko-austriake. Shkroi shumë vjersha me përmbajtje filozofike, shoqërore dhe personale, kryesisht laike, duke u bërë përfaqësues i parë i krijuesit kritik në letërsinë shqiptare."
+      },
+      {
+        "subtitle": "Lirikat personale",
+        "context": "Vjersha 'Bahti im' dhe 'Lufta mbretërore' trajtojnë fatin personal me tone të ashpra dhe dëshpëruese. Autori shfaq revoltë ndaj jetës dhe vetvetes."
+      },
+      {
+        "subtitle": "Vjersha shoqërore",
+        "context": "Në 'Gjerdeku i vashës' dhe 'Gratë e va', Kamberi portretizon jetën shoqërore dhe psikologjike të individëve, me nuanca mes elegjisë dhe kritikës sociale."
+      },
+      {
+        "subtitle": "Satira sociale",
+        "context": "Vepra si 'Paraja', 'Trahani' dhe 'Munafiku' përshkruajnë degradimin moral të shoqërisë përballë parasë, mungesës së dashurisë dhe hipokrizisë. Paraja shpallet si shkaktare e humbjes së vlerave. Kamberi përdor vargje tetërrokëshe me rimë aaab dhe ndërthur tregimin me poezinë."
+      }
+    ]
+  },
+  {
+    "title": "Muhamed Kyçyku dhe 'Erveheja'",
+    "subtitles": [
+      {
+        "subtitle": "Jeta dhe veprat",
+        "context": "Kyçyku (1784–1844) ishte hoxhë dhe shkrimtar nga Konispoli. Poemat e tij 'Erveheja' dhe 'Jusufi e Zelihaja' janë të vetmet të bejtexhinjve që njihen të botuara të plota, edhe pse në versione të redaktuara."
+      },
+      {
+        "subtitle": "Autenticiteti i teksteve",
+        "context": "Vepra 'Erveheja' kaloi nëpër tre duar redaktimi: e shkruar nga Muhamedi, përfunduar nga Hajdar Gjirokastriti dhe redaktuar nga Jani Vreto, i cili e pastroi nga orientalizmat dhe ruajti strukturën dhe ngjarjen."
+      },
+      {
+        "subtitle": "Përmbajtja e 'Erveheja'",
+        "context": "Poema rrëfen historinë e Ervehesë që përballon sprova për të ruajtur nderin. Pasi refuzon kunatin dhe shpallet e pandershme, ajo përjeton një udhëtim dramatik që përfundon me njohjen e pafajësisë dhe bashkimin me burrin. Rrëfimi është plot me elemente dramatike dhe fantastike që përforcojnë mesazhin moral."
+      },
+      {
+        "subtitle": "Vlerat letrare",
+        "context": "Erveheja është një poemë e organizuar me rrjedhshmëri narrative. Heroina përfaqëson gruan ideale me virtyte të larta. Vepra është pararendëse e poemave me subjekt të lidhur të Rilindjes dhe shpreh filozofi morale për triumfin e të drejtës dhe të vërtetës."
+      }
+    ]
+  },
+  {
+    "title": "Fillimet e Letërsisë Botërore",
+    "subtitles": [
+      {
+        "subtitle": "Lindja e shkrimit dhe letërsisë",
+        "context": "Letërsia filloi si gojore dhe u pasua nga letërsia e shkruar me shpikjen e shkrimit rreth vitit 3500 p.K. Shkrimi u shfaq njëkohësisht në Mesopotami, Egjipt, Indi dhe Kinë. Fillimisht u përdor për qëllime fetare dhe administrative, më vonë për të shprehur mendime dhe ndjenja."
+      },
+      {
+        "subtitle": "Letërsia e Mesopotamisë",
+        "context": "Krijuar nga sumerët në rajonin mes Tigrit dhe Eufratit. Dëshmitë më të hershme janë pllaka argjili me rreth 200,000 libra. Fillimisht përfshinte forma të shkurtra si himne dhe fabula, më pas epet. Vepra më e rëndësishme është Epi i Gilgameshit."
+      },
+      {
+        "subtitle": "Epi i Gilgameshit",
+        "context": "Vepra më e vjetër e njohur e letërsisë, me origjinë gojore dhe të shkruar në pllaka argjili me shkrim kuneiform. Rrëfen jetën e mbretit Gilgamesh të Urukut, miqësinë me Enkidun, kërkimin e pavdekësisë, sfidat me hyjnitë dhe përballjen me vdekjen. Epi eksploron tema si jeta, pavdekësia, natyra njerëzore dhe fantastikja. Gilgameshi është modeli arketipal i heroit epik botëror."
+      }
+    ]
+  },
+  {
+    "title": "Origjina e Miteve",
+    "subtitles": [
+      {
+        "subtitle": "Lindja dhe funksioni i miteve",
+        "context": "Mitet lindën në kohët e lashta si përpjekje për të shpjeguar botën dhe fenomene të panjohura. Ato ishin të mbushura me elemente fantastike, por e pasqyronin realitetin e njerëzve përmes poetizimit. Ngjashmëritë mes miteve të popujve të ndryshëm tregojnë një truall të përbashkët shpirtëror e kulturor."
+      },
+      {
+        "subtitle": "Mitologjia greke",
+        "context": "Mitologjia greke është baza e artit dhe kulturës evropiane. Në qendër nuk ishte perëndia, por njeriu me vetëdije historike. Perënditë greke kishin pamje dhe sjellje njerëzore. Mitet greke përfaqësonin dritë, ngrohtësi dhe një këndvështrim optimist për të panjohurën. Ato u përshkruan për herë të parë në poemat e Homerit (shek. IX p.K.) dhe ndikuan fuqishëm në historinë kulturore të njerëzimit."
+      }
+    ]
+  },
+  {
+    "title": "Letërsia Klasike Greke",
+    "subtitles": [
+      {
+        "subtitle": "Konteksti kulturor",
+        "context": "Kultura klasike greke është themeli i kulturës perëndimore dhe e ka bazën në mitologjinë dhe oralitetin. Letërsia klasike ishte e lidhur ngushtë me strukturat politike dhe shoqërore të kohës, veçanërisht me idetë e demokracisë. Modelet letrare shërbyen si ideale për jetën reale."
+      },
+      {
+        "subtitle": "Zhanret dhe ndikimi",
+        "context": "Letërsia klasike përfshin epikë (Iliada, Odisea), lirikë (Safo, Alkeu, Anakreonti), dhe dramatikë (Eskili, Sofokliu, Euripidi – tragjedi; Aristofani – komedi). Zhanret ishin të ndërlidhura me jetën sociale dhe kishin funksion edukativ dhe estetik. Letërsia klasike u bë model për letërsinë romake, Rilindjen dhe neoklasicizmin."
+      },
+      {
+        "subtitle": "Periudha helenistike",
+        "context": "Pas periudhës klasike, letërsia u zhvillua në Aleksandri ku u krijuan sistemet e para të interpretimit dhe arkivimit të teksteve. Biblioteka e Aleksandrisë ishte qendër kulturore e rëndësishme. Letërsia e kësaj kohe përfshin gjithashtu historiografi, filozofi, dhe ligjërata."
+      }
+    ]
+  },
+  {
+    "title": "Homeri dhe Poezia Lirike",
+    "subtitles": [
+      {
+        "subtitle": "Çështja homerike dhe epopeja",
+        "context": "Autorësia e 'Iliadës' dhe 'Odisesë' i atribuohet Homerit, një figurë legjendare që besohet të ketë jetuar në shek. IX p.e.r. Por ekzistenca e tij është e diskutueshme. Epopeja është një zhanër bazik i epikës klasike dhe karakterizohet nga një ligjërim madhështor dhe mitologji. Rrëfimi përqendrohet rreth një heroi: Akili në 'Iliadën' dhe Uliksi në 'Odisenë'."
+      },
+      {
+        "subtitle": "Struktura dhe narracioni",
+        "context": "Epet janë ndërtuar nga njësi të quajtura këngë. Rrëfimi është kompleks dhe përfshin rrëfim linear dhe retrospektiv. Tek 'Iliada', narratori dominon rrëfimin, ndërsa tek 'Odiseja' rolin e rrëfimtarit e merr Uliksi. Rrëfimi është i pasur me dialogë dhe digresione që e bëjnë tekstin mozaik."
+      },
+      {
+        "subtitle": "Temat kryesore",
+        "context": "'Iliada' fokusohet te lufta dhe zemërimi i Akilit, ndërsa 'Odiseja' trajton temën e kthimit në atdhe dhe besnikërisë bashkëshortore. Lufta e Trojës është baza mitike, mbi të cilën ndërtohen ngjarjet."
+      },
+      {
+        "subtitle": "Ligjërimi heroik dhe fantastik",
+        "context": "Ligjërimi heroik përfaqëson temat, situatat dhe personazhet. Tek 'Iliada' mbizotëron ligjërimi heroik, ndërsa tek 'Odiseja' ai fantastik. Personazhet shpesh janë gjysmëhyjni dhe bota që përshkruajnë është e mbushur me elemente të mbinatyrshme."
+      },
+      {
+        "subtitle": "Poezia lirike",
+        "context": "Poezia lirike është një mënyrë shprehjeje që fokusohet te ndjenjat e brendshme të poetit. Origjina e saj gjendet në ishullin Lesbos. Poetët si Alkeu dhe Safo trajtonin tema intime dhe sociale. Ndër zhanret përmenden ditirambi, himni, odeja dhe elegjia."
+      }
+    ]
+  },
+  {
+    "title": "Gjuha e Prozës dhe e Poezisë",
+    "subtitles": [
+      {
+        "subtitle": "Stili i prozës",
+        "context": "Proza përfshin një gjuhë të pasur që reflekton fusha të ndryshme të jetës. Ajo përdor përshkrime të detajuara për të krijuar autenticitet. Në prozë dallohen rrëfimi, përshkrimi, portretizimi dhe komentet që ndihmojnë në ndërtimin e karaktereve dhe mjedisit."
+      },
+      {
+        "subtitle": "Stili i poezisë",
+        "context": "Poezia është e organizuar në vargje dhe përmban një strukturë tërësore semantike, ritmike dhe fonetike. Ajo ndikon në ndjenjat e lexuesit përmes përzgjedhjes së kujdesshme të fjalëve, figurave letrare dhe ritmit."
+      },
+      {
+        "subtitle": "Analiza e 'Vallja shqiptare'",
+        "context": "Poezia e Kadaresë ka një strukturë fonetike dhe leksikore të kujdesshme, ku përdorimi i metaforave, përsëritjeve dhe emrave natyrorë krijon një përshkrim të gjallë dhe simbolik të valles shqiptare. Poezia ndërthur konkretizimin me abstragimin dhe përmban paralelizma figurativë dhe metafora foljore që krijojnë lëvizje e ndjesi."
+      }
+    ]
+  },
+  {
+    "title": "Figurshmëria e Gjuhës",
+    "subtitles": [
+      {
+        "subtitle": "Koncepti i figurës",
+        "context": "Figura letrare është një shmangie nga normat e zakonshme gjuhësore për të krijuar efekte shprehëse. Ajo klasifikohet në figura fjalësh (trope) dhe figura ndërtimi (sintaksore)."
+      },
+      {
+        "subtitle": "Tropet kryesore",
+        "context": "Metafora bazohet në ngjashmëri mes dukurive; metonimia në afri reale. Krahasimi ndodh kur përballen dy elementë për një cilësi të përbashkët. Epiteti i shtohet emrit për të theksuar një tipar. Sinekdoka përdor një pjesë për të përfaqësuar të tërën. Hiperbola zmadhon, ndërsa litota zvogëlon për efekt shprehës."
+      },
+      {
+        "subtitle": "Figurat sintaksore",
+        "context": "Përfshijnë: asonancën (tinguj zanorë të përsëritur), aliteracionin (bashkëtingëllore), anaforën (përsëritje në fillim të vargjeve), epiforën (përsëritje në fund), onomatopeja (imitim zhurmash), shkallëzimi (rendi përshkallëzues), antiteza (kundërvënie idesh) dhe enumeracioni (numërim elementësh)."
+      }
+    ]
+  },
+  {
+    "title": "Fjalori Poetik dhe Struktura Leksikore",
+    "subtitles": [
+      {
+        "subtitle": "Kuptimi leksikor i fjalës",
+        "context": "Kuptimi leksikor lidhet me funksionin dhe vlerën e fjalës në marrëveshjen gjuhësore. Ai përbëhet nga trekëndëshi fjalë–koncept–send dhe shpreh lidhjen mes fjalës dhe realitetit nëpërmjet konceptit. Dallohen tre nivele: kuptimi i përgjithshëm, kategorial dhe i veçantë."
+      },
+      {
+        "subtitle": "Fjalët shumëkuptimëshe (polisemantike)",
+        "context": "Fjalët me shumë kuptime kanë strukturë kuptimore që përfshin kuptimin kryesor dhe të prejardhur: konkret, abstrakt, figurshëm ose frazeologjik. Kjo shumëkuptimësi është një burim i pasur për shprehësi letrare dhe gjuhësore."
+      },
+      {
+        "subtitle": "Sinonimet, antonimet, homonimet",
+        "context": "Sinonimet kanë kuptim të ngjashëm; antonimet shprehin kuptime të kundërta dhe shërbejnë për ndërtimin e kontrastit (p.sh. antiteza). Homonimet janë fjalë me formë të njëjtë por kuptime krejtësisht të ndryshme dhe ndahen në të plota, të pjesshme, homografe e homofone."
+      },
+      {
+        "subtitle": "Fjalët e veçanta: arkaizma, krahinorizma, huazime",
+        "context": "Këto fjalë përdoren për të pasqyruar kohën, mjedisin, karakterin dhe botën e personazheve. Ato japin ngjyresë stilistike dhe mund të përdoren për qëllime humoristike, satirike ose karakterizuese. Gjithashtu përmenden edhe njësi frazeologjike si burim i pasur shprehësie."
+      }
+    ]
+  },
+  {
+    "title": "Mjetet Shprehëse të Gjuhës Shqipe",
+    "subtitles": [
+      {
+        "subtitle": "Struktura e ligjërimit",
+        "context": "Gjuha ka dy organizime: horizontale (kuptimi i drejtpërdrejtë) dhe vertikale (nënteksti). Domethënia vertikale është nënkuptimi që zbulon mjeshtërinë dhe mendimin e autorit."
+      },
+      {
+        "subtitle": "Mjete fonetike",
+        "context": "Intonacioni dhe theksi ndikojnë në shprehjen subjektive. Onomatopeja dhe simbolizmi tingullor sjellin efekt estetik dhe shprehës në të folur e të shkruar."
+      },
+      {
+        "subtitle": "Mjete morfologjike dhe sintaksore",
+        "context": "Përdorimi i emrave të përveçëm në shumës, rasa rrjedhore pa parafjalë, ndërtime të tipit emër+mbiemër janë disa nga mjetet morfologjike. Në sintaksë përmendet përsëritja, renditja fleksibile e gjymtyrëve dhe ndërtimet paralele."
+      },
+      {
+        "subtitle": "Leksiku si burim shprehësie",
+        "context": "Polisemia, sinonimia, antonimia, homonimia, arkaizmat dhe frazeologjia janë fusha të pasura që kontribuojnë në shprehësinë e gjuhës shqipe në nivele të ndryshme të komunikimit."
+      }
+    ]
+  },
+  {
+    "title": "Gjuha Letrar dhe Sistemi i Stileve",
+    "subtitles": [
+      {
+        "subtitle": "Stilistikë dhe ligjërime",
+        "context": "Gjuha letrare përfshin stile dhe ligjërime të ndryshme: i folur dhe i shkruar. Ajo është baza neutrale që përvetëson variacionin për shprehësi stilistike. Studimi i saj bëhet nga stilistika gjuhësore."
+      },
+      {
+        "subtitle": "Stili shoqëroro-politik",
+        "context": "Përdoret në veprimtari politike dhe shoqërore, karakterizohet nga fjalor i zgjedhur, shprehje ndërkombëtare dhe struktura të ngurta frazeologjike. Përfshin fjalë si demokraci, pluralizëm politik, forum, debat politik, etj."
+      },
+      {
+        "subtitle": "Stili tekniko-shkencor",
+        "context": "Karakterizohet nga saktësi dhe terma të specializuar që përfaqësojnë fusha të ndryshme si kimia, biologjia, teknologjia. Përdoren shprehje si për arsye se, ushtron ndikim, terma ndërkombëtarë dhe ndërtimet e pasive."
+      },
+      {
+        "subtitle": "Stili shtetëroro-administrativ",
+        "context": "Lidhet me gjuhën e ligjeve, dokumenteve dhe rregulloreve. Përdor fjalor të kufizuar, fraza të qëndrueshme, periudha të gjata, dhe shmang fjalët emocionale e dialektore. Shembuj: procesverbal, për dijeni, sipas nenit etj."
+      }
+    ]
+  },
+  {
+    "title": "Baza Dialektore e Shqipës Standarde",
+    "subtitles": [
+      {
+        "subtitle": "Zhvillimi historik i gjuhës letrare",
+        "context": "Gjuha standarde shqipe është ndërtuar kryesisht mbi bazën e toskërishtes në aspektin fonetik dhe gramatikor, ndërsa gegërishtja kontribuon në leksik. U përzgjodh toskërishtja për faktin se në kohën e Rilindjes ishte më e zhvilluar. Krahasimi me gjuhët e tjera evropiane tregon se shqipja letrare ka mbështetje të gjerë në ligjërimin popullor."
+      },
+      {
+        "subtitle": "Etapat kryesore",
+        "context": "Pikat kyçe për standardizimin përfshijnë: Kongresi i Manastirit (1908) për alfabetin; Komisia Letrare e Shkodrës (1916-1918) për drejtshkrimin; Konsulta e Prishtinës (1968) për njësimin gjithëshqiptar dhe Kongresi i Drejtshkrimit (1972), që përfundoi me kodifikimin e drejtshkrimit. Më pas, konferencat shkencore ndërkombëtare të viteve 1992 dhe 2002 riafirmuan rëndësinë e gjuhës standarde për identitetin kombëtar."
+      },
+      {
+        "subtitle": "Dialektet kryesore dhe të folmet kalimtare",
+        "context": "Shqipja ndahet në toskërisht dhe gegërisht, të ndara nga lumi Shkumbin. Dialektet ndryshojnë në fonetikë (p.sh. rotacizmi, hundoret), gramatikë (forma foljore, përemra, paskajore) dhe leksik. Të folmet kalimtare në zonën e Shkumbinit përmbajnë elementë nga të dy dialektet pa u klasifikuar si të veçanta."
+      }
+    ]
+  },
+  {
+    "title": "Onomastika – Emrat dhe Historitë e Tyre",
+    "subtitles": [
+      {
+        "subtitle": "Çfarë është onomastika?",
+        "context": "Onomastika është shkenca që studion emrat vetjakë (antroponimet) dhe emrat e vendeve (toponimet). Ajo është thelbësore për historinë gjuhësore dhe etnike të shqiptarëve. Emrat si Bardhyli, Bardha etj., lidhen me fjalë të gjuhës shqipe dhe provojnë lidhje ilire."
+      },
+      {
+        "subtitle": "Toponimet dhe klasifikimi i tyre",
+        "context": "Toponimet ndahen në oikonime (vende të banuara), hidronime (ujëra) dhe oronime (male, kodra, etj.). Ato ndahen në makro (vende të mëdha) dhe mikro (vende të vogla). Emërtimet bartin dëshmi të lashtësisë dhe ndikimeve të pushtuesve. Mikrotoponimet shqiptare kanë qëndruar të pandryshuara."
+      },
+      {
+        "subtitle": "Hidronimet dhe uji në emërtime",
+        "context": "Hidronimet si Buna, Drini, Vjosa, e të tjera kanë origjinë të lashtë ilire. Fjalët krua, burim, përrua, liqen përdoren për mikrohidronime. Në to ruhet fjala shqipe për ujë: ujë, uja etj."
+      },
+      {
+        "subtitle": "Antroponimet shqiptare",
+        "context": "Emrat vetjakë ndahen në dy grupe: me burim vendas (ilirë, shqiptarë) dhe të huaj (fetare, kulturore). Në shek. XX ka pasur një rritje të madhe të emrave të huaj, që shpesh dobësojnë ndjenjën e përkatësisë kombëtare."
+      }
+    ]
+  },
+  {
+    "title": "Letërsia Shqiptare në Gjysmën e Parë të Shek. XX",
+    "subtitles": [
+      {
+        "subtitle": "Modernizmi dhe autorët kryesorë",
+        "context": "Periudha nis pas vdekjes së Naim Frashërit më 1900 dhe përfshin figura si Fishta, Noli, Lasgushi, Migjeni, Koliqi, Kuteli. Letërsia lë pas ideologjinë romantike dhe përqafon idetë shoqërore e njerëzore. Modernizmi sjell forma të reja dhe vetëdije estetike."
+      },
+      {
+        "subtitle": "Format letrare",
+        "context": "Lirika ndryshon nga poezia romantike në struktura, vargje të lira dhe temat moderne. Proza zhvillohet me tregime dhe romane të thelluara psikologjikisht. Drama përparon nga temat atdhetare në filozofike. Fishta është figurë që lidh romantizmin me modernizmin."
+      },
+      {
+        "subtitle": "Fillimet e kritikës letrare",
+        "context": "Faik Konica është themeluesi i kritikës shqiptare. Noli, Fishta, Çabej, Maloki, Kuteli kontribuojnë me vlerësime dhe analiza. Në vitet '30 lindin qasje të reja si ajo historiko-kulturore, psikanalitike dhe sociale. Krijohet një vetëdije për studimin dhe interpretimin e veprës letrare."
+      },
+      {
+        "subtitle": "Qarku historik-kulturor",
+        "context": "Letërsia zhvillohet në kontekstin e shpalljes së pavarësisë, Luftës së Parë dhe të Dytë Botërore, revolucionit të vitit 1924 dhe ndikimeve të ndryshme kulturore. Letërsia reflekton shqetësimet kombëtare dhe shoqërore të kohës."
+      },
+      {
+        "subtitle": "Vitet '20 dhe '30",
+        "context": "Në vitet '20 mbizotëron ende romantizmi (Floqi, Stërmilli, Haxhiademi), ndërsa në vitet '30 zhvillohet kultura revistore dhe letërsia kritike. Krijues si Marko, Shuteriqi, Bulka e të tjerë shprehin frymë moderniste dhe shqetësime sociale."
+      },
+      {
+        "subtitle": "Vitet 1940–1944",
+        "context": "Letërsia është e angazhuar dhe e lidhur me Luftën Nacionalçlirimtare. Shkrimtarë si Marko, Musaraj, Shuteriqi, Kodra dhe Pipa shkruajnë vepra me frymë patriotike. Shfaqen autorë të rinj si Musine Kokalari dhe Anton Harapi, që risin dimensionet artistike e tematike të letërsisë shqiptare."
+      }
+    ]
+  },
+  {
+    "title": "Gjergj Fishta dhe Lahuta e Malcis",
+    "subtitles": [
+      {
+        "subtitle": "Biografia dhe kontributi",
+        "context": "Gjergj Fishta (1871–1940) ishte figura më e rëndësishme e letërsisë shqiptare për gjysmën e parë të shek. XX. Ai qe poet, satirik, dramatist, eseist, dhe veprimtar kulturor. Ishte bashkëthemelues i 'Bashkimit', drejtues i Kongresit të Manastirit, dhe themelues i revistës 'Hylli i Dritës'. Përfaqësoi Shqipërinë në Konferenca Ndërkombëtare dhe mori dekorata të shumta. Vepra e tij shënon kulmin e letërsisë shqiptare klasike."
+      },
+      {
+        "subtitle": "Vepra letrare",
+        "context": "Krijimtaria e Fishtës përfshin eposin kombëtar 'Lahuta e Malcis', vepra satirike si 'Anzat e Parnasit' dhe 'Gomari i Babatasit', lirika si 'Mrizi i Zanave', si dhe dramat 'Juda Makabe' dhe 'Jerina'. Ai përdori gjuhën popullore, frazeologjinë tradicionale, dhe figuracionin e pasur për të krijuar një letërsi kombëtare me rrënjë të thella kulturore."
+      },
+      {
+        "subtitle": "Lahuta e Malcis",
+        "context": "Kryevepra e tij epike përbëhet nga 30 këngë me rreth 17,000 vargje. E ndërtuar mbi tre tipe këngësh (historike, kreshnike, autoriale), vepra përfshin heronj të shumtë si Oso Kuka, Tringa, Abdyl Frashëri etj. Ajo përshkruan qëndresën shqiptare nga fundi i shek. XIX deri në Konferencën e Londrës (1913). Vepra mbështetet në mitologjinë dhe folklorin shqiptar dhe arrin dimensione të mëdha lirike dhe dramatike."
+      },
+      {
+        "subtitle": "Stili dhe ndikimi",
+        "context": "Fishta ndërthurte lirikën, ironinë dhe hiperbolën për të ngritur një vepër epike kombëtare, ku figura si Tringa shfaqin dimensione të reja të femrës shqiptare. Ai përdori tetërrokëshin popullor dhe një gjuhë të fuqishme emocionale. 'Lahuta' ishte pritur si vepër popullore dhe u bë një model letrar i pavdekshëm, që e ngre qenësinë shqiptare në përjetësi."
+      }
+    ]
+  },
+  {
+    "title": "Faik Konica dhe Modernizmi Kulturor",
+    "subtitles": [
+      {
+        "subtitle": "Jeta dhe kontributi",
+        "context": "Faik Konica (1875–1942) ishte një nga figurat më të ditura të kohës së tij dhe themelues i modernitetit shqiptar. Studioi në Stamboll, Francë dhe SHBA, ku u diplomua në Harvard. Ai ishte drejtues i revistës 'Albania', kryetar i shoqatës 'Vatra', redaktor i gazetës 'Dielli', dhe ambasador në SHBA. Ai punoi për një identitet kombëtar të bazuar në kulturë të pastruar nga ndikimet e huaja."
+      },
+      {
+        "subtitle": "Kritika dhe proza moderne",
+        "context": "Konica ishte themelues i kritikës letrare dhe prozës moderne shqiptare. Krijoi stilin e tij të shkrimit, i cili ishte ironik, i hollë dhe plot kulturë. Ai e ndante me qartësi krijimtarinë artistike nga ajo atdhetare. Ndër veprat më të rëndësishme janë: 'Një ambasadë e Zulluve në Paris', 'Dr. Gjilpëra', 'Shqipëria si m’u duk'."
+      },
+      {
+        "subtitle": "Romani 'Dr. Gjilpëra'",
+        "context": "Romani i papërfunduar 'Dr. Gjilpëra' është një satirë e shoqërisë shqiptare të viteve ’20. Heroi, një intelektual i kthyer nga Perëndimi, përballet me prapambetjen dhe shtresat e korruptuara të shoqërisë shqiptare. Vepra përshkruan përplasjen midis kulturës perëndimore dhe realitetit ballkanik, duke përdorur ironi, satirë dhe gjuhë të pasur shqipe. Konica përfaqëson idenë e shoqërisë që duhet të përparojë përmes kulturës e dijes."
+      }
+    ]
+  },
+  {
+    "title": "Fan S. Noli – Shkrimtari dhe Udhëheqësi Kulturor",
+    "subtitles": [
+      {
+        "subtitle": "Biografia dhe misioni",
+        "context": "Fan Noli (1882–1965) ishte prift, politikan, shkrimtar, historian, përkthyes dhe muzikolog. U lind në Ibrik-Tepe, studioi në Evropë dhe SHBA dhe shërbeu si kryeministër i Shqipërisë më 1924. Vepra e tij kulturore dhe politike mbeti e ndikuar nga idealizmi dhe përkushtimi ndaj kombit shqiptar. Ndërroi jetë në SHBA ku edhe u varros."
+      },
+      {
+        "subtitle": "Veprimtaria kulturore dhe kombëtare",
+        "context": "Noli kontribuoi në pavarësimin e Kishës Ortodokse Shqiptare, në diplomacinë ndërkombëtare (Lidhja e Kombeve, 1920), dhe në Revolucionin Demokratik të vitit 1924. Ai mbetet figurë unike që ndërthur udhëheqjen shpirtërore me angazhimin politik dhe intelektual."
+      },
+      {
+        "subtitle": "Përkthimet dhe kritika letrare",
+        "context": "Noli përktheu autorë si Shekspiri, Longfellow, Ibseni, Cervantesi, Khajami, duke ndërtuar një urë mes letërsisë botërore dhe realitetit shqiptar. Parathëniet e tij janë kritika të thella që hapin dialogë mes kulturave. Ai është vlerësuar si përkthyes i dorës së parë nga personalitete ndërkombëtare."
+      },
+      {
+        "subtitle": "Studimet dhe trashëgimia",
+        "context": "Vepra 'Historia e Skënderbeut' dhe 'Bethoveni dhe Revolucioni Francez' janë shembuj të kontributit të tij në historiografi dhe muzikologji. Ai konsiderohet nismëtar i shkencës së re shqiptare dhe figurë themelore e letërsisë dhe historiografisë shqiptare të shek. XX."
+      }
+    ]
+  },
+  {
+    "title": "Ali Asllani dhe Poezia Satiriko-Lirike",
+    "subtitles": [
+      {
+        "subtitle": "Jeta dhe vepra",
+        "context": "Ali Asllani (1882–1966), autor i poemës 'Hanko Halla', është njohur për poezinë lirike që i këndon dashurisë dhe realitetit shoqëror. Lindi në Vlorë, studioi në Janinë dhe Stamboll, dhe punoi në administratën shtetërore. Ka qenë sekretar i Qeverisë së Ismail Qemalit dhe ambasador në Sofje e Athinë. Krijimet i botoi kryesisht në revista. Vepra e plotë u përmblodh pas vdekjes në Prishtinë (1984)."
+      },
+      {
+        "subtitle": "Poezia e Asllanit",
+        "context": "Asllani përdor vargun popullor për të shprehur ndjenjat e tij. Lirika e dashurisë përmban elemente elegjiake, krahasime me natyrën, si dhe tone humori. Ai gjykon me satirë veset shoqërore, kryesisht të pushtetarëve. Vjershat më të njohura: 'Katër stina katër çapa', 'Vlora, Vlora', 'Zonja Lu', 'Hakërrim'. Tallja dhe ironia janë mjete të fuqishme stilistike."
+      },
+      {
+        "subtitle": "Hanko Halla",
+        "context": "Kryevepra e tij, një poemë humoristike e botuar më 1933, trajton përplasjen midis brezave dhe kulturave (tradicionale vs moderne). Protagonistja Hanko Halla flet në monolog dhe përfaqëson botën e vjetër, ndërsa nusja simbolizon rininë e re. Vepra përdor vargje dymbëdhjetërrokëshe me rimë të puthur dhe humor të hollë. Halla kritikon ndryshimet sociale dhe barazinë gjinore me ironi dhe dhimbje të brendshme."
+      }
+    ]
+  },
+  {
+    "title": "Ali Asllani dhe Poezia Satiriko-Lirike",
+    "subtitles": [
+      {
+        "subtitle": "Jeta dhe vepra",
+        "context": "Ali Asllani (1882–1966), autor i poemës 'Hanko Halla', është njohur për poezinë lirike që i këndon dashurisë dhe realitetit shoqëror. Lindi në Vlorë, studioi në Janinë dhe Stamboll, dhe punoi në administratën shtetërore. Ka qenë sekretar i Qeverisë së Ismail Qemalit dhe ambasador në Sofje e Athinë. Krijimet i botoi kryesisht në revista. Vepra e plotë u përmblodh pas vdekjes në Prishtinë (1984)."
+      },
+      {
+        "subtitle": "Poezia e Asllanit",
+        "context": "Asllani përdor vargun popullor për të shprehur ndjenjat e tij. Lirika e dashurisë përmban elemente elegjiake, krahasime me natyrën, si dhe tone humori. Ai gjykon me satirë veset shoqërore, kryesisht të pushtetarëve. Vjershat më të njohura: 'Katër stina katër çapa', 'Vlora, Vlora', 'Zonja Lu', 'Hakërrim'. Tallja dhe ironia janë mjete të fuqishme stilistike."
+      },
+      {
+        "subtitle": "Hanko Halla",
+        "context": "Kryevepra e tij, një poemë humoristike e botuar më 1933, trajton përplasjen midis brezave dhe kulturave (tradicionale vs moderne). Protagonistja Hanko Halla flet në monolog dhe përfaqëson botën e vjetër, ndërsa nusja simbolizon rininë e re. Vepra përdor vargje dymbëdhjetërrokëshe me rimë të puthur dhe humor të hollë. Halla kritikon ndryshimet sociale dhe barazinë gjinore me ironi dhe dhimbje të brendshme."
+      }
+    ]
+  },
+  {
+    "title": "Mitrush Kuteli – Themelues i Prozës Moderne Shqiptare",
+    "subtitles": [
+      {
+        "subtitle": "Jeta dhe veprimtaria",
+        "context": "Mitrush Kuteli (Dhimitër Pasko, 1907–1967) ishte ekonomist, studiues, përkthyes dhe prozator. Studioi në Selanik dhe Bukuresht, ku u diplomua për ekonomi. Pas kthimit në Shqipëri punoi në Bankën e Shqipërisë, u arrestua për bindjet e tij dhe më pas punoi si përkthyes. Vdiq në Tiranë më 1967."
+      },
+      {
+        "subtitle": "Krijimtaria letrare",
+        "context": "Veprat kryesore: 'Netët shqiptare', 'Kapllan Aga i Shaban Shpatës', 'Pylli i Gështenjave', 'Xinxifillua', 'Tregime të moçme shqiptare'. Kuteli përdor rrëfimin si një ndërthurje mes gojëdhënave dhe gjuhës së shkruar. Proza e tij fokusohet në jetën fshatare, hakmarrjen, kurbetin, bejlerët dhe kaçakët, duke u thelluar në analizën shpirtërore të individit shqiptar."
+      },
+      {
+        "subtitle": "Stili dhe temat",
+        "context": "Proza e Kutelit karakterizohet nga ndërthurja e stilit gojor me atë letrar, ndërhyrje autoriale, përshkrime të thella psikologjike dhe analiza shoqërore. Ai trajton dashurinë, hakmarrjen, shpirtin e të mërguarit dhe figura si kaçaku si heronj moralë. Përkthyes i madh, ai solli në shqip kryevepra botërore nga autorë si Gogoli, Neruda, Krillov."
+      }
+    ]
+  },
+  {
+    "title": "Migjeni – Zëri i Dhembjes dhe Rebelimit",
+    "subtitles": [
+      {
+        "subtitle": "Jeta dhe krijimtaria",
+        "context": "Millosh Gjergj Nikolla, i njohur si Migjeni (1911–1938), jetoi një jetë të shkurtër por me ndikim të thellë në letërsinë shqiptare. Studioi në Manastir dhe punoi si mësues në Pukë, ku ndikuan ndjeshëm përjetimet e tij shoqërore. Migjeni botoi më 1936 përmbledhjen 'Vargjet e lira', e cila u ndalua nga censura dhe u ribotua vetëm pas vdekjes më 1944. Ai ishte një zë origjinal i viteve ’30 që nuk i përkiste asnjë shkolle letrare tradicionale."
+      },
+      {
+        "subtitle": "Vargjet e lira",
+        "context": "Përmbledhja përmban cikle të ndara si: 'Kangët e ringjalljes', 'Kangët e mjerimit', 'Kangët e përndimit', etj. Titulli nënkupton lirinë formale dhe tematike të poezisë. Ajo trajton tema shoqërore, eksistenciale dhe pesimiste duke sfiduar poezinë tradicionale shqiptare. Shprehjet si 'djep e vorr i këngës' apo 'shqiponjë me krah të thyem' përshkruajnë ndjeshmërinë, rebelimin dhe tragjizmin e poetit. Migjeni ndërthur revoltën dhe tërheqjen, realen dhe simboliken, duke mbetur një figurë unike e letërsisë shqiptare."
+      }
+    ]
+  },
+  {
+    "title": "Esad Mekuli – Poeti i Lirisë dhe i Jetës Shqiptare",
+    "subtitles": [
+      {
+        "subtitle": "Jeta dhe veprimtaria",
+        "context": "Esad Mekuli (1916–1993) lindi në Plavë dhe studioi në Zagreb, Beograd dhe Itali. U diplomua për veterinari por jetën ia kushtoi letërsisë, përkthimeve dhe gazetarisë. Ai ishte kryeredaktor i revistës 'Jeta e Re' dhe mbështetës i brezave të rinj letrarë në Kosovë. Përkthyes i dhjetëra veprave botërore, Mekuli u bë një figurë qendrore e kulturës kosovare."
+      },
+      {
+        "subtitle": "Krijimtaria poetike",
+        "context": "E gjithë vepra letrare e Mekulit është në poezi. Libri i tij më i rëndësishëm 'Për ty' (1955) u bë një libër kult dhe përmban ciklet: 'Në hijen e robnís', 'Flamujt e shpaluem' dhe 'Jeta e Re'. Mekuli e ndan poezinë në tri faza: intime, luftëtare dhe ideologjike. Ai përdor një stil të thjeshtë, por të thellë emocionalisht, duke ndikuar në mënyrë të dukshme letërsinë shqipe të Kosovës."
+      }
+    ]
+  },
+  {
+    "title": "Sterjo Spasse dhe Romani Modern Shqiptar",
+    "subtitles": [
+      {
+        "subtitle": "Jeta dhe vepra",
+        "context": "Sterjo Spasse (1914–1989) ishte shkrimtar, pedagog, përkthyes dhe publicist. Studioi në Elbasan dhe më vonë në Firence për pedagogji. Ai botoi që herët në revista e gazeta dhe u dallua me romanin 'Pse?!' në vitin 1935, ndjekur nga 'Afërdita' (1944). Gjatë jetës botoi shumë vepra që prekin tema shoqërore, psikologjike dhe historike."
+      },
+      {
+        "subtitle": "Romani 'Pse?!'",
+        "context": "'Pse?!' është romani i parë modern dhe shoqëror në letërsinë shqipe. Shkruar si ditar, rrëfen dramën shpirtërore të Gjon Zaverit – një djalosh i ditur e i bukur që vetëvritet nga mospajtimi me realitetin patriarkal të fshatit. Romani eksploron mendimin filozofik, izolimin shoqëror dhe pamundësinë për ndryshim. Ai shfaq dilemat rreth dashurisë, lirisë dhe ekzistencës përmes një forme introspektive dhe analitike, duke u bërë një vepër kyç e prozës moderne shqiptare."
+      }
+    ]
+  },
+  {
+    "title": "Letërsia Botërore e Shekullit XIX",
+    "subtitles": [
+      {
+        "subtitle": "Realizmi dhe Natyralizmi",
+        "context": "Realizmi paraqet realitetin me saktësi dhe objektivitet. U përhap nga Franca në të gjithë Evropën dhe SHBA. Shkrimtarë si Balzaku, Stendali, Zolai dhe Dikensi janë përfaqësues të rëndësishëm. Natyralizmi, degë e realizmit, e mbështet artin në baza shkencore, duke theksuar ndikimin e racës, mjedisit dhe momentit."
+      },
+      {
+        "subtitle": "Shkrimtarët realistë",
+        "context": "Balzaku me 'Komedia njerëzore' dhe Stendali me 'E kuqja dhe e zeza' e përforcuan realizmin. Zolai themeloi natyralizmin me ciklin 'Rugon-Makarët'. Realizmi rus u përfaqësua nga Turgenievi, Dostojevski dhe Tolstoi. Letërsia amerikane nisi më vonë, ndërsa teatri realist u zhvillua nga Ibseni, Strindbergu dhe Çehovi."
+      },
+      {
+        "subtitle": "Simbolizmi dhe shkrimtarët simbolistë",
+        "context": "Simbolizmi lindi si reagim ndaj realizmit. U shfaq fillimisht në Francë me poetë si Verleni, Malarmeja, Bodëleri dhe Rimbaud. Poezia simboliste shmang përshkrimin e drejtpërdrejtë dhe sugjeron përjetime të brendshme. Simbolistët i dhanë rëndësi formës, muzikës dhe përjetimeve estetike elitariste."
+      },
+      {
+        "subtitle": "Estetika realiste dhe simboliste",
+        "context": "Realizmi synon një raport të drejtëpërdrejtë me realitetin dhe përqendrohet në pasqyrimin e tij me vërtetësi. Realistët si Balzaku, Stendali dhe Floberi përpunuan parime mbi tipizimin, objektivitetin dhe gjuhën e qartë. Simbolizmi, përkundrazi, thekson tërheqjen drejt misterit, intuitës dhe nënvetëdijes, duke krijuar poezi që evokon, jo përshkruan."
+      }
+    ]
+  },
+  {
+    "title": "Honoré de Balzac – Babai i Romanit Modern",
+    "subtitles": [
+      {
+        "subtitle": "Biografia dhe krijimtaria",
+        "context": "Balzaku (1799–1850) ishte figurë qendrore e prozës realiste franceze. Braktisi drejtësinë për t’iu përkushtuar letërsisë. Veprat e tij si 'Lëkura e Shagrenit', 'Evgjeni Grande', 'Xha Gorioi', etj., u përfshinë në përmbledhjen madhore 'Komedia njerëzore'. Ai përshkroi me mjeshtëri shoqërinë franceze, duke përdorur romanin si mjet analize sociale."
+      },
+      {
+        "subtitle": "Xha Gorioi",
+        "context": "'Xha Gorioi' paraqet një pension në Paris si mikrosistem shoqëror. Personazhet përfaqësojnë shtresa e vlera të ndryshme. Xha Gorioi është baba tragjik që sakrifikohet për bijat e tij mosmirënjohëse. Rënia e tij simbolizon rënien morale të shoqërisë. Rastinjaku përfaqëson të riun që shndërrohet në oportunist në rrugën drejt suksesit."
+      },
+      {
+        "subtitle": "Stili i Balzakut",
+        "context": "Stili i Balzakut shquhet për ndërlidhjen strukturale të personazheve dhe temave, përshkrime të hollësishme që shërbejnë për zbërthimin psikologjik të heronjve. Ai përdor linja paralele dhe kthime të ideve për të ndërtuar një botë letrare të ndërthurur. Realizmi i tij përshkon gjithë përbërësit e romanit, duke e bërë të pavdekshëm në historinë e letërsisë."
+      }
+    ]
+  },
+  {
+    "title": "Fjodor Dostojevski – Mjeshtri i Psikologjisë dhe Dramës",
+    "subtitles": [
+      {
+        "subtitle": "Biografia",
+        "context": "Dostojevski (1821–1881) u lind në një spital për të varfërit. Jeta e tij u ndikua nga humbje personale, varfëri, burg në Siberi dhe sëmundje. Arrestohet për ide progresiste dhe shpëton për pak nga pushkatimi. Përjetimet në burg dhe vuajtjet ndikuan thellësisht në veprën e tij."
+      },
+      {
+        "subtitle": "Veprat kryesore",
+        "context": "Krijimtaria ndahet në tri periudha: novelat si 'Netë të bardha', romane filozofike si 'Krim e ndëshkim', 'Idioti', 'Djajtë', 'Vëllezërit Karamazovë'. Romani 'Shënime nga nëntoka' konsiderohet prolog për romanet madhore."
+      },
+      {
+        "subtitle": "Krim e Ndëshkim",
+        "context": "Raskolnikovi, student i varfër, vret një plakë fajdexheshë për të shpëtuar nga varfëria, por ndëshkimi moral dhe psikologjik e ndjek deri në fund. Ai rrëfehet te Sonja, një vajzë që përfaqëson shpresën e shpirtit njerëzor. Romani mbështetet mbi tri njësi klasike: koha (9 ditë), vendi (Sheshi i Senës), veprimi (krimi dhe rrëfimi)."
+      },
+      {
+        "subtitle": "Personazhet dhe temat",
+        "context": "Raskolnikovi është i dyzuar ndërmjet logjikës dhe ndjeshmërisë. Sonja është shpirti i pastër që përfaqëson faljen. Svidrigajllovi është shëmbëlltyra e errësirës. Teoria e mbinatyrshme e Raskolnikovit mbi njerëzit e zakonshëm dhe të jashtëzakonshëm e shtyn drejt krimit. Tema qendrore është humbja dhe rilindja e shpirtit përmes pendesës."
+      }
+    ]
+  },
+  {
+    "title": "Sharl Bodler – Poeti i Mallkuar",
+    "subtitles": [
+      {
+        "subtitle": "Jeta dhe krijimtaria",
+        "context": "Sharl Bodler (1821–1867), i njohur si 'poeti i mallkuar', ishte një figurë qendrore në lindjen e poezisë moderne. I frymëzuar nga Edgar Poe, ai pati një jetë të trazuar dhe ndjeshmëri të thellë ndaj artit dhe shpirtit njerëzor. Vepra e tij më e njohur është 'Lulet e së keqes', një përmbledhje poetike që solli skandal dhe revolucion estetik."
+      },
+      {
+        "subtitle": "Lulet e së keqes",
+        "context": "Përmban rreth 150 poezi të ndara në cikle si 'Splin dhe Ideal', 'Tablo pariziane', 'Revoltë', dhe 'Vdekja'. Temat përfshijnë dashurinë, mëkatin, dëshpërimin, epshin, vdekjen dhe djallëzoren. Libri ka një strukturë të ngjashme me poemën ose romanin dhe përfaqëson vëllimin e vetëm poetik të Bodlerit, që ai e quante vepër të jetës."
+      },
+      {
+        "subtitle": "Spleen dhe Ideal",
+        "context": "Ky nëntitull përfaqëson dualizmin mes dëshpërimit dhe aspiratës. Spleen simbolizon melankolinë, hiçin dhe dëshpërimin, ndërsa Ideali përfaqëson ëndrrat dhe shpëtimin shpirtëror. Parisi është mjedisi simbolik që ushqen këtë tension."
+      },
+      {
+        "subtitle": "E Bukura dhe e Keqja",
+        "context": "Bodleri sfidon lidhjen midis të bukurës dhe moralit, duke e parë të bukurën si autonome. 'Lulet e së keqes' përfaqësojnë estetizimin e mëkatit dhe të keqes. Poezitë e tij shpesh përfshijnë imazhe të sëmura, djallëzore dhe provokuese, si në 'Një kërmë'."
+      },
+      {
+        "subtitle": "Femra dhe dashuria",
+        "context": "Femra në poezinë e Bodlerit është një figurë dualiste: engjëll dhe djall, nënë dhe dashnore, hyjni dhe tundim. Në ciklet poetike, ajo trajtohet si burim joshjeje, dhimbjeje dhe frymëzimi."
+      },
+      {
+        "subtitle": "Simbolika e udhëtimit",
+        "context": "Poezia e Bodlerit paraqet një udhëtim shpirtëror përmes realitetit të hidhur, idealit, djallit, dhe në fund – vdekjes. Udhëtimi poetik është simbolik për kërkimin e shpëtimit ose kuptimit në një botë të shthurur."
+      }
+    ]
+  },
+  {
+    "title": "Letërsia Shqiptare në Gjysmën e Dytë të Shek. XX",
+    "subtitles": [
+      {
+        "subtitle": "Konteksti historik",
+        "context": "Pas Luftës së Dytë Botërore, letërsia shqiptare u ndikua fort nga realizmi socialist dhe ndarja politike. Letërsia zhvillohej në Shqipëri, në trojet shqiptare në Jugosllavi (Kosovë, Maqedoni), dhe në diasporë, shpesh e izoluar dhe e censuruar."
+      },
+      {
+        "subtitle": "Zhvillimi i letërsisë brenda Shqipërisë",
+        "context": "Letërsia e viteve '50–'80 kaloi nga skematizmi drejt emancipimit estetik. Autorë si Petro Marko, Ismail Kadare, Jakov Xoxa, Dritëro Agolli dhe Fatos Arapi sollën risi në tematikë dhe formë. Poezia e viteve ’60 u çlirua nga modelet e vjetra dhe solli një valë të re krijuesish."
+      },
+      {
+        "subtitle": "Disidenca letrare",
+        "context": "Shumë shkrimtarë si Sejfulla Malëshova, Kasëm Trebeshina, Bilal Xhaferi, dhe Visar Zhiti u censuruan, burgosën ose u arratisën për shkak të bindjeve të tyre. Ata sollën në letërsi temat tabu, lirizmin human dhe frymën e rezistencës."
+      },
+      {
+        "subtitle": "Letërsia në Kosovë dhe Maqedoni",
+        "context": "E zhvilluar jashtë kontaktit me letërsinë shqiptare në Shqipëri, u mbështet fillimisht në traditën gojore. Emra të njohur përfshijnë Esat Mekulin, Din Mehmetin, Ali Podrimjan, Azem Shkrelin, Anton Pashkun, Rexhep Qosjen, etj."
+      },
+      {
+        "subtitle": "Letërsia në diasporë",
+        "context": "Autorë arbëreshë si Vorea Ujko, Karmell Kandreva, Zef Skiro Di Maxhio dhe Viktor Eftimiu kontribuan me vepra të rëndësishme. Ndërkohë, shkrimtarë si Martin Camaj dhe Arshi Pipa ndërtuan vepra të mëdha jashtë Shqipërisë, kryesisht në Gjermani dhe SHBA."
+      },
+      {
+        "subtitle": "Poezia bashkëkohore",
+        "context": "Poezia u modernizua dhe individualizua pas viteve ’60, me emra si Kadare, Arapi, Agolli, Frederik Rreshpja, Mimoza Ahmeti etj. Në Kosovë e Maqedoni, gjuha poetike u pasurua me metafora, ironi dhe alegori duke sfiduar censurën përmes formës artistike."
+      },
+      {
+        "subtitle": "Proza",
+        "context": "Romani shqiptar nga skematizmi kaloi në risi përmes veprave të Kadaresë, Jakov Xoxës, dhe Dritëro Agollit. Letërsia shqiptare ndërtoi një korpus të pasur dhe të ndërlikuar që pasqyronte jetën nën diktaturë, luftën dhe transformimin e realitetit kombëtar."
+      }
+    ]
+  },
+  {
+    "title": "Petro Marko – Zëri i Lirisë dhe Humanizmit",
+    "subtitles": [
+      {
+        "subtitle": "Jeta dhe veprimtaria",
+        "context": "Petro Marko (1913–1991) ishte një nga figurat më të rëndësishme të letërsisë shqiptare. Ai mori pjesë në Luftën e Spanjës, në lëvizjet antifashiste në Evropë dhe në luftën kundër pushtimit në Shqipëri. U përndoq nga regjimi komunist për bindjet e tij. Ai është një figurë që mishëron bashkimin e jetës dhe artit."
+      },
+      {
+        "subtitle": "Veprat kryesore",
+        "context": "Romani 'Hasta la Vista' (1958) është një kryevepër që flet për Luftën e Spanjës dhe dashurinë mes Gorit dhe Anitës. 'Qyteti i fundit' (1960) dhe 'Nata e Ustikës' (1989) trajtojnë periudha të ndryshme të jetës së autorit dhe ngjarje historike. 'Intervistë me vetveten' është një rrëfim autobiografik që reflekton historinë e Shqipërisë gjatë diktaturës."
+      },
+      {
+        "subtitle": "Poetika dhe stili",
+        "context": "Petro Marko është kryesisht prozator, por botoi dhe poezi në vëllimin 'Horizont'. Poezitë e tij janë të ndikuara nga lufta, mitologjia shqiptare dhe letërsia popullore. Ato janë të drejtpërdrejta, të ndjera dhe plot pasion për jetën, lirinë dhe drejtësinë."
+      }
+    ]
+  },
+  {
+    "title": "Jakov Xoxa – Epika e Jetës Shqiptare",
+    "subtitles": [
+      {
+        "subtitle": "Jeta dhe veprimtaria",
+        "context": "Jakov Xoxa (1923–1979) ishte një ndër shkrimtarët më të mëdhenj të romanit shqiptar. Ai ishte autor i disa romaneve monumentale si 'Lumi i vdekur', 'Juga e bardhë', dhe 'Lulja e kripës'. Romani i tij pasqyron realitetin shqiptar para, gjatë dhe pas Luftës së Dytë Botërore, sidomos jetën në Myzeqe. Ishte gjithashtu profesor i teorisë së letërsisë në Universitetin e Tiranës. Vepra e tij 'Bazat e teorisë së letërsisë' nuk u botua për shkak të bindjeve të tij të pavarura."
+      },
+      {
+        "subtitle": "Lumi i vdekur",
+        "context": "Romani zhvillohet në vitet 1938–1939 dhe pasqyron dramën e familjes Shpiragu, të dëbuar nga beu dhe përballur me vështirësi në një fshat të Myzeqesë. Përmes një rrëfimi të gjerë dhe strukturës shumëplanëshe, Xoxa trajton fatin e familjeve shqiptare, marrëdhëniet ndërmjet fshatarëve vendas dhe ardhacakëve, si dhe dashurinë simbolike mes Vitës dhe Adilit. Pilo Shpiragu është figura qendrore që përmbledh fatin e popullit dhe moralin e kohës."
+      },
+      {
+        "subtitle": "Juga e bardhë",
+        "context": "Ky roman vijon në të njëjtin univers letrar dhe ndjek ngjarje të pas Luftës së Dytë Botërore. Ai fokusohet te figura negative e Kiu Koroziut dhe pasqyron deformimet në drejtimin e kooperativave. Rrëfimi bëhet nga një zë i bindshëm dhe realist që rrëfen sikur është dëshmitar i ngjarjeve, duke ruajtur stilin dhe filozofinë jetësore të autorit."
+      }
+    ]
+  },
+  {
+    "title": "Martin Camaj – Zëri i Ndërgjegjes Shqiptare",
+    "subtitles": [
+      {
+        "subtitle": "Jeta dhe krijimtaria",
+        "context": "Martin Camaj (1925–1992) ishte poet, studiues dhe gjuhëtar i njohur. Ai u largua nga Shqipëria më 1948 dhe jetoi në Jugosllavi, Itali dhe më pas në Gjermani. Ai botoi veprat e para në Kosovë dhe u bë profesor në Universitetin e Mynihut. Vepra e tij poetike u njoh më gjerësisht në Shqipëri vetëm pas viteve ’90."
+      },
+      {
+        "subtitle": "Poetika e Camajt",
+        "context": "Poezia e tij kalon në tri faza: periudha e parë me ndikim nga folklori dhe vendlindja, periudha e dytë me ndikim hermetik dhe moderne, dhe periudha e tretë me abstraksion të lartë. Ai përdor simbole si fjala, korbi, dhe breshka për të përçuar mesazhe të thella shpirtërore, poetike dhe filozofike."
+      },
+      {
+        "subtitle": "Proza",
+        "context": "Camaj shkroi edhe prozë me natyrë poetike e simbolike. Romanet 'Djella', 'Rrathë' dhe 'Dranja' trajtojnë fatin individual në shoqëri totalitare dhe mitologjinë kombëtare. Vepra 'Dranja' përdor simbolin e breshkës për të përçuar ide për vetëfajësinë, qëndresën dhe vetëpërsosjen morale."
+      },
+      {
+        "subtitle": "Dranja",
+        "context": "Një prozë poetike e ndërtuar me metafora dhe simbole mitike. Figura e breshkës, e ngarkuar me një gjarpër në kurriz, simbolizon barrën morale dhe identitetin universal të njeriut. 'Dranja' është një reflektim për heshtjen, vetëdijen dhe përballjen me kohën."
+      }
+    ]
+  },
+  {
+    "title": "Dritëro Agolli – Poeti i Tokës dhe Njeriut",
+    "subtitles": [
+      {
+        "subtitle": "Jeta dhe krijimtaria",
+        "context": "Dritëro Agolli (1931–2017) ishte një nga shkrimtarët më të dashur dhe të rëndësishëm të letërsisë shqiptare. Studioi në Leningrad dhe punoi si gazetar dhe kryetar i Lidhjes së Shkrimtarëve. Ai shkroi poezi, romane, tregime dhe drama. Vepra e tij është përkthyer dhe nderuar ndërkombëtarisht."
+      },
+      {
+        "subtitle": "Poezia",
+        "context": "Agolli solli një poezi që u çlirua nga tradita monumentale. Ai vuri në qendër njeriun e zakonshëm, natyrën, tokën, dashurinë dhe dhimbjen. Poezia e tij është liriko-epike, me ndikime nga letërsia popullore dhe poetët klasikë shqiptarë. Ai krijoi një Shqipëri romantike, të bazuar në ideal dhe ndjenja."
+      },
+      {
+        "subtitle": "Proza",
+        "context": "Veprat prozaike përfshijnë 'Komisari Memo', 'Njeriu me top', 'Trëndafil në gotë', dhe 'Deshtaku'. Këto tregojnë figura reale e komplekse dhe largohen nga skematizmi. Ai trajtoi dashurinë, moralin, absurditetin dhe psikologjinë njerëzore, duke eksperimentuar me forma të reja dhe sfiduar normat ideologjike."
+      },
+      {
+        "subtitle": "Shkëlqimi dhe rënia e shokut Zylo",
+        "context": "Një roman satirik që rrëfen për burokracinë shqiptare përmes figurave të Zylos dhe Demkës. Zylo është burokrat i vetëkënaqur, ndërsa Demka është vartës i përulur. Romani kritikon absurditetin e sistemit administrativ dhe mendësinë e vjetër, duke përdorur humorin si mjet për të denoncuar dhe për të reflektuar mbi realitetin."
+      }
+    ]
+  },
+  {
+    "title": "Ismail Kadare – Letërsia si Mit dhe Histori",
+    "subtitles": [
+      {
+        "subtitle": "Biografia dhe ndikimi",
+        "context": "Ismail Kadare (1936–2024) është figura më e shquar e letërsisë shqiptare moderne dhe përfaqësues ndërkombëtar i saj. Lindi në Gjirokastër dhe studioi në Moskë dhe Tiranë. Ka qenë gazetar, redaktor dhe intelektual me ndikim politik e kulturor. U largua në Paris në vitin 1990, por mbeti i lidhur me Shqipërinë. Është përkthyer në 32 gjuhë, anëtar i Akademisë Franceze dhe kandidat për çmimin Nobel."
+      },
+      {
+        "subtitle": "Poezia",
+        "context": "Kadare modernizoi poezinë shqipe me vepra si 'Frymëzime djaloshare', 'Shqiponjat fluturojnë lart', 'Përse mendohen këto male', etj. Poezia e tij mbështetet në mitin e historisë shqiptare, qëndresën, dhe lavdinë kombëtare, duke sjellë frymën e heroizmit dhe të një identiteti kombëtar. Poemat janë epiko-lirike dhe përshkruhen nga abstraksion, sintetizëm dhe ndjeshmëri historike."
+      },
+      {
+        "subtitle": "Gjenerali i ushtrisë së vdekur",
+        "context": "Romani i famshëm i Kadaresë eksploron raportin midis jetës dhe vdekjes përmes udhëtimit të një gjenerali italian që kërkon trupat e ushtarëve të vdekur. Temat përfshijnë kujtesën kolektive, peshën e luftës, zhvarrimet, dhe mënyrën sesi kombet përballen me të kaluarën. Vepra e vendos Kadarenë në një plan universal, me një stil të thellë filozofik dhe alegorik."
+      }
+    ]
+  },
+  {
+    "title": "Azem Shkreli – Fjala si Dëshmi e Njeriut",
+    "subtitles": [
+      {
+        "subtitle": "Biografia dhe rëndësia",
+        "context": "Azem Shkreli (1938–1997) ishte një nga figurat më të mëdha të poezisë moderne shqiptare. Lindi në Rugovë dhe ishte drejtues i institucioneve kulturore në Kosovë. Vepra e tij përfaqëson kthesën nga patosi kolektiv drejt një poezie më intime, refleksive dhe filozofike. Ai shkroi edhe prozë dhe drama dhe vepra e tij u përkthye në shumë gjuhë."
+      },
+      {
+        "subtitle": "Lirikat e vendlindjes",
+        "context": "Poezitë si 'Dukagjinçe', 'Bregu i mollës', 'Lumi' përshkruajnë Rugovën dhe jetën malësore me një intensitet emocional dhe stil të lartë. Vendlindja shfaqet si filozofi dhe burim frymëzimi etik e estetik. Poeti përthith natyrën, njeriun dhe fjalën si një tërësi shpirtërore."
+      },
+      {
+        "subtitle": "Lirikat e dashurisë",
+        "context": "Poetika e dashurisë te Shkreli është e heshtur dhe e përmbajtur, me ndjenja të thella dhe shpesh të pazëshme. Poezitë 'Në Shën Naum', 'Nata në kështjellë' dhe 'Në vend të përshëndetjes' janë udhëtime emocionale në vetmi dhe dhimbje."
+      },
+      {
+        "subtitle": "Lirikat atdhetare",
+        "context": "Shkreli i qaset poezisë patriotike me urti dhe reflektim, pa eufori. Veprat 'Lirikë me shi' dhe 'Zogj dhe gurë' sfidojnë krizën morale të kombit me shtresime gjuhësore dhe filozofi kombëtare. Poezitë si 'Psalm për Kosovën', 'Meshë', 'Origjina' dhe 'Ndërtimi i kullës' mbartin thellësi historike e kulturore."
+      },
+      {
+        "subtitle": "Lirikat refleksive dhe poetika",
+        "context": "Në këto poezi trajtohen dilema metafizike, besimi, shpresa dhe refuzimi i fjalës boshe. Dendësia poetike dhe ritmi i natyrshëm e bëjnë poezinë e Shkrelit të përngjajë me skulptura kristalore. Ai mbetet poeti më i fuqishëm mendimtar i letërsisë shqiptare bashkëkohore."
+      }
+    ]
+  },
+  {
+    "title": "Adem Gajtani – Poeti i Dritës dhe Mallit",
+    "subtitles": [
+      {
+        "subtitle": "Biografia dhe veprat",
+        "context": "Adem Gajtani (1935–1982) ishte poet, përkthyes dhe gazetar i shquar nga Podujeva. Ai botoi mbi 15 vepra poetike dhe përktheu autorë të njohur ndërkombëtarë. Dallohej për imagjinatën e pasur, stilin balladesk dhe ndjeshmërinë estetike. Ndër veprat e tij janë 'Drita në zemër', 'Unaza', 'Anfora e fundosur' dhe drama poetike 'Dielli i mbrëmjes, dielli i mëngjesit'."
+      },
+      {
+        "subtitle": "Poezia dhe tematika",
+        "context": "Poezia e Gajtanit përfshin dashurinë për atdheun, mallin për vendlindjen, dhe temat politike të kohës si shpërngulja e shqiptarëve. Në poezinë e parë 'Dëshira', ai paraqet burrërimin dhe virtytin. Në poemthin 'Vdekja e shtatë bjeshkëve', përshkruan dhunën dhe mërgimin me një atmosferë epike e emocionale."
+      },
+      {
+        "subtitle": "Poetika dhe stili",
+        "context": "Gajtani përdor simbole nga natyra, yje, zogj, dritë, duke krijuar poezi vizuale dhe të ndjera. Ai ndërthur ndjeshmërinë lirike me imagjinatën kozmike dhe mbetet një nga të rrallët poetë shqiptarë që e konkretizon ndjenjën në formë simbolike. Poezia 'Kanga' është shembull i përshkrimit mjeshtëror të natyrës dhe misterit të jetës."
+      },
+      {
+        "subtitle": "Lirika erotike dhe refleksive",
+        "context": "Librat si 'Anfora e fundosur' janë të frymëzuara nga dashuria për një vajzë konkrete (Oles). Gajtani e kthen dashurinë në mit personal. Në poezitë e fundit, si në 'Kënga e mjellmës', ai shfaq një ton refleksiv dhe melankolik për fundin e jetës, por gjithnjë me realizim artistik dhe shpresë në përmbushjen e ëndrrës së jetës."
+      }
+    ]
+  },
+  {
+    "title": "Ali Podrimja – Poeti i Simbolit dhe i Lirisë",
+    "subtitles": [
+      {
+        "subtitle": "Biografia dhe rëndësia",
+        "context": "Ali Podrimja (1942) është një nga poetët më të rëndësishëm të letërsisë shqiptare bashkëkohore, i njohur për ndjeshmëri të thellë poetike dhe gjuhë figurative. Lindi në Gjakovë dhe u rrit në atmosferën represive të viteve '50 në Kosovë. Debutoi në poezinë lirike me 'Hija e Tokës' dhe më pas publikoi vepra si 'Shamijat e përshëndetjeve', 'Sampo', 'Torzo', 'Lum Lumi', 'Zari', etj."
+      },
+      {
+        "subtitle": "Hija e Tokës",
+        "context": "Një poemth liriko-epik i shkruar nga një gjimnazist i ri, që përmes simbolizmit dhe metaforës sfidon terrorin serb dhe idealizon të kaluarën heroike të Kosovës. Poema përshkruan dhimbjen, qëndresën dhe thirrjen për zgjim kombëtar. Përdor gjuhën ezopike për të anashkaluar censurën dhe vendos poezinë kosovare në rrugën e artikulimit patriotik."
+      },
+      {
+        "subtitle": "Ciklet poetike",
+        "context": "Ciklet si 'Guri', 'Kulla', 'Cungu', 'Pylli', 'Deftore', dhe 'Poema e Heshtjes' shtjellojnë simbolikën e etnisë dhe historisë. 'Pylli' trajton simbolikën e bashkësisë dhe trashëgimisë, ndërsa 'Deftore' përshkruan ardhjen e pushtuesve përmes historisë. 'Poema e heshtjes' shpalos historinë e pashkruar, dhimbjen e kolektivit dhe sfidën për të ruajtur identitetin."
+      },
+      {
+        "subtitle": "Lum Lumi",
+        "context": "Një cikël emocional për humbjen e të birit, që përmes dhimbjes personale mbart gjithashtu mesazhe për qëndresën e fisit dhe kombin. Poezia është një elegji me sfond historik, politik dhe ekzistencial, duke lidhur dramën intime me dramën kolektive të Kosovës."
+      }
+    ]
+  },
+  {
+    "title": "Letërsia e Shekullit XX",
+    "subtitles": [
+      {
+        "subtitle": "Historia moderne",
+        "context": "Shekulli XX përfshin fundin e skllavërisë, çlirimin e gruas dhe fillimin e demokracive moderne. Luftërat botërore, përplasjet ideologjike dhe Lufta e Ftohtë formësuan shoqërinë moderne dhe ndanë botën në dy blloqe: perëndimor dhe lindor."
+      },
+      {
+        "subtitle": "Qytetërimi modern",
+        "context": "Njeriu modern u zhvillua përmes shkencës, teknologjisë dhe psikologjisë, duke fituar aftësinë për të kuptuar dhe riorganizuar shoqërinë. Epoka njohu arritje si psikanaliza, fluturimi, udhëtimi në Hënë, dhe komunikimi global."
+      },
+      {
+        "subtitle": "Letërsia moderne",
+        "context": "Letërsia pasqyron transformimet kulturore dhe politike. Letërsitë kombëtare u zgjeruan, ndërsa letërsia moderne dallon nga ajo tradicionale për nga forma, përmbajtja dhe eksperimentimi estetik."
+      },
+      {
+        "subtitle": "Poezia",
+        "context": "Simbolizmi, dadaizmi, dhe surealizmi revolucionarizuan poezinë. Hermetizmi thelloi ndjeshmërinë estetike. Poezia pas Luftës së II Botërore shpesh ishte disidente, e thjeshtë dhe e vërtetë."
+      },
+      {
+        "subtitle": "Romani",
+        "context": "Romani i shek. XX eksperimentoi me ndërgjegjen, absurditetin dhe ekzistencializmin. Autorë si Kafka, Kamy, Sartri dhe Markesi trajtuan realitetin psikik dhe social përmes formave moderne si përroi i ndërgjegjes, realizmi magjik dhe antiromani."
+      },
+      {
+        "subtitle": "Krijimi dramatik",
+        "context": "Dramat moderne përfshijnë eksperimentime si teatri i absurdit dhe ai epik. Autorë si Pirandelo, Breht, dhe Beket sfiduan format tradicionale duke nxitur mendimin kritik dhe angazhimin e spektatorit."
+      }
+    ]
+  },
+  {
+    "title": "Franc Kafka – Universi i Ankthit dhe Absurdës",
+    "subtitles": [
+      {
+        "subtitle": "Jeta dhe formimi",
+        "context": "Franc Kafka (1883–1924) ishte shkrimtar çek që shkroi në gjermanisht. I lindur në një familje hebreje në Pragë, ai vuajti nga izolimi kulturor, konflikti me autoritetin e babait, sëmundja dhe ndjenja e fajit. Lidhjet me Felisë Bauer, Milena Jesenska dhe Dora Dimant ndikuan ndjeshëm në krijimtarinë e tij."
+      },
+      {
+        "subtitle": "Veprat kryesore",
+        "context": "Kafka shkroi 'Metamorfoza', ku Gregor Zamza shndërrohet në një insekt, si metaforë për izolimin dhe fajësinë; 'Procesi', ku Jozef K. arrestohet pa arsye dhe nuk gjen drejtësi në një sistem absurd; dhe 'Kështjella', ku protagonisti përpiqet më kot të hyjë në një sistem burokratik të paarritshëm. Letra për Babain shpreh traumën nga autoriteti prindëror."
+      },
+      {
+        "subtitle": "Temat qendrore",
+        "context": "Kafka trajton temën e fajit të pashpjegueshëm, frikës nga autoriteti, absurdit të jetës dhe gjykimit të pakuptueshëm. Krijimtaria e tij përshkohet nga ide të vetmisë, ndarjes dhe mungesës së kuptimit në ekzistencë."
+      },
+      {
+        "subtitle": "Stili dhe ndikimi",
+        "context": "Stili i Kafkas është hermetik, surreal dhe i ngarkuar me simbolikë. Ai krijoi një univers letrar të veçantë ku individi përplaset me sistemin. Ndikimi i tij është global dhe vepra e tij mbetet simbol i krizës së qenies në epokën moderne."
+      }
+    ]
+  },
+  {
+    "title": "Albert Kamy – Letërsia e Absurdit dhe e Revoltës",
+    "subtitles": [
+      {
+        "subtitle": "Biografia dhe formimi",
+        "context": "Albert Kamy (1913–1960), shkrimtar dhe filozof francez me prejardhje algjeriane, u formua nga përvoja të thella kulturore dhe personale. I diplomuar në filozofi, jetoi në kushte modeste dhe u përball me sëmundjen e tuberkulozit. Ai punoi si gazetar, regjisor teatri dhe u angazhua në politikë, duke milituar fillimisht në të majtën komuniste dhe më pas u distancua prej saj. Gjatë Luftës së Dytë Botërore u bashkua me Rezistencën antifashiste."
+      },
+      {
+        "subtitle": "Angazhimi intelektual",
+        "context": "Pas Luftës, Kamy u bë një zë i fuqishëm për lirinë, duke denoncuar stalinizmin dhe mbrojtur të drejtën e njeriut. Ai botoi esetë 'Mendime për gijotinën' dhe 'Njeriu i revoltuar', që i sollën përplasje me Sartrin dhe intelektualët e majtë. Në 1957 fitoi Çmimin Nobel në letërsi si një nderim për vlerën universale të veprës së tij."
+      },
+      {
+        "subtitle": "Filozofia e absurdit dhe revoltës",
+        "context": "Kamy nuk e quante veten ekzistencialist, por artist. Ai ndërthurte mendimin filozofik me shprehjen letrare, duke i bërë të pandashme. Ai trajtoi temën e absurdit – përplasjen e dëshirës për kuptim me indiferencën e botës – dhe revoltën si përgjigje njerëzore ndaj këtij absurdi."
+      },
+      {
+        "subtitle": "Veprat kryesore",
+        "context": "Më 1942 botoi esenë 'Miti i Sizifit' dhe romanin 'I huaji'. Më pas shkroi dramat 'Kaligula' dhe 'Të drejtët', romanin 'Murtaja', si dhe esenë madhore 'Njeriu i revoltuar'. Vepra e fundit e tij, romani i papërfunduar 'Njeriu i parë', u botua pas vdekjes në 1994."
+      },
+      {
+        "subtitle": "Vepra 'I huaji'",
+        "context": "Roman i ndarë në dy pjesë që rrëfen historinë e Mërsoit, një njeriu indiferent ndaj normave shoqërore dhe fateve morale. Ai vret pa qëllim një arab dhe dënohet me vdekje jo vetëm për krimin, por për mungesën e ndjeshmërisë. Mërsoi nuk qan për nënën, nuk pendohet, nuk përpiqet të mbrohet – dhe për këtë gjykohet si antinjeri."
+      },
+      {
+        "subtitle": "Stili dhe struktura",
+        "context": "Stili është i thjeshtë, i drejtpërdrejtë dhe neutral. Kamy shmang sentimentalizmin për të nxitur gjykimin kritik të lexuesit. Ngjarjet pasojnë një logjikë fatale, të pashmangshme, dhe ndarja në dy pjesë shërben për të përballur pikëpamjet e Mërsoit me ato të shoqërisë."
+      },
+      {
+        "subtitle": "Simbolika dhe mesazhi",
+        "context": "Vepra përmban simbole të fuqishme si dielli, që ndikon në aktin e vrasjes dhe përfaqëson absurditetin e fatit njerëzor. Mërsoi është figurë që qëndron përballë botës me ndershmëri brutale, pa hipokrizi. Ai është i huaj për shoqërinë, për religjionin, për gjyqtarët dhe për vetë lexuesin. Revolta e tij ndaj absurdit është pohim i lirisë njerëzore në kushtet më të errëta."
+      },
+      {
+        "subtitle": "Ndikimi i 'I huajit'",
+        "context": "Ky roman është themeli i letërsisë së Absurdit në shek. XX. U kthye në një tekst klasik që ndikoi në letërsinë franceze dhe botërore, dhe mbetet një nga veprat më të lexuara, diskutueshme dhe ndikimshme në historinë e letërsisë moderne."
+      }
+    ]
+  }
+]

@@ -9,8 +9,9 @@ import {
   Keyboard,
   TouchableWithoutFeedback,
   useWindowDimensions,
-  Pressable,
-  FlatList,
+  ActivityIndicator,
+  ScrollView,
+  StyleSheet,
 } from "react-native";
 import { Camera, CameraView, useCameraPermissions } from "expo-camera";
 import { useState, useEffect, useRef } from "react";
@@ -59,16 +60,11 @@ export default function Index() {
   const [paid, setPaid] = useState(true);
   const [answers, setAnswers] = useState(null);
   const [answered, setANswered] = useState(false);
+  const [loadingProgress, setLoadingProgress] = useState(0);
 
-  const goToNextPage = () => {
+  const goToPage = (targetPageIndex) => {
     if (pagerViewRef.current) {
-      pagerViewRef.current.setPage(pageIndex + 1);
-    }
-  };
-
-  const goToPrevPage = () => {
-    if (pagerViewRef.current) {
-      pagerViewRef.current.setPage(pageIndex - 1);
+      pagerViewRef.current.setPage(targetPageIndex);
     }
   };
 
@@ -140,6 +136,8 @@ export default function Index() {
       return;
     }
     console.log("starting");
+    setLoadingProgress(20);
+    setLoading(true);
     const performOCR = async (base64Image) => {
       const apiKey = "AIzaSyDaGkvpbiDV6s88WxmCznl8BslZqAVj0-o";
 
@@ -201,23 +199,26 @@ export default function Index() {
       })
     );
     console.log("ocr is done");
+    setLoadingProgress(50);
 
     let prompt = "";
     for (let i = 0; i < ocrResults.length; ++i) {
       prompt += ocrResults[i];
     }
     console.log("fetching QARoute");
-
+    const userToken = useAuthStore.getState().token;
     const processedPrompt = await fetch(
       "https://maturabackend.onrender.com/api/processing/answer",
       {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
+          Authorization: `Bearer ${userToken}`,
         },
-        body: JSON.stringify({ prompt: prompt }),
+        body: JSON.stringify({ prompt: prompt, type: "photo" }),
       }
     );
+    setLoadingProgress(100);
     const parsedAnswer = await processedPrompt.json();
     setAnswers(parsedAnswer.answer);
     setWriting(true);
@@ -228,18 +229,23 @@ export default function Index() {
   const sendQuestion = async () => {
     setANswered(false);
     setAnswers(null);
-
+    console.log("sending question:", question);
+    const userToken = useAuthStore.getState().token;
+    console.log("user token:", userToken);
     const processedPrompt = await fetch(
       "https://maturabackend.onrender.com/api/processing/answer",
       {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
+          Authorization: `Bearer ${userToken}`,
         },
-        body: JSON.stringify({ prompt: question }),
+        body: JSON.stringify({ prompt: question, type: "question" }),
       }
     );
+
     const parsedAnswer = await processedPrompt.json();
+    console.log("parsed answer:", parsedAnswer);
     setQuestion("");
     setAnswers(parsedAnswer.answer);
     setWriting(true);
@@ -251,45 +257,52 @@ export default function Index() {
     <View style={{ flex: 1 }}>
       <View
         style={{
-          width: 110,
-          height: 35,
+          width: 150,
+          height: 50,
           position: "absolute",
           top: 60,
           left: width / 2,
-          transform: [{ translateX: -55 }],
-          backgroundColor: "white",
-          borderRadius: 50,
+          transform: [{ translateX: -75 }],
+          backgroundColor: "#202123",
+          borderRadius: 25,
           zIndex: 999,
           flexDirection: "row",
           justifyContent: "space-around",
           alignItems: "center",
-          elevation: 0,
-          shadowColor: "transparent",
+          shadowColor: "#000",
+          shadowOffset: { width: 0, height: 2 },
+          shadowOpacity: 0.25,
+          shadowRadius: 3.84,
+          elevation: 5,
+          paddingHorizontal: 10,
         }}
       >
-        <Pressable onPress={goToPrevPage} style={{}}>
+        {/* Camera icon for page 0 */}
+        <TouchableOpacity onPress={() => goToPage(0)} style={{ padding: 5 }}>
           <Ionicons
             name="camera"
             size={30}
-            color={pageIndex === 0 ? "dimgray" : "lightgray"}
+            color={pageIndex === 0 ? "#3b82f6" : "white"}
           />
-        </Pressable>
+        </TouchableOpacity>
 
-        <Pressable onPress={goToNextPage} style={{}}>
+        {/* School icon for page 1 */}
+        <TouchableOpacity onPress={() => goToPage(1)} style={{ padding: 5 }}>
           <Ionicons
             name="school"
             size={30}
-            color={pageIndex === 1 ? "dimgray" : "lightgray"}
+            color={pageIndex === 1 ? "#3b82f6" : "white"}
           />
-        </Pressable>
+        </TouchableOpacity>
 
-        <Pressable onPress={goToNextPage} style={{}}>
+        {/* Cart icon for page 2 */}
+        <TouchableOpacity onPress={() => goToPage(2)} style={{ padding: 5 }}>
           <Ionicons
             name="cart"
             size={30}
-            color={pageIndex === 2 ? "dimgray" : "lightgray"}
+            color={pageIndex === 2 ? "#3b82f6" : "white"}
           />
-        </Pressable>
+        </TouchableOpacity>
       </View>
       <PagerView
         style={{ flex: 1 }}
@@ -336,6 +349,12 @@ export default function Index() {
                   />
                 </TouchableOpacity>
               </View>
+              {loadingProgress > 0 && loadingProgress < 100 && (
+                <View style={styles.overlay}>
+                  <ActivityIndicator size="large" color="#3b82f6" />
+                  <Text style={styles.overlayText}>{loadingProgress}%</Text>
+                </View>
+              )}
               <View
                 style={{
                   flexDirection: "row",
@@ -366,119 +385,46 @@ export default function Index() {
             </CameraView>
           </View>
         ) : (
-          <View // WRITIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIINGGGGG
-            style={{
-              flex: 1,
-              backgroundColor: "#f4f4f4",
-              paddingTop: insets.top,
-            }}
-          >
-            <View
-              style={{
-                width: "100%",
-                flexDirection: "row",
-                justifyContent: "flex-end",
-                alignItems: "center",
-              }}
-            >
+          <View style={[styles.container, { paddingTop: insets.top }]}>
+            <View style={styles.cameraButtonContainer}>
               <TouchableOpacity
                 onPress={() => setWriting(false)}
-                style={{ marginRight: 25 }}
+                style={styles.cameraButton}
               >
-                <Ionicons name="camera-outline" size={50} color="dimgray" />
+                <Ionicons name="camera-outline" size={50} color="white" />
               </TouchableOpacity>
             </View>
 
-            {answered && (
-              <FlatList
-                style={{ marginBottom: 64 }}
-                data={answers}
-                keyExtractor={(item, index) => index.toString()}
-                renderItem={({ item, index }) => (
-                  <View
-                    style={{
-                      marginTop: 20,
-                      backgroundColor: "#f4f4f4",
-                      padding: 10,
-                      borderRadius: 15,
-                      marginVertical: 5,
-                      maxWidth: "80%",
-                      alignSelf: "center",
-                      shadowColor: "#000",
-                      shadowOffset: { width: 0, height: 4 },
-                      shadowOpacity: 0.25,
-                      shadowRadius: 10,
-                      elevation: 8,
-                    }}
-                  >
-                    <Text
-                      style={{
-                        fontSize: 16,
-                        color: "dimgray",
-                        lineHeight: 20,
-                        fontFamily:
-                          Platform.OS === "ios"
-                            ? "Avenir Next"
-                            : "sans-serif-light",
-                      }}
-                    >
-                      {index + 1 + ". " + item}
-                    </Text>
+            {answered &&
+              answers.length > 0 && ( // Only show if answered and answers is not empty
+                <ScrollView style={styles.answersScrollView}>
+                  <View style={styles.answerItem}>
+                    <Text style={styles.answerText}>{answers}</Text>
                   </View>
-                )}
-              />
-            )}
+                </ScrollView>
+              )}
 
             <TouchableWithoutFeedback onPress={Keyboard.dismiss}>
               <KeyboardAvoidingView
                 behavior={Platform.OS === "ios" ? "padding" : undefined}
-                style={{
-                  flex: 1,
-                  justifyContent: "flex-end",
-                  padding: 16,
-                  backgroundColor: "#f4f4f4",
-                }}
+                style={styles.keyboardAvoidingView}
               >
-                <View
-                  style={{
-                    backgroundColor: "white",
-                    borderRadius: 24,
-                    paddingVertical: 12,
-                    paddingHorizontal: 16,
-                    shadowColor: "#000",
-                    shadowOffset: { width: 0, height: 2 },
-                    shadowOpacity: 0.1,
-                    shadowRadius: 6,
-                    elevation: 4,
-                    flexDirection: "row",
-                    width: "100%",
-                    justifyContent: "space-between",
-                    alignItems: "flex-start",
-                    marginBottom: 20,
-                    minHeight: 60,
-                  }}
-                >
+                <View style={styles.inputContainer}>
                   <TextInput
-                    style={{
-                      fontSize: 20,
-                      color: "#000",
-                      flex: 1,
-                      marginRight: 10,
-                      textAlignVertical: "top",
-                    }}
+                    style={styles.textInput}
                     placeholder="Shkruaje pyetjen"
-                    placeholderTextColor="#999"
+                    placeholderTextColor="#9ca3af"
                     value={question}
                     onChangeText={setQuestion}
                     multiline={true}
                     numberOfLines={4}
                     maxHeight={120}
                   />
-                  <TouchableWithoutFeedback onPress={() => sendQuestion()}>
+                  <TouchableWithoutFeedback onPress={sendQuestion}>
                     <Ionicons
                       name="arrow-up-circle"
                       size={40}
-                      color="dimgray"
+                      color="#3b82f6" // Blue color from the test page buttons
                     />
                   </TouchableWithoutFeedback>
                 </View>
@@ -494,3 +440,97 @@ export default function Index() {
     <AuthPage></AuthPage>
   );
 }
+
+const styles = StyleSheet.create({
+  container: {
+    flex: 1, // The main container should still take full height
+    backgroundColor: "#343541",
+    // Remove justifyContent and alignItems from here, as the input bar will be absolute
+  },
+  cameraButtonContainer: {
+    width: "100%",
+    flexDirection: "row",
+    justifyContent: "flex-end",
+    alignItems: "center",
+    paddingRight: 20,
+    paddingTop: 10,
+    paddingBottom: 10,
+  },
+  cameraButton: {
+    marginRight: 0,
+  },
+  answersScrollView: {
+    flex: 1, // This ScrollView should still take up all *remaining* vertical space
+    paddingHorizontal: 20,
+    // Add paddingBottom here to ensure content scrolls above the input bar
+    paddingBottom: 100, // Adjust this value based on the height of your input bar (minHeight: 80 + some extra space)
+  },
+  answerItem: {
+    marginTop: 20,
+    marginBottom: 40, // Keep this if you want space below the last answer item within the scrollview
+    backgroundColor: "#202123",
+    padding: 15,
+    borderRadius: 10,
+    marginVertical: 5,
+    maxWidth: "90%",
+    alignSelf: "center",
+    shadowColor: "#000",
+    shadowOffset: { width: 0, height: 2 },
+    shadowOpacity: 0.25,
+    shadowRadius: 3.84,
+    elevation: 5,
+  },
+  answerText: {
+    fontSize: 16,
+    color: "white",
+    lineHeight: 22,
+  },
+  keyboardAvoidingView: {
+    // THIS IS THE KEY CHANGE for positioning
+    position: "absolute", // Take it out of normal flow
+    bottom: 0, // Stick it to the very bottom
+    left: 0,
+    right: 0, // Make it span full width
+    backgroundColor: "#343541", // Match main container background
+    justifyContent: "flex-end", // Push its content (inputContainer) to the bottom of itself
+    paddingHorizontal: 0, // Ensure no extra padding on sides
+    paddingBottom: 0, // Ensure no extra padding at bottom
+  },
+  inputContainer: {
+    backgroundColor: "#202123",
+    borderRadius: 15,
+    paddingVertical: 15,
+    paddingHorizontal: 18,
+    shadowColor: "#000",
+    shadowOffset: { width: 0, height: 2 },
+    shadowOpacity: 0.25,
+    shadowRadius: 3.84,
+    elevation: 5,
+    flexDirection: "row",
+    width: "100%", // Already correct
+    justifyContent: "space-between",
+    alignItems: "flex-start",
+    marginBottom: 0, // Ensure no margin below it
+    minHeight: 80,
+  },
+  textInput: {
+    fontSize: 20,
+    color: "white",
+    flex: 1,
+    marginRight: 10,
+    textAlignVertical: "top",
+  },
+  overlay: {
+    ...StyleSheet.absoluteFillObject,
+    backgroundColor: "rgba(0, 0, 0, 0.7)",
+    justifyContent: "center",
+    alignItems: "center",
+    zIndex: 1000,
+  },
+  overlayText: {
+    marginTop: 15,
+    color: "white",
+    fontSize: 18,
+    fontWeight: "bold",
+  },
+});

@@ -74,14 +74,17 @@ const useAuthStore = create((set) => ({
         user: result.user.username,
         email: result.user.email,
         tokens: result.user.tokens,
-        testUnlocked: result.user.testUnlocked, 
+        testUnlocked: result.user.testUnlocked,
       });
 
       await AsyncStorage.setItem("user", JSON.stringify(result.user.username));
       await AsyncStorage.setItem("email", JSON.stringify(result.user.email));
       await AsyncStorage.setItem("token", result.token);
       await AsyncStorage.setItem("tokens", JSON.stringify(result.user.tokens));
-      await AsyncStorage.setItem("testUnlocked", JSON.stringify(result.user.testUnlocked));
+      await AsyncStorage.setItem(
+        "testUnlocked",
+        JSON.stringify(result.user.testUnlocked)
+      );
       return {
         success: true,
       };
@@ -103,12 +106,19 @@ const useAuthStore = create((set) => ({
             },
           }
         );
-        
-        
+
         if (response.ok) {
           const user = await AsyncStorage.getItem("user");
           const email = await AsyncStorage.getItem("email");
-          set({user:user, email: email})
+          const token = await AsyncStorage.getItem("token");
+          const tokens = await AsyncStorage.getItem("tokens");
+          set({
+            user: user,
+            email: email,
+            token: token,
+            tokens: JSON.parse(tokens),
+            isAuthorised: true,
+          });
           const data = await response.json();
           return true;
         } else {

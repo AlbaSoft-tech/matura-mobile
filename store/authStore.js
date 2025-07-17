@@ -17,6 +17,9 @@ const useAuthStore = create((set) => ({
   setForgotPassword: (value) => set({ forgotPassword: value }),
   forgotPasswordToken: null,
   setForgotPasswordToken: (value) => set({ forgotPasswordToken: value }),
+  completedTests: [],
+  setCompletedTests: (value) => set({ completedTests: value }),
+
 
   signUp: async (username, email, password) => {
     set({ isLoading: true });
@@ -75,6 +78,7 @@ const useAuthStore = create((set) => ({
         email: result.user.email,
         tokens: result.user.tokens,
         testUnlocked: result.user.testUnlocked,
+        completedTests: result.user.completedTests,
       });
 
       await AsyncStorage.setItem("user", JSON.stringify(result.user.username));
@@ -113,6 +117,8 @@ const useAuthStore = create((set) => ({
           const token = await AsyncStorage.getItem("token");
           const tokens = await AsyncStorage.getItem("tokens");
           const testUnlocked = await AsyncStorage.getItem("testUnlocked");
+          const result = await response.json();
+          
           set({
             user: user,
             email: email,
@@ -120,6 +126,7 @@ const useAuthStore = create((set) => ({
             tokens: JSON.parse(tokens),
             isAuthorised: true,
             testUnlocked: JSON.parse(testUnlocked),
+            completedTests: result.completedTests,
           });
           const data = await response.json();
           return true;

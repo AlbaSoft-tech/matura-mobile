@@ -216,10 +216,10 @@ const fetchedTests = {
   ],
 };
 
-const completedTests = [0]; // Example of completed tests. This should ideally come from user data.
+
 
 function FullQuizPage() {
-  const { testUnlocked } = useAuthStore();
+  const { testUnlocked, completedTests, setCompletedTests, token } = useAuthStore();
   const insets = useSafeAreaInsets();
 
   const [selectedAnswers, setSelectedAnswers] = useState({});
@@ -336,13 +336,14 @@ function FullQuizPage() {
           method: "POST",
           headers: {
             "Content-Type": "application/json",
+            "Authorization": "Bearer " + token,
           },
           body: JSON.stringify({
             prompt: `You got ${quizData.questions.length} questions. Compare the user's answers to the actual answers for these Albanian language questions. Start your response with "Jeni përgjigjur sakt në X prej Y pyetjeve\n" where X is the number of correct answers and Y is the total number of questions. Then, provide a simple feedback on each incorrect question, explaining why the user's answer was wrong, and offer suggestions for improvement for open-ended questions. All the answer should be in albanian.
 User Answers:
 ${userAnswerString}
 Correct Answers:
-${actualAnswerString}`,
+${actualAnswerString}`, index: selectedTestIndex, language: language,
           }),
         }
       );
@@ -355,6 +356,7 @@ ${actualAnswerString}`,
       const cleanedApiResponse = (aiResult.answer || "").replace(/\*/g, "");
       setApiResponse(cleanedApiResponse || "No response from AI.");
       setShowCorrectAnswers(true);
+      setCompletedTests([...completedTests, index]); 
     } catch (error) {
       console.error("Error sending data to AI API:", error);
       setApiResponse(`Error: ${error.message}`);
@@ -365,27 +367,6 @@ ${actualAnswerString}`,
     } finally {
       setLoadingAI(false);
     }
-  };
-
-  const handlePreviousTest = () => {
-    // This now navigates between questions within the selected test
-    setCurrentQuestionIndex((prevIndex) => Math.max(0, prevIndex - 1));
-    setSelectedAnswers({});
-    setApiResponse(null);
-    setShowCorrectAnswers(false);
-  };
-
-  const handleNextTest = () => {
-    // This now navigates between questions within the selected test
-    setCurrentQuestionIndex((prevIndex) =>
-      Math.min(
-        testsForSelectedLanguage[selectedTestIndex].length - 1,
-        prevIndex + 1
-      )
-    );
-    setSelectedAnswers({});
-    setApiResponse(null);
-    setShowCorrectAnswers(false);
   };
 
   // Main Return Statement
@@ -559,7 +540,7 @@ ${actualAnswerString}`,
               </View>
             )}
           <TouchableOpacity
-            onPress={handleSubmitQuiz}
+            onPress={handleSubmitQuiz()}
             style={styles.submitButton}
           >
             <Text style={styles.submitButtonText}>Check results</Text>

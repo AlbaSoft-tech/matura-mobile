@@ -112,12 +112,14 @@ const useAuthStore = create((set) => ({
           const email = await AsyncStorage.getItem("email");
           const token = await AsyncStorage.getItem("token");
           const tokens = await AsyncStorage.getItem("tokens");
+          const testUnlocked = await AsyncStorage.getItem("testUnlocked");
           set({
             user: user,
             email: email,
             token: token,
             tokens: JSON.parse(tokens),
             isAuthorised: true,
+            testUnlocked: JSON.parse(testUnlocked),
           });
           const data = await response.json();
           return true;

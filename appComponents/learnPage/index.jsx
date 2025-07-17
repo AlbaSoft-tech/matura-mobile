@@ -10,75 +10,281 @@ import {
   Alert,
   KeyboardAvoidingView,
   Platform,
+  Dimensions,
 } from "react-native";
 import { useSafeAreaInsets } from "react-native-safe-area-context";
-import { Dimensions } from "react-native";
-import Ionicons from "react-native-vector-icons/Ionicons";
+import { Ionicons } from "@expo/vector-icons";
+import useAuthStore from "../../store/authStore"; // Ensure correct import for useAuthStore
+
 // Placeholder for your tests data.
 // In a real React Native app, you would import this from a local JSON file
 // e.g., import tests from '../../data/testeShqip.json';
 // For demonstration, a small mock data set is provided.
 
-const tests = [
-  [
-    {
-      title: "Ushtrimi 1: Gramatika",
-      text: "Lexoni fjalitë dhe zgjidhni formën e duhur të foljes.",
-      questions: [
-        {
-          question: "Unë ____ (lexoj) një libër.",
-          options: ["lexoj", "lexon", "lexojmë"],
-          answer: "lexoj",
-        },
-        {
-          question: "Ata ____ (shkruaj) një letër.",
-          options: ["shkruajnë", "shkruan", "shkruajmë"],
-          answer: "shkruajnë",
-        },
-      ],
-    },
-    {
-      title: "Ushtrimi 2: Përgjigje e Lirë",
-      text: "Përgjigjuni pyetjes me një fjali të plotë.",
-      questions: [
-        {
-          question: "Cili është kryeqyteti i Shqipërisë?",
-          answer: "Tirana",
-        },
-      ],
-    },
+const fetchedTests = {
+  albanian: [
+    [
+      {
+        title: "Ushtrimi 1: Gramatika",
+        text: "Lexoni fjalitë dhe zgjidhni formën e duhur të foljes.",
+        questions: [
+          {
+            question: "Unë ____ (lexoj) një libër.",
+            options: ["lexoj", "lexon", "lexojmë"],
+            answer: "lexoj",
+          },
+          {
+            question: "Ata ____ (shkruaj) një letër.",
+            options: ["shkruajnë", "shkruan", "shkruajmë"],
+            answer: "shkruajnë",
+          },
+        ],
+      },
+      {
+        title: "Ushtrimi 2: Përgjigje e Lirë",
+        text: "Përgjigjuni pyetjes me një fjali të plotë.",
+        questions: [
+          {
+            question: "Cili është kryeqyteti i Shqipërisë?",
+            answer: "Tirana",
+          },
+        ],
+      },
+    ],
+    [
+      {
+        title: "Ushtrimi 3: Fjalori",
+        text: "Zgjidhni fjalën e duhur për përkufizimin e dhënë.",
+        questions: [
+          {
+            question: "Mjet transporti me dy rrota dhe pedale.",
+            options: ["makinë", "bicikletë", "autobus"],
+            answer: "bicikletë",
+          },
+        ],
+      },
+    ],
+    [],
+    [],
+    [],
+    [],
+    [],
+    [],
+    [],
+    [],
+    [],
+    [],
+    [],
+    [],
+    [],
+    [],
+    [],
+    [],
+    [],
+    [],
+    [],
+    [],
   ],
-  [
-    {
-      title: "Ushtrimi 3: Fjalori",
-      text: "Zgjidhni fjalën e duhur për përkufizimin e dhënë.",
-      questions: [
-        {
-          question: "Mjet transporti me dy rrota dhe pedale.",
-          options: ["makinë", "bicikletë", "autobus"],
-          answer: "bicikletë",
-        },
-      ],
-    },
+  macedonian: [
+    [
+      {
+        title: "Вежба 1: Граматика",
+        text: "Прочитајте ги речениците и изберете ја точната форма на глаголот.",
+        questions: [
+          {
+            question: "Јас ____ (читам) книга.",
+            options: ["читам", "читаш", "читаме"],
+            answer: "читам",
+          },
+          {
+            question: "Тие ____ (пишуваат) писмо.",
+            options: ["пишуваат", "пишува", "пишуваме"],
+            answer: "пишуваат",
+          },
+        ],
+      },
+      {
+        title: "Вежба 2: Слободен одговор",
+        text: "Одговорете на прашањето со целосна реченица.",
+        questions: [
+          {
+            question: "Кој е главниот град на Албанија?",
+            answer: "Тирана",
+          },
+        ],
+      },
+    ],
+    [
+      {
+        title: "Вежба 3: Речник",
+        text: "Изберете го точниот збор за дадената дефиниција.",
+        questions: [
+          {
+            question: "Возило на две тркала со педали.",
+            options: ["автомобил", "велосипед", "автобус"],
+            answer: "велосипед",
+          },
+        ],
+      },
+    ],
   ],
-];
+  turkish: [
+    [
+      {
+        title: "Alıştırma 1: Dilbilgisi",
+        text: "Cümleleri okuyun ve fiilin doğru formunu seçin.",
+        questions: [
+          {
+            question: "Ben bir kitap ____ (oku).",
+            options: ["okurum", "okursun", "okuruz"],
+            answer: "okurum",
+          },
+          {
+            question: "Onlar bir mektup ____ (yaz).",
+            options: ["yazarlar", "yazarsın", "yazarız"],
+            answer: "yazarlar",
+          },
+        ],
+      },
+      {
+        title: "Alıştırma 2: Serbest Cevap",
+        text: "Soruyu tam bir cümleyle yanıtlayın.",
+        questions: [
+          {
+            question: "Arnavutluk'un başkenti neresidir?",
+            answer: "Tiran",
+          },
+        ],
+      },
+    ],
+    [
+      {
+        title: "Alıştırma 3: Kelime Bilgisi",
+        text: "Verilen tanıma uygun doğru kelimeyi seçin.",
+        questions: [
+          {
+            question: "Pedallı, iki tekerlekli bir araç.",
+            options: ["araba", "bisiklet", "otobüs"],
+            answer: "bisiklet",
+          },
+        ],
+      },
+    ],
+  ],
+  english: [
+    [
+      {
+        title: "Exercise 1: Grammar",
+        text: "Read the sentences and choose the correct verb form.",
+        questions: [
+          {
+            question: "I ____ (read) a book.",
+            options: ["read", "reads", "reading"],
+            answer: "read",
+          },
+          {
+            question: "They ____ (write) a letter.",
+            options: ["write", "writes", "writing"],
+            answer: "write",
+          },
+        ],
+      },
+      {
+        title: "Exercise 2: Free Response",
+        text: "Answer the question with a complete sentence.",
+        questions: [
+          {
+            question: "What is the capital of Albania?",
+            answer: "Tirana",
+          },
+        ],
+      },
+    ],
+    [
+      {
+        title: "Exercise 3: Vocabulary",
+        text: "Choose the correct word for the given definition.",
+        questions: [
+          {
+            question: "A two-wheeled vehicle with pedals.",
+            options: ["car", "bicycle", "bus"],
+            answer: "bicycle",
+          },
+        ],
+      },
+    ],
+  ],
+};
 
-function FullQuizPage({ propFunction }) {
+const completedTests = [0]; // Example of completed tests. This should ideally come from user data.
+
+function FullQuizPage() {
+  const { testUnlocked } = useAuthStore();
   const insets = useSafeAreaInsets();
-  const screenWidth = Dimensions.get("window").width;
+
   const [selectedAnswers, setSelectedAnswers] = useState({});
   const [apiResponse, setApiResponse] = useState(null);
   const [loadingAI, setLoadingAI] = useState(false);
   const [showCorrectAnswers, setShowCorrectAnswers] = useState(false);
-  const [currentTestIndex, setCurrentTestIndex] = useState(0);
 
-  // Use currentTestIndex to select the quiz data
-  const quizData = tests[currentTestIndex];
+  const [language, setLanguage] = useState(null); // e.g., "Albanian", "English"
+  const [selectedTestIndex, setSelectedTestIndex] = useState(null); // Index of the specific test selected (e.g., 0, 1, 2)
+  const [currentQuestionIndex, setCurrentQuestionIndex] = useState(0); // This was currentTestIndex in your original code, now represents question index within a test
+
+  // Define languages array
+  const languages = [
+    { code: "sq", name: "Albanian" },
+    { code: "tr", name: "Turkish" },
+    { code: "mk", name: "Macedonian" },
+    { code: "en", name: "English" },
+  ];
+
+  // Derived state: Get the tests array for the selected language
+  // Ensure the key matches your fetchedTests object (e.g., 'albanian', 'english')
+  const testsForSelectedLanguage = language
+    ? fetchedTests[language.toLowerCase()] || []
+    : [];
+
+  // Derived state: Get the specific quiz data based on selectedTestIndex and currentQuestionIndex
+  const quizData =
+    selectedTestIndex !== null &&
+    testsForSelectedLanguage.length > selectedTestIndex &&
+    testsForSelectedLanguage[selectedTestIndex].length > currentQuestionIndex
+      ? testsForSelectedLanguage[selectedTestIndex][currentQuestionIndex]
+      : null;
+
+  const handleSelectLanguage = (langName) => {
+    setLanguage(langName);
+    setSelectedTestIndex(null); // Reset selected test when language changes
+    setCurrentQuestionIndex(0); // Reset question index
+    setSelectedAnswers({});
+    setApiResponse(null);
+    setShowCorrectAnswers(false);
+  };
+
+  const handleSelectSpecificTest = (index) => {
+    setSelectedTestIndex(index);
+    setCurrentQuestionIndex(0); // Start from the first question of the selected test
+    setSelectedAnswers({});
+    setApiResponse(null);
+    setShowCorrectAnswers(false);
+  };
 
   const handlePress = () => {
-    console.log("Navigating back to learning page...");
-    if (propFunction) {
-      propFunction();
+    // This function seems to be for navigating back or resetting.
+    // If it's meant to go back to language selection, reset language.
+    // If it's meant to go back to test selection, reset selectedTestIndex.
+    // For now, let's assume it goes back to language selection if a test is selected,
+    // otherwise it would go back further (handled by propFunction if provided).
+    if (selectedTestIndex !== null) {
+      setSelectedTestIndex(null); // Go back to test selection
+    } else if (language !== null) {
+      setLanguage(null); // Go back to language selection
+    } else {
+      console.log("Navigating back to learning page...");
+      if (propFunction) {
+        propFunction();
+      }
     }
   };
 
@@ -97,23 +303,22 @@ function FullQuizPage({ propFunction }) {
     let actualAnswerString = "";
     let questionAndAnswerContext = "";
 
-    quizData.forEach((exercise, exerciseIndex) => {
-      exercise.questions.forEach((question, questionIndex) => {
-        const userAns = selectedAnswers[exerciseIndex]?.[questionIndex] || "";
-        const actualAns = question.answer || "";
+    // Ensure quizData is not null before iterating
+    if (!quizData || !quizData.questions) {
+      Alert.alert("Error", "No quiz data to submit.");
+      return;
+    }
 
-        userAnswerString += `Q${exerciseIndex + 1}.${
-          questionIndex + 1
-        }: ${userAns}\n`;
-        actualAnswerString += `A${exerciseIndex + 1}.${
-          questionIndex + 1
-        }: ${actualAns}\n`;
-        questionAndAnswerContext += `Question ${exerciseIndex + 1}.${
-          questionIndex + 1
-        }: ${
-          question.question
-        }\nUser Answer: ${userAns}\nCorrect Answer: ${actualAns}\n\n`;
-      });
+    quizData.questions.forEach((question, questionIndex) => {
+      // Iterate directly over questions
+      const userAns = selectedAnswers[0]?.[questionIndex] || ""; // Assuming single exercise for simplicity
+      const actualAns = question.answer || "";
+
+      userAnswerString += `Q1.${questionIndex + 1}: ${userAns}\n`;
+      actualAnswerString += `A1.${questionIndex + 1}: ${actualAns}\n`;
+      questionAndAnswerContext += `Question 1.${questionIndex + 1}: ${
+        question.question
+      }\nUser Answer: ${userAns}\nCorrect Answer: ${actualAns}\n\n`;
     });
 
     console.log("User Answers String:\n", userAnswerString);
@@ -133,10 +338,7 @@ function FullQuizPage({ propFunction }) {
             "Content-Type": "application/json",
           },
           body: JSON.stringify({
-            prompt: `You got ${quizData.reduce(
-              (acc, exercise) => acc + exercise.questions.length,
-              0
-            )} questions. Compare the user's answers to the actual answers for these Albanian language questions. Start your response with "Jeni përgjigjur sakt në X prej Y pyetjeve\n" where X is the number of correct answers and Y is the total number of questions. Then, provide a simple feedback on each incorrect question, explaining why the user's answer was wrong, and offer suggestions for improvement for open-ended questions. All the answer should be in albanian.
+            prompt: `You got ${quizData.questions.length} questions. Compare the user's answers to the actual answers for these Albanian language questions. Start your response with "Jeni përgjigjur sakt në X prej Y pyetjeve\n" where X is the number of correct answers and Y is the total number of questions. Then, provide a simple feedback on each incorrect question, explaining why the user's answer was wrong, and offer suggestions for improvement for open-ended questions. All the answer should be in albanian.
 User Answers:
 ${userAnswerString}
 Correct Answers:
@@ -156,7 +358,6 @@ ${actualAnswerString}`,
     } catch (error) {
       console.error("Error sending data to AI API:", error);
       setApiResponse(`Error: ${error.message}`);
-      // Using Alert.alert for user feedback in React Native
       Alert.alert(
         "Error",
         "Failed to get AI results. Check console for details."
@@ -167,164 +368,231 @@ ${actualAnswerString}`,
   };
 
   const handlePreviousTest = () => {
-    setCurrentTestIndex((prevIndex) => Math.max(0, prevIndex - 1));
-    setSelectedAnswers({}); // Clear answers when changing test
-    setApiResponse(null); // Clear AI response
-    setShowCorrectAnswers(false); // Hide correct answers
+    // This now navigates between questions within the selected test
+    setCurrentQuestionIndex((prevIndex) => Math.max(0, prevIndex - 1));
+    setSelectedAnswers({});
+    setApiResponse(null);
+    setShowCorrectAnswers(false);
   };
 
   const handleNextTest = () => {
-    setCurrentTestIndex((prevIndex) =>
-      Math.min(tests.length - 1, prevIndex + 1)
+    // This now navigates between questions within the selected test
+    setCurrentQuestionIndex((prevIndex) =>
+      Math.min(
+        testsForSelectedLanguage[selectedTestIndex].length - 1,
+        prevIndex + 1
+      )
     );
-    setSelectedAnswers({}); // Clear answers when changing test
-    setApiResponse(null); // Clear AI response
-    setShowCorrectAnswers(false); // Hide correct answers
+    setSelectedAnswers({});
+    setApiResponse(null);
+    setShowCorrectAnswers(false);
   };
 
-  if (!quizData) {
-    return (
-      <View style={styles.noDataContainer}>
-        <Text style={styles.noDataText}>Loading quiz data.</Text>
-        <ActivityIndicator size="large" color="#3b82f6" />
-      </View>
-    );
-  }
-
+  // Main Return Statement
   return (
     <KeyboardAvoidingView
-      style={{
-        flex: 1,
-        backgroundColor: "#343541",
-        padding: 20,
-        paddingTop: insets.top + 100,
-      }}
+      style={[styles.keyboardAvoidingView, { paddingTop: insets.top + 70 }]} // Adjusted paddingTop
       behavior={Platform.OS === "ios" ? "padding" : "height"}
     >
-      <ScrollView contentContainerStyle={styles.scrollViewContent}>
-        <View style={styles.headerContainer}>
-          <Text style={styles.headerText}>
-            Testi ({currentTestIndex + 1} / {tests.length})
+      {!testUnlocked ? (
+        // 1. Show Unlock Tests Page
+        <View style={styles.unlockContentContainer}>
+          <Text style={styles.unlockTitle}>Unlock Tests</Text>
+          <Text style={styles.unlockDescription}>
+            Gain full access to all practice tests and elevate your learning
+            experience! For just <Text style={styles.unlockPrice}>€4.99</Text>,
+            you'll unlock:
           </Text>
-          <View style={styles.navigationButtons}>
-            <TouchableOpacity
-              onPress={handlePreviousTest}
-              disabled={currentTestIndex === 0}
-              style={[
-                styles.navButton,
-                currentTestIndex === 0 && styles.disabledButton,
-              ]}
-            >
-              <Ionicons name="chevron-back" size={24} color="white" />
-            </TouchableOpacity>
-            <TouchableOpacity
-              onPress={handleNextTest}
-              disabled={currentTestIndex === tests.length - 1}
-              style={[
-                styles.navButton,
-                currentTestIndex === tests.length - 1 && styles.disabledButton,
-              ]}
-            >
-              <Ionicons name="chevron-forward" size={24} color="white" />
-            </TouchableOpacity>
-            <TouchableOpacity onPress={handlePress} style={styles.backButton}>
-              <Text style={styles.backButtonText}>BACK</Text>
-            </TouchableOpacity>
+          <View style={styles.unlockBulletPointsContainer}>
+            <Text style={styles.unlockBulletPoint}>
+              • Alot of tests to choose from
+            </Text>
+            <Text style={styles.unlockBulletPoint}>
+              • Feedback on your answers
+            </Text>
+            <Text style={styles.unlockBulletPoint}>
+              • Multiple language support: Macedonian, Albanian, English,
+              Turkish
+            </Text>
           </View>
+          <Text style={styles.unlockCallToAction}>
+            Start preparing for your final exam!
+          </Text>
+          <TouchableOpacity
+            style={styles.unlockButton}
+            onPress={() => console.log("unlocked test")} // Handle purchase logic here
+          >
+            <Text style={styles.unlockButtonText}>Unlock Now for €4.99</Text>
+          </TouchableOpacity>
         </View>
+      ) : !language ? (
+        // 2. Show Language Selection Page
+        <View style={styles.languageContentContainer}>
+          <Text style={styles.languageTitle}>Choose Your Test Language</Text>
+          <Text style={styles.languageDescription}>
+            Select the language you wish to take the tests in:
+          </Text>
 
-        {quizData.map((exercise, exerciseIndex) => (
-          <View key={exerciseIndex} style={styles.exerciseSection}>
-            {exercise.title && (
-              <Text style={styles.exerciseTitle}>{exercise.title}</Text>
-            )}
-            {exercise.text && (
-              <Text style={styles.exerciseText}>{exercise.text}</Text>
-            )}
-
-            {exercise.questions.map((q, questionIndex) => (
-              <View
-                key={`${exerciseIndex}-${questionIndex}`}
-                style={styles.questionBlock}
+          <View style={styles.languageButtonsContainer}>
+            {languages.map((lang) => (
+              <TouchableOpacity
+                key={lang.code}
+                style={[
+                  styles.languageButton,
+                  language === lang.name && styles.languageSelectedButton,
+                ]}
+                onPress={() => handleSelectLanguage(lang.name)} // Pass name directly
               >
-                <Text style={styles.questionText}>{q.question}</Text>
-                {q.options ? (
-                  <View style={styles.optionsContainer}>
-                    {q.options.map((option, optionIndex) => (
-                      <TouchableOpacity
-                        key={optionIndex}
-                        onPress={() =>
-                          handleAnswerSelect(
-                            exerciseIndex,
-                            questionIndex,
-                            option
-                          )
-                        }
-                        style={[
-                          styles.optionButton,
-                          selectedAnswers[exerciseIndex]?.[questionIndex] ===
-                            option && styles.selectedOption,
-                        ]}
-                      >
-                        <Text style={styles.optionText}>{option}</Text>
-                      </TouchableOpacity>
-                    ))}
-                  </View>
-                ) : (
-                  <TextInput
-                    value={
-                      selectedAnswers[exerciseIndex]?.[questionIndex] || ""
-                    }
-                    onChangeText={(text) =>
-                      handleAnswerSelect(exerciseIndex, questionIndex, text)
-                    }
-                    placeholder="Shkruaj përgjigjen këtu..."
-                    placeholderTextColor="#9ca3af"
-                    multiline
-                    numberOfLines={4}
-                    style={styles.textArea}
-                  />
-                )}
-
-                {/* Display Correct Answer */}
-                {showCorrectAnswers && (
-                  <Text style={styles.correctAnswerText}>
-                    **Përgjigja e saktë:** {q.answer}
-                  </Text>
-                )}
-              </View>
+                <Text style={styles.languageButtonText}>{lang.name}</Text>
+              </TouchableOpacity>
             ))}
           </View>
-        ))}
-        <TouchableOpacity
-          onPress={handleSubmitQuiz}
-          style={styles.submitButton}
-        >
-          <Text style={styles.submitButtonText}>Dorëzo Testin</Text>
-        </TouchableOpacity>
 
-        {/* Display AI Response / Score */}
-        {loadingAI && (
-          <View style={styles.loadingContainer}>
-            <ActivityIndicator size="large" color="#3b82f6" />
-            <Text style={styles.loadingText}>Duke kontrolluar testin...</Text>
+          {language && (
+            <Text style={styles.languageConfirmation}>
+              You have selected:{" "}
+              <Text style={styles.languageSelectedText}>{language}</Text>
+            </Text>
+          )}
+          {/* No "Take Test" button here, selection directly leads to test list */}
+        </View>
+      ) : selectedTestIndex === null ? (
+        // 3. Show Test Selection Page (for the chosen language)
+        <ScrollView contentContainerStyle={styles.testSelScrollViewContent}>
+          <Text style={styles.testSelHeader}>Select a Test</Text>
+          <View style={styles.testSelButtonsContainer}>
+            {testsForSelectedLanguage.map((testSet, index) => (
+              <TouchableOpacity
+                key={index}
+                style={[
+                  styles.testSelButton,
+                  completedTests.includes(index)
+                    ? styles.testSelCompletedButton
+                    : styles.testSelIncompleteButton,
+                ]}
+                onPress={() => handleSelectSpecificTest(index)}
+              >
+                <Text style={styles.testSelButtonText}>Test {index + 1}</Text>
+                {completedTests.includes(index) && (
+                  <Text style={styles.testSelStatusText}>Completed</Text>
+                )}
+              </TouchableOpacity>
+            ))}
           </View>
-        )}
-        {apiResponse && !loadingAI && (
-          <View style={styles.apiResponseContainer}>
-            <Text style={styles.apiResponseText}>{apiResponse}</Text>
+        </ScrollView>
+      ) : (
+        // 4. Show Actual Quiz Content
+        <ScrollView contentContainerStyle={styles.scrollViewContent}>
+          <View style={styles.headerContainer}>
+            <Text style={styles.headerText}>
+              Testi {currentQuestionIndex + 1}
+            </Text>
+            <View style={styles.navigationButtons}>
+              <TouchableOpacity
+                onPress={handlePress} // This now goes back to test selection
+                style={styles.backButton}
+              >
+                <Text style={styles.backButtonText}>BACK</Text>
+              </TouchableOpacity>
+            </View>
           </View>
-        )}
-      </ScrollView>
+
+          {quizData &&
+            quizData.questions && ( // Ensure quizData and its questions exist
+              <View style={styles.exerciseSection}>
+                {quizData.title && (
+                  <Text style={styles.exerciseTitle}>{quizData.title}</Text>
+                )}
+                {quizData.text && (
+                  <Text style={styles.exerciseText}>{quizData.text}</Text>
+                )}
+
+                {quizData.questions.map((q, questionIndex) => (
+                  <View
+                    key={questionIndex} // Key can be just questionIndex here since it's one exercise
+                    style={styles.questionBlock}
+                  >
+                    <Text style={styles.questionText}>{q.question}</Text>
+                    {q.options ? (
+                      <View style={styles.optionsContainer}>
+                        {q.options.map((option, optionIndex) => (
+                          <TouchableOpacity
+                            key={optionIndex}
+                            onPress={() =>
+                              handleAnswerSelect(
+                                0, // Assuming a single exercise for simplicity in selectedAnswers mapping
+                                questionIndex,
+                                option
+                              )
+                            }
+                            style={[
+                              styles.optionButton,
+                              selectedAnswers[0]?.[questionIndex] === option &&
+                                styles.selectedOption,
+                            ]}
+                          >
+                            <Text style={styles.optionText}>{option}</Text>
+                          </TouchableOpacity>
+                        ))}
+                      </View>
+                    ) : (
+                      <TextInput
+                        value={selectedAnswers[0]?.[questionIndex] || ""}
+                        onChangeText={(text) =>
+                          handleAnswerSelect(0, questionIndex, text)
+                        }
+                        placeholder="Shkruaj përgjigjen këtu..."
+                        placeholderTextColor="#9ca3af"
+                        multiline
+                        numberOfLines={4}
+                        style={styles.textArea}
+                      />
+                    )}
+
+                    {showCorrectAnswers && (
+                      <Text style={styles.correctAnswerText}>
+                        **Përgjigja e saktë:** {q.answer}
+                      </Text>
+                    )}
+                  </View>
+                ))}
+              </View>
+            )}
+          <TouchableOpacity
+            onPress={handleSubmitQuiz}
+            style={styles.submitButton}
+          >
+            <Text style={styles.submitButtonText}>Check results</Text>
+          </TouchableOpacity>
+
+          {loadingAI && (
+            <View style={styles.loadingContainer}>
+              <ActivityIndicator size="large" color="#3b82f6" />
+              <Text style={styles.loadingText}>Duke kontrolluar testin...</Text>
+            </View>
+          )}
+          {apiResponse && !loadingAI && (
+            <View style={styles.apiResponseContainer}>
+              <Text style={styles.apiResponseText}>{apiResponse}</Text>
+            </View>
+          )}
+        </ScrollView>
+      )}
     </KeyboardAvoidingView>
   );
 }
 
 const styles = StyleSheet.create({
-  container: {},
+  keyboardAvoidingView: {
+    flex: 1,
+    backgroundColor: "#343541",
+    // Padding top handled by insets in the main view
+  },
+  // --- Common Styles for Quiz Content ---
   scrollViewContent: {
     flexGrow: 1,
-    paddingBottom: 20, // Add some padding at the bottom
+    paddingBottom: 20,
+    paddingHorizontal: 20,
   },
   headerContainer: {
     flexDirection: "row",
@@ -339,15 +607,13 @@ const styles = StyleSheet.create({
   },
   navigationButtons: {
     flexDirection: "row",
-    gap: 10, // Replaces space-x-4
+    gap: 10,
   },
   navButton: {
-    width: 45, // Set a fixed width
-    height: 45, // Set a fixed height, equal to width
-    borderRadius: 22.5, // Half of width/height to make it a perfect circle
-    backgroundColor: "#3b82f6", // blue-600
-    justifyContent: "center", // Center the icon horizontally
-    alignItems: "center", // Center the icon vertically
+    paddingHorizontal: 15,
+    paddingVertical: 8,
+    backgroundColor: "#3b82f6",
+    borderRadius: 25,
     shadowColor: "#000",
     shadowOffset: { width: 0, height: 2 },
     shadowOpacity: 0.25,
@@ -362,8 +628,8 @@ const styles = StyleSheet.create({
   backButton: {
     paddingHorizontal: 20,
     paddingVertical: 10,
-    backgroundColor: "#dc2626", // blue-600
-    borderRadius: 25, // rounded-full
+    backgroundColor: "#3b82f6",
+    borderRadius: 25,
     shadowColor: "#000",
     shadowOffset: { width: 0, height: 2 },
     shadowOpacity: 0.25,
@@ -397,7 +663,7 @@ const styles = StyleSheet.create({
   },
   exerciseText: {
     fontSize: 16,
-    color: "#d1d5db", // gray-300
+    color: "#d1d5db",
     marginBottom: 20,
     lineHeight: 24,
   },
@@ -405,7 +671,7 @@ const styles = StyleSheet.create({
     marginBottom: 20,
     paddingBottom: 15,
     borderBottomWidth: 1,
-    borderBottomColor: "#374151", // gray-700
+    borderBottomColor: "#374151",
   },
   questionText: {
     fontSize: 18,
@@ -415,40 +681,40 @@ const styles = StyleSheet.create({
   },
   optionsContainer: {
     flexDirection: "column",
-    gap: 8, // space-y-2
+    gap: 8,
   },
   optionButton: {
     flexDirection: "row",
     alignItems: "center",
     padding: 10,
     borderRadius: 8,
-    backgroundColor: "#2d3748", // Equivalent to hover:bg-gray-700, but applied by default for better visibility
-    borderColor: "#4b5563", // gray-600
+    backgroundColor: "#2d3748",
+    borderColor: "#4b5563",
     borderWidth: 1,
   },
   selectedOption: {
-    backgroundColor: "#3b82f6", // blue-500, to indicate selection
+    backgroundColor: "#3b82f6",
     borderColor: "#3b82f6",
   },
   optionText: {
     fontSize: 16,
     color: "white",
-    marginLeft: 10, // For spacing if a custom radio button is added
+    marginLeft: 10,
   },
   textArea: {
     width: "100%",
     padding: 12,
     borderRadius: 8,
-    backgroundColor: "#374151", // gray-700
+    backgroundColor: "#374151",
     color: "white",
-    borderColor: "#4b5563", // gray-600
+    borderColor: "#4b5563",
     borderWidth: 1,
-    textAlignVertical: "top", // For multiline TextInput on Android
+    textAlignVertical: "top",
     fontSize: 16,
   },
   correctAnswerText: {
     marginTop: 15,
-    color: "#4ade80", // green-400
+    color: "#4ade80",
     fontSize: 14,
     fontWeight: "bold",
   },
@@ -456,8 +722,8 @@ const styles = StyleSheet.create({
     marginTop: 30,
     paddingHorizontal: 30,
     paddingVertical: 15,
-    backgroundColor: "#10b981", // green-600
-    borderRadius: 30, // rounded-full
+    backgroundColor: "#10b981",
+    borderRadius: 30,
     shadowColor: "#000",
     shadowOffset: { width: 0, height: 4 },
     shadowOpacity: 0.3,
@@ -511,102 +777,198 @@ const styles = StyleSheet.create({
     padding: 20,
     fontSize: 18,
   },
+
+  // --- Styles for Unlock Tests Page ---
+  unlockContentContainer: {
+    alignItems: "center",
+    padding: 25,
+    backgroundColor: "#202123",
+    borderRadius: 15,
+    shadowColor: "#000",
+    shadowOffset: { width: 0, height: 4 },
+    shadowOpacity: 0.25,
+    shadowRadius: 8,
+    elevation: 5,
+    marginHorizontal: 20,
+  },
+  unlockTitle: {
+    fontSize: 32,
+    fontWeight: "bold",
+    color: "white",
+    marginBottom: 20,
+    textAlign: "center",
+  },
+  unlockDescription: {
+    fontSize: 16,
+    color: "#d1d5db",
+    textAlign: "center",
+    marginBottom: 15,
+    lineHeight: 22,
+  },
+  unlockPrice: {
+    fontWeight: "bold",
+    color: "#4ade80",
+    fontSize: 18,
+  },
+  unlockBulletPointsContainer: {
+    alignSelf: "flex-start",
+    marginBottom: 20,
+    marginLeft: 10,
+  },
+  unlockBulletPoint: {
+    fontSize: 15,
+    color: "#d1d5db",
+    marginBottom: 8,
+  },
+  unlockCallToAction: {
+    fontSize: 16,
+    fontWeight: "bold",
+    color: "#facc15",
+    textAlign: "center",
+    marginBottom: 30,
+    lineHeight: 22,
+  },
+  unlockButton: {
+    backgroundColor: "#3b82f6",
+    paddingVertical: 15,
+    paddingHorizontal: 40,
+    borderRadius: 30,
+    shadowColor: "#000",
+    shadowOffset: { width: 0, height: 2 },
+    shadowOpacity: 0.25,
+    shadowRadius: 3.84,
+    elevation: 5,
+  },
+  unlockButtonText: {
+    color: "white",
+    fontSize: 18,
+    fontWeight: "bold",
+  },
+
+  // --- Styles for Language Selection Page ---
+  languageContentContainer: {
+    alignItems: "center",
+    padding: 25,
+    backgroundColor: "#202123",
+    borderRadius: 15,
+    shadowColor: "#000",
+    shadowOffset: { width: 0, height: 4 },
+    shadowOpacity: 0.25,
+    shadowRadius: 8,
+    elevation: 5,
+    marginHorizontal: 20,
+  },
+  languageTitle: {
+    fontSize: 28,
+    fontWeight: "bold",
+    color: "white",
+    marginBottom: 15,
+    textAlign: "center",
+  },
+  languageDescription: {
+    fontSize: 16,
+    color: "#d1d5db",
+    textAlign: "center",
+    marginBottom: 25,
+    lineHeight: 22,
+  },
+  languageButtonsContainer: {
+    width: "100%",
+    gap: 15,
+    marginBottom: 20,
+  },
+  languageButton: {
+    backgroundColor: "#3b82f6",
+    paddingVertical: 15,
+    paddingHorizontal: 20,
+    borderRadius: 30,
+    shadowColor: "#000",
+    shadowOffset: { width: 0, height: 2 },
+    shadowOpacity: 0.25,
+    shadowRadius: 3.84,
+    elevation: 5,
+    alignItems: "center",
+  },
+  languageSelectedButton: {
+    backgroundColor: "#4ade80",
+    borderColor: "#22c55e",
+    borderWidth: 2,
+  },
+  languageButtonText: {
+    color: "white",
+    fontSize: 18,
+    fontWeight: "bold",
+  },
+  languageConfirmation: {
+    fontSize: 16,
+    color: "#d1d5db",
+    marginTop: 10,
+    textAlign: "center",
+  },
+  languageSelectedText: {
+    fontWeight: "bold",
+    color: "#facc15",
+  },
+  // Removed takeTestButton and takeTestButtonText as they are not used in this specific flow
+
+  // --- Styles for Test Selection Section ---
+  testSelScrollViewContent: {
+    flexGrow: 1,
+    justifyContent: "center",
+    alignItems: "center",
+    paddingVertical: 20,
+    paddingHorizontal: 10,
+    backgroundColor: "#343541",
+  },
+  testSelHeader: {
+    fontSize: 30,
+    fontWeight: "bold",
+    color: "white",
+    marginBottom: 30,
+    textAlign: "center",
+  },
+  testSelButtonsContainer: {
+    width: "100%",
+    flexDirection: "row",
+    flexWrap: "wrap",
+    justifyContent: "center",
+    gap: 15,
+  },
+  testSelButton: {
+    width: 120,
+    height: 120,
+    borderRadius: 15,
+    justifyContent: "center",
+    alignItems: "center",
+    shadowColor: "#000",
+    shadowOffset: { width: 0, height: 4 },
+    shadowOpacity: 0.25,
+    shadowRadius: 8,
+    elevation: 5,
+    borderWidth: 2,
+  },
+  testSelCompletedButton: {
+    backgroundColor: "#202123",
+    borderColor: "#3b82f6", // Changed from aqua to blue
+    shadowColor: "#3b82f6", // Changed from aqua to blue
+    shadowOpacity: 0.5,
+    shadowRadius: 10,
+  },
+  testSelIncompleteButton: {
+    backgroundColor: "#202123",
+    borderColor: "#4b5563", // Example: a subtle grey for incomplete
+  },
+  testSelButtonText: {
+    fontSize: 20,
+    fontWeight: "bold",
+    color: "white",
+    marginBottom: 5,
+  },
+  testSelStatusText: {
+    fontSize: 14,
+    color: "#3b82f6",
+    fontWeight: "600",
+  },
 });
 
 export default FullQuizPage;
-
-/* this was supposed to be the learning page
-export default function LearnPage() {
-  const insets = useSafeAreaInsets();
-  const screenWidth = Dimensions.get("window").width;
-
-  const [expandedIndex, setExpandedIndex] = useState(null);
-  const [search, setSearch] = useState("");
-  let Lectures = Lessons;
-
-  if (search.trim() !== "") {
-    Lectures = Lessons.filter((lecture) =>
-      lecture.title.toLowerCase().includes(search.trim().toLowerCase())
-    );
-  }
-
-  const toggleExpand = (index) => {
-    setExpandedIndex(expandedIndex === index ? null : index);
-  };
-
-  const renderItem = ({ item, index }) => (
-    <View style={{ marginBottom: 12 }}>
-      <Pressable
-        onPress={() => toggleExpand(index)}
-        style={{
-          paddingVertical: 12,
-          paddingHorizontal: 20,
-          backgroundColor: "#e0e0e0",
-          borderRadius: 25,
-          alignSelf: "flex-start",
-          flexDirection: "row",
-          maxWidth: screenWidth - 40,
-          alignItems: "center",
-        }}
-      >
-        <Ionicons
-          name={expandedIndex === index ? "chevron-down" : "chevron-forward"}
-          size={26}
-          color="dimgray"
-          style={{ marginRight: 6 }}
-        />
-        <Text style={{ fontSize: 16, fontWeight: "bold", color: "#333" }}>
-          {item.title}
-        </Text>
-      </Pressable>
-
-      {expandedIndex === index && (
-        <View style={{ marginTop: 10, paddingLeft: 10 }}>
-          {item.subtitles.map((sub, idx) => (
-            <View key={idx} style={{ marginBottom: 8 }}>
-              <Text style={{ fontWeight: "600", fontSize: 20 }}>
-                {sub.subtitle}
-              </Text>
-              <Text style={{ fontSize: 14, color: "#555", marginTop: 2 }}>
-                {sub.context}
-              </Text>
-            </View>
-          ))}
-        </View>
-      )}
-    </View>
-  );
-
-  return (
-    <View style={{ paddingTop: insets.top }}>
-      <TextInput
-        placeholder="Search lectures..."
-        placeholderTextColor="#888"
-        style={{
-          padding: 12,
-          backgroundColor: "#fff", // slightly brighter
-          borderRadius: 100,
-          fontSize: 20,
-          borderWidth: 1,
-          borderColor: "#ddd",
-          shadowColor: "#000",
-          shadowOffset: { width: 0, height: 2 },
-          shadowOpacity: 0.1,
-          shadowRadius: 4,
-          elevation: 3, // for Android shadow
-          width: screenWidth - 40,
-          alignSelf: "center",
-          marginTop: 60,
-        }}
-        onChangeText={setSearch}
-      />
-      <FlatList
-        data={Lectures}
-        keyExtractor={(item, index) => index.toString()}
-        renderItem={renderItem}
-        contentContainerStyle={{ padding: 16 }}
-      />
-    </View>
-  );
-}
-*/

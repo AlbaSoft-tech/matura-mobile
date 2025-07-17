@@ -5,10 +5,11 @@ import {
   TouchableWithoutFeedback,
   Dimensions,
   TouchableOpacity,
+  ScrollView, // Added ScrollView for content that might exceed screen height
 } from "react-native";
 import { useSafeAreaInsets } from "react-native-safe-area-context";
 import { Ionicons } from "@expo/vector-icons";
-import useAuthStore from "../../store/authStore";
+import useAuthStore from "../../store/authStore"; // Assuming this path is correct
 
 export default function ShopScreen() {
   const { user, email, logOut } = useAuthStore();
@@ -17,144 +18,183 @@ export default function ShopScreen() {
 
   const { width, height } = Dimensions.get("window");
   const tokens = [
-    { amount: 10, price: 200 },
-    { amount: 50, price: 900 },
-    { amount: 100, price: 1600 },
+    { amount: 10, price: 3.25 },
+    { amount: 50, price: 15 },
+    { amount: 100, price: 26 },
   ];
+
+  // Mock functions for demonstration
+  const handleBuyTokens = (item) => {
+    console.log(`Buying ${item.amount} tokens for ${item.price}MKD`);
+    // Implement actual payment logic here
+  };
+
+  const handleLogout = () => {
+    console.log('Logging out...');
+    if (logOut) logOut();
+  };
 
   return (
     <View
-      style={{ flex: 1, backgroundColor: "#f4f4f4", paddingTop: insets.top }}
+      style={{ flex: 1, backgroundColor: "#343541", paddingTop: insets.top }}
     >
+
       <View
         style={{
-          width: "100vw",
+          width: "100%", // Changed from "100vw" to "100%" for React Native
           flexDirection: "row",
           justifyContent: "space-between",
           alignItems: "center",
+          paddingHorizontal: 20, // Added horizontal padding
+          paddingVertical: 15, // Added vertical padding
         }}
       >
+
         <View
           style={{
             flexDirection: "row",
             alignItems: "center",
-            backgroundColor: "#fff",
-            paddingHorizontal: 12,
-            paddingVertical: 6,
-            borderRadius: 999,
+            backgroundColor: "#202123", // Darker background
+            paddingHorizontal: 15, // Adjusted padding
+            paddingVertical: 8, // Adjusted padding
+            borderRadius: 25, // Pill shape
             shadowColor: "#000",
-            shadowOffset: { width: 0, height: 0 },
-            shadowOpacity: 0.2,
-            shadowRadius: 8,
+            shadowOffset: { width: 0, height: 2 }, // Consistent shadow
+            shadowOpacity: 0.25,
+            shadowRadius: 3.84,
             elevation: 5,
-            marginLeft: 20,
-            width: 90,
-            height: 40,
-            justifyContent: "space-between",
+            marginLeft: 0, // Removed marginLeft as padding is on header
+            minWidth: 90, // Ensure it has a minimum width
+            justifyContent: "center", // Center content
           }}
         >
           <Ionicons
             name="cash-outline"
             size={26}
-            color="dimgray"
-            style={{ marginRight: 6 }}
+            color="white" // White icon
+            style={{ marginRight: 8 }} // Adjusted margin
           />
-          <Text style={{ fontSize: 20, fontWeight: "600", color: "#374151" }}>
+          <Text style={{ fontSize: 20, fontWeight: "600", color: "white" }}>
             14
           </Text>
         </View>
+
         <TouchableWithoutFeedback onPress={() => setShop(!shop)}>
           <Ionicons
             name={shop ? "person-circle" : "cart"}
-            size={60}
-            color="dimgray"
+            size={40} // Adjusted size
+            color="white" // White icon
             style={{ marginRight: 20 }}
           />
         </TouchableWithoutFeedback>
       </View>
+
       {shop ? (
-        <View
-          style={{
-            flex: 1,
-            backgroundColor: "#f3f4f6",
+        <ScrollView
+          contentContainerStyle={{
+            flexGrow: 1, // Allows content to grow and scroll
             justifyContent: "space-evenly",
             alignItems: "center",
-            paddingVertical: 16,
+            paddingVertical: 20,
             flexDirection: "column",
           }}
         >
-          <View style={{ flexDirection: "column", alignItems: "center" }}>
-            <View style={{ flexDirection: "row", alignItems: "center" }}>
-              <Text style={{ fontSize: 50 }}>1 </Text>
-              <Ionicons name="cash-outline" size={40} color="dimgray" />
-              <Text style={{ fontSize: 50 }}> = 20MKD</Text>
+
+          <View
+            style={{
+              flexDirection: "column",
+              alignItems: "center",
+              backgroundColor: "#202123", // Darker background
+              padding: 20, // Consistent padding
+              borderRadius: 15, // Rounded corners
+              shadowColor: "#000",
+              shadowOffset: { width: 0, height: 2 },
+              shadowOpacity: 0.25,
+              shadowRadius: 3.84,
+              elevation: 5,
+              width: "90%", // Limit width for better appearance
+              marginBottom: 30, // Space below this section
+            }}
+          >
+            <View style={{ flexDirection: "row", alignItems: "center", marginBottom: 10 }}> 
+              <Text style={{ fontSize: 30, fontWeight: "bold", color: "white" }}>1 </Text> 
+              <Ionicons name="cash-outline" size={30} color="white" /> 
+              <Text style={{ fontSize: 30, fontWeight: "bold", color: "white" }}> = 20MKD</Text>
+            </View>
+            <View style={{ flexDirection: "row", alignItems: "center", marginBottom: 10 }}> 
+              <Text style={{ fontSize: 30, fontWeight: "bold", color: "white" }}>1 </Text>
+              <Ionicons name="camera" size={35} color="white" /> 
+              <Text style={{ fontSize: 30, fontWeight: "bold", color: "white" }}> = 10</Text>
+              <Ionicons name="cash-outline" size={30} color="white" />
             </View>
             <View style={{ flexDirection: "row", alignItems: "center" }}>
-              <Text style={{ fontSize: 50 }}>1 </Text>
-              <Ionicons name="camera" size={45} color="dimgray" />
-              <Text style={{ fontSize: 50 }}> = 10</Text>
-              <Ionicons name="cash-outline" size={40} color="dimgray" />
-            </View>
-            <View style={{ flexDirection: "row", alignItems: "center" }}>
-              <Text style={{ fontSize: 50 }}>1</Text>
-              <Ionicons name="help" size={45} color="dimgray" />
-              <Text style={{ fontSize: 50 }}>= 1</Text>
-              <Ionicons name="cash-outline" size={40} color="dimgray" />
+              <Text style={{ fontSize: 30, fontWeight: "bold", color: "white" }}>1</Text>
+              <Ionicons name="help" size={35} color="white" /> 
+              <Text style={{ fontSize: 30, fontWeight: "bold", color: "white" }}>= 1</Text>
+              <Ionicons name="cash-outline" size={30} color="white" />
             </View>
           </View>
-          <View style={{ gap: 20 }}>
+
+
+          <View style={{ gap: 15, width: "100%", alignItems: "center" }}> 
             {tokens.map((item, index) => (
               <View
                 key={index}
                 style={{
                   width: width * 0.9,
                   height: 90,
-                  backgroundColor: "#fff",
-                  borderRadius: 999,
+                  backgroundColor: "#202123", // Darker background
+                  borderRadius: 30, // More rounded
                   shadowColor: "#000",
                   shadowOffset: { width: 0, height: 4 },
-                  shadowOpacity: 0.1,
+                  shadowOpacity: 0.25,
                   shadowRadius: 8,
                   elevation: 5,
                   flexDirection: "row",
-                  padding: 24,
+                  paddingHorizontal: 20, // Adjusted padding
                   justifyContent: "space-between",
                   alignItems: "center",
                 }}
               >
-                <View style={{ flexDirection: "row", gap: 20 }}>
+                <View style={{ flexDirection: "row", gap: 15, alignItems: "center" }}> 
                   <Text
                     style={{
-                      fontSize: 22,
+                      fontSize: 24, // Adjusted font size
                       fontWeight: "bold",
-                      color: "dimgray",
+                      color: "white", // White text
                     }}
                   >
                     {item.amount}
                   </Text>
 
-                  <Ionicons name="cash-outline" size={40} color="dimgray" />
+                  <Ionicons name="cash-outline" size={30} color="white" />
                   <Text
                     style={{
-                      fontSize: 22,
+                      fontSize: 24, // Adjusted font size
                       fontWeight: "bold",
-                      color: "dimgray",
+                      color: "white", // White text
                     }}
                   >
-                    = ${item.price}
+                    =  €{item.price}
                   </Text>
                 </View>
 
                 <TouchableOpacity
                   style={{
-                    backgroundColor: "dimgray",
-                    paddingVertical: 10,
-                    paddingHorizontal: 32,
-                    borderRadius: 999,
+                    backgroundColor: "#3b82f6", // Blue accent
+                    paddingVertical: 12, // Adjusted padding
+                    paddingHorizontal: 35, // Adjusted padding
+                    borderRadius: 30, // Pill shape
+                    shadowColor: "#000",
+                    shadowOffset: { width: 0, height: 2 },
+                    shadowOpacity: 0.25,
+                    shadowRadius: 3.84,
+                    elevation: 5,
                   }}
+                  onPress={() => handleBuyTokens(item)} // Added onPress handler
                 >
                   <Text
-                    style={{ color: "#fff", fontSize: 16, fontWeight: "bold" }}
+                    style={{ color: "white", fontSize: 18, fontWeight: "bold" }} // White text
                   >
                     Buy
                   </Text>
@@ -162,84 +202,90 @@ export default function ShopScreen() {
               </View>
             ))}
           </View>
-        </View>
+        </ScrollView>
       ) : (
-        <View
-          style={{
-            flex: 1,
-            backgroundColor: "#f4f4f4",
+        <ScrollView
+          contentContainerStyle={{
+            flexGrow: 1,
+            backgroundColor: "#343541", // Main dark background
             alignItems: "center",
-            justifyContent: "flex-start",
+            justifyContent: "flex-start", // Align content to the top
             padding: 20,
           }}
         >
-          {/* Profile Picture */}
+         
           <Ionicons
             name={"person-circle"}
-            size={200}
-            color="dimgray"
-            style={{ marginRight: 20 }}
+            size={150} // Adjusted size
+            color="white" // White icon
+            style={{ marginBottom: 20 }} // Space below picture
           />
 
-          {/* Name */}
+         
           <Text
             style={{
-              fontSize: 24,
+              fontSize: 20, // Adjusted font size
               fontWeight: "bold",
-              color: "#333",
-              marginBottom: 10,
+              color: "white", // White text
+              marginBottom: 5,
+              marginTop: 15, // Space above label
             }}
           >
             Username
           </Text>
-
-          {/* Bio */}
           <Text
             style={{
               fontSize: 16,
-              color: "#777",
+              color: "#d1d5db", // Light gray text
               textAlign: "center",
-              marginBottom: 30,
+              marginBottom: 20,
             }}
           >
-            {user || "John Doe"}
+            {user || "Përdoruesi"}
           </Text>
           <Text
             style={{
-              fontSize: 24,
+              fontSize: 20, // Adjusted font size
               fontWeight: "bold",
-              color: "#333",
-              marginBottom: 10,
+              color: "white", // White text
+              marginBottom: 5,
+              marginTop: 15, // Space above label
             }}
           >
             Email
           </Text>
 
-          {/* Bio */}
+    
           <Text
             style={{
               fontSize: 16,
-              color: "#777",
+              color: "#d1d5db", // Light gray text
               textAlign: "center",
               marginBottom: 30,
             }}
           >
-            {email || "JohnDoe@example.com"}
+            {email || "user@example.com"}
           </Text>
           <TouchableOpacity
             style={{
-              backgroundColor: "dimgray",
-              paddingVertical: 10,
-              paddingHorizontal: 40,
-              borderRadius: 30,
+              backgroundColor: "#dc2626", // Red accent
+              paddingVertical: 12, // Adjusted padding
+              paddingHorizontal: 45, // Adjusted padding
+              borderRadius: 30, // Pill shape
+              shadowColor: "#000",
+              shadowOffset: { width: 0, height: 2 },
+              shadowOpacity: 0.25,
+              shadowRadius: 3.84,
+              elevation: 5,
+              marginTop: 30, // Space above logout button
             }}
-            onPress={() => logOut()}
+            onPress={handleLogout} // Added onPress handler
           >
-            <Text style={{ color: "#fff", fontSize: 16, fontWeight: "bold" }}>
+            <Text style={{ color: "white", fontSize: 18, fontWeight: "bold" }}>
               Logout
             </Text>
           </TouchableOpacity>
-        </View>
+        </ScrollView>
       )}
     </View>
   );

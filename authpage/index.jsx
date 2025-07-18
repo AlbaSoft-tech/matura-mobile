@@ -16,9 +16,10 @@ export default function Auth() {
           display: "flex",
           justifyContent: "center",
           alignItems: "center",
+          backgroundColor: "#343541"
         }}
       >
-        <Ionicons name="school" size={250} color={"dimgray"} />
+        <Ionicons name="school" size={250} color={"#3b82f6"} />
       </View>
       {isSignUp ? (
         <SignUp onAlreadyHaveAnAccount={() => setIsSignUp(false)} />

@@ -20,7 +20,6 @@ const useAuthStore = create((set) => ({
   completedTests: [],
   setCompletedTests: (value) => set({ completedTests: value }),
 
-
   signUp: async (username, email, password) => {
     set({ isLoading: true });
     try {
@@ -118,19 +117,19 @@ const useAuthStore = create((set) => ({
           const tokens = await AsyncStorage.getItem("tokens");
           const testUnlocked = await AsyncStorage.getItem("testUnlocked");
           const result = await response.json();
-          
           set({
-            user: user,
-            email: email,
+            user: user.slice(1, -1),
+            email: email.slice(1, -1),
             token: token,
             tokens: JSON.parse(tokens),
             isAuthorised: true,
             testUnlocked: JSON.parse(testUnlocked),
             completedTests: result.completedTests,
           });
-          const data = await response.json();
           return true;
         } else {
+          const result = await response.json();
+          console.log(result.message);
           return false;
         }
       } else {
@@ -142,9 +141,7 @@ const useAuthStore = create((set) => ({
   },
   logOut: async () => {
     set({ token: null, isAuthorised: false });
-    await AsyncStorage.setItem("user", "");
-    await AsyncStorage.setItem("token", "");
-    await AsyncStorage.setItem("email", "");
+    await AsyncStorage.clear();
   },
 }));
 

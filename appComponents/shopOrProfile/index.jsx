@@ -30,7 +30,7 @@ export default function ShopScreen() {
   };
 
   const handleLogout = () => {
-    console.log('Logging out...');
+    console.log("Logging out...");
     if (logOut) logOut();
   };
 
@@ -38,7 +38,6 @@ export default function ShopScreen() {
     <View
       style={{ flex: 1, backgroundColor: "#343541", paddingTop: insets.top }}
     >
-
       <View
         style={{
           width: "100%", // Changed from "100vw" to "100%" for React Native
@@ -49,7 +48,6 @@ export default function ShopScreen() {
           paddingVertical: 15, // Added vertical padding
         }}
       >
-
         <View
           style={{
             flexDirection: "row",
@@ -99,7 +97,6 @@ export default function ShopScreen() {
             flexDirection: "column",
           }}
         >
-
           <View
             style={{
               flexDirection: "column",
@@ -116,27 +113,64 @@ export default function ShopScreen() {
               marginBottom: 30, // Space below this section
             }}
           >
-            <View style={{ flexDirection: "row", alignItems: "center", marginBottom: 10 }}> 
-              <Text style={{ fontSize: 30, fontWeight: "bold", color: "white" }}>1 </Text> 
-              <Ionicons name="cash-outline" size={30} color="white" /> 
-              <Text style={{ fontSize: 30, fontWeight: "bold", color: "white" }}> = 20MKD</Text>
+            <View
+              style={{
+                flexDirection: "row",
+                alignItems: "center",
+                marginBottom: 10,
+              }}
+            >
+              <Text
+                style={{ fontSize: 30, fontWeight: "bold", color: "white" }}
+              >
+                1{" "}
+              </Text>
+              <Ionicons name="cash-outline" size={30} color="white" />
+              <Text
+                style={{ fontSize: 30, fontWeight: "bold", color: "white" }}
+              >
+                {" "}
+                = 20MKD
+              </Text>
             </View>
-            <View style={{ flexDirection: "row", alignItems: "center", marginBottom: 10 }}> 
-              <Text style={{ fontSize: 30, fontWeight: "bold", color: "white" }}>1 </Text>
-              <Ionicons name="camera" size={35} color="white" /> 
-              <Text style={{ fontSize: 30, fontWeight: "bold", color: "white" }}> = 10</Text>
+            <View
+              style={{
+                flexDirection: "row",
+                alignItems: "center",
+                marginBottom: 10,
+              }}
+            >
+              <Text
+                style={{ fontSize: 30, fontWeight: "bold", color: "white" }}
+              >
+                1{" "}
+              </Text>
+              <Ionicons name="camera" size={35} color="white" />
+              <Text
+                style={{ fontSize: 30, fontWeight: "bold", color: "white" }}
+              >
+                {" "}
+                = 10
+              </Text>
               <Ionicons name="cash-outline" size={30} color="white" />
             </View>
             <View style={{ flexDirection: "row", alignItems: "center" }}>
-              <Text style={{ fontSize: 30, fontWeight: "bold", color: "white" }}>1</Text>
-              <Ionicons name="help" size={35} color="white" /> 
-              <Text style={{ fontSize: 30, fontWeight: "bold", color: "white" }}>= 1</Text>
+              <Text
+                style={{ fontSize: 30, fontWeight: "bold", color: "white" }}
+              >
+                1
+              </Text>
+              <Ionicons name="help" size={35} color="white" />
+              <Text
+                style={{ fontSize: 30, fontWeight: "bold", color: "white" }}
+              >
+                = 1
+              </Text>
               <Ionicons name="cash-outline" size={30} color="white" />
             </View>
           </View>
 
-
-          <View style={{ gap: 15, width: "100%", alignItems: "center" }}> 
+          <View style={{ gap: 15, width: "100%", alignItems: "center" }}>
             {tokens.map((item, index) => (
               <View
                 key={index}
@@ -156,7 +190,13 @@ export default function ShopScreen() {
                   alignItems: "center",
                 }}
               >
-                <View style={{ flexDirection: "row", gap: 15, alignItems: "center" }}> 
+                <View
+                  style={{
+                    flexDirection: "row",
+                    gap: 15,
+                    alignItems: "center",
+                  }}
+                >
                   <Text
                     style={{
                       fontSize: 24, // Adjusted font size
@@ -175,7 +215,7 @@ export default function ShopScreen() {
                       color: "white", // White text
                     }}
                   >
-                    =  €{item.price}
+                    = €{item.price}
                   </Text>
                 </View>
 
@@ -213,7 +253,6 @@ export default function ShopScreen() {
             padding: 20,
           }}
         >
-         
           <Ionicons
             name={"person-circle"}
             size={150} // Adjusted size
@@ -221,7 +260,6 @@ export default function ShopScreen() {
             style={{ marginBottom: 20 }} // Space below picture
           />
 
-         
           <Text
             style={{
               fontSize: 20, // Adjusted font size
@@ -255,7 +293,6 @@ export default function ShopScreen() {
             Email
           </Text>
 
-    
           <Text
             style={{
               fontSize: 16,

@@ -10,14 +10,14 @@ import {
   TouchableWithoutFeedback,
   Keyboard
 } from "react-native";
-import { Context } from "../index";
+import { Context } from "../index"; // Assuming Context is defined correctly
 
 export default function FirstStep({ onContinue }) {
   const { setForgotPassword } = useAuthStore();
-  const [email, setEmail] = useContext(Context);
+  const [email, setEmail] = useContext(Context); // Assuming setEmail is the setter from Context
   const handlePress = async () => {
     if (!email) {
-      alert("Please enter your email address");
+      alert("Please enter your email address"); // Keeping alert as per user instruction
       return;
     }
     const response = await fetch(
@@ -33,44 +33,53 @@ export default function FirstStep({ onContinue }) {
       }
     );
 
+    // You might want to add error handling and success messages here
+    // For example:
+    if (response.ok) {
+    } else {
+      const errorData = await response.json();
+      alert(errorData.message || "Failed to send reset email.");
+    }
+
     onContinue();
   };
 
   return (
     <TouchableWithoutFeedback onPress={Keyboard.dismiss}>
-    <View style={styles.container}>
-      <View style={styles.card}>
-        <TouchableOpacity
-          onPress={() => setForgotPassword(false)}
-          style={{ alignSelf: "flex-start", padding: 10, marginBottom: 20 }}
-        >
-          <Ionicons name="arrow-back" size={40} color="dimgray" />
-        </TouchableOpacity>
+      <View style={styles.container}>
+        <View style={styles.card}>
+          <TouchableOpacity
+            onPress={() => setForgotPassword(false)}
+            style={{ alignSelf: "flex-start", padding: 10, marginBottom: 20 }}
+          >
+            <Ionicons name="arrow-back" size={40} color="#d1d5db" /> 
+          </TouchableOpacity>
 
-        <Text style={styles.title}>Forgot Password</Text>
-        <Text style={styles.subtitle}>
-          Enter your email address below and we'll send you a password reset
-          code.
-        </Text>
+          <Text style={styles.title}>Forgot Password</Text>
+          <Text style={styles.subtitle}>
+            Enter your email address below and we'll send you a password reset
+            code.
+          </Text>
 
-        <View style={styles.inputGroup}>
-          <Text style={styles.label}>Email Address</Text>
-          <TextInput
-            style={styles.input}
-            placeholder="you@example.com"
-            keyboardType="email-address"
-            autoCapitalize="none"
-            onChangeText={setEmail}
-          />
+          <View style={styles.inputGroup}>
+            <Text style={styles.label}>Email Address</Text>
+            <TextInput
+              style={styles.input}
+              placeholder="you@example.com"
+              placeholderTextColor="#9ca3af" /* Placeholder color */
+              keyboardType="email-address"
+              autoCapitalize="none"
+              onChangeText={setEmail}
+            />
+          </View>
+
+          <View style={styles.messageContainer}></View>
+
+          <TouchableOpacity style={styles.button} onPress={handlePress}>
+            <Text style={styles.buttonText}>Continue</Text>
+          </TouchableOpacity>
         </View>
-
-        <View style={styles.messageContainer}></View>
-
-        <TouchableOpacity style={styles.button} onPress={handlePress}>
-          <Text style={styles.buttonText}>Continue</Text>
-        </TouchableOpacity>
       </View>
-    </View>
     </TouchableWithoutFeedback>
   );
 }
@@ -81,82 +90,81 @@ const styles = StyleSheet.create({
     flex: 1,
     justifyContent: "center",
     alignItems: "center",
-    backgroundColor: "#f3f4f6", // Equivalent to bg-gray-100
+    backgroundColor: "#343541", // Main dark background
     padding: 16,
   },
   card: {
-    backgroundColor: "#fff",
+    backgroundColor: "#202123", // Darker background for card
     padding: 20,
-    borderRadius: 8,
+    borderRadius: 15, // More rounded corners
     shadowColor: "#000",
-    shadowOffset: { width: 0, height: 2 },
-    shadowOpacity: 0.1,
+    shadowOffset: { width: 0, height: 4 },
+    shadowOpacity: 0.25,
     shadowRadius: 8,
-    elevation: 5, // For Android shadow
+    elevation: 5,
     width: "100%",
-    maxWidth: 400, // Equivalent to max-w-md
+    maxWidth: 400,
   },
   title: {
-    fontSize: 28, // Equivalent to text-3xl
+    fontSize: 28,
     fontWeight: "bold",
     textAlign: "center",
-    color: "#1f2937", // Equivalent to text-gray-800
-    marginBottom: 24, // Equivalent to mb-6
+    color: "white", // White title text
+    marginBottom: 24,
   },
   subtitle: {
     fontSize: 16,
-    color: "#4b5563", // Equivalent to text-gray-600
+    color: "#d1d5db", // Light gray subtitle text
     textAlign: "center",
-    marginBottom: 24, // Equivalent to mb-6
+    marginBottom: 24,
   },
   inputGroup: {
-    marginBottom: 16, // Equivalent to mb-4
+    marginBottom: 16,
   },
   label: {
-    fontSize: 14, // Equivalent to text-sm
-    color: "#374151", // Equivalent to text-gray-700
-    fontWeight: "500", // Equivalent to font-medium
-    marginBottom: 8, // Equivalent to mb-2
+    fontSize: 14,
+    color: "#d1d5db", // Light gray label text
+    fontWeight: "500",
+    marginBottom: 8,
   },
   input: {
-    height: 48, // py-3 px-4 implies a certain height
-    borderColor: "#d1d5db", // Equivalent to border
+    height: 48,
+    borderColor: "#4b5563", // Subtle border color
     borderWidth: 1,
-    borderRadius: 6, // Equivalent to rounded-md
-    paddingHorizontal: 16, // Equivalent to px-4
+    borderRadius: 10, // More rounded input fields
+    paddingHorizontal: 16,
     fontSize: 16,
-    color: "#374151", // Equivalent to text-gray-700
+    color: "white", // White input text
+    backgroundColor: "#374151", // Darker background for input field
   },
   messageContainer: {
-    marginBottom: 16, // Equivalent to mb-4
-    // Add styles for success/error messages if you want to visually represent them
+    marginBottom: 16,
   },
   successMessage: {
-    padding: 12, // Equivalent to p-3
-    borderRadius: 6, // Equivalent to rounded-md
-    fontSize: 14, // Equivalent to text-sm
-    backgroundColor: "#d1fae5", // Equivalent to bg-green-100
-    color: "#065f46", // Equivalent to text-green-700
+    padding: 12,
+    borderRadius: 6,
+    fontSize: 14,
+    backgroundColor: "#22c55e", // Green accent for success background
+    color: "white", // White text for success
   },
   errorMessage: {
     padding: 12,
     borderRadius: 6,
     fontSize: 14,
-    backgroundColor: "#fee2e2", // Equivalent to bg-red-100
-    color: "#991b1b", // Equivalent to text-red-700
+    backgroundColor: "#dc2626", // Red accent for error background
+    color: "white", // White text for error
   },
   button: {
     width: "100%",
-    backgroundColor: "dimgray", // Equivalent to bg-blue-600
-    paddingVertical: 12, // Equivalent to py-3
-    paddingHorizontal: 16, // Equivalent to px-4
-    borderRadius: 100, // Equivalent to rounded-md
+    backgroundColor: "#3b82f6", // Blue accent for button background
+    paddingVertical: 12,
+    paddingHorizontal: 16,
+    borderRadius: 30, // Pill shape for button
     alignItems: "center",
     justifyContent: "center",
-    // No hover/transition effects here as they are for web, but TouchableOpacity handles press feedback
   },
   buttonText: {
-    color: "#fff", // Equivalent to text-white
+    color: "white", // White text on button
     fontSize: 16,
     fontWeight: "bold",
   },

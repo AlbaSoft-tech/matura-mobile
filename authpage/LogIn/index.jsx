@@ -11,7 +11,7 @@ import {
 
 import { useState } from "react";
 import { Ionicons } from "@expo/vector-icons";
-import useAuthStore, { authStore } from "../../store/authStore";
+import useAuthStore, { authStore } from "../../store/authStore"; // Assuming useAuthStore is a named export
 import ForgotPassword from "../ForgotPassword/index";
 
 export default function LogIn({ onCreateAnAccount }) {
@@ -28,7 +28,7 @@ export default function LogIn({ onCreateAnAccount }) {
 
   return !forgotPassword ? (
     <TouchableWithoutFeedback onPress={Keyboard.dismiss}>
-      <View style={{ flex: 1 }}>
+      <View style={{ flex: 1, backgroundColor: "#343541" /* Main background */ }}>
         {/* Top Form Section */}
         <View
           style={{
@@ -53,7 +53,7 @@ export default function LogIn({ onCreateAnAccount }) {
                 justifyContent: "space-between",
               }}
             >
-              <Text style={{ color: "gray" /* Tailwind gray-200 */ }}>
+              <Text style={{ color: "#d1d5db" /* Light gray text */ }}>
                 Email
               </Text>
               <TextInput
@@ -62,11 +62,11 @@ export default function LogIn({ onCreateAnAccount }) {
                 keyboardType="default"
                 style={{
                   borderBottomWidth: 2,
-                  borderColor: "dimgray",
+                  borderColor: "#4b5563", /* Subtle border color */
                   width: 384, // w-96
                   fontSize: 20, // text-xl
                   height: 40, // h-10
-                  color: "dimgray",
+                  color: "white", /* White text input */
                 }}
               />
             </View>
@@ -79,7 +79,7 @@ export default function LogIn({ onCreateAnAccount }) {
                 justifyContent: "space-between",
               }}
             >
-              <Text style={{ color: "gray" }}>Password</Text>
+              <Text style={{ color: "#d1d5db" /* Light gray text */ }}>Password</Text>
               <View style={{ flexDirection: "row" }}>
                 <TextInput
                   autoCorrect={false}
@@ -93,11 +93,11 @@ export default function LogIn({ onCreateAnAccount }) {
                   }
                   style={{
                     borderBottomWidth: 2,
-                    borderColor: "dimgray",
+                    borderColor: "#4b5563", /* Subtle border color */
                     width: 320, // w-80
                     fontSize: 20,
                     height: 40,
-                    color: "dimgray",
+                    color: "white", /* White text input */
                   }}
                 />
                 <TouchableWithoutFeedback
@@ -106,7 +106,7 @@ export default function LogIn({ onCreateAnAccount }) {
                   <View
                     style={{
                       borderBottomWidth: 2,
-                      borderColor: "dimgray",
+                      borderColor: "#4b5563", /* Subtle border color */
                       width: 64, // w-16
                       alignItems: "flex-end",
                     }}
@@ -114,14 +114,14 @@ export default function LogIn({ onCreateAnAccount }) {
                     <Ionicons
                       name={showPassword ? "eye-outline" : "eye-off-outline"}
                       size={30}
-                      color="dimgray"
+                      color="#9ca3af" /* Placeholder/icon color */
                     />
                   </View>
                 </TouchableWithoutFeedback>
               </View>
             </View>
             <TouchableWithoutFeedback onPress={() => setForgotPassword(true)}>
-              <Text style={{ color: "gray" }}>Forgot Password</Text>
+              <Text style={{ color: "#3b82f6" /* Blue accent for link */ }}>Forgot Password</Text>
             </TouchableWithoutFeedback>
           </View>
 
@@ -129,7 +129,7 @@ export default function LogIn({ onCreateAnAccount }) {
           <TouchableOpacity
             onPress={handleLogIn}
             style={{
-              backgroundColor: "dimgray",
+              backgroundColor: "#3b82f6", /* Blue accent for button background */
               width: 192, // w-48
               height: 56, // h-14
               borderRadius: 9999, // rounded-full
@@ -141,7 +141,7 @@ export default function LogIn({ onCreateAnAccount }) {
               style={{
                 fontSize: 20,
                 fontWeight: "bold",
-                color: "white", // Tailwind green-500
+                color: "white", /* White text on button */
               }}
             >
               Log In
@@ -158,9 +158,9 @@ export default function LogIn({ onCreateAnAccount }) {
             gap: 12,
           }}
         >
-          <Text style={{ color: "gray" }}>Don't have an account?</Text>
+          <Text style={{ color: "#d1d5db" /* Light gray text */ }}>Don't have an account?</Text>
           <TouchableOpacity onPress={onCreateAnAccount}>
-            <Text style={{ color: "dimgray", fontSize: 24 }}>
+            <Text style={{ color: "#3b82f6", fontSize: 24 /* Blue accent for link */ }}>
               Create an Account
             </Text>
           </TouchableOpacity>

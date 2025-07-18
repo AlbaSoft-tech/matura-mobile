@@ -1,5 +1,5 @@
-import { useState, useContext } from "react";
-import { Alert } from "react-native"; // ✅ Import Alert for error messages
+import React, { useState, useContext } from "react";
+import { Alert } from "react-native";
 import useAuthStore from "../../../store/authStore";
 import {
   View,
@@ -9,6 +9,8 @@ import {
   StyleSheet,
   Keyboard,
   TouchableWithoutFeedback,
+  KeyboardAvoidingView, // Import KeyboardAvoidingView
+  Platform, // Import Platform
 } from "react-native";
 import { Context } from "../index";
 import { Ionicons } from "@expo/vector-icons";
@@ -19,7 +21,7 @@ export default function ThirdStep() {
   const [showPassword, setShowPassword] = useState(false);
   const [showConfirmPassword, setShowConfirmPassword] = useState(false);
 
-  const [newPassword, setPassword] = useState("");
+  const [newPassword, setNewPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
 
   const handlePress = async () => {
@@ -43,7 +45,6 @@ export default function ThirdStep() {
             Authorization: `Bearer ${forgotPasswordToken}`,
           },
           body: JSON.stringify({
-            email,
             newPassword,
           }),
         }
@@ -64,7 +65,10 @@ export default function ThirdStep() {
 
   return (
     <TouchableWithoutFeedback onPress={Keyboard.dismiss}>
-      <View style={styles.container}>
+      <KeyboardAvoidingView // Changed from View to KeyboardAvoidingView
+        style={styles.container}
+        behavior={Platform.OS === "ios" ? "padding" : "height"} // Apply behavior
+      >
         <View style={styles.card}>
           <Text style={styles.title}>Set New Password</Text>
 
@@ -74,9 +78,10 @@ export default function ThirdStep() {
               <TextInput
                 style={styles.input}
                 placeholder="••••••••"
+                placeholderTextColor="#9ca3af"
                 secureTextEntry={!showPassword}
                 value={newPassword}
-                onChangeText={setPassword}
+                onChangeText={setNewPassword}
               />
               <TouchableOpacity
                 style={styles.eyeIcon}
@@ -97,6 +102,7 @@ export default function ThirdStep() {
               <TextInput
                 style={styles.input}
                 placeholder="••••••••"
+                placeholderTextColor="#9ca3af"
                 secureTextEntry={!showConfirmPassword}
                 value={confirmPassword}
                 onChangeText={setConfirmPassword}
@@ -118,7 +124,7 @@ export default function ThirdStep() {
             <Text style={styles.buttonText}>Reset Password</Text>
           </TouchableOpacity>
         </View>
-      </View>
+      </KeyboardAvoidingView>
     </TouchableWithoutFeedback>
   );
 }
@@ -126,18 +132,18 @@ export default function ThirdStep() {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: "#f3f4f6",
+    backgroundColor: "#343541",
     justifyContent: "center",
     alignItems: "center",
     padding: 16,
   },
   card: {
-    backgroundColor: "#fff",
+    backgroundColor: "#202123",
     padding: 32,
-    borderRadius: 8,
+    borderRadius: 15,
     shadowColor: "#000",
-    shadowOffset: { width: 0, height: 2 },
-    shadowOpacity: 0.1,
+    shadowOffset: { width: 0, height: 4 },
+    shadowOpacity: 0.25,
     shadowRadius: 8,
     elevation: 5,
     width: "100%",
@@ -147,37 +153,39 @@ const styles = StyleSheet.create({
     fontSize: 28,
     fontWeight: "bold",
     textAlign: "center",
-    color: "#1f2937",
+    color: "white",
     marginBottom: 24,
   },
   inputGroup: {
     marginBottom: 16,
   },
   label: {
-    fontSize: 14,
-    color: "#374151",
+    fontSize: 16,
+    color: "#d1d5db",
     fontWeight: "500",
     marginBottom: 8,
   },
   input: {
     height: 48,
-    borderColor: "#d1d5db",
+    borderColor: "#4b5563",
     borderWidth: 1,
-    borderRadius: 6,
+    borderRadius: 10,
     paddingHorizontal: 16,
     fontSize: 16,
-    color: "#374151",
+    color: "white",
+    backgroundColor: "#374151",
   },
   button: {
-    backgroundColor: "dimgray",
-    paddingVertical: 12,
-    borderRadius: 100,
+    backgroundColor: "#3b82f6",
+    paddingVertical: 15,
+    borderRadius: 30,
     alignItems: "center",
-    marginTop: 8,
+    marginTop: 20,
+    width: "100%",
   },
   buttonText: {
-    color: "#fff",
-    fontSize: 16,
+    color: "white",
+    fontSize: 18,
     fontWeight: "bold",
   },
   passwordContainer: {

@@ -39,11 +39,24 @@ const convertToBase64 = async (fileUri) => {
 };
 export default function Index() {
   const { checkToken, isAuthorised, setIsAuthorised } = useAuthStore();
-
+  const [loadingAuthorization, setLoadingAuthorization] = useState(true);
   useEffect(() => {
+    setLoadingAuthorization(true);
     const verify = async () => {
-      const result = await checkToken();
-      setIsAuthorised(result);
+      try {
+        const result = await Promise.race([
+          checkToken(),
+          new Promise((_, reject) =>
+            setTimeout(() => reject(new Error("timeout")), 5000)
+          ),
+        ]);
+        setIsAuthorised(result);
+      } catch (err) {
+        console.error("Auth check failed", err);
+        setIsAuthorised(false);
+      } finally {
+        setLoadingAuthorization(false);
+      }
     };
     verify();
   }, []);
@@ -252,6 +265,18 @@ export default function Index() {
     setANswered(true);
   };
 
+  if (loadingAuthorization) {
+    return (
+      <View
+        style={[
+          loadingStyles.container,
+          { paddingTop: insets.top, paddingBottom: insets.bottom },
+        ]}
+      >
+        <ActivityIndicator size="large" color="#3b82f6" />
+      </View>
+    );
+  }
   return isAuthorised ? (
     // SWIPE BAR ___________________________________
     <View style={{ flex: 1 }}>
@@ -532,5 +557,13 @@ const styles = StyleSheet.create({
     color: "white",
     fontSize: 18,
     fontWeight: "bold",
+  },
+});
+const loadingStyles = StyleSheet.create({
+  container: {
+    flex: 1,
+    backgroundColor: "#343541", // Dark background color from your existing style
+    justifyContent: "center", // Center content vertically
+    alignItems: "center", // Center content horizontally
   },
 });

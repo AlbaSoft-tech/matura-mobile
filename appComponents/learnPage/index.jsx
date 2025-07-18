@@ -216,12 +216,10 @@ const fetchedTests = {
   ],
 };
 
-
-
 function FullQuizPage() {
-  const { testUnlocked, completedTests, setCompletedTests, token } = useAuthStore();
+  const { testUnlocked, completedTests, setCompletedTests, token } =
+    useAuthStore();
   const insets = useSafeAreaInsets();
-
   const [selectedAnswers, setSelectedAnswers] = useState({});
   const [apiResponse, setApiResponse] = useState(null);
   const [loadingAI, setLoadingAI] = useState(false);
@@ -336,14 +334,16 @@ function FullQuizPage() {
           method: "POST",
           headers: {
             "Content-Type": "application/json",
-            "Authorization": "Bearer " + token,
+            Authorization: "Bearer " + token,
           },
           body: JSON.stringify({
             prompt: `You got ${quizData.questions.length} questions. Compare the user's answers to the actual answers for these Albanian language questions. Start your response with "Jeni përgjigjur sakt në X prej Y pyetjeve\n" where X is the number of correct answers and Y is the total number of questions. Then, provide a simple feedback on each incorrect question, explaining why the user's answer was wrong, and offer suggestions for improvement for open-ended questions. All the answer should be in albanian.
 User Answers:
 ${userAnswerString}
 Correct Answers:
-${actualAnswerString}`, index: selectedTestIndex, language: language,
+${actualAnswerString}`,
+            index: selectedTestIndex,
+            language: language,
           }),
         }
       );
@@ -356,7 +356,7 @@ ${actualAnswerString}`, index: selectedTestIndex, language: language,
       const cleanedApiResponse = (aiResult.answer || "").replace(/\*/g, "");
       setApiResponse(cleanedApiResponse || "No response from AI.");
       setShowCorrectAnswers(true);
-      setCompletedTests([...completedTests, index]); 
+      setCompletedTests([...completedTests, index]);
     } catch (error) {
       console.error("Error sending data to AI API:", error);
       setApiResponse(`Error: ${error.message}`);
@@ -401,7 +401,7 @@ ${actualAnswerString}`, index: selectedTestIndex, language: language,
           </Text>
           <TouchableOpacity
             style={styles.unlockButton}
-            onPress={() => console.log("unlocked test")} // Handle purchase logic here
+            onPress={() => console.log(testUnlocked)} // Handle purchase logic here
           >
             <Text style={styles.unlockButtonText}>Unlock Now for €4.99</Text>
           </TouchableOpacity>

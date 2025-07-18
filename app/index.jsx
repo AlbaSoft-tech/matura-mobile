@@ -74,6 +74,7 @@ export default function Index() {
   const [answers, setAnswers] = useState(null);
   const [answered, setANswered] = useState(false);
   const [loadingProgress, setLoadingProgress] = useState(0);
+  const [loading, setLoading] = useState(false);
 
   const goToPage = (targetPageIndex) => {
     if (pagerViewRef.current) {
@@ -232,6 +233,7 @@ export default function Index() {
       }
     );
     setLoadingProgress(100);
+    setLoading(false);
     const parsedAnswer = await processedPrompt.json();
     setAnswers(parsedAnswer.answer);
     setWriting(true);
@@ -421,13 +423,20 @@ export default function Index() {
             </View>
 
             {answered &&
-              answers.length > 0 && ( // Only show if answered and answers is not empty
+              answers && ( // Only show if answered and answers is not empty
                 <ScrollView style={styles.answersScrollView}>
                   <View style={styles.answerItem}>
                     <Text style={styles.answerText}>{answers}</Text>
                   </View>
                 </ScrollView>
               )}
+
+            {loading && (
+              <View style={styles.overlay}>
+                <ActivityIndicator size="large" color="#3b82f6" />
+                <Text style={styles.overlayText}>{loadingProgress}%</Text>
+              </View>
+            )}
 
             <TouchableWithoutFeedback onPress={Keyboard.dismiss}>
               <KeyboardAvoidingView

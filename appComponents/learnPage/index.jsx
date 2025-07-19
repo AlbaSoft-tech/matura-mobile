@@ -22,8 +22,14 @@ import useAuthStore from "../../store/authStore"; // Ensure correct import for u
 // For demonstration, a small mock data set is provided.
 
 function FullQuizPage() {
-  const { testUnlocked, completedTests, setCompletedTests, token, fetchedTests } =
-    useAuthStore();
+  const {
+    testUnlocked,
+    completedTests,
+    setCompletedTests,
+    token,
+    fetchedTests,
+  } = useAuthStore();
+  console.log(fetchedTests);
   const insets = useSafeAreaInsets();
   const [selectedAnswers, setSelectedAnswers] = useState({});
   const [apiResponse, setApiResponse] = useState(null);
@@ -100,6 +106,7 @@ function FullQuizPage() {
       },
     }));
   };
+  console.log(completedTests);
 
   const handleSubmitQuiz = async () => {
     let userAnswerString = "";
@@ -252,14 +259,16 @@ ${actualAnswerString}`,
                 key={index}
                 style={[
                   styles.testSelButton,
-                  completedTests.includes(index)
+                  // This line is correct for styling:
+                  completedTests[language.toLowerCase()].includes(index)
                     ? styles.testSelCompletedButton
                     : styles.testSelIncompleteButton,
                 ]}
                 onPress={() => handleSelectSpecificTest(index)}
               >
                 <Text style={styles.testSelButtonText}>Test {index + 1}</Text>
-                {completedTests.includes(index) && (
+                {/* CORRECTED LINE HERE: */}
+                {completedTests[language.toLowerCase()].includes(index) && (
                   <Text style={styles.testSelStatusText}>Completed</Text>
                 )}
               </TouchableOpacity>

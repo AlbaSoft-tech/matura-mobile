@@ -28,7 +28,9 @@ export default function LogIn({ onCreateAnAccount }) {
 
   return !forgotPassword ? (
     <TouchableWithoutFeedback onPress={Keyboard.dismiss}>
-      <View style={{ flex: 1, backgroundColor: "#343541" /* Main background */ }}>
+      <View
+        style={{ flex: 1, backgroundColor: "#343541" /* Main background */ }}
+      >
         {/* Top Form Section */}
         <View
           style={{
@@ -59,14 +61,14 @@ export default function LogIn({ onCreateAnAccount }) {
               <TextInput
                 value={email}
                 onChangeText={setEmail}
-                keyboardType="default"
+                keyboardType="email-address"
                 style={{
                   borderBottomWidth: 2,
-                  borderColor: "#4b5563", /* Subtle border color */
+                  borderColor: "#4b5563" /* Subtle border color */,
                   width: 384, // w-96
                   fontSize: 20, // text-xl
                   height: 40, // h-10
-                  color: "white", /* White text input */
+                  color: "white" /* White text input */,
                 }}
               />
             </View>
@@ -79,7 +81,9 @@ export default function LogIn({ onCreateAnAccount }) {
                 justifyContent: "space-between",
               }}
             >
-              <Text style={{ color: "#d1d5db" /* Light gray text */ }}>Password</Text>
+              <Text style={{ color: "#d1d5db" /* Light gray text */ }}>
+                Password
+              </Text>
               <View style={{ flexDirection: "row" }}>
                 <TextInput
                   autoCorrect={false}
@@ -93,11 +97,11 @@ export default function LogIn({ onCreateAnAccount }) {
                   }
                   style={{
                     borderBottomWidth: 2,
-                    borderColor: "#4b5563", /* Subtle border color */
+                    borderColor: "#4b5563" /* Subtle border color */,
                     width: 320, // w-80
                     fontSize: 20,
                     height: 40,
-                    color: "white", /* White text input */
+                    color: "white" /* White text input */,
                   }}
                 />
                 <TouchableWithoutFeedback
@@ -106,7 +110,7 @@ export default function LogIn({ onCreateAnAccount }) {
                   <View
                     style={{
                       borderBottomWidth: 2,
-                      borderColor: "#4b5563", /* Subtle border color */
+                      borderColor: "#4b5563" /* Subtle border color */,
                       width: 64, // w-16
                       alignItems: "flex-end",
                     }}
@@ -121,7 +125,9 @@ export default function LogIn({ onCreateAnAccount }) {
               </View>
             </View>
             <TouchableWithoutFeedback onPress={() => setForgotPassword(true)}>
-              <Text style={{ color: "#3b82f6" /* Blue accent for link */ }}>Forgot Password</Text>
+              <Text style={{ color: "#3b82f6" /* Blue accent for link */ }}>
+                Forgot Password
+              </Text>
             </TouchableWithoutFeedback>
           </View>
 
@@ -129,7 +135,8 @@ export default function LogIn({ onCreateAnAccount }) {
           <TouchableOpacity
             onPress={handleLogIn}
             style={{
-              backgroundColor: "#3b82f6", /* Blue accent for button background */
+              backgroundColor:
+                "#3b82f6" /* Blue accent for button background */,
               width: 192, // w-48
               height: 56, // h-14
               borderRadius: 9999, // rounded-full
@@ -141,7 +148,7 @@ export default function LogIn({ onCreateAnAccount }) {
               style={{
                 fontSize: 20,
                 fontWeight: "bold",
-                color: "white", /* White text on button */
+                color: "white" /* White text on button */,
               }}
             >
               Log In
@@ -158,9 +165,16 @@ export default function LogIn({ onCreateAnAccount }) {
             gap: 12,
           }}
         >
-          <Text style={{ color: "#d1d5db" /* Light gray text */ }}>Don't have an account?</Text>
+          <Text style={{ color: "#d1d5db" /* Light gray text */ }}>
+            Don't have an account?
+          </Text>
           <TouchableOpacity onPress={onCreateAnAccount}>
-            <Text style={{ color: "#3b82f6", fontSize: 24 /* Blue accent for link */ }}>
+            <Text
+              style={{
+                color: "#3b82f6",
+                fontSize: 24 /* Blue accent for link */,
+              }}
+            >
               Create an Account
             </Text>
           </TouchableOpacity>

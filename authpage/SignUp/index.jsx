@@ -8,6 +8,7 @@ import {
   Keyboard,
   Platform,
   StyleSheet,
+  KeyboardAvoidingView,
 } from "react-native";
 
 import { useState } from "react";
@@ -90,7 +91,7 @@ export default function SignUp({ onAlreadyHaveAnAccount }) {
               <TextInput
                 value={username}
                 onChangeText={setUsername}
-                autoCapitalize="none"
+                autoCapitalize="password"
                 style={{
                   borderBottomWidth: 2,
                   borderColor: "#4b5563",
@@ -111,11 +112,12 @@ export default function SignUp({ onAlreadyHaveAnAccount }) {
               }}
             >
               <Text style={{ color: "#d1d5db" }}>Password</Text>
+
               <View style={{ flexDirection: "row" }}>
                 <TextInput
                   autoCorrect={false}
                   autoComplete="off"
-                  textContentType="newPassword"
+                  textContentType="none"
                   value={password}
                   secureTextEntry={!showPassword}
                   onChangeText={setPassword}

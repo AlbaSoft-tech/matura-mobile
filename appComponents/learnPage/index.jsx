@@ -13,13 +13,8 @@ import {
   Dimensions,
 } from "react-native";
 import { useSafeAreaInsets } from "react-native-safe-area-context";
-import { Ionicons } from "@expo/vector-icons";
+import { Ionicons } from "@expo/vector-icons"; // You import this but don't use it.
 import useAuthStore from "../../store/authStore"; // Ensure correct import for useAuthStore
-
-// Placeholder for your tests data.
-// In a real React Native app, you would import this from a local JSON file
-// e.g., import tests from '../../data/testeShqip.json';
-// For demonstration, a small mock data set is provided.
 
 function FullQuizPage() {
   const {
@@ -29,7 +24,6 @@ function FullQuizPage() {
     token,
     fetchedTests,
   } = useAuthStore();
-  console.log(fetchedTests);
   const insets = useSafeAreaInsets();
   const [selectedAnswers, setSelectedAnswers] = useState({});
   const [apiResponse, setApiResponse] = useState(null);
@@ -38,7 +32,10 @@ function FullQuizPage() {
 
   const [language, setLanguage] = useState(null); // e.g., "Albanian", "English"
   const [selectedTestIndex, setSelectedTestIndex] = useState(null); // Index of the specific test selected (e.g., 0, 1, 2)
-  const [currentQuestionIndex, setCurrentQuestionIndex] = useState(0); // This was currentTestIndex in your original code, now represents question index within a test
+  // currentQuestionIndex is not used for navigating within a single test,
+  // as all questions of a selected test are displayed at once.
+  // If you plan to add a "next/previous question" feature, this state will be relevant.
+  const [currentQuestionIndex, setCurrentQuestionIndex] = useState(0);
 
   // Define languages array
   const languages = [
@@ -54,13 +51,13 @@ function FullQuizPage() {
     ? fetchedTests[language.toLowerCase()] || []
     : [];
 
-  // Derived state: Get the specific quiz data based on selectedTestIndex and currentQuestionIndex
-  const quizData =
+  // Derived state: Get the specific ARRAY of quiz objects (exercises) for the selected test set.
+  // Renamed from 'quizData' to 'quizzesToDisplay' for better clarity.
+  const quizzesToDisplay =
     selectedTestIndex !== null &&
-    testsForSelectedLanguage.length > selectedTestIndex &&
-    testsForSelectedLanguage[selectedTestIndex].length > currentQuestionIndex
-      ? testsForSelectedLanguage[selectedTestIndex][currentQuestionIndex]
-      : null;
+    testsForSelectedLanguage.length > selectedTestIndex
+      ? testsForSelectedLanguage[selectedTestIndex]
+      : [];
 
   const handleSelectLanguage = (langName) => {
     setLanguage(langName);
@@ -77,23 +74,27 @@ function FullQuizPage() {
     setSelectedAnswers({});
     setApiResponse(null);
     setShowCorrectAnswers(false);
+    // console.log(quizzesToDisplay); // This will log the value from the *previous* render cycle
+    // due to state update batching. It'll be correct on next render.
   };
 
   const handlePress = () => {
-    // This function seems to be for navigating back or resetting.
-    // If it's meant to go back to language selection, reset language.
-    // If it's meant to go back to test selection, reset selectedTestIndex.
-    // For now, let's assume it goes back to language selection if a test is selected,
-    // otherwise it would go back further (handled by propFunction if provided).
     if (selectedTestIndex !== null) {
-      setSelectedTestIndex(null); // Go back to test selection
+      console.log(completedTests);
+      setSelectedTestIndex(null);
+      setApiResponse(null);
+      // Go back to test selection
     } else if (language !== null) {
       setLanguage(null); // Go back to language selection
     } else {
       console.log("Navigating back to learning page...");
-      if (propFunction) {
-        propFunction();
-      }
+      // If this component is part of a React Navigation stack, you would use:
+      // const navigation = useNavigation();
+      // navigation.goBack();
+      // 'propFunction' is not defined in the current scope.
+      // if (propFunction) {
+      //   propFunction();
+      // }
     }
   };
 
@@ -106,38 +107,50 @@ function FullQuizPage() {
       },
     }));
   };
-  console.log(completedTests);
 
   const handleSubmitQuiz = async () => {
     let userAnswerString = "";
     let actualAnswerString = "";
     let questionAndAnswerContext = "";
+    let totalQuestions = 0; // Keep track of the total number of questions
 
-    // Ensure quizData is not null before iterating
-    if (!quizData || !quizData.questions) {
+    // Ensure quizzesToDisplay is an array and not empty before iterating
+    if (!Array.isArray(quizzesToDisplay) || quizzesToDisplay.length === 0) {
       Alert.alert("Error", "No quiz data to submit.");
       return;
     }
 
-    quizData.questions.forEach((question, questionIndex) => {
-      // Iterate directly over questions
-      const userAns = selectedAnswers[0]?.[questionIndex] || ""; // Assuming single exercise for simplicity
-      const actualAns = question.answer || "";
+    // Iterate over each 'exercise' (which is a quiz object) in quizzesToDisplay
+    quizzesToDisplay.forEach((exercise, exerciseIndex) => {
+      // Check if the current exercise has questions before iterating over them
+      if (exercise.questions && Array.isArray(exercise.questions)) {
+        exercise.questions.forEach((question, questionIndex) => {
+          totalQuestions++; // Increment total questions for each question found
+          // Correctly access user answers based on exerciseIndex and questionIndex
+          const userAns = selectedAnswers[exerciseIndex]?.[questionIndex] || "";
+          const actualAns = question.answer || "";
 
-      userAnswerString += `Q1.${questionIndex + 1}: ${userAns}\n`;
-      actualAnswerString += `A1.${questionIndex + 1}: ${actualAns}\n`;
-      questionAndAnswerContext += `Question 1.${questionIndex + 1}: ${
-        question.question
-      }\nUser Answer: ${userAns}\nCorrect Answer: ${actualAns}\n\n`;
+          // Format strings with exercise and question numbers for clarity in AI prompt
+          userAnswerString += `E${exerciseIndex + 1}.Q${
+            questionIndex + 1
+          }: ${userAns}\n`;
+          actualAnswerString += `E${exerciseIndex + 1}.A${
+            questionIndex + 1
+          }: ${actualAns}\n`;
+          questionAndAnswerContext += `Exercise ${
+            exerciseIndex + 1
+          }, Question ${questionIndex + 1}: ${
+            question.question
+          }\nUser Answer: ${userAns}\nCorrect Answer: ${actualAns}\n\n`;
+        });
+      }
     });
-
-    console.log("User Answers String:\n", userAnswerString);
-    console.log("Actual Answers String:\n", actualAnswerString);
-    console.log("Full Context for AI:\n", questionAndAnswerContext);
 
     setLoadingAI(true);
     setApiResponse(null);
     setShowCorrectAnswers(false);
+
+    console.log(language);
 
     try {
       const response = await fetch(
@@ -149,33 +162,39 @@ function FullQuizPage() {
             Authorization: "Bearer " + token,
           },
           body: JSON.stringify({
-            prompt: `You got ${quizData.questions.length} questions. Compare the user's answers to the actual answers for these Albanian language questions. Start your response with "Jeni përgjigjur sakt në X prej Y pyetjeve\n" where X is the number of correct answers and Y is the total number of questions. Then, provide a simple feedback on each incorrect question, explaining why the user's answer was wrong, and offer suggestions for improvement for open-ended questions. All the answer should be in albanian.
+            // Pass totalQuestions to the prompt for correct counting
+            prompt: `You got ${totalQuestions} questions. Compare the user's answers to the actual answers for these Albanian language questions. Start your response with "Jeni përgjigjur sakt në X prej Y pyetjeve\\n" where X is the number of correct answers and Y is the total number of questions. Then, provide a simple feedback on each incorrect question, explaining why the user's answer was wrong, and offer suggestions for improvement for open-ended questions. All the answer should be in albanian.
 User Answers:
 ${userAnswerString}
 Correct Answers:
 ${actualAnswerString}`,
             index: selectedTestIndex,
-            language: language,
+            language: language.toLowerCase(),
           }),
         }
       );
 
       if (!response.ok) {
+        const result = await response.json();
+        console.log(result.message);
         throw new Error(`HTTP error! status: ${response.status}`);
       }
-
+      console.log("success");
       const aiResult = await response.json();
       const cleanedApiResponse = (aiResult.answer || "").replace(/\*/g, "");
       setApiResponse(cleanedApiResponse || "No response from AI.");
       setShowCorrectAnswers(true);
-      setCompletedTests([...completedTests, index]);
+      // Correctly update completedTests:
+      setCompletedTests({
+        ...completedTests,
+        [language.toLowerCase()]: [
+          ...(completedTests[language.toLowerCase()] || []),
+          selectedTestIndex,
+        ],
+      });
     } catch (error) {
       console.error("Error sending data to AI API:", error);
       setApiResponse(`Error: ${error.message}`);
-      Alert.alert(
-        "Error",
-        "Failed to get AI results. Check console for details."
-      );
     } finally {
       setLoadingAI(false);
     }
@@ -213,7 +232,7 @@ ${actualAnswerString}`,
           </Text>
           <TouchableOpacity
             style={styles.unlockButton}
-            onPress={() => console.log(testUnlocked)} // Handle purchase logic here
+            onPress={() => console.log("Test Unlocked:", testUnlocked)} // Handle purchase logic here
           >
             <Text style={styles.unlockButtonText}>Unlock Now for €4.99</Text>
           </TouchableOpacity>
@@ -247,28 +266,35 @@ ${actualAnswerString}`,
               <Text style={styles.languageSelectedText}>{language}</Text>
             </Text>
           )}
-          {/* No "Take Test" button here, selection directly leads to test list */}
         </View>
       ) : selectedTestIndex === null ? (
-        // 3. Show Test Selection Page (for the chosen language)
         <ScrollView contentContainerStyle={styles.testSelScrollViewContent}>
+          <TouchableOpacity
+            onPress={() => {
+              setLanguage(null);
+            }} // This now goes back to test selection
+            style={{ ...styles.backButton, marginBottom: 30 }}
+          >
+            <Text style={styles.backButtonText}>BACK</Text>
+          </TouchableOpacity>
           <Text style={styles.testSelHeader}>Select a Test</Text>
+
           <View style={styles.testSelButtonsContainer}>
             {testsForSelectedLanguage.map((testSet, index) => (
               <TouchableOpacity
                 key={index}
                 style={[
                   styles.testSelButton,
-                  // This line is correct for styling:
-                  completedTests[language.toLowerCase()].includes(index)
+                  // THIS IS THE LINE FOR THE BLUE GLOW
+                  completedTests[language.toLowerCase()]?.includes(index)
                     ? styles.testSelCompletedButton
                     : styles.testSelIncompleteButton,
                 ]}
                 onPress={() => handleSelectSpecificTest(index)}
               >
                 <Text style={styles.testSelButtonText}>Test {index + 1}</Text>
-                {/* CORRECTED LINE HERE: */}
-                {completedTests[language.toLowerCase()].includes(index) && (
+                {/* THIS IS THE LINE FOR "Completed" TEXT */}
+                {completedTests[language.toLowerCase()]?.includes(index) && (
                   <Text style={styles.testSelStatusText}>Completed</Text>
                 )}
               </TouchableOpacity>
@@ -279,8 +305,10 @@ ${actualAnswerString}`,
         // 4. Show Actual Quiz Content
         <ScrollView contentContainerStyle={styles.scrollViewContent}>
           <View style={styles.headerContainer}>
+            {/* Displaying the selected test index as currentQuestionIndex is misleading
+                since all exercises/questions for the test are shown. */}
             <Text style={styles.headerText}>
-              Testi {currentQuestionIndex + 1}
+              Testi {selectedTestIndex !== null ? selectedTestIndex + 1 : ""}
             </Text>
             <View style={styles.navigationButtons}>
               <TouchableOpacity
@@ -292,79 +320,96 @@ ${actualAnswerString}`,
             </View>
           </View>
 
-          {quizData &&
-            quizData.questions && ( // Ensure quizData and its questions exist
-              <View style={styles.exerciseSection}>
-                {quizData.title && (
-                  <Text style={styles.exerciseTitle}>{quizData.title}</Text>
+          {Array.isArray(quizzesToDisplay) && quizzesToDisplay.length > 0 ? (
+            quizzesToDisplay.map((exercise, exerciseIndex) => (
+              <View key={exerciseIndex} style={styles.exerciseSection}>
+                {exercise.title && (
+                  <Text style={styles.exerciseTitle}>{exercise.title}</Text>
                 )}
-                {quizData.text && (
-                  <Text style={styles.exerciseText}>{quizData.text}</Text>
+                {exercise.text && (
+                  <Text style={styles.exerciseText}>{exercise.text}</Text>
                 )}
 
-                {quizData.questions.map((q, questionIndex) => (
-                  <View
-                    key={questionIndex} // Key can be just questionIndex here since it's one exercise
-                    style={styles.questionBlock}
-                  >
-                    <Text style={styles.questionText}>{q.question}</Text>
-                    {q.options ? (
-                      <View style={styles.optionsContainer}>
-                        {q.options.map((option, optionIndex) => (
-                          <TouchableOpacity
-                            key={optionIndex}
-                            onPress={() =>
-                              handleAnswerSelect(
-                                0, // Assuming a single exercise for simplicity in selectedAnswers mapping
-                                questionIndex,
-                                option
-                              )
-                            }
-                            style={[
-                              styles.optionButton,
-                              selectedAnswers[0]?.[questionIndex] === option &&
-                                styles.selectedOption,
-                            ]}
-                          >
-                            <Text style={styles.optionText}>{option}</Text>
-                          </TouchableOpacity>
-                        ))}
-                      </View>
-                    ) : (
-                      <TextInput
-                        value={selectedAnswers[0]?.[questionIndex] || ""}
-                        onChangeText={(text) =>
-                          handleAnswerSelect(0, questionIndex, text)
-                        }
-                        placeholder="Shkruaj përgjigjen këtu..."
-                        placeholderTextColor="#9ca3af"
-                        multiline
-                        numberOfLines={4}
-                        style={styles.textArea}
-                      />
-                    )}
+                {/* Check if the current exercise has questions before mapping */}
+                {exercise.questions &&
+                  exercise.questions.map((q, questionIndex) => (
+                    <View
+                      key={`${exerciseIndex}-${questionIndex}`}
+                      style={styles.questionBlock}
+                    >
+                      <Text style={styles.questionText}>{q.question}</Text>
+                      {q.options ? (
+                        <View style={styles.optionsContainer}>
+                          {q.options.map((option, optionIndex) => (
+                            <TouchableOpacity
+                              key={`${exerciseIndex}-${questionIndex}-${optionIndex}`}
+                              onPress={() =>
+                                handleAnswerSelect(
+                                  exerciseIndex,
+                                  questionIndex,
+                                  option
+                                )
+                              }
+                              style={[
+                                styles.optionButton,
+                                selectedAnswers[exerciseIndex]?.[
+                                  questionIndex
+                                ] === option && styles.selectedOption,
+                              ]}
+                            >
+                              <Text style={styles.optionText}>{option}</Text>
+                            </TouchableOpacity>
+                          ))}
+                        </View>
+                      ) : (
+                        <TextInput
+                          value={
+                            selectedAnswers[exerciseIndex]?.[questionIndex] ||
+                            ""
+                          }
+                          onChangeText={(text) =>
+                            handleAnswerSelect(
+                              exerciseIndex,
+                              questionIndex,
+                              text
+                            )
+                          }
+                          placeholder="Shkruaj përgjigjen këtu..."
+                          placeholderTextColor="#9ca3af"
+                          multiline
+                          numberOfLines={4}
+                          style={styles.textArea}
+                        />
+                      )}
 
-                    {showCorrectAnswers && (
-                      <Text style={styles.correctAnswerText}>
-                        **Përgjigja e saktë:** {q.answer}
-                      </Text>
-                    )}
-                  </View>
-                ))}
+                      {showCorrectAnswers && (
+                        <Text style={styles.correctAnswerText}>
+                          **Përgjigja e saktë:** {q.answer}
+                        </Text>
+                      )}
+                    </View>
+                  ))}
               </View>
-            )}
-          <TouchableOpacity
-            onPress={handleSubmitQuiz()}
-            style={styles.submitButton}
-          >
-            <Text style={styles.submitButtonText}>Check results</Text>
-          </TouchableOpacity>
+            ))
+          ) : (
+            // Optional: Render a loading indicator or a message if quizData is not an array or is empty
+            <Text>Loading quiz...</Text>
+          )}
 
-          {loadingAI && (
+          {loadingAI ? (
             <View style={styles.loadingContainer}>
               <ActivityIndicator size="large" color="#3b82f6" />
-              <Text style={styles.loadingText}>Duke kontrolluar testin...</Text>
+              <Text style={styles.loadingText}>Checking...</Text>
             </View>
+          ) : (
+            <TouchableOpacity
+              onPress={!apiResponse ? handleSubmitQuiz : handlePress}
+              style={styles.submitButton}
+            >
+              <Text style={styles.submitButtonText}>
+                {!apiResponse ? "Check results" : "Return"}
+              </Text>
+            </TouchableOpacity>
           )}
           {apiResponse && !loadingAI && (
             <View style={styles.apiResponseContainer}>

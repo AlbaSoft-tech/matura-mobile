@@ -8,7 +8,9 @@ import {
   TouchableOpacity,
   StyleSheet,
   TouchableWithoutFeedback,
-  Keyboard
+  Keyboard,
+  KeyboardAvoidingView,
+  Platform,
 } from "react-native";
 import { Context } from "../index"; // Assuming Context is defined correctly
 
@@ -45,42 +47,49 @@ export default function FirstStep({ onContinue }) {
   };
 
   return (
-    <TouchableWithoutFeedback onPress={Keyboard.dismiss}>
-      <View style={styles.container}>
-        <View style={styles.card}>
-          <TouchableOpacity
-            onPress={() => setForgotPassword(false)}
-            style={{ alignSelf: "flex-start", padding: 10, marginBottom: 20 }}
-          >
-            <Ionicons name="arrow-back" size={40} color="#d1d5db" /> 
-          </TouchableOpacity>
+    <KeyboardAvoidingView
+      style={{ flex: 1 }} // Make sure it takes up full space
+      behavior={Platform.OS === "ios" ? "padding" : "height"} // 'padding' or 'height' often work best
+      // keyboardVerticalOffset={Platform.OS === 'ios' ? 0 : 20} // Adjust this offset as needed, especially for Android
+    >
+      <TouchableWithoutFeedback onPress={Keyboard.dismiss}>
+        {/* The 'styles.container' here often controls overall layout */}
+        <View style={styles.container}>
+          <View style={styles.card}>
+            <TouchableOpacity
+              onPress={() => setForgotPassword(false)}
+              style={{ alignSelf: "flex-start", padding: 10, marginBottom: 20 }}
+            >
+              <Ionicons name="arrow-back" size={40} color="#d1d5db" />
+            </TouchableOpacity>
 
-          <Text style={styles.title}>Forgot Password</Text>
-          <Text style={styles.subtitle}>
-            Enter your email address below and we'll send you a password reset
-            code.
-          </Text>
+            <Text style={styles.title}>Forgot Password</Text>
+            <Text style={styles.subtitle}>
+              Enter your email address below and we'll send you a password reset
+              code.
+            </Text>
 
-          <View style={styles.inputGroup}>
-            <Text style={styles.label}>Email Address</Text>
-            <TextInput
-              style={styles.input}
-              placeholder="you@example.com"
-              placeholderTextColor="#9ca3af" /* Placeholder color */
-              keyboardType="email-address"
-              autoCapitalize="none"
-              onChangeText={setEmail}
-            />
+            <View style={styles.inputGroup}>
+              <Text style={styles.label}>Email Address</Text>
+
+              <TextInput
+                style={styles.input}
+                placeholder="you@example.com"
+                placeholderTextColor="#9ca3af" /* Placeholder color */
+                keyboardType="email-address"
+                autoCapitalize="none"
+                onChangeText={setEmail}
+              />
+            </View>
+            <View style={styles.messageContainer}></View>
+
+            <TouchableOpacity style={styles.button} onPress={handlePress}>
+              <Text style={styles.buttonText}>Continue</Text>
+            </TouchableOpacity>
           </View>
-
-          <View style={styles.messageContainer}></View>
-
-          <TouchableOpacity style={styles.button} onPress={handlePress}>
-            <Text style={styles.buttonText}>Continue</Text>
-          </TouchableOpacity>
         </View>
-      </View>
-    </TouchableWithoutFeedback>
+      </TouchableWithoutFeedback>
+    </KeyboardAvoidingView>
   );
 }
 

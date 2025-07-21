@@ -30,7 +30,7 @@ export default function SecondStep({ onContinue, goPrev }) {
     }
     try {
       const response = await fetch(
-        "https://maturabackend.onrender.com/api/auth/verifyCode",
+        "https://matura-backend.onrender.com/api/auth/verifyCode",
         {
           method: "POST",
           headers: {

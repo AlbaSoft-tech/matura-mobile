@@ -12,12 +12,12 @@ import { Ionicons } from "@expo/vector-icons";
 import useAuthStore from "../../store/authStore"; // Assuming this path is correct
 
 export default function ShopScreen() {
-  const { user, email, logOut } = useAuthStore();
+  const { user, email, logOut, tokens } = useAuthStore();
   const insets = useSafeAreaInsets();
   const [shop, setShop] = useState(true);
 
   const { width, height } = Dimensions.get("window");
-  const tokens = [
+  const priceIntokens = [
     { amount: 10, price: 3.25 },
     { amount: 50, price: 15 },
     { amount: 100, price: 26 },
@@ -73,7 +73,7 @@ export default function ShopScreen() {
             style={{ marginRight: 8 }} // Adjusted margin
           />
           <Text style={{ fontSize: 20, fontWeight: "600", color: "white" }}>
-            14
+            {tokens}
           </Text>
         </View>
 
@@ -113,26 +113,7 @@ export default function ShopScreen() {
               marginBottom: 30, // Space below this section
             }}
           >
-            <View
-              style={{
-                flexDirection: "row",
-                alignItems: "center",
-                marginBottom: 10,
-              }}
-            >
-              <Text
-                style={{ fontSize: 30, fontWeight: "bold", color: "white" }}
-              >
-                1{" "}
-              </Text>
-              <Ionicons name="cash-outline" size={30} color="white" />
-              <Text
-                style={{ fontSize: 30, fontWeight: "bold", color: "white" }}
-              >
-                {" "}
-                = 20MKD
-              </Text>
-            </View>
+            
             <View
               style={{
                 flexDirection: "row",
@@ -164,14 +145,14 @@ export default function ShopScreen() {
               <Text
                 style={{ fontSize: 30, fontWeight: "bold", color: "white" }}
               >
-                = 1
+                = 0.5
               </Text>
               <Ionicons name="cash-outline" size={30} color="white" />
             </View>
           </View>
 
           <View style={{ gap: 15, width: "100%", alignItems: "center" }}>
-            {tokens.map((item, index) => (
+            {priceIntokens.map((item, index) => (
               <View
                 key={index}
                 style={{

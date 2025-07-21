@@ -1,20 +1,17 @@
+// In SignUp.jsx
 import {
   Text,
-  Image,
   View,
   TextInput,
   TouchableOpacity,
   TouchableWithoutFeedback,
   Keyboard,
-  Platform,
-  StyleSheet,
-  KeyboardAvoidingView,
+  ActivityIndicator,
 } from "react-native";
 
 import { useState } from "react";
 import { Ionicons } from "@expo/vector-icons";
 import useAuthStore from "../../store/authStore";
-import { ActivityIndicator } from "react-native";
 
 export default function SignUp({ onAlreadyHaveAnAccount }) {
   const [email, setEmail] = useState("");
@@ -22,14 +19,15 @@ export default function SignUp({ onAlreadyHaveAnAccount }) {
   const [password, setPassword] = useState("");
   const [showPassword, setShowPassword] = useState(false);
 
-  const { user, isLoading, signUp, setIsSignUp } = useAuthStore();
+  const {isLoading, signUp, setIsSignUp } = useAuthStore();
 
-  const handleSignUp = async () => {
+  const handleSignUp = async () => { // <--- Add this function back
     if (!email.trim() || !username.trim() || !password.trim()) {
       alert("Please fill in all fields.");
       return;
     }
-    const result = await signUp(username, email, password);
+    // This line below is the PRIMARY SUSPECT for a native crash if it hasn't crashed yet.
+    const result = await signUp(username, email, password); 
     if (result.success) {
       setIsSignUp(false);
     } else {
@@ -55,6 +53,7 @@ export default function SignUp({ onAlreadyHaveAnAccount }) {
               alignItems: "center",
             }}
           >
+            {/* Email Field */}
             <View
               style={{
                 height: 64,
@@ -66,7 +65,7 @@ export default function SignUp({ onAlreadyHaveAnAccount }) {
               <TextInput
                 value={email}
                 onChangeText={setEmail}
-                keyboardType="email-address"
+                keyboardType="default"
                 autoCapitalize="none"
                 style={{
                   borderBottomWidth: 2,
@@ -80,6 +79,7 @@ export default function SignUp({ onAlreadyHaveAnAccount }) {
               />
             </View>
 
+            {/* Username Field */}
             <View
               style={{
                 height: 64,
@@ -91,7 +91,8 @@ export default function SignUp({ onAlreadyHaveAnAccount }) {
               <TextInput
                 value={username}
                 onChangeText={setUsername}
-                autoCapitalize="password"
+                autoCapitalize="none"
+                keyboardType="default"
                 style={{
                   borderBottomWidth: 2,
                   borderColor: "#4b5563",
@@ -104,6 +105,7 @@ export default function SignUp({ onAlreadyHaveAnAccount }) {
               />
             </View>
 
+            {/* Password Field */}
             <View
               style={{
                 height: 64,
@@ -112,18 +114,14 @@ export default function SignUp({ onAlreadyHaveAnAccount }) {
               }}
             >
               <Text style={{ color: "#d1d5db" }}>Password</Text>
-
               <View style={{ flexDirection: "row" }}>
                 <TextInput
                   autoCorrect={false}
                   autoComplete="off"
-                  textContentType="none"
                   value={password}
                   secureTextEntry={!showPassword}
                   onChangeText={setPassword}
-                  keyboardType={
-                    Platform.OS === "ios" ? "ascii-capable" : "default"
-                  }
+                  keyboardType="default"
                   style={{
                     borderBottomWidth: 2,
                     borderColor: "#4b5563",
@@ -156,8 +154,9 @@ export default function SignUp({ onAlreadyHaveAnAccount }) {
             </View>
           </View>
 
+          {/* Sign Up Button */}
           <TouchableOpacity
-            onPress={handleSignUp}
+            onPress={handleSignUp} // <--- Re-enable this
             style={{
               backgroundColor: "#3b82f6",
               width: 192,
@@ -203,107 +202,3 @@ export default function SignUp({ onAlreadyHaveAnAccount }) {
     </TouchableWithoutFeedback>
   );
 }
-
-const signUpStyles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: "#343541",
-    justifyContent: "center",
-    alignItems: "center",
-    paddingHorizontal: 20,
-  },
-  formSection: {
-    width: "100%",
-    maxWidth: 400,
-    backgroundColor: "#202123",
-    borderRadius: 15,
-    padding: 25,
-    shadowColor: "#000",
-    shadowOffset: { width: 0, height: 4 },
-    shadowOpacity: 0.25,
-    shadowRadius: 8,
-    elevation: 5,
-    marginBottom: 30,
-    alignItems: "center",
-  },
-  inputContainerGroup: {
-    width: "100%",
-    justifyContent: "space-between",
-    marginBottom: 20,
-  },
-  inputGroup: {
-    marginBottom: 20,
-  },
-  inputLabel: {
-    fontSize: 16,
-    color: "#d1d5db",
-    marginBottom: 8,
-  },
-  textInput: {
-    width: "100%",
-    height: 50,
-    backgroundColor: "#374151",
-    borderRadius: 10,
-    paddingHorizontal: 15,
-    fontSize: 18,
-    color: "white",
-    borderColor: "#4b5563",
-    borderWidth: 1,
-  },
-  passwordInputContainer: {
-    flexDirection: "row",
-    alignItems: "center",
-    width: "100%",
-    height: 50,
-    backgroundColor: "#374151",
-    borderRadius: 10,
-    borderColor: "#4b5563",
-    borderWidth: 1,
-  },
-  passwordTextInput: {
-    flex: 1,
-    paddingLeft: 15,
-    fontSize: 18,
-    color: "white",
-  },
-  passwordToggle: {
-    paddingHorizontal: 15,
-    height: "100%",
-    justifyContent: "center",
-    alignItems: "center",
-  },
-  signUpButton: {
-    backgroundColor: "#3b82f6",
-    width: 200,
-    height: 56,
-    borderRadius: 30,
-    justifyContent: "center",
-    alignItems: "center",
-    shadowColor: "#000",
-    shadowOffset: { width: 0, height: 4 },
-    shadowOpacity: 0.3,
-    shadowRadius: 4.65,
-    elevation: 8,
-    marginBottom: 40,
-  },
-  signUpButtonText: {
-    fontSize: 22,
-    fontWeight: "bold",
-    color: "white",
-  },
-  loginPromptContainer: {
-    justifyContent: "center",
-    alignItems: "center",
-    gap: 15,
-    paddingBottom: 20,
-  },
-  loginPromptText: {
-    fontSize: 16,
-    color: "#d1d5db",
-  },
-  goToLoginText: {
-    fontSize: 20,
-    color: "#3b82f6",
-    fontWeight: "bold",
-  },
-});

@@ -37,7 +37,7 @@ export default function ThirdStep() {
 
     try {
       const response = await fetch(
-        "https://maturabackend.onrender.com/api/auth/changePassword",
+        "https://matura-backend.onrender.com/api/auth/changePassword",
         {
           method: "POST",
           headers: {

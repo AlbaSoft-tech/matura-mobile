@@ -25,7 +25,7 @@ const useAuthStore = create((set) => ({
     set({ isLoading: true });
     try {
       const response = await fetch(
-        "https://maturabackend.onrender.com/api/auth/signup",
+        "https://matura-backend.onrender.com/api/auth/signup",
         {
           method: "POST",
           headers: {
@@ -53,7 +53,7 @@ const useAuthStore = create((set) => ({
     console.log(email, password);
     try {
       const response = await fetch(
-        "https://maturabackend.onrender.com/api/auth/login",
+        "https://matura-backend.onrender.com/api/auth/login",
         {
           method: "POST",
           headers: {
@@ -98,7 +98,7 @@ const useAuthStore = create((set) => ({
 
       if (token) {
         const response = await fetch(
-          "https://maturabackend.onrender.com/api/auth/token",
+          "https://matura-backend.onrender.com/api/auth/token",
           {
             method: "POST",
             headers: {

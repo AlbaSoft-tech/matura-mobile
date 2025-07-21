@@ -154,7 +154,7 @@ function FullQuizPage() {
 
     try {
       const response = await fetch(
-        "https://maturabackend.onrender.com/api/processing/compare-answers",
+        "https://matura-backend.onrender.com/api/processing/compare-answers",
         {
           method: "POST",
           headers: {
@@ -239,6 +239,7 @@ ${actualAnswerString}`,
         </View>
       ) : !language ? (
         // 2. Show Language Selection Page
+        <View style={styles.parentContainer}>
         <View style={styles.languageContentContainer}>
           <Text style={styles.languageTitle}>Choose Your Test Language</Text>
           <Text style={styles.languageDescription}>
@@ -266,6 +267,7 @@ ${actualAnswerString}`,
               <Text style={styles.languageSelectedText}>{language}</Text>
             </Text>
           )}
+        </View>
         </View>
       ) : selectedTestIndex === null ? (
         <ScrollView contentContainerStyle={styles.testSelScrollViewContent}>
@@ -686,8 +688,15 @@ const styles = StyleSheet.create({
   },
 
   // --- Styles for Language Selection Page ---
+  parentContainer: {
+    flex: 1, // Makes the parent container fill all available vertical space
+    justifyContent: "center", // Centers children vertically
+    alignItems: "center",     // Centers children horizontally // Example: your main background color
+  },
   languageContentContainer: {
     alignItems: "center",
+    justifyContent: "center",
+    
     padding: 25,
     backgroundColor: "#202123",
     borderRadius: 15,

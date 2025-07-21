@@ -23,7 +23,7 @@ export default function FirstStep({ onContinue }) {
       return;
     }
     const response = await fetch(
-      "https://maturabackend.onrender.com/api/auth/forgotPassword",
+      "https://matura-backend.onrender.com/api/auth/forgotPassword",
       {
         method: "POST",
         headers: {

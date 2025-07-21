@@ -84,35 +84,23 @@ export default function Index() {
 
   useEffect(() => {
     (async () => {
-      const { status: cameraStatus } = await Camera.getCameraPermissionsAsync();
-      const { status: mediaStatus } = await MediaLibrary.getPermissionsAsync();
-      const { status: imagePickerStatus } =
-        await ImagePicker.requestMediaLibraryPermissionsAsync();
+      const permissionsToRequest = [
+        { name: 'camera', get: Camera.getCameraPermissionsAsync, request: Camera.requestCameraPermissionsAsync },
+        { name: 'mediaLibrary', get: MediaLibrary.getPermissionsAsync, request: MediaLibrary.requestPermissionsAsync },
+        { name: 'imagePicker', get: ImagePicker.getMediaLibraryPermissionsAsync, request: ImagePicker.requestMediaLibraryPermissionsAsync },
+      ];
 
-      let finalCameraStatus = cameraStatus;
-      let finalMediaStatus = mediaStatus;
-      let finalImagePickerStatus = imagePickerStatus;
-
-      if (cameraStatus !== "granted") {
-        const { status } = await Camera.requestCameraPermissionsAsync();
-        finalCameraStatus = status;
+      let allGranted = true;
+      for (const perm of permissionsToRequest) {
+        let { status } = await perm.get();
+        if (status !== 'granted') {
+          ({ status } = await perm.request());
+        }
+        if (status !== 'granted') {
+          allGranted = false;
+          break; // No need to check further if one permission is denied
+        }
       }
-
-      if (mediaStatus !== "granted") {
-        const { status } = await MediaLibrary.requestPermissionsAsync();
-        finalMediaStatus = status;
-      }
-
-      if (imagePickerStatus !== "granted") {
-        const { status } =
-          await ImagePicker.requestMediaLibraryPermissionsAsync();
-        finalImagePickerStatus = status;
-      }
-
-      const allGranted =
-        finalCameraStatus === "granted" &&
-        finalMediaStatus === "granted" &&
-        finalImagePickerStatus === "granted";
       setHasPermission(allGranted);
     })();
   }, []);
@@ -221,8 +209,9 @@ export default function Index() {
     }
     console.log("fetching QARoute");
     const userToken = useAuthStore.getState().token;
-    const processedPrompt = await fetch(
-      "https://maturabackend.onrender.com/api/processing/answer",
+    try {
+      const processedPrompt = await fetch(
+      "https://matura-backend.onrender.com/api/processing/answer",
       {
         method: "POST",
         headers: {
@@ -232,6 +221,13 @@ export default function Index() {
         body: JSON.stringify({ prompt: prompt, type: "photo" }),
       }
     );
+    if(!processedPrompt.ok){
+      setLoadingProgress(0);
+      setLoading(false);
+      const errorData = await processedPrompt.json();
+      alert(errorData.message || "Failed to process images.");
+      return;
+    }
     setLoadingProgress(100);
     setLoading(false);
     const parsedAnswer = await processedPrompt.json();
@@ -239,6 +235,11 @@ export default function Index() {
     setWriting(true);
     setANswered(true);
     setPhotoArray([]);
+    } catch (error) {
+      console.error("Error fetching QARoute:", error);
+      setLoading(false);
+    }
+    
   };
 
   const sendQuestion = async () => {
@@ -248,7 +249,7 @@ export default function Index() {
     const userToken = useAuthStore.getState().token;
     console.log("user token:", userToken);
     const processedPrompt = await fetch(
-      "https://maturabackend.onrender.com/api/processing/answer",
+      "https://matura-backend.onrender.com/api/processing/answer",
       {
         method: "POST",
         headers: {
@@ -258,7 +259,11 @@ export default function Index() {
         body: JSON.stringify({ prompt: question, type: "question" }),
       }
     );
-
+    if(!processedPrompt.ok){
+      const errorData = await processedPrompt.json();
+      alert(errorData.message || "Failed to process images.");
+      return;
+    }
     const parsedAnswer = await processedPrompt.json();
     console.log("parsed answer:", parsedAnswer);
     setQuestion("");

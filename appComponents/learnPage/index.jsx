@@ -18,7 +18,6 @@ import useAuthStore from "../../store/authStore"; // Ensure correct import for u
 
 function FullQuizPage() {
   const {
-    testUnlocked,
     completedTests,
     setCompletedTests,
     token,
@@ -163,8 +162,8 @@ function FullQuizPage() {
           },
           body: JSON.stringify({
             // Pass totalQuestions to the prompt for correct counting
-            prompt: `You got ${totalQuestions} questions. Compare the user's answers to the actual answers for these Albanian language questions. Start your response with "Jeni përgjigjur sakt në X prej Y pyetjeve\\n" where X is the number of correct answers and Y is the total number of questions. Then, provide a simple feedback on each incorrect question, explaining why the user's answer was wrong, and offer suggestions for improvement for open-ended questions. All the answer should be in albanian.
-User Answers:
+            prompt: `You got ${totalQuestions} questions. Compare the user's answers to the actual answers for these ${language} language questions. Start your response with "You've answered X out of Y questions correctly.\\n" where X is the number of correct answers and Y is the total number of questions. Then, provide a simple feedback on each incorrect question, explaining why the user's answer was wrong, and offer suggestions for improvement for open-ended questions. All the answer should be in ${language}.
+User Answers:}
 ${userAnswerString}
 Correct Answers:
 ${actualAnswerString}`,
@@ -176,7 +175,7 @@ ${actualAnswerString}`,
 
       if (!response.ok) {
         const result = await response.json();
-        console.log(result.message);
+        alert(result.message);
         throw new Error(`HTTP error! status: ${response.status}`);
       }
       console.log("success");
@@ -206,38 +205,7 @@ ${actualAnswerString}`,
       style={[styles.keyboardAvoidingView, { paddingTop: insets.top + 70 }]} // Adjusted paddingTop
       behavior={Platform.OS === "ios" ? "padding" : "height"}
     >
-      {!testUnlocked ? (
-        // 1. Show Unlock Tests Page
-        <View style={styles.unlockContentContainer}>
-          <Text style={styles.unlockTitle}>Unlock Tests</Text>
-          <Text style={styles.unlockDescription}>
-            Gain full access to all practice tests and elevate your learning
-            experience! For just <Text style={styles.unlockPrice}>€4.99</Text>,
-            you'll unlock:
-          </Text>
-          <View style={styles.unlockBulletPointsContainer}>
-            <Text style={styles.unlockBulletPoint}>
-              • Alot of tests to choose from
-            </Text>
-            <Text style={styles.unlockBulletPoint}>
-              • Feedback on your answers
-            </Text>
-            <Text style={styles.unlockBulletPoint}>
-              • Multiple language support: Macedonian, Albanian, English,
-              Turkish
-            </Text>
-          </View>
-          <Text style={styles.unlockCallToAction}>
-            Start preparing for your final exam!
-          </Text>
-          <TouchableOpacity
-            style={styles.unlockButton}
-            onPress={() => console.log("Test Unlocked:", testUnlocked)} // Handle purchase logic here
-          >
-            <Text style={styles.unlockButtonText}>Unlock Now for €4.99</Text>
-          </TouchableOpacity>
-        </View>
-      ) : !language ? (
+      {!language ? (
         // 2. Show Language Selection Page
         <View style={styles.parentContainer}>
         <View style={styles.languageContentContainer}>

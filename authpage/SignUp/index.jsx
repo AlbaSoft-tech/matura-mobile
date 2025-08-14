@@ -1,16 +1,17 @@
 // In SignUp.jsx
 import {
+  ActivityIndicator,
+  Keyboard,
   Text,
-  View,
   TextInput,
   TouchableOpacity,
   TouchableWithoutFeedback,
-  Keyboard,
-  ActivityIndicator,
+  View,
+  StyleSheet 
 } from "react-native";
 
-import { useState } from "react";
 import { Ionicons } from "@expo/vector-icons";
+import { useState } from "react";
 import useAuthStore from "../../store/authStore";
 
 export default function SignUp({ onAlreadyHaveAnAccount }) {
@@ -18,23 +19,35 @@ export default function SignUp({ onAlreadyHaveAnAccount }) {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
   const [showPassword, setShowPassword] = useState(false);
+  const [loading, setLoading] = useState(false);
 
-  const {isLoading, signUp, setIsSignUp } = useAuthStore();
+  const { isLoading, signUp, setIsSignUp } = useAuthStore();
 
-  const handleSignUp = async () => { // <--- Add this function back
+  const handleSignUp = async () => {
+    // <--- Add this function back
     if (!email.trim() || !username.trim() || !password.trim()) {
       alert("Please fill in all fields.");
       return;
     }
     // This line below is the PRIMARY SUSPECT for a native crash if it hasn't crashed yet.
-    const result = await signUp(username, email, password); 
+    setLoading(true);
+    const result = await signUp(username, email, password);
     if (result.success) {
+      setLoading(false);
       setIsSignUp(false);
+      return;
     } else {
       alert(result.message || "Sign up failed. Please try again.");
     }
+    setLoading(false);
   };
-
+  if (loading) {
+    return (
+      <View style={styles.overlay}>
+        <ActivityIndicator size="large" color="#3b82f6" />
+      </View>
+    );
+  }
   return (
     <TouchableWithoutFeedback onPress={Keyboard.dismiss}>
       <View style={{ flex: 1, backgroundColor: "#343541" }}>
@@ -202,3 +215,18 @@ export default function SignUp({ onAlreadyHaveAnAccount }) {
     </TouchableWithoutFeedback>
   );
 }
+const styles = StyleSheet.create({
+  overlay: {
+    ...StyleSheet.absoluteFillObject,
+    backgroundColor: "rgba(0, 0, 0, 0.7)",
+    justifyContent: "center",
+    alignItems: "center",
+    zIndex: 1000,
+  },
+  overlayText: {
+    marginTop: 15,
+    color: "white",
+    fontSize: 18,
+    fontWeight: "bold",
+  },
+});

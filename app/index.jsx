@@ -1,31 +1,30 @@
+import { Ionicons } from "@expo/vector-icons";
+import { Camera, CameraView } from "expo-camera";
+import * as ImagePicker from "expo-image-picker";
+import * as MediaLibrary from "expo-media-library";
+import { useEffect, useRef, useState } from "react";
 import {
-  Alert,
+  ActivityIndicator,
+  Keyboard,
+  KeyboardAvoidingView,
+  Platform,
+  ScrollView,
+  StyleSheet,
   Text,
   TextInput,
   TouchableOpacity,
-  View,
-  KeyboardAvoidingView,
-  Platform,
-  Keyboard,
   TouchableWithoutFeedback,
   useWindowDimensions,
-  ActivityIndicator,
-  ScrollView,
-  StyleSheet,
+  View,
 } from "react-native";
-import { Camera, CameraView, useCameraPermissions } from "expo-camera";
-import { useState, useEffect, useRef } from "react";
-import * as MediaLibrary from "expo-media-library";
-import { Ionicons } from "@expo/vector-icons";
-import * as ImagePicker from "expo-image-picker";
 import PagerView from "react-native-pager-view";
 import { useSafeAreaInsets } from "react-native-safe-area-context";
-import AuthPage from "../authpage/index";
-import useAuthStore from "../store/authStore";
-import * as FileSystem from "expo-file-system";
+import TextRecognition from "react-native-text-recognition";
 import Shop from "../appComponents//shopOrProfile/index";
 import LearnPage from "../appComponents/learnPage/index";
-
+import AuthPage from "../authpage/index";
+import useAuthStore from "../store/authStore";
+/*
 const convertToBase64 = async (fileUri) => {
   try {
     const base64 = await FileSystem.readAsStringAsync(fileUri, {
@@ -37,6 +36,7 @@ const convertToBase64 = async (fileUri) => {
     return null;
   }
 };
+*/
 export default function Index() {
   const { checkToken, isAuthorised, setIsAuthorised } = useAuthStore();
   const [loadingAuthorization, setLoadingAuthorization] = useState(true);
@@ -85,18 +85,30 @@ export default function Index() {
   useEffect(() => {
     (async () => {
       const permissionsToRequest = [
-        { name: 'camera', get: Camera.getCameraPermissionsAsync, request: Camera.requestCameraPermissionsAsync },
-        { name: 'mediaLibrary', get: MediaLibrary.getPermissionsAsync, request: MediaLibrary.requestPermissionsAsync },
-        { name: 'imagePicker', get: ImagePicker.getMediaLibraryPermissionsAsync, request: ImagePicker.requestMediaLibraryPermissionsAsync },
+        {
+          name: "camera",
+          get: Camera.getCameraPermissionsAsync,
+          request: Camera.requestCameraPermissionsAsync,
+        },
+        {
+          name: "mediaLibrary",
+          get: MediaLibrary.getPermissionsAsync,
+          request: MediaLibrary.requestPermissionsAsync,
+        },
+        {
+          name: "imagePicker",
+          get: ImagePicker.getMediaLibraryPermissionsAsync,
+          request: ImagePicker.requestMediaLibraryPermissionsAsync,
+        },
       ];
 
       let allGranted = true;
       for (const perm of permissionsToRequest) {
         let { status } = await perm.get();
-        if (status !== 'granted') {
+        if (status !== "granted") {
           ({ status } = await perm.request());
         }
-        if (status !== 'granted') {
+        if (status !== "granted") {
           allGranted = false;
           break; // No need to check further if one permission is denied
         }
@@ -140,6 +152,7 @@ export default function Index() {
     console.log("starting");
     setLoadingProgress(20);
     setLoading(true);
+    /*
     const performOCR = async (base64Image) => {
       const apiKey = "AIzaSyDaGkvpbiDV6s88WxmCznl8BslZqAVj0-o";
 
@@ -188,6 +201,7 @@ export default function Index() {
         return null;
       }
     };
+    
 
     const ocrResults = await Promise.all(
       photoArray.map(async (uri) => {
@@ -200,6 +214,33 @@ export default function Index() {
         }
       })
     );
+    */
+    let ocrResults = [];
+
+    const getOCR = async (imageUri) => {
+      try {
+        const recognizedText = await TextRecognition.recognize(imageUri);
+        return recognizedText.map((item) => item.text).join(" ");
+      } catch (error) {
+        console.error("Error recognizing text:", error);
+        return "";
+      }
+    };
+
+    const ocrPromises = photoArray.map(async (imageUri) => {
+      const result = await getOCR(imageUri);
+      console.log("result: ", result);
+      return result;
+    });
+
+    ocrResults = await Promise.all(ocrPromises);
+
+    if (ocrResults.length === 0) {
+      alert("No text recognized in the images. Please try again.");
+      setLoading(false);
+      return;
+    }
+
     console.log("ocr is done");
     setLoadingProgress(50);
 
@@ -211,35 +252,34 @@ export default function Index() {
     const userToken = useAuthStore.getState().token;
     try {
       const processedPrompt = await fetch(
-      "https://matura-backend.onrender.com/api/processing/answer",
-      {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-          Authorization: `Bearer ${userToken}`,
-        },
-        body: JSON.stringify({ prompt: prompt, type: "photo" }),
+        "https://matura-backend.onrender.com/api/processing/answer",
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+            Authorization: `Bearer ${userToken}`,
+          },
+          body: JSON.stringify({ prompt: prompt, type: "photo" }),
+        }
+      );
+      if (!processedPrompt.ok) {
+        setLoadingProgress(0);
+        setLoading(false);
+        const errorData = await processedPrompt.json();
+        alert(errorData.message || "Failed to process images.");
+        return;
       }
-    );
-    if(!processedPrompt.ok){
-      setLoadingProgress(0);
+      setLoadingProgress(100);
       setLoading(false);
-      const errorData = await processedPrompt.json();
-      alert(errorData.message || "Failed to process images.");
-      return;
-    }
-    setLoadingProgress(100);
-    setLoading(false);
-    const parsedAnswer = await processedPrompt.json();
-    setAnswers(parsedAnswer.answer);
-    setWriting(true);
-    setANswered(true);
-    setPhotoArray([]);
+      const parsedAnswer = await processedPrompt.json();
+      setAnswers(parsedAnswer.answer);
+      setWriting(true);
+      setANswered(true);
+      setPhotoArray([]);
     } catch (error) {
       console.error("Error fetching QARoute:", error);
       setLoading(false);
     }
-    
   };
 
   const sendQuestion = async () => {
@@ -259,7 +299,7 @@ export default function Index() {
         body: JSON.stringify({ prompt: question, type: "question" }),
       }
     );
-    if(!processedPrompt.ok){
+    if (!processedPrompt.ok) {
       const errorData = await processedPrompt.json();
       alert(errorData.message || "Failed to process images.");
       return;
@@ -348,73 +388,86 @@ export default function Index() {
               ref={cameraRef}
               style={{
                 flex: 1,
-                flexDirection: "column",
+              }}
+            />
+
+            <View
+              style={{
+                position: "absolute",
+                top: 60,
+                left: 20,
+                right: 20,
+                flexDirection: "row",
                 justifyContent: "space-between",
                 alignItems: "center",
-                paddingBottom: 50,
               }}
             >
-              <View
-                style={{
-                  width: "100%",
-                  alignItems: "flex-end",
-                  marginTop: 60,
-                  justifyContent: "space-between",
-                  flexDirection: "row",
-                }}
-              >
-                <TouchableOpacity onPress={() => setWriting(true)}>
-                  <Ionicons
-                    name="create-outline"
-                    size={50}
-                    color="white"
-                    style={{ marginLeft: 20 }}
-                  />
-                </TouchableOpacity>
+              <TouchableOpacity onPress={() => setWriting(true)}>
+                <Ionicons name="create-outline" size={50} color="white" />
+              </TouchableOpacity>
+              <TouchableOpacity onPress={() => sendPhotoPrompt()}>
+                <Ionicons name="checkmark" size={50} color="white" />
+              </TouchableOpacity>
+            </View>
 
-                <TouchableOpacity onPress={() => sendPhotoPrompt()}>
-                  <Ionicons
-                    name="checkmark"
-                    size={50}
-                    color="white"
-                    style={{ marginRight: 20 }}
-                  />
-                </TouchableOpacity>
-              </View>
-              {loadingProgress > 0 && loadingProgress < 100 && (
-                <View style={styles.overlay}>
-                  <ActivityIndicator size="large" color="#3b82f6" />
-                  <Text style={styles.overlayText}>{loadingProgress}%</Text>
-                </View>
-              )}
+            {loadingProgress > 0 && loadingProgress < 100 && (
               <View
                 style={{
-                  flexDirection: "row",
-                  justifyContent: "space-around",
+                  ...StyleSheet.absoluteFillObject,
+                  backgroundColor: "rgba(0, 0, 0, 0.7)",
+                  justifyContent: "center",
                   alignItems: "center",
-                  width: "100%",
                 }}
               >
-                <TouchableOpacity onPress={savePicture}>
-                  <Ionicons name="download-outline" size={50} color="white" />
-                </TouchableOpacity>
-                <View style={{ flexDirection: "column", alignItems: "center" }}>
-                  <Text style={{ color: "white", fontSize: 20 }}>
-                    {photoArray.length}/3
-                  </Text>
-                  <TouchableOpacity onPress={takePicture}>
-                    <Ionicons
-                      name="radio-button-off"
-                      size={100}
-                      color="white"
-                    />
-                  </TouchableOpacity>
-                </View>
-                <TouchableOpacity onPress={pickImage}>
-                  <Ionicons name="image-outline" size={50} color="white" />
+                <ActivityIndicator size="large" color="#3b82f6" />
+                <Text
+                  style={{
+                    marginTop: 10,
+                    color: "white",
+                    fontSize: 20,
+                  }}
+                >
+                  {loadingProgress}%
+                </Text>
+              </View>
+            )}
+
+            <View
+              style={{
+                position: "absolute",
+                bottom: 50,
+                left: 0,
+                right: 0,
+                flexDirection: "row",
+                justifyContent: "space-around",
+                alignItems: "center",
+              }}
+            >
+              <TouchableOpacity onPress={savePicture}>
+                <Ionicons name="download-outline" size={50} color="white" />
+              </TouchableOpacity>
+              <View
+                style={{
+                  flexDirection: "column",
+                  alignItems: "center",
+                }}
+              >
+                <Text
+                  style={{
+                    color: "white",
+                    fontSize: 20,
+                  }}
+                >
+                  {photoArray.length}/3
+                </Text>
+                <TouchableOpacity onPress={takePicture}>
+                  <Ionicons name="radio-button-off" size={100} color="white" />
                 </TouchableOpacity>
               </View>
-            </CameraView>
+              <TouchableOpacity onPress={pickImage}>
+                <Ionicons name="image-outline" size={50} color="white" />
+              </TouchableOpacity>
+            </View>
           </View>
         ) : (
           <View style={[styles.container, { paddingTop: insets.top }]}>

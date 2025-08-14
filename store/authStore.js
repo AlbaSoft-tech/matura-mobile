@@ -6,7 +6,6 @@ const useAuthStore = create((set) => ({
   user: null,
   token: null,
   tokens: 0,
-  testUnlocked: null,
   isLoading: false,
   isAuthorised: false,
   setIsAuthorised: (value) => set({ isAuthorised: value }),
@@ -77,7 +76,6 @@ const useAuthStore = create((set) => ({
         user: result.user.username,
         email: result.user.email,
         tokens: result.user.tokens,
-        testUnlocked: result.user.testUnlocked,
         completedTests: result.user.completedTests,
         fetchedTests: result.tests,
       });
@@ -115,7 +113,6 @@ const useAuthStore = create((set) => ({
           const result = await response.json();
           const tests = await AsyncStorage.getItem("tests");
           const tokens = result.tokens;
-          const testUnlocked = result.testUnlocked;
           const completedTests = result.completedTests;
           set({
             user: user.slice(1, -1),
@@ -123,7 +120,6 @@ const useAuthStore = create((set) => ({
             token: token,
             tokens: tokens,
             isAuthorised: true,
-            testUnlocked: testUnlocked,
             completedTests: completedTests,
             fetchedTests: JSON.parse(tests),
           });

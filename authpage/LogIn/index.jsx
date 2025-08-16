@@ -1,17 +1,17 @@
 import {
+  Keyboard,
+  Platform,
   Text,
-  Image,
-  View,
   TextInput,
   TouchableOpacity,
   TouchableWithoutFeedback,
-  Keyboard,
-  Platform,
+  View,
+  ActivityIndicator
 } from "react-native";
 
-import { useState } from "react";
 import { Ionicons } from "@expo/vector-icons";
-import useAuthStore, { authStore } from "../../store/authStore"; // Assuming useAuthStore is a named export
+import { useState } from "react";
+import useAuthStore from "../../store/authStore"; // Assuming useAuthStore is a named export
 import ForgotPassword from "../ForgotPassword/index";
 
 export default function LogIn({ onCreateAnAccount }) {
@@ -19,7 +19,7 @@ export default function LogIn({ onCreateAnAccount }) {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [showPassword, setShowPassword] = useState(false);
-  const { forgotPassword, setForgotPassword } = useAuthStore();
+  const { forgotPassword, setForgotPassword, isLoading } = useAuthStore();
 
   const handleLogIn = async () => {
     const result = await logIn(email, password);
@@ -144,15 +144,19 @@ export default function LogIn({ onCreateAnAccount }) {
               alignItems: "center",
             }}
           >
-            <Text
-              style={{
-                fontSize: 20,
-                fontWeight: "bold",
-                color: "white" /* White text on button */,
-              }}
-            >
-              Log In
-            </Text>
+            {isLoading ? (
+              <ActivityIndicator color="white" />
+            ) : (
+              <Text
+                style={{
+                  fontSize: 20,
+                  fontWeight: "bold",
+                  color: "white",
+                }}
+              >
+                Log In
+              </Text>
+            )}
           </TouchableOpacity>
         </View>
 

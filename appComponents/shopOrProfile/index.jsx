@@ -1,14 +1,14 @@
+import { Ionicons } from "@expo/vector-icons";
 import React, { useState } from "react";
 import {
-  View,
-  Text,
-  TouchableWithoutFeedback,
   Dimensions,
+  ScrollView,
+  Text,
   TouchableOpacity,
-  ScrollView, // Added ScrollView for content that might exceed screen height
+  TouchableWithoutFeedback,
+  View,
 } from "react-native";
 import { useSafeAreaInsets } from "react-native-safe-area-context";
-import { Ionicons } from "@expo/vector-icons";
 import useAuthStore from "../../store/authStore"; // Assuming this path is correct
 
 export default function ShopScreen() {
@@ -113,7 +113,6 @@ export default function ShopScreen() {
               marginBottom: 30, // Space below this section
             }}
           >
-            
             <View
               style={{
                 flexDirection: "row",
@@ -131,7 +130,7 @@ export default function ShopScreen() {
                 style={{ fontSize: 30, fontWeight: "bold", color: "white" }}
               >
                 {" "}
-                = 10
+                = 5
               </Text>
               <Ionicons name="cash-outline" size={30} color="white" />
             </View>
@@ -141,11 +140,25 @@ export default function ShopScreen() {
               >
                 1
               </Text>
-              <Ionicons name="help" size={35} color="white" />
+              <Ionicons name="help-circle" size={35} color="white" />
               <Text
                 style={{ fontSize: 30, fontWeight: "bold", color: "white" }}
               >
-                = 0.5
+                = 1
+              </Text>
+              <Ionicons name="cash-outline" size={30} color="white" />
+            </View>
+            <View style={{ flexDirection: "row", alignItems: "center" }}>
+              <Text
+                style={{ fontSize: 30, fontWeight: "bold", color: "white" }}
+              >
+                1
+              </Text>
+              <Ionicons name="create" size={35} color="white" />
+              <Text
+                style={{ fontSize: 30, fontWeight: "bold", color: "white" }}
+              >
+                = 1
               </Text>
               <Ionicons name="cash-outline" size={30} color="white" />
             </View>

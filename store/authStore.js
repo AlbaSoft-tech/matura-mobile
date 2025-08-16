@@ -6,6 +6,7 @@ const useAuthStore = create((set) => ({
   user: null,
   token: null,
   tokens: 0,
+  setTokens: (value) => set({ tokens: value }),
   isLoading: false,
   isAuthorised: false,
   setIsAuthorised: (value) => set({ isAuthorised: value }),
@@ -22,6 +23,11 @@ const useAuthStore = create((set) => ({
 
   signUp: async (username, email, password) => {
     set({ isLoading: true });
+    if (!email || !password || !username) {
+        alert("Please fill in all fields.");
+        set({ isLoading: false });
+        return;
+      }
     try {
       const response = await fetch(
         "https://matura-backend.onrender.com/api/auth/signup",
@@ -39,7 +45,12 @@ const useAuthStore = create((set) => ({
       );
 
       const data = await response.json();
-      if (!response.ok) throw new Error(data.message || "Something went wrong");
+      if (!response.ok){ 
+        set({ isLoading: false });
+        alert(data.message || "Something went wrong");
+        throw new Error(data.message || "Something went wrong")}
+
+        set({isLoading: false, isSignUp: false });
       return {
         success: true,
       };
@@ -51,6 +62,12 @@ const useAuthStore = create((set) => ({
   logIn: async (email, password) => {
     console.log(email, password);
     try {
+      set({ isLoading: true });
+      if (!email || !password) {
+        alert("Please fill in all fields.");
+        set({ isLoading: false });
+        return;
+      }
       const response = await fetch(
         "https://matura-backend.onrender.com/api/auth/login",
         {
@@ -66,11 +83,13 @@ const useAuthStore = create((set) => ({
       );
       const result = await response.json();
       if (!response.ok) {
+        set({isLoading: false})
         alert("Wrong credentials");
         throw new Error(result.message || "something went wrong");
       }
 
       set({
+        isLoading: false,
         isAuthorised: true,
         token: result.token,
         user: result.user.username,
@@ -87,7 +106,10 @@ const useAuthStore = create((set) => ({
       return {
         success: true,
       };
-    } catch (error) {}
+    } catch (error) {
+      set({isLoading: false})
+      return { success: false, message: error.message };
+    }
   },
 
   checkToken: async () => {

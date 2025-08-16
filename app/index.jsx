@@ -38,7 +38,7 @@ const convertToBase64 = async (fileUri) => {
 };
 */
 export default function Index() {
-  const { checkToken, isAuthorised, setIsAuthorised } = useAuthStore();
+  const { checkToken, isAuthorised, setIsAuthorised, tokens, setTokens } = useAuthStore();
   const [loadingAuthorization, setLoadingAuthorization] = useState(true);
   useEffect(() => {
     setLoadingAuthorization(true);
@@ -265,11 +265,15 @@ export default function Index() {
       if (!processedPrompt.ok) {
         setLoadingProgress(0);
         setLoading(false);
+
         const errorData = await processedPrompt.json();
+        setPhotoArray([]);
         alert(errorData.message || "Failed to process images.");
+
         return;
       }
       setLoadingProgress(100);
+      setTokens(tokens-10)
       setLoading(false);
       const parsedAnswer = await processedPrompt.json();
       setAnswers(parsedAnswer.answer);
@@ -283,6 +287,7 @@ export default function Index() {
   };
 
   const sendQuestion = async () => {
+    setLoading(true)
     setANswered(false);
     setAnswers(null);
     console.log("sending question:", question);
@@ -301,14 +306,17 @@ export default function Index() {
     );
     if (!processedPrompt.ok) {
       const errorData = await processedPrompt.json();
+      setLoading(false);
       alert(errorData.message || "Failed to process images.");
       return;
     }
     const parsedAnswer = await processedPrompt.json();
     console.log("parsed answer:", parsedAnswer);
+    setTokens(tokens-1)
     setQuestion("");
+    setLoading(false);
     setAnswers(parsedAnswer.answer);
-    setWriting(true);
+  
     setANswered(true);
   };
 
@@ -400,12 +408,13 @@ export default function Index() {
                 flexDirection: "row",
                 justifyContent: "space-between",
                 alignItems: "center",
+                zIndex: 1, // Ensure the top bar is above other content
               }}
             >
               <TouchableOpacity onPress={() => setWriting(true)}>
                 <Ionicons name="create-outline" size={50} color="white" />
               </TouchableOpacity>
-              <TouchableOpacity onPress={() => sendPhotoPrompt()}>
+              <TouchableOpacity onPress={sendPhotoPrompt}>
                 <Ionicons name="checkmark" size={50} color="white" />
               </TouchableOpacity>
             </View>
@@ -452,14 +461,35 @@ export default function Index() {
                   alignItems: "center",
                 }}
               >
-                <Text
+                <View
                   style={{
-                    color: "white",
-                    fontSize: 20,
+                    flexDirection: "row",
+                    alignItems: "center",
+                    justifyContent: "space-between",
+                    gap: 8,
                   }}
                 >
-                  {photoArray.length}/3
-                </Text>
+                  <Text
+                    style={{
+                      color: "white",
+                      fontSize: 20,
+                    }}
+                  >
+                    {photoArray.length}/3
+                  </Text>
+                  <TouchableOpacity
+                    onPress={() => {
+                      const newArray = photoArray.slice(0, -1);
+                      setPhotoArray(newArray);
+                    }}
+                  >
+                    <Ionicons
+                      name="remove-circle-outline"
+                      size={25}
+                      color="white"
+                    />
+                  </TouchableOpacity>
+                </View>
                 <TouchableOpacity onPress={takePicture}>
                   <Ionicons name="radio-button-off" size={100} color="white" />
                 </TouchableOpacity>
@@ -492,7 +522,6 @@ export default function Index() {
             {loading && (
               <View style={styles.overlay}>
                 <ActivityIndicator size="large" color="#3b82f6" />
-                <Text style={styles.overlayText}>{loadingProgress}%</Text>
               </View>
             )}
 

@@ -2,12 +2,12 @@
 import {
   ActivityIndicator,
   Keyboard,
+  StyleSheet,
   Text,
   TextInput,
   TouchableOpacity,
   TouchableWithoutFeedback,
   View,
-  StyleSheet 
 } from "react-native";
 
 import { Ionicons } from "@expo/vector-icons";
@@ -19,35 +19,22 @@ export default function SignUp({ onAlreadyHaveAnAccount }) {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
   const [showPassword, setShowPassword] = useState(false);
-  const [loading, setLoading] = useState(false);
 
-  const { isLoading, signUp, setIsSignUp } = useAuthStore();
+  const { isLoading, signUp, } = useAuthStore();
 
   const handleSignUp = async () => {
-    // <--- Add this function back
     if (!email.trim() || !username.trim() || !password.trim()) {
       alert("Please fill in all fields.");
       return;
     }
-    // This line below is the PRIMARY SUSPECT for a native crash if it hasn't crashed yet.
-    setLoading(true);
     const result = await signUp(username, email, password);
     if (result.success) {
-      setLoading(false);
-      setIsSignUp(false);
       return;
     } else {
       alert(result.message || "Sign up failed. Please try again.");
     }
-    setLoading(false);
+    return;
   };
-  if (loading) {
-    return (
-      <View style={styles.overlay}>
-        <ActivityIndicator size="large" color="#3b82f6" />
-      </View>
-    );
-  }
   return (
     <TouchableWithoutFeedback onPress={Keyboard.dismiss}>
       <View style={{ flex: 1, backgroundColor: "#343541" }}>
@@ -169,7 +156,7 @@ export default function SignUp({ onAlreadyHaveAnAccount }) {
 
           {/* Sign Up Button */}
           <TouchableOpacity
-            onPress={handleSignUp} // <--- Re-enable this
+            onPress={handleSignUp}
             style={{
               backgroundColor: "#3b82f6",
               width: 192,

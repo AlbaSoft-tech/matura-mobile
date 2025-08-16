@@ -1,4 +1,4 @@
-package com.anonymous.frontEnd
+package com.anonymous.matura
 import expo.modules.splashscreen.SplashScreenManager
 
 import android.os.Build

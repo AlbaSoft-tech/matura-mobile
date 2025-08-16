@@ -1,4 +1,4 @@
-package com.anonymous.frontEnd
+package com.anonymous.matura
 
 import android.app.Application
 import android.content.res.Configuration

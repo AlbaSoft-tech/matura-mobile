@@ -340,8 +340,6 @@ PODS:
     - ExpoModulesCore
   - ExpoSystemUI (5.0.10):
     - ExpoModulesCore
-  - ExpoTextExtractor (0.2.2):
-    - ExpoModulesCore
   - ExpoWebBrowser (14.2.0):
     - ExpoModulesCore
   - EXUpdatesInterface (1.1.0):
@@ -2419,7 +2417,6 @@ DEPENDENCIES:
   - ExpoSplashScreen (from `../node_modules/expo-splash-screen/ios`)
   - ExpoSymbols (from `../node_modules/expo-symbols/ios`)
   - ExpoSystemUI (from `../node_modules/expo-system-ui/ios`)
-  - ExpoTextExtractor (from `../node_modules/expo-text-extractor/ios`)
   - ExpoWebBrowser (from `../node_modules/expo-web-browser/ios`)
   - EXUpdatesInterface (from `../node_modules/expo-updates-interface/ios`)
   - fast_float (from `../node_modules/react-native/third-party-podspecs/fast_float.podspec`)
@@ -2573,8 +2570,6 @@ EXTERNAL SOURCES:
     :path: "../node_modules/expo-symbols/ios"
   ExpoSystemUI:
     :path: "../node_modules/expo-system-ui/ios"
-  ExpoTextExtractor:
-    :path: "../node_modules/expo-text-extractor/ios"
   ExpoWebBrowser:
     :path: "../node_modules/expo-web-browser/ios"
   EXUpdatesInterface:
@@ -2765,7 +2760,6 @@ SPEC CHECKSUMS:
   ExpoSplashScreen: 0ad5acac1b5d2953c6e00d4319f16d616f70d4dd
   ExpoSymbols: c5612a90fb9179cdaebcd19bea9d8c69e5d3b859
   ExpoSystemUI: c2724f9d5af6b1bb74e013efadf9c6a8fae547a2
-  ExpoTextExtractor: 79faef58f2c7f5156368440ca151fc0317464430
   ExpoWebBrowser: dc39a88485f007e61a3dff05d6a75f22ab4a2e92
   EXUpdatesInterface: 7ff005b7af94ee63fa452ea7bb95d7a8ff40277a
   fast_float: 06eeec4fe712a76acc9376682e4808b05ce978b6

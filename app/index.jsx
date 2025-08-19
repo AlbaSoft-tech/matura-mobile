@@ -1,5 +1,6 @@
 import { Ionicons } from "@expo/vector-icons";
 import { Camera, CameraView } from "expo-camera";
+import * as FileSystem from "expo-file-system";
 import * as ImagePicker from "expo-image-picker";
 import * as MediaLibrary from "expo-media-library";
 import { useEffect, useRef, useState } from "react";
@@ -19,12 +20,11 @@ import {
 } from "react-native";
 import PagerView from "react-native-pager-view";
 import { useSafeAreaInsets } from "react-native-safe-area-context";
-import TextRecognition from "react-native-text-recognition";
 import Shop from "../appComponents//shopOrProfile/index";
 import LearnPage from "../appComponents/learnPage/index";
 import AuthPage from "../authpage/index";
 import useAuthStore from "../store/authStore";
-/*
+
 const convertToBase64 = async (fileUri) => {
   try {
     const base64 = await FileSystem.readAsStringAsync(fileUri, {
@@ -36,9 +36,42 @@ const convertToBase64 = async (fileUri) => {
     return null;
   }
 };
+
+/*
+async function getFileSize(uri) {
+  try {
+    const info = await FileSystem.getInfoAsync(uri, { size: true });
+    const fileSizeMB = (info.size / (1024 * 1024)).toFixed(2);
+    return fileSizeMB;
+  } catch (err) {
+    console.error("Failed to get file info", err);
+    return null;
+  }
+}
+
+const compressImage = async (uri, magnitude) => {
+  try {
+    const manipulatedImage = await manipulateAsync(uri, [], {
+      compress: magnitude, //choose whatever you want
+      format: SaveFormat.JPEG,
+    });
+
+    return manipulatedImage.uri;
+  } catch (error) {
+    console.error("Error compressing image:", error);
+    throw error;
+  }
+};
 */
 export default function Index() {
-  const { checkToken, isAuthorised, setIsAuthorised, tokens, setTokens } = useAuthStore();
+  const {
+    checkToken,
+    isAuthorised,
+    setIsAuthorised,
+    tokens,
+    setTokens,
+    token,
+  } = useAuthStore();
   const [loadingAuthorization, setLoadingAuthorization] = useState(true);
   useEffect(() => {
     setLoadingAuthorization(true);
@@ -149,12 +182,11 @@ export default function Index() {
       console.warn("No images to process.");
       return;
     }
-    console.log("starting");
+
     setLoadingProgress(20);
     setLoading(true);
-    /*
     const performOCR = async (base64Image) => {
-      const apiKey = "AIzaSyDaGkvpbiDV6s88WxmCznl8BslZqAVj0-o";
+      const apiKey = "AIzaSyBBEaQrCcYVbunxsAVmcj-uPzbqUQKqEag";
 
       const requestBody = {
         requests: [
@@ -188,25 +220,30 @@ export default function Index() {
         );
 
         const data = await response.json();
-
         if (data.responses && data.responses[0].fullTextAnnotation) {
           const detectedText = data.responses[0].fullTextAnnotation.text;
           return detectedText;
         } else {
           console.error("No text detected");
+          setPhotoArray([]);
+          setLoading(false);
+          setLoadingProgress(0);
+          alert("No text detected in the images.");
           return null;
         }
       } catch (error) {
         console.error("Error during OCR:", error);
+        setPhotoArray([]);
+        setLoading(false);
+        setLoadingProgress(0);
+        alert("Failed to process images. Please try again.");
         return null;
       }
     };
-    
 
     const ocrResults = await Promise.all(
       photoArray.map(async (uri) => {
         const base64 = await convertToBase64(uri);
-
         if (base64) {
           return performOCR(base64);
         } else {
@@ -214,33 +251,6 @@ export default function Index() {
         }
       })
     );
-    */
-    let ocrResults = [];
-
-    const getOCR = async (imageUri) => {
-      try {
-        const recognizedText = await TextRecognition.recognize(imageUri);
-        return recognizedText.map((item) => item.text).join(" ");
-      } catch (error) {
-        console.error("Error recognizing text:", error);
-        return "";
-      }
-    };
-
-    const ocrPromises = photoArray.map(async (imageUri) => {
-      const result = await getOCR(imageUri);
-      console.log("result: ", result);
-      return result;
-    });
-
-    ocrResults = await Promise.all(ocrPromises);
-
-    if (ocrResults.length === 0) {
-      alert("No text recognized in the images. Please try again.");
-      setLoading(false);
-      return;
-    }
-
     console.log("ocr is done");
     setLoadingProgress(50);
 
@@ -265,15 +275,11 @@ export default function Index() {
       if (!processedPrompt.ok) {
         setLoadingProgress(0);
         setLoading(false);
-
         const errorData = await processedPrompt.json();
-        setPhotoArray([]);
         alert(errorData.message || "Failed to process images.");
-
         return;
       }
       setLoadingProgress(100);
-      setTokens(tokens-10)
       setLoading(false);
       const parsedAnswer = await processedPrompt.json();
       setAnswers(parsedAnswer.answer);
@@ -283,11 +289,13 @@ export default function Index() {
     } catch (error) {
       console.error("Error fetching QARoute:", error);
       setLoading(false);
+      setPhotoArray([]);
+      setLoadingProgress(0);
     }
   };
 
   const sendQuestion = async () => {
-    setLoading(true)
+    setLoading(true);
     setANswered(false);
     setAnswers(null);
     console.log("sending question:", question);
@@ -312,11 +320,11 @@ export default function Index() {
     }
     const parsedAnswer = await processedPrompt.json();
     console.log("parsed answer:", parsedAnswer);
-    setTokens(tokens-1)
+    setTokens(tokens - 1);
     setQuestion("");
     setLoading(false);
     setAnswers(parsedAnswer.answer);
-  
+
     setANswered(true);
   };
 

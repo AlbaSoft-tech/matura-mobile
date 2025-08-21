@@ -18,9 +18,9 @@ export default function ShopScreen() {
 
   const { width, height } = Dimensions.get("window");
   const priceIntokens = [
-    { amount: 10, price: 3.25 },
-    { amount: 50, price: 15 },
-    { amount: 100, price: 26 },
+    { amount: 10, price: 1.65 },
+    { amount: 50, price: 8.15 },
+    { amount: 100, price: 16.25 },
   ];
 
   // Mock functions for demonstration
@@ -78,12 +78,14 @@ export default function ShopScreen() {
         </View>
 
         <TouchableWithoutFeedback onPress={() => setShop(!shop)}>
+          <View style={{ backgroundColor: 'transparent' }}>
           <Ionicons
             name={shop ? "person-circle" : "cart"}
             size={40} // Adjusted size
             color="white" // White icon
             style={{ marginRight: 20 }}
           />
+          </View>
         </TouchableWithoutFeedback>
       </View>
 
@@ -130,7 +132,7 @@ export default function ShopScreen() {
                 style={{ fontSize: 30, fontWeight: "bold", color: "white" }}
               >
                 {" "}
-                = 5
+                = 3
               </Text>
               <Ionicons name="cash-outline" size={30} color="white" />
             </View>

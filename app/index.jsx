@@ -283,9 +283,11 @@ export default function Index() {
       setLoading(false);
       const parsedAnswer = await processedPrompt.json();
       setAnswers(parsedAnswer.answer);
+      console.log("parsed answer:", parsedAnswer);
       setWriting(true);
       setANswered(true);
       setPhotoArray([]);
+      setTokens(tokens - 3);
     } catch (error) {
       console.error("Error fetching QARoute:", error);
       setLoading(false);
@@ -295,6 +297,7 @@ export default function Index() {
   };
 
   const sendQuestion = async () => {
+    Keyboard.dismiss();
     setLoading(true);
     setANswered(false);
     setAnswers(null);
@@ -520,7 +523,10 @@ export default function Index() {
 
             {answered &&
               answers && ( // Only show if answered and answers is not empty
-                <ScrollView style={styles.answersScrollView}>
+                <ScrollView
+                  style={styles.answersScrollView}
+                  contentContainerStyle={{ paddingBottom: 50 }}
+                >
                   <View style={styles.answerItem}>
                     <Text style={styles.answerText}>{answers}</Text>
                   </View>
@@ -550,11 +556,13 @@ export default function Index() {
                     maxHeight={120}
                   />
                   <TouchableWithoutFeedback onPress={sendQuestion}>
-                    <Ionicons
-                      name="arrow-up-circle"
-                      size={40}
-                      color="#3b82f6" // Blue color from the test page buttons
-                    />
+                    <View style={{ backgroundColor: "transparent" }}>
+                      <Ionicons
+                        name="arrow-up-circle"
+                        size={40}
+                        color="#3b82f6"
+                      />
+                    </View>
                   </TouchableWithoutFeedback>
                 </View>
               </KeyboardAvoidingView>
@@ -589,10 +597,8 @@ const styles = StyleSheet.create({
     marginRight: 0,
   },
   answersScrollView: {
-    flex: 1, // This ScrollView should still take up all *remaining* vertical space
+    flex: 1,
     paddingHorizontal: 20,
-    // Add paddingBottom here to ensure content scrolls above the input bar
-    paddingBottom: 100, // Adjust this value based on the height of your input bar (minHeight: 80 + some extra space)
   },
   answerItem: {
     marginTop: 20,

@@ -1,28 +1,23 @@
 import React, { useState } from "react";
 import {
-  View,
-  Text,
-  TouchableOpacity,
-  TextInput,
-  ScrollView,
-  StyleSheet,
   ActivityIndicator,
   Alert,
+  Image,
   KeyboardAvoidingView,
   Platform,
-  Dimensions,
+  ScrollView,
+  StyleSheet,
+  Text,
+  TextInput,
+  TouchableOpacity,
+  View,
 } from "react-native";
 import { useSafeAreaInsets } from "react-native-safe-area-context";
-import { Ionicons } from "@expo/vector-icons"; // You import this but don't use it.
 import useAuthStore from "../../store/authStore"; // Ensure correct import for useAuthStore
 
 function FullQuizPage() {
-  const {
-    completedTests,
-    setCompletedTests,
-    token,
-    fetchedTests,
-  } = useAuthStore();
+  const { completedTests, setCompletedTests, token, fetchedTests } =
+    useAuthStore();
   const insets = useSafeAreaInsets();
   const [selectedAnswers, setSelectedAnswers] = useState({});
   const [apiResponse, setApiResponse] = useState(null);
@@ -42,7 +37,21 @@ function FullQuizPage() {
     { code: "tr", name: "Turkish" },
     { code: "mk", name: "Macedonian" },
     { code: "en", name: "English" },
+    { code: "mt", name: "Montenegrin" },
+    { code: "sr", name: "Serbian" },
+    { code: "bg", name: "Bulgarian" },
+    { code: "bs", name: "Bosnian" },
   ];
+  const languageFlags = {
+    albanian: require("../../assets/images/albanian.png"),
+    turkish: require("../../assets/images/turkish.png"),
+    macedonian: require("../../assets/images/macedonian.png"),
+    english: require("../../assets/images/english.png"),
+    montenegrin: require("../../assets/images/montenegrin.png"),
+    serbian: require("../../assets/images/serbian.png"),
+    bulgarian: require("../../assets/images/bulgarian.png"),
+    bosnian: require("../../assets/images/bosnian.png"),
+  };
 
   // Derived state: Get the tests array for the selected language
   // Ensure the key matches your fetchedTests object (e.g., 'albanian', 'english')
@@ -208,34 +217,37 @@ ${actualAnswerString}`,
       {!language ? (
         // 2. Show Language Selection Page
         <View style={styles.parentContainer}>
-        <View style={styles.languageContentContainer}>
-          <Text style={styles.languageTitle}>Choose Your Test Language</Text>
-          <Text style={styles.languageDescription}>
-            Select the language you wish to take the tests in:
-          </Text>
-
-          <View style={styles.languageButtonsContainer}>
-            {languages.map((lang) => (
-              <TouchableOpacity
-                key={lang.code}
-                style={[
-                  styles.languageButton,
-                  language === lang.name && styles.languageSelectedButton,
-                ]}
-                onPress={() => handleSelectLanguage(lang.name)} // Pass name directly
-              >
-                <Text style={styles.languageButtonText}>{lang.name}</Text>
-              </TouchableOpacity>
-            ))}
-          </View>
-
-          {language && (
-            <Text style={styles.languageConfirmation}>
-              You have selected:{" "}
-              <Text style={styles.languageSelectedText}>{language}</Text>
+          <View style={styles.languageContentContainer}>
+            <Text style={styles.languageTitle}>Choose Your Test Language</Text>
+            <Text style={styles.languageDescription}>
+              Select the language you wish to take the tests in:
             </Text>
-          )}
-        </View>
+
+            <View style={styles.languageButtonsContainer}>
+              {languages.map((lang) => (
+                <TouchableOpacity
+                  key={lang.code}
+                  style={[
+                    styles.languageButton,
+                    language === lang.name && styles.languageSelectedButton,
+                  ]}
+                  onPress={() => handleSelectLanguage(lang.name)} // Pass name directly
+                >
+                  <Image
+                    source={languageFlags[lang.name.toLowerCase()]}
+                    style={{ width: 100, height: 100, borderRadius: 50 }}
+                  />
+                </TouchableOpacity>
+              ))}
+            </View>
+
+            {language && (
+              <Text style={styles.languageConfirmation}>
+                You have selected:{" "}
+                <Text style={styles.languageSelectedText}>{language}</Text>
+              </Text>
+            )}
+          </View>
         </View>
       ) : selectedTestIndex === null ? (
         <ScrollView contentContainerStyle={styles.testSelScrollViewContent}>
@@ -659,12 +671,12 @@ const styles = StyleSheet.create({
   parentContainer: {
     flex: 1, // Makes the parent container fill all available vertical space
     justifyContent: "center", // Centers children vertically
-    alignItems: "center",     // Centers children horizontally // Example: your main background color
+    alignItems: "center", // Centers children horizontally // Example: your main background color
   },
   languageContentContainer: {
     alignItems: "center",
     justifyContent: "center",
-    
+
     padding: 25,
     backgroundColor: "#202123",
     borderRadius: 15,
@@ -690,21 +702,23 @@ const styles = StyleSheet.create({
     lineHeight: 22,
   },
   languageButtonsContainer: {
-    width: "100%",
-    gap: 15,
-    marginBottom: 20,
+    flexDirection: "row",
+    flexWrap: "wrap",
+    justifyContent: "space-around", // center horizontally
+    marginBottom: 0,
   },
   languageButton: {
     backgroundColor: "#3b82f6",
-    paddingVertical: 15,
-    paddingHorizontal: 20,
-    borderRadius: 30,
+    paddingVertical: 5,
+    paddingHorizontal: 5,
+    borderRadius: 100,
     shadowColor: "#000",
     shadowOffset: { width: 0, height: 2 },
     shadowOpacity: 0.25,
     shadowRadius: 3.84,
     elevation: 5,
     alignItems: "center",
+    marginBottom: 20,
   },
   languageSelectedButton: {
     backgroundColor: "#4ade80",

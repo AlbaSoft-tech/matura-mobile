@@ -7,12 +7,13 @@ import {
   TouchableOpacity,
   TouchableWithoutFeedback,
   View,
+  ActivityIndicator
 } from "react-native";
 import { useSafeAreaInsets } from "react-native-safe-area-context";
 import useAuthStore from "../../store/authStore"; // Assuming this path is correct
 
 export default function ShopScreen() {
-  const { user, email, logOut, tokens } = useAuthStore();
+  const { user, email, logOut, tokens, deleteAccount, isLoading } = useAuthStore();
   const insets = useSafeAreaInsets();
   const [shop, setShop] = useState(true);
 
@@ -78,13 +79,13 @@ export default function ShopScreen() {
         </View>
 
         <TouchableWithoutFeedback onPress={() => setShop(!shop)}>
-          <View style={{ backgroundColor: 'transparent' }}>
-          <Ionicons
-            name={shop ? "person-circle" : "cart"}
-            size={40} // Adjusted size
-            color="white" // White icon
-            style={{ marginRight: 20 }}
-          />
+          <View style={{ backgroundColor: "transparent" }}>
+            <Ionicons
+              name={shop ? "person-circle" : "cart"}
+              size={40} // Adjusted size
+              color="white" // White icon
+              style={{ marginRight: 20 }}
+            />
           </View>
         </TouchableWithoutFeedback>
       </View>
@@ -316,6 +317,27 @@ export default function ShopScreen() {
           >
             <Text style={{ color: "white", fontSize: 18, fontWeight: "bold" }}>
               Logout
+            </Text>
+          </TouchableOpacity>
+
+          <TouchableOpacity
+            style={{
+              backgroundColor: "#dc2626", // Red accent
+              paddingVertical: 12, // Adjusted padding
+              paddingHorizontal: 45, // Adjusted padding
+              borderRadius: 30, // Pill shape
+              shadowColor: "#000",
+              shadowOffset: { width: 0, height: 2 },
+              shadowOpacity: 0.25,
+              shadowRadius: 3.84,
+              elevation: 5,
+              marginTop: 30, // Space above logout button
+            }}
+            onPress={deleteAccount} // Added onPress handler
+          >
+            <Text style={{ color: "white", fontSize: 18, fontWeight: "bold" }}>
+
+              {isLoading ? <ActivityIndicator color="white" /> : "Delete Account"}
             </Text>
           </TouchableOpacity>
         </ScrollView>

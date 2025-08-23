@@ -13,6 +13,7 @@ import {
 import { Ionicons } from "@expo/vector-icons";
 import { useState } from "react";
 import useAuthStore from "../../store/authStore";
+import VerifyAccount from "./verifyAccount";
 
 export default function SignUp({ onAlreadyHaveAnAccount }) {
   const [email, setEmail] = useState("");
@@ -20,7 +21,7 @@ export default function SignUp({ onAlreadyHaveAnAccount }) {
   const [password, setPassword] = useState("");
   const [showPassword, setShowPassword] = useState(false);
 
-  const { isLoading, signUp, } = useAuthStore();
+  const { isLoading, signUp, verifyAccount} = useAuthStore();
 
   const handleSignUp = async () => {
     if (!email.trim() || !username.trim() || !password.trim()) {
@@ -35,6 +36,8 @@ export default function SignUp({ onAlreadyHaveAnAccount }) {
     }
     return;
   };
+
+  if (verifyAccount) { return(<VerifyAccount></VerifyAccount>)}
   return (
     <TouchableWithoutFeedback onPress={Keyboard.dismiss}>
       <View style={{ flex: 1, backgroundColor: "#343541" }}>

@@ -1,11 +1,12 @@
-import { create } from "zustand";
 import AsyncStorage from "@react-native-async-storage/async-storage";
+import { create } from "zustand";
 
-const useAuthStore = create((set) => ({
+const useAuthStore = create((set, get) => ({
   email: null,
   user: null,
   token: null,
   tokens: 0,
+  verifyAccount: false,
   setTokens: (value) => set({ tokens: value }),
   isLoading: false,
   isAuthorised: false,
@@ -20,14 +21,15 @@ const useAuthStore = create((set) => ({
   completedTests: { turkish: [], english: [], albanian: [], macedonian: [] },
   setCompletedTests: (value) => set({ completedTests: value }),
   fetchedTests: null,
+  signUpToken: null,
 
   signUp: async (username, email, password) => {
     set({ isLoading: true });
     if (!email || !password || !username) {
-        alert("Please fill in all fields.");
-        set({ isLoading: false });
-        return;
-      }
+      alert("Please fill in all fields.");
+      set({ isLoading: false });
+      return;
+    }
     try {
       const response = await fetch(
         "https://matura-backend.onrender.com/api/auth/signup",
@@ -45,12 +47,13 @@ const useAuthStore = create((set) => ({
       );
 
       const data = await response.json();
-      if (!response.ok){ 
+      if (!response.ok) {
         set({ isLoading: false });
         alert(data.message || "Something went wrong");
-        throw new Error(data.message || "Something went wrong")}
+        throw new Error(data.message || "Something went wrong");
+      }
 
-        set({isLoading: false, isSignUp: false });
+      set({ isLoading: false, verifyAccount: true, signUpToken: data.token });
       return {
         success: true,
       };
@@ -83,7 +86,7 @@ const useAuthStore = create((set) => ({
       );
       const result = await response.json();
       if (!response.ok) {
-        set({isLoading: false})
+        set({ isLoading: false });
         alert("Wrong credentials");
         throw new Error(result.message || "something went wrong");
       }
@@ -107,7 +110,7 @@ const useAuthStore = create((set) => ({
         success: true,
       };
     } catch (error) {
-      set({isLoading: false})
+      set({ isLoading: false });
       return { success: false, message: error.message };
     }
   },
@@ -161,6 +164,76 @@ const useAuthStore = create((set) => ({
   logOut: async () => {
     set({ token: null, isAuthorised: false });
     await AsyncStorage.clear();
+  },
+  deleteAccount: async () => {
+    set({ isLoading: true });
+    try {
+      const token = await AsyncStorage.getItem("token");
+      const response = await fetch(
+        "https://matura-backend.onrender.com/api/auth/delete",
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+            Authorization: `Bearer ${token}`,
+          },
+        }
+      );
+      if (!response.ok) {
+        const data = await response.json();
+        set({ isLoading: false });
+        alert(data.message || "Something went wrong");
+        throw new Error(data.message || "Something went wrong");
+      }
+
+      set({ isLoading: false, token: null, isAuthorised: false });
+      await AsyncStorage.clear();
+    } catch (error) {
+      console.log(error);
+    }
+  },
+  verifyAccountFunction: async (code) => {
+    set({ isLoading: true });
+    try {
+      const signUpToken = get().signUpToken;
+      const response = await fetch(
+        "https://matura-backend.onrender.com/api/auth/verifyAccount",
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+            Authorization: `Bearer ${signUpToken}`,
+          },
+          body: JSON.stringify({
+            code: code,
+          }),
+        }
+      );
+      const data = await response.json();
+      if (!response.ok) {
+        set({
+          isLoading: false,
+          isSignUp: false,
+          verifyAccount: false,
+          signUpToken: null,
+        });
+        alert(data.message || "Something went wrong");
+        throw new Error(data.message || "Something went wrong");
+      }
+
+      set({
+        isLoading: false,
+        verifyAccount: false,
+        signUpToken: null,
+        isSignUp: false,
+      });
+      return {
+        success: true,
+      };
+    } catch (error) {
+      set({ isLoading: false });
+      return { success: false, error: error.message };
+    }
   },
 }));
 

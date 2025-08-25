@@ -3,7 +3,9 @@ import { create } from "zustand";
 
 const useAuthStore = create((set, get) => ({
   email: null,
+  setEmail: (value) => set({ email: value }),
   user: null,
+  setUser: (value) => set({ user: value }),
   token: null,
   tokens: 0,
   verifyAccount: false,
@@ -22,6 +24,7 @@ const useAuthStore = create((set, get) => ({
   setCompletedTests: (value) => set({ completedTests: value }),
   fetchedTests: null,
   signUpToken: null,
+  changeEmailToknen: null,
 
   signUp: async (username, email, password) => {
     set({ isLoading: true });
@@ -213,9 +216,6 @@ const useAuthStore = create((set, get) => ({
       if (!response.ok) {
         set({
           isLoading: false,
-          isSignUp: false,
-          verifyAccount: false,
-          signUpToken: null,
         });
         alert(data.message || "Something went wrong");
         throw new Error(data.message || "Something went wrong");
@@ -229,6 +229,76 @@ const useAuthStore = create((set, get) => ({
       });
       return {
         success: true,
+      };
+    } catch (error) {
+      set({ isLoading: false });
+      return { success: false, error: error.message };
+    }
+  },
+  amend: async (info) => {
+    try {
+      set({ isLoading: true });
+      const token = await AsyncStorage.getItem("token");
+      const response = await fetch(
+        "https://matura-backend.onrender.com/api/auth/amend",
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+            Authorization: `Bearer ${token}`,
+          },
+          body: JSON.stringify({ info: info }),
+        }
+      );
+       const data = await response.json();
+      if (!response.ok) {
+       
+        alert(data.message || "Something went wrong");
+        throw new Error(data.message || "Something went wrong");
+      }
+
+      if(info.type === "email"){
+        await AsyncStorage.setItem("emailToken", data.emailToken);
+        console.log(data.emailToken);
+      }
+      set({ isLoading: false });
+      return { ok: true };
+    } catch (error) {
+      console.log(error);
+      set({ isLoading: false });
+    }
+  },
+  sendEmailCode: async (code) => {
+    try {
+      set({ isLoading: true });
+      const newEmailToken = await AsyncStorage.getItem("emailToken");
+      console.log(newEmailToken);
+      const response = await fetch(
+        "https://matura-backend.onrender.com/api/auth/verifyNewAccount",
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+            Authorization: `Bearer ${newEmailToken}`,
+          },
+          body: JSON.stringify({ code: code }),
+        }
+      );
+
+      const data = await response.json();
+      if (!response.ok) {
+        set({ isLoading: false });
+        alert(data.message || "Something went wrong");
+        throw new Error(data.message || "Something went wrong");
+      }
+
+      set({ isLoading: false, token: data.token, email: data.email });
+      await AsyncStorage.setItem("email", JSON.stringify(data.email));
+      await AsyncStorage.setItem("token", data.token);
+      await AsyncStorage.removeItem("emailToken");
+
+      return {
+        ok: true,
       };
     } catch (error) {
       set({ isLoading: false });

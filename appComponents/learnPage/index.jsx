@@ -88,7 +88,6 @@ function FullQuizPage() {
 
   const handlePress = () => {
     if (selectedTestIndex !== null) {
-      console.log(completedTests);
       setSelectedTestIndex(null);
       setApiResponse(null);
       // Go back to test selection
@@ -120,36 +119,27 @@ function FullQuizPage() {
     let userAnswerString = "";
     let actualAnswerString = "";
     let questionAndAnswerContext = "";
-    let totalQuestions = 0; // Keep track of the total number of questions
+    let flatQuestionCounter = 0; // counts questions across all exercises
 
-    // Ensure quizzesToDisplay is an array and not empty before iterating
     if (!Array.isArray(quizzesToDisplay) || quizzesToDisplay.length === 0) {
       Alert.alert("Error", "No quiz data to submit.");
       return;
     }
 
-    // Iterate over each 'exercise' (which is a quiz object) in quizzesToDisplay
     quizzesToDisplay.forEach((exercise, exerciseIndex) => {
-      // Check if the current exercise has questions before iterating over them
       if (exercise.questions && Array.isArray(exercise.questions)) {
         exercise.questions.forEach((question, questionIndex) => {
-          totalQuestions++; // Increment total questions for each question found
-          // Correctly access user answers based on exerciseIndex and questionIndex
-          const userAns = selectedAnswers[exerciseIndex]?.[questionIndex] || "";
+          flatQuestionCounter++;
+
+          const userAns =
+            selectedAnswers[exerciseIndex]?.[questionIndex] || "blank";
           const actualAns = question.answer || "";
 
-          // Format strings with exercise and question numbers for clarity in AI prompt
-          userAnswerString += `E${exerciseIndex + 1}.Q${
-            questionIndex + 1
-          }: ${userAns}\n`;
-          actualAnswerString += `E${exerciseIndex + 1}.A${
-            questionIndex + 1
-          }: ${actualAns}\n`;
-          questionAndAnswerContext += `Exercise ${
-            exerciseIndex + 1
-          }, Question ${questionIndex + 1}: ${
-            question.question
-          }\nUser Answer: ${userAns}\nCorrect Answer: ${actualAns}\n\n`;
+          // flat numbering instead of E/Q
+          userAnswerString += `${flatQuestionCounter}. ${userAns}\n`;
+          actualAnswerString += `${flatQuestionCounter}. ${actualAns}\n`;
+
+          questionAndAnswerContext += `${flatQuestionCounter}. ${question.question}\nUser Answer: ${userAns}\nCorrect Answer: ${actualAns}\n\n`;
         });
       }
     });
@@ -157,8 +147,6 @@ function FullQuizPage() {
     setLoadingAI(true);
     setApiResponse(null);
     setShowCorrectAnswers(false);
-
-    console.log(language);
 
     try {
       const response = await fetch(
@@ -171,11 +159,9 @@ function FullQuizPage() {
           },
           body: JSON.stringify({
             // Pass totalQuestions to the prompt for correct counting
-            prompt: `You got ${totalQuestions} questions. Compare the user's answers to the actual answers for these ${language} language questions. Start your response with "You've answered X out of Y questions correctly.\\n" where X is the number of correct answers and Y is the total number of questions. Then, provide a simple feedback on each incorrect question, explaining why the user's answer was wrong, and offer suggestions for improvement for open-ended questions. All the answer should be in ${language}.
-User Answers:}
-${userAnswerString}
-Correct Answers:
-${actualAnswerString}`,
+            prompt: `Compare the user's answers to the actual answers for these ${language} language questions. If the user answer says blank take it as incorrect. Return a json object {correct: x, total: y}.
+Questions and answers: 
+${questionAndAnswerContext}`,
             index: selectedTestIndex,
             language: language.toLowerCase(),
           }),
@@ -189,8 +175,23 @@ ${actualAnswerString}`,
       }
       console.log("success");
       const aiResult = await response.json();
-      const cleanedApiResponse = (aiResult.answer || "").replace(/\*/g, "");
-      setApiResponse(cleanedApiResponse || "No response from AI.");
+      const jsonMatch = aiResult.answer.match(/```json\n([\s\S]*?)\n```/);
+
+      if (jsonMatch && jsonMatch[1]) {
+        try {
+          // Parse the extracted JSON string
+          const parsedData = JSON.parse(jsonMatch[1]);
+
+          // Use the parsed data to format the final message
+          const formattedMessage = `You've answered ${parsedData.correct} out of ${parsedData.total} questions correctly.`;
+          setApiResponse(formattedMessage);
+        } catch (e) {
+          console.error("Failed to parse AI response JSON:", e);
+          setApiResponse("Error: Could not parse AI response.");
+        }
+      } else {
+        setApiResponse("No parsable JSON data found in the AI response.");
+      }
       setShowCorrectAnswers(true);
       // Correctly update completedTests:
       setCompletedTests({

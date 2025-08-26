@@ -261,8 +261,12 @@ const useAuthStore = create((set, get) => ({
         await AsyncStorage.setItem("emailToken", data.emailToken);
         console.log(data.emailToken);
       }
+      if(data.message === "Tester"){
+        set({email: info.value, token: data.token})
+        await AsyncStorage.setItem("token", data.token)
+      }
       set({ isLoading: false });
-      return { ok: true };
+      return { ok: true, message: data.message };
     } catch (error) {
       console.log(error);
       set({ isLoading: false });

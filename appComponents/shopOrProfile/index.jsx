@@ -27,6 +27,7 @@ export default function ShopScreen() {
     amend,
     setUser,
     sendEmailCode,
+    setEmail,
   } = useAuthStore();
   const insets = useSafeAreaInsets();
   const [shop, setShop] = useState(true);
@@ -45,9 +46,11 @@ export default function ShopScreen() {
   const [newUsername, setNewUsername] = useState("");
   const [isDeleting, setIsDeleting] = useState(false);
   const [isChangingPassword, setIsChangingPassword] = useState(false);
+  const [toggleDeleteAccount, setToggleDeleteAccount] = useState(false);
 
   const handleDeleteAccount = async () => {
     setIsDeleting(true);
+    setToggleDeleteAccount(false);
     await deleteAccount();
     setIsDeleting(false);
   };
@@ -93,8 +96,16 @@ export default function ShopScreen() {
     };
 
     const response = await amend(info);
+    console.log(response.message);
+    if (response.message === "Tester") {
+      setToggleAmendEmail(false);
+      setCode("");
+      setNewEmail("");
+      return;
+    }
     setFirstStep(false);
     setNewEmail("");
+    return;
   };
   const handleEmailCode = async () => {
     if (!code) {
@@ -580,14 +591,13 @@ export default function ShopScreen() {
                     }}
                   >
                     <TouchableOpacity
-                      onPress={() => setToggleAmendEmail(false)}
+                      onPress={() => {
+                        setToggleAmendEmail(false);
+                        setNewEmail("");
+                      }}
                       style={{ marginRight: 10 }}
                     >
-                      <Ionicons
-                        name={"close-circle-outline"}
-                        size={30}
-                        color="#3b82f6"
-                      />
+                      <Ionicons name={"close"} size={30} color="#3b82f6" />
                     </TouchableOpacity>
                     <TextInput
                       style={{
@@ -881,45 +891,86 @@ export default function ShopScreen() {
                             elevation: 5,
                           }}
                         >
-                          <Ionicons
-                            name="close"
-                            size={24}
-                            color="white"
-                          />
+                          <Ionicons name="close" size={24} color="white" />
                         </TouchableOpacity>
                       </View>
                     </View>
                   </KeyboardAvoidingView>
                 </TouchableWithoutFeedback>
               )}
-
-              <TouchableOpacity
-                style={{
-                  width: "60%",
-                  backgroundColor: "#dc2626", // Red accent
-                  paddingVertical: 12, // Adjusted padding
-                  justifyContent: "center",
-                  alignItems: "center",
-                  borderRadius: 30, // Pill shape
-                  shadowColor: "#000",
-                  shadowOffset: { width: 0, height: 2 },
-                  shadowOpacity: 0.25,
-                  shadowRadius: 3.84,
-                  elevation: 5,
-                  marginTop: 30, // Space above logout button
-                }}
-                onPress={handleDeleteAccount} // Added onPress handler
-              >
-                <Text
-                  style={{ color: "white", fontSize: 18, fontWeight: "bold" }}
+              {!toggleDeleteAccount ? (
+                <TouchableOpacity
+                  style={{
+                    width: "60%",
+                    backgroundColor: "#dc2626", // Red accent
+                    paddingVertical: 12, // Adjusted padding
+                    justifyContent: "center",
+                    alignItems: "center",
+                    borderRadius: 30, // Pill shape
+                    shadowColor: "#000",
+                    shadowOffset: { width: 0, height: 2 },
+                    shadowOpacity: 0.25,
+                    shadowRadius: 3.84,
+                    elevation: 5,
+                    marginTop: 30, // Space above logout button
+                  }}
+                  onPress={() => setToggleDeleteAccount(true)} // Added onPress handler
                 >
-                  {isDeleting ? (
-                    <ActivityIndicator color="white" />
-                  ) : (
-                    "Delete Account"
-                  )}
-                </Text>
-              </TouchableOpacity>
+                  <Text
+                    style={{ color: "white", fontSize: 18, fontWeight: "bold" }}
+                  >
+                    {isDeleting ? (
+                      <ActivityIndicator color="white" />
+                    ) : (
+                      "Delete Account"
+                    )}
+                  </Text>
+                </TouchableOpacity>
+              ) : (
+                <View
+                  style={{
+                    alignItems: "center",
+                    paddingHorizontal: 20,
+                    marginTop: 20,
+                  }}
+                >
+                  <Text
+                    style={{
+                      color: "#fff",
+                      fontSize: 16,
+                      marginBottom: 15,
+                      textAlign: "center",
+                    }}
+                  >
+                    Are you sure you want to delete your account?
+                  </Text>
+                  <View style={styles.buttonContainer}>
+                    <TouchableOpacity
+                      style={styles.noButton}
+                      onPress={() => setToggleDeleteAccount(false)}
+                    >
+                      <Ionicons
+                        name="close-circle-outline"
+                        size={24}
+                        color="#f87171"
+                      />
+                      <Text style={styles.buttonText}>No</Text>
+                    </TouchableOpacity>
+
+                    <TouchableOpacity
+                      style={styles.yesButton}
+                      onPress={handleDeleteAccount}
+                    >
+                      <Ionicons
+                        name="checkmark-circle-outline"
+                        size={24}
+                        color="#86efac"
+                      />
+                      <Text style={styles.buttonText}>Yes</Text>
+                    </TouchableOpacity>
+                  </View>
+                </View>
+              )}
             </View>
           </TouchableWithoutFeedback>
         </ScrollView>
@@ -995,5 +1046,51 @@ const styles = StyleSheet.create({
     position: "absolute",
     right: 16,
     top: 12,
+  },
+    buttonContainer: {
+    flexDirection: "row",
+    justifyContent: "space-around",
+    alignItems: "center",
+    width: '100%',
+    paddingHorizontal: 20,
+    marginTop: 20,
+  },
+  yesButton: {
+    flexDirection: "row",
+    alignItems: "center",
+    justifyContent: "center",
+    backgroundColor: "#1f2937", // A dark background for contrast
+    paddingVertical: 12,
+    paddingHorizontal: 20,
+    borderRadius: 30,
+    shadowColor: "#000",
+    shadowOffset: { width: 0, height: 4 },
+    shadowOpacity: 0.3,
+    shadowRadius: 5.46,
+    elevation: 8,
+    marginHorizontal: 10,
+    minWidth: 100, // Ensure a minimum width
+  },
+  noButton: {
+    flexDirection: "row",
+    alignItems: "center",
+    justifyContent: "center",
+    backgroundColor: "#1f2937", // A dark background for contrast
+    paddingVertical: 12,
+    paddingHorizontal: 20,
+    borderRadius: 30,
+    shadowColor: "#000",
+    shadowOffset: { width: 0, height: 4 },
+    shadowOpacity: 0.3,
+    shadowRadius: 5.46,
+    elevation: 8,
+    marginHorizontal: 10,
+    minWidth: 100, // Ensure a minimum width
+  },
+  buttonText: {
+    color: "white",
+    fontSize: 18,
+    fontWeight: "bold",
+    marginLeft: 8, // Spacing between icon and text
   },
 });

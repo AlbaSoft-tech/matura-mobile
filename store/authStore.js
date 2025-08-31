@@ -20,7 +20,16 @@ const useAuthStore = create((set, get) => ({
   setForgotPassword: (value) => set({ forgotPassword: value }),
   forgotPasswordToken: null,
   setForgotPasswordToken: (value) => set({ forgotPasswordToken: value }),
-  completedTests: { turkish: [], english: [], albanian: [], macedonian: [] },
+  completedTests: {
+    turkish: [],
+    english: [],
+    albanian: [],
+    macedonian: [],
+    montenegrin: [],
+    serbian: [],
+    bulgarian: [],
+    bosnian: [],
+  },
   setCompletedTests: (value) => set({ completedTests: value }),
   fetchedTests: null,
   signUpToken: null,
@@ -250,20 +259,19 @@ const useAuthStore = create((set, get) => ({
           body: JSON.stringify({ info: info }),
         }
       );
-       const data = await response.json();
+      const data = await response.json();
       if (!response.ok) {
-       
         alert(data.message || "Something went wrong");
         throw new Error(data.message || "Something went wrong");
       }
 
-      if(info.type === "email"){
+      if (info.type === "email") {
         await AsyncStorage.setItem("emailToken", data.emailToken);
         console.log(data.emailToken);
       }
-      if(data.message === "Tester"){
-        set({email: info.value, token: data.token})
-        await AsyncStorage.setItem("token", data.token)
+      if (data.message === "Tester") {
+        set({ email: info.value, token: data.token });
+        await AsyncStorage.setItem("token", data.token);
       }
       set({ isLoading: false });
       return { ok: true, message: data.message };

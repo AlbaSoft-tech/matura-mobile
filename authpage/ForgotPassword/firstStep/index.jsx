@@ -1,17 +1,17 @@
-import { useContext, useState } from "react";
-import useAuthStore, { authStore } from "../../../store/authStore";
 import { Ionicons } from "@expo/vector-icons";
+import { useContext } from "react";
 import {
-  View,
-  Text,
-  TextInput,
-  TouchableOpacity,
-  StyleSheet,
-  TouchableWithoutFeedback,
   Keyboard,
   KeyboardAvoidingView,
   Platform,
+  StyleSheet,
+  Text,
+  TextInput,
+  TouchableOpacity,
+  TouchableWithoutFeedback,
+  View,
 } from "react-native";
+import useAuthStore from "../../../store/authStore";
 import { Context } from "../index"; // Assuming Context is defined correctly
 
 export default function FirstStep({ onContinue }) {
@@ -35,9 +35,8 @@ export default function FirstStep({ onContinue }) {
       }
     );
 
-    // You might want to add error handling and success messages here
-    // For example:
     if (response.ok) {
+      return;
     } else {
       const errorData = await response.json();
       alert(errorData.message || "Failed to send reset email.");

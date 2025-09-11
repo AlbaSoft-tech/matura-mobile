@@ -8,6 +8,7 @@ import {
   TouchableOpacity,
   TouchableWithoutFeedback,
   View,
+  Dimensions
 } from "react-native";
 
 import { Ionicons } from "@expo/vector-icons";
@@ -16,6 +17,7 @@ import useAuthStore from "../../store/authStore";
 import VerifyAccount from "./verifyAccount";
 
 export default function SignUp({ onAlreadyHaveAnAccount }) {
+    const { width: SCREEN_WIDTH } = Dimensions.get('window');
   const [email, setEmail] = useState("");
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
@@ -73,9 +75,8 @@ export default function SignUp({ onAlreadyHaveAnAccount }) {
                 style={{
                   borderBottomWidth: 2,
                   borderColor: "#4b5563",
-                  width: 384,
+                  width: SCREEN_WIDTH * 0.9,
                   fontSize: 20,
-                  height: 40,
                   color: "white",
                 }}
                 placeholderTextColor="#9ca3af"
@@ -99,9 +100,8 @@ export default function SignUp({ onAlreadyHaveAnAccount }) {
                 style={{
                   borderBottomWidth: 2,
                   borderColor: "#4b5563",
-                  width: 384,
+                  width: SCREEN_WIDTH * 0.9,
                   fontSize: 20,
-                  height: 40,
                   color: "white",
                 }}
                 placeholderTextColor="#9ca3af"
@@ -128,9 +128,8 @@ export default function SignUp({ onAlreadyHaveAnAccount }) {
                   style={{
                     borderBottomWidth: 2,
                     borderColor: "#4b5563",
-                    width: 320,
+                    width: (SCREEN_WIDTH * 0.9)-64,
                     fontSize: 20,
-                    height: 40,
                     color: "white",
                   }}
                   placeholderTextColor="#9ca3af"

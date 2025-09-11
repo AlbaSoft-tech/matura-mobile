@@ -1,12 +1,12 @@
 import {
+  ActivityIndicator,
+  Dimensions,
   Keyboard,
-  Platform,
   Text,
   TextInput,
   TouchableOpacity,
   TouchableWithoutFeedback,
   View,
-  ActivityIndicator
 } from "react-native";
 
 import { Ionicons } from "@expo/vector-icons";
@@ -20,6 +20,7 @@ export default function LogIn({ onCreateAnAccount }) {
   const [password, setPassword] = useState("");
   const [showPassword, setShowPassword] = useState(false);
   const { forgotPassword, setForgotPassword, isLoading } = useAuthStore();
+  const { width: SCREEN_WIDTH } = Dimensions.get("window");
 
   const handleLogIn = async () => {
     const result = await logIn(email, password);
@@ -65,9 +66,8 @@ export default function LogIn({ onCreateAnAccount }) {
                 style={{
                   borderBottomWidth: 2,
                   borderColor: "#4b5563" /* Subtle border color */,
-                  width: 384, // w-96
+                  width: SCREEN_WIDTH * 0.9,
                   fontSize: 20, // text-xl
-                  height: 40, // h-10
                   color: "white" /* White text input */,
                 }}
               />
@@ -92,15 +92,12 @@ export default function LogIn({ onCreateAnAccount }) {
                   value={password}
                   secureTextEntry={!showPassword}
                   onChangeText={setPassword}
-                  keyboardType={
-                    Platform.OS === "ios" ? "ascii-capable" : "visible-password"
-                  }
+                  keyboardType="default"
                   style={{
                     borderBottomWidth: 2,
                     borderColor: "#4b5563" /* Subtle border color */,
-                    width: 320, // w-80
+                    width: SCREEN_WIDTH * 0.9 - 64,
                     fontSize: 20,
-                    height: 40,
                     color: "white" /* White text input */,
                   }}
                 />

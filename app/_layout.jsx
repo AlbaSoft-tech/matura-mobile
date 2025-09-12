@@ -2,25 +2,33 @@ import { Stack } from "expo-router";
 import { useEffect } from "react";
 import { Platform } from "react-native";
 import Purchases, { LOG_LEVEL } from "react-native-purchases";
+import useAuthStore from "../store/authStore";
 
 export default function RootLayout() {
+  const { id } = useAuthStore();
   useEffect(() => {
     Purchases.setLogLevel(LOG_LEVEL.VERBOSE);
 
+
     if (Platform.OS === "ios") {
-      Purchases.configure({ apiKey: "still not available" });
+      Purchases.configure({
+        apiKey: "ios_api_key_here",
+        appUserID: id, 
+      });
     } else if (Platform.OS === "android") {
-      Purchases.configure({ apiKey: "goog_hdxOoCZrPEFVhacBwlIqDAXaCrq" });
+      Purchases.configure({
+        apiKey: "goog_hdxOoCZrPEFVhacBwlIqDAXaCrq",
+        appUserID: id, 
+      });
     }
 
-    Purchases.getOfferings().then(console.log())
+    fetchOfferings();
+    getCustomerInfo();
+  }, [id]);
 
-    getCustomerInfo()
-  }, []);
-
-  async function getCustomerInfo () {
+  async function getCustomerInfo() {
     const customerInfo = await Purchases.getCustomerInfo();
-    console.log(customerInfo)
+    console.log(customerInfo);
   }
 
   return <Stack screenOptions={{ headerShown: false }} />;

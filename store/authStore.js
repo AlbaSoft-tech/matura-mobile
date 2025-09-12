@@ -2,6 +2,7 @@ import AsyncStorage from "@react-native-async-storage/async-storage";
 import { create } from "zustand";
 
 const useAuthStore = create((set, get) => ({
+  id: null,
   email: null,
   setEmail: (value) => set({ email: value }),
   user: null,
@@ -112,12 +113,14 @@ const useAuthStore = create((set, get) => ({
         tokens: result.user.tokens,
         completedTests: result.user.completedTests,
         fetchedTests: result.tests,
+        id: result.user.id,
       });
 
       await AsyncStorage.setItem("user", JSON.stringify(result.user.username));
       await AsyncStorage.setItem("email", JSON.stringify(result.user.email));
       await AsyncStorage.setItem("token", result.token);
       await AsyncStorage.setItem("tests", JSON.stringify(result.tests));
+      await AsyncStorage.setItem("id", result.user.id)
       return {
         success: true,
       };
@@ -159,6 +162,7 @@ const useAuthStore = create((set, get) => ({
             isAuthorised: true,
             completedTests: completedTests,
             fetchedTests: JSON.parse(tests),
+            id: result.id
           });
           return true;
         } else {

@@ -36,6 +36,7 @@ export default function FirstStep({ onContinue }) {
     );
 
     if (response.ok) {
+      onContinue()
       return;
     } else {
       const errorData = await response.json();
@@ -48,28 +49,32 @@ export default function FirstStep({ onContinue }) {
   return (
     <KeyboardAvoidingView
       style={{ flex: 1 }} // Make sure it takes up full space
-      behavior={Platform.OS === "ios" ? "padding" : "height"} // 'padding' or 'height' often work best
+      behavior={Platform.OS === "ios" ? "padding" : undefined} // 'padding' or 'height' often work best
       // keyboardVerticalOffset={Platform.OS === 'ios' ? 0 : 20} // Adjust this offset as needed, especially for Android
     >
       <TouchableWithoutFeedback onPress={Keyboard.dismiss}>
         {/* The 'styles.container' here often controls overall layout */}
         <View style={styles.container}>
           <View style={styles.card}>
-            <TouchableOpacity
-              onPress={() => setForgotPassword(false)}
-              style={{ alignSelf: "flex-start", padding: 10, marginBottom: 20 }}
-            >
-              <Ionicons name="arrow-back" size={40} color="#d1d5db" />
-            </TouchableOpacity>
+            <View style={{ flexDirection: "row", alignItems: "center" }}>
+              <TouchableOpacity
+                onPress={() => setForgotPassword(false)}
+                style={{
+                  alignSelf: "flex-start",
+                  padding: 10,
+                  marginBottom: 20,
+                }}
+              >
+                <Ionicons name="close-circle" size={40} color="#d1d5db" />
+              </TouchableOpacity>
 
-            <Text style={styles.title}>Forgot Password</Text>
+              <Text style={styles.title}>Forgot Password</Text>
+            </View>
             <Text style={styles.subtitle}>
-              Enter your email address below and we'll send you a password reset
-              code.
+              Enter your email address below to recieve the verification code
             </Text>
 
             <View style={styles.inputGroup}>
-              <Text style={styles.label}>Email Address</Text>
 
               <TextInput
                 style={styles.input}

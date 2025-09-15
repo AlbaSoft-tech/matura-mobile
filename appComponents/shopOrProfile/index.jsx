@@ -166,620 +166,329 @@ export default function ShopScreen() {
 
   return (
     <>
+      <View
+        style={{
+          flexDirection: "row",
+          alignItems: "center",
+          justifyContent: "center",
+          position: "absolute",
+          top: insets.top + 10,
+          left: 20,
+          zIndex: 10, // Center content
+        }}
+      >
+        <Ionicons
+          name="cash-outline"
+          size={30}
+          color="white" // White icon
+          style={{ marginRight: 8 }} // Adjusted margin
+        />
+        <Text style={{ fontSize: 25, fontWeight: "600", color: "white" }}>
+          {tokens}
+        </Text>
+      </View>
+      <TouchableOpacity
+        onPress={() => setShop(!shop)}
+        style={{
+          position: "absolute",
+          top: insets.top + 10,
+          right: 20,
+          zIndex: 10,
+        }}
+      >
+        <Ionicons name={shop ? "person" : "cart"} size={40} color="white" />
+      </TouchableOpacity>
       {shop ? (
-        <RevenueCatUI.Paywall />
-      ) : (
         <View
           style={{
             flex: 1,
             backgroundColor: "#343541",
-            paddingTop: insets.top,
+            justifyContent: "space-between",
           }}
         >
+          {/* Paywall content */}
+          <RevenueCatUI.Paywall />
+        </View>
+      ) : (
+        <KeyboardAvoidingView style={{ flex: 1 }} behavior={Platform.OS === "android" ? undefined : "padding"}>
           <View
             style={{
-              width: "100%", // Changed from "100vw" to "100%" for React Native
-              flexDirection: "row",
-              justifyContent: "space-between",
-              alignItems: "center",
-              paddingHorizontal: 20, // Added horizontal padding
-              paddingVertical: 15, // Added vertical padding
+              flex: 1,
+              backgroundColor: "#343541",
+              paddingTop: insets.top + 60,
             }}
           >
-            <View
-              style={{
-                flexDirection: "row",
+            <ScrollView
+              contentContainerStyle={{
+                flexGrow: 1,
+                backgroundColor: "#343541", // Main dark background
                 alignItems: "center",
-                backgroundColor: "#202123", // Darker background
-                paddingHorizontal: 15, // Adjusted padding
-                paddingVertical: 8, // Adjusted padding
-                borderRadius: 25, // Pill shape
-                shadowColor: "#000",
-                shadowOffset: { width: 0, height: 2 }, // Consistent shadow
-                shadowOpacity: 0.25,
-                shadowRadius: 3.84,
-                elevation: 5,
-                marginLeft: 0, // Removed marginLeft as padding is on header
-                minWidth: 90, // Ensure it has a minimum width
-                justifyContent: "center", // Center content
+                justifyContent: "flex-start", // Align content to the top
+                padding: 20,
               }}
             >
-              <Ionicons
-                name="cash-outline"
-                size={26}
-                color="white" // White icon
-                style={{ marginRight: 8 }} // Adjusted margin
-              />
-              <Text style={{ fontSize: 20, fontWeight: "600", color: "white" }}>
-                {tokens}
-              </Text>
-            </View>
-
-            <TouchableWithoutFeedback onPress={() => setShop(!shop)}>
-              <View style={{ backgroundColor: "transparent" }}>
-                <Ionicons
-                  name={shop ? "person-circle" : "cart"}
-                  size={40} // Adjusted size
-                  color="white" // White icon
-                  style={{ marginRight: 20 }}
-                />
-              </View>
-            </TouchableWithoutFeedback>
-          </View>
-
-          <ScrollView
-            contentContainerStyle={{
-              flexGrow: 1,
-              backgroundColor: "#343541", // Main dark background
-              alignItems: "center",
-              justifyContent: "flex-start", // Align content to the top
-              padding: 20,
-            }}
-          >
-            <TouchableWithoutFeedback onPress={Keyboard.dismiss}>
-              <View style={{ flex: 1, alignItems: "center", width: "100%" }}>
-                <Ionicons
-                  name={"person-circle"}
-                  size={150} // Adjusted size
-                  color="white" // White icon
-                  style={{ marginBottom: 20 }} // Space below picture
-                />
-                {!toggleamendUsername ? (
-                  <View style={{ alignItems: "center", marginBottom: 30 }}>
-                    {/* Row for Username and edit icon */}
-                    <View
-                      style={{
-                        flexDirection: "row",
-                        alignItems: "center",
-                        justifyContent: "center",
-                        gap: 10,
-                      }}
-                    >
-                      <Text
-                        style={{
-                          fontSize: 20,
-                          fontWeight: "bold",
-                          color: "white",
-                        }}
-                      >
-                        Username
-                      </Text>
-                      <TouchableOpacity
-                        onPress={() => {
-                          setToggleAmendUsername(true);
-                          setToggleAmendEmail(false);
-                          setToggleAmendPassword(false);
-                        }}
-                      >
-                        <Ionicons
-                          name={"create-outline"}
-                          size={24} // Smaller, more appropriate size
-                          color="white"
-                        />
-                      </TouchableOpacity>
-                    </View>
-
-                    {/* Text below for the username value */}
-                    <Text
-                      style={{
-                        fontSize: 16,
-                        color: "#d1d5db",
-                        textAlign: "center",
-                        marginTop: 10, // Add space from the top
-                      }}
-                    >
-                      {user || "Përdoruesi"}
-                    </Text>
-                  </View>
-                ) : (
-                  <View
-                    style={{
-                      flexDirection: "row",
-                      alignItems: "center",
-                      justifyContent: "center",
-                      marginBottom: 30,
-                    }}
-                  >
-                    <View
-                      style={{
-                        flexDirection: "row",
-                        alignItems: "center",
-                        borderBottomWidth: 2,
-                        borderBottomColor: "#3b82f6",
-                        paddingBottom: 5,
-                        width: "80%", // A fixed width to make it appear shorter
-                      }}
-                    >
-                      <TouchableOpacity
-                        onPress={() => setToggleAmendUsername(false)}
-                        style={{ marginRight: 10 }}
-                      >
-                        <Ionicons name={"close"} size={30} color="#3b82f6" />
-                      </TouchableOpacity>
-                      <TextInput
-                        style={{
-                          flex: 1, // Takes up remaining space
-                          height: 44,
-                          padding: 10,
-                          fontSize: 16,
-                          color: "white",
-                        }}
-                        placeholderTextColor="#9ca3af"
-                        value={newUsername}
-                        onChangeText={setNewUsername}
-                      />
-                      <TouchableOpacity onPress={handleUserPress}>
-                        <Ionicons
-                          name={"checkmark"}
-                          size={30}
-                          color="#3b82f6"
-                        />
-                      </TouchableOpacity>
-                    </View>
-                  </View>
-                )}
-
-                {!toggleamendEmail ? (
-                  <View style={{ alignItems: "center", marginBottom: 30 }}>
-                    {/* Row for Email and edit icon */}
-                    <View
-                      style={{
-                        flexDirection: "row",
-                        alignItems: "center",
-                        justifyContent: "center",
-                        gap: 10,
-                      }}
-                    >
-                      <Text
-                        style={{
-                          fontSize: 20, // Adjusted font size
-                          fontWeight: "bold",
-                          color: "white", // White text
-                        }}
-                      >
-                        Email
-                      </Text>
-                      <TouchableOpacity
-                        onPress={() => {
-                          setToggleAmendEmail(true);
-                          setToggleAmendPassword(false);
-                          setToggleAmendUsername(false);
-                          setFirstStep(true);
-                        }}
-                      >
-                        <Ionicons
-                          name={"create-outline"}
-                          size={24} // Adjusted size
-                          color="white" // White icon
-                        />
-                      </TouchableOpacity>
-                    </View>
-
-                    {/* Text below for the email value */}
-                    <Text
-                      style={{
-                        fontSize: 16,
-                        color: "#d1d5db", // Light gray text
-                        textAlign: "center",
-                        marginTop: 10,
-                      }}
-                    >
-                      {email || "user@example.com"}
-                    </Text>
-                  </View>
-                ) : firstStep ? (
-                  <View
-                    style={{
-                      flexDirection: "row",
-                      alignItems: "center",
-                      justifyContent: "center",
-                      marginBottom: 30,
-                    }}
-                  >
-                    <View
-                      style={{
-                        flexDirection: "row",
-                        alignItems: "center",
-                        borderBottomWidth: 2,
-                        borderBottomColor: "#3b82f6",
-                        paddingBottom: 5,
-                        width: "80%", // A fixed width to make it appear shorter
-                      }}
-                    >
-                      <TouchableOpacity
-                        onPress={() => setToggleAmendEmail(false)}
-                        style={{ marginRight: 10 }}
-                      >
-                        <Ionicons
-                          name={"close-circle-outline"}
-                          size={30}
-                          color="#3b82f6"
-                        />
-                      </TouchableOpacity>
-                      <TextInput
-                        style={{
-                          flex: 1, // Takes up remaining space
-                          height: 44,
-                          padding: 10,
-                          fontSize: 16,
-                          color: "white",
-                        }}
-                        placeholderTextColor="#9ca3af"
-                        value={newEmail}
-                        onChangeText={setNewEmail}
-                      />
-                      <TouchableOpacity onPress={handleEmailPress}>
-                        <Ionicons
-                          name={"checkmark"}
-                          size={30}
-                          color="#3b82f6"
-                        />
-                      </TouchableOpacity>
-                    </View>
-                  </View>
-                ) : (
-                  <View
-                    style={{
-                      flexDirection: "row",
-                      alignItems: "center",
-                      justifyContent: "center",
-                      marginBottom: 30,
-                    }}
-                  >
-                    <View
-                      style={{
-                        flexDirection: "row",
-                        alignItems: "center",
-                        borderBottomWidth: 2,
-                        borderBottomColor: "#3b82f6",
-                        paddingBottom: 5,
-                        width: 180, // Reduced the container width for a compact look
-                      }}
-                    >
-                      <TouchableOpacity
-                        onPress={() => {
-                          setToggleAmendEmail(false);
-                          setNewEmail("");
-                        }}
-                        style={{ marginRight: 10 }}
-                      >
-                        <Ionicons name={"close"} size={30} color="#3b82f6" />
-                      </TouchableOpacity>
-                      <TextInput
-                        style={{
-                          flex: 1,
-                          height: 44,
-                          padding: 10,
-                          fontSize: 16,
-                          color: "white",
-                          textAlign: "center", // Center the code
-                        }}
-                        placeholder="6-digit code"
-                        placeholderTextColor="#9ca3af"
-                        value={code}
-                        onChangeText={setCode}
-                        keyboardType="number-pad" // Use the number pad for easier entry
-                        maxLength={6} // Limit input to 6 digits
-                      />
-                      <TouchableOpacity onPress={handleEmailCode}>
-                        <Ionicons
-                          name={"checkmark"}
-                          size={30}
-                          color="#3b82f6"
-                        />
-                      </TouchableOpacity>
-                    </View>
-                  </View>
-                )}
-                <TouchableOpacity
-                  style={{
-                    backgroundColor: "#3b82f6", // Red accent
-                    paddingVertical: 12, // Adjusted padding
-                    width: "60%",
-                    justifyContent: "center",
-                    alignItems: "center",
-                    borderRadius: 30, // Pill shape
-                    shadowColor: "#000",
-                    shadowOffset: { width: 0, height: 2 },
-                    shadowOpacity: 0.25,
-                    shadowRadius: 3.84,
-                    elevation: 5,
-                    marginTop: 30, // Space above logout button
-                  }}
-                  onPress={handleLogout} // Added onPress handler
+              <TouchableWithoutFeedback onPress={Keyboard.dismiss}>
+                <View
+                  style={{ flexGrow: 1, alignItems: "center", width: "100%" }}
                 >
-                  <Text
-                    style={{ color: "white", fontSize: 18, fontWeight: "bold" }}
-                  >
-                    Logout
-                  </Text>
-                </TouchableOpacity>
-                {!toggleamendPassword ? (
-                  <TouchableOpacity
-                    style={{
-                      backgroundColor: "#10b981", // Red accent
-                      width: "60%",
-                      justifyContent: "center",
-                      alignItems: "center",
-                      paddingVertical: 12, // Adjusted padding
-                      borderRadius: 30, // Pill shape
-                      shadowColor: "#000",
-                      shadowOffset: { width: 0, height: 2 },
-                      shadowOpacity: 0.25,
-                      shadowRadius: 3.84,
-                      elevation: 5,
-                      marginTop: 30, // Space above logout button
-                    }}
-                    onPress={() => {
-                      setToggleAmendPassword(true);
-                      setToggleAmendUsername(false);
-                      setToggleAmendEmail(false);
-                    }} // Added onPress handler
-                  >
-                    <Text
+                  <Ionicons
+                    name={"person-circle"}
+                    size={150} // Adjusted size
+                    color="white" // White icon
+                    style={{ marginBottom: 20 }} // Space below picture
+                  />
+                  {!toggleamendUsername ? (
+                    <View style={{ alignItems: "center", marginBottom: 30 }}>
+                      {/* Row for Username and edit icon */}
+                      <View
+                        style={{
+                          flexDirection: "row",
+                          alignItems: "center",
+                          justifyContent: "center",
+                          gap: 10,
+                        }}
+                      >
+                        <Text
+                          style={{
+                            fontSize: 20,
+                            fontWeight: "bold",
+                            color: "white",
+                          }}
+                        >
+                          Username
+                        </Text>
+                        <TouchableOpacity
+                          onPress={() => {
+                            setToggleAmendUsername(true);
+                            setToggleAmendEmail(false);
+                            setToggleAmendPassword(false);
+                          }}
+                        >
+                          <Ionicons
+                            name={"create-outline"}
+                            size={24} // Smaller, more appropriate size
+                            color="white"
+                          />
+                        </TouchableOpacity>
+                      </View>
+
+                      {/* Text below for the username value */}
+                      <Text
+                        style={{
+                          fontSize: 16,
+                          color: "#d1d5db",
+                          textAlign: "center",
+                          marginTop: 10, // Add space from the top
+                        }}
+                      >
+                        {user || "Përdoruesi"}
+                      </Text>
+                    </View>
+                  ) : (
+                    <View
                       style={{
-                        color: "white",
-                        fontSize: 18,
-                        fontWeight: "bold",
+                        flexDirection: "row",
+                        alignItems: "center",
+                        justifyContent: "center",
+                        marginBottom: 30,
                       }}
-                    >
-                      Change Password
-                    </Text>
-                  </TouchableOpacity>
-                ) : (
-                  <TouchableWithoutFeedback onPress={Keyboard.dismiss}>
-                    <KeyboardAvoidingView
-                      style={{ flex: 1 }}
-                      behavior={Platform.OS === "ios" ? "padding" : "height"}
                     >
                       <View
                         style={{
-                          flex: 1,
-                          justifyContent: "center",
+                          flexDirection: "row",
                           alignItems: "center",
-                          paddingHorizontal: 20,
-                          marginTop: 30,
+                          borderBottomWidth: 2,
+                          borderBottomColor: "#3b82f6",
+                          paddingBottom: 5,
+                          width: "80%", // A fixed width to make it appear shorter
                         }}
                       >
-                        {/* Old Password Input */}
-                        <View style={{ marginBottom: 20, width: 250 }}>
-                          <Text
-                            style={{
-                              color: "#9ca3af",
-                              fontSize: 14,
-                              marginBottom: 5,
-                            }}
-                          >
-                            Old Password
-                          </Text>
-                          <View
-                            style={{
-                              flexDirection: "row",
-                              alignItems: "center",
-                              borderBottomWidth: 2,
-                              borderBottomColor: "#3b82f6",
-                              paddingBottom: 5,
-                            }}
-                          >
-                            <TextInput
-                              style={{
-                                flex: 1,
-                                height: 44,
-                                padding: 10,
-                                fontSize: 16,
-                                color: "white",
-                              }}
-                              placeholder="••••••••"
-                              placeholderTextColor="#9ca3af"
-                              secureTextEntry={!showOldPassword}
-                              value={oldPassword}
-                              onChangeText={setOldPassword}
-                            />
-                            <TouchableOpacity
-                              onPress={() =>
-                                setShowOldPassword(!showOldPassword)
-                              }
-                            >
-                              <Ionicons
-                                name={showOldPassword ? "eye-off" : "eye"}
-                                size={24}
-                                color="#9ca3af"
-                              />
-                            </TouchableOpacity>
-                          </View>
-                        </View>
-
-                        {/* New Password Input */}
-                        <View style={{ marginBottom: 20, width: 250 }}>
-                          <Text
-                            style={{
-                              color: "#9ca3af",
-                              fontSize: 14,
-                              marginBottom: 5,
-                            }}
-                          >
-                            New Password
-                          </Text>
-                          <View
-                            style={{
-                              flexDirection: "row",
-                              alignItems: "center",
-                              borderBottomWidth: 2,
-                              borderBottomColor: "#3b82f6",
-                              paddingBottom: 5,
-                            }}
-                          >
-                            <TextInput
-                              style={{
-                                flex: 1,
-                                height: 44,
-                                padding: 10,
-                                fontSize: 16,
-                                color: "white",
-                              }}
-                              placeholder="••••••••"
-                              placeholderTextColor="#9ca3af"
-                              secureTextEntry={!showPassword}
-                              value={newPassword}
-                              onChangeText={setNewPassword}
-                            />
-                            <TouchableOpacity
-                              onPress={() => setShowPassword(!showPassword)}
-                            >
-                              <Ionicons
-                                name={showPassword ? "eye-off" : "eye"}
-                                size={24}
-                                color="#9ca3af"
-                              />
-                            </TouchableOpacity>
-                          </View>
-                        </View>
-
-                        {/* Confirm Password Input */}
-                        <View style={{ marginBottom: 40, width: 250 }}>
-                          <Text
-                            style={{
-                              color: "#9ca3af",
-                              fontSize: 14,
-                              marginBottom: 5,
-                            }}
-                          >
-                            Confirm Password
-                          </Text>
-                          <View
-                            style={{
-                              flexDirection: "row",
-                              alignItems: "center",
-                              borderBottomWidth: 2,
-                              borderBottomColor: "#3b82f6",
-                              paddingBottom: 5,
-                            }}
-                          >
-                            <TextInput
-                              style={{
-                                flex: 1,
-                                height: 44,
-                                padding: 10,
-                                fontSize: 16,
-                                color: "white",
-                              }}
-                              placeholder="••••••••"
-                              placeholderTextColor="#9ca3af"
-                              secureTextEntry={!showConfirmPassword}
-                              value={confirmPassword}
-                              onChangeText={setConfirmPassword}
-                            />
-                            <TouchableOpacity
-                              onPress={() =>
-                                setShowConfirmPassword(!showConfirmPassword)
-                              }
-                            >
-                              <Ionicons
-                                name={showConfirmPassword ? "eye-off" : "eye"}
-                                size={24}
-                                color="#9ca3af"
-                              />
-                            </TouchableOpacity>
-                          </View>
-                        </View>
-
-                        {/* Button Container */}
-                        <View
+                        <TouchableOpacity
+                          onPress={() => setToggleAmendUsername(false)}
+                          style={{ marginRight: 10 }}
+                        >
+                          <Ionicons name={"close"} size={30} color="#3b82f6" />
+                        </TouchableOpacity>
+                        <TextInput
                           style={{
-                            flexDirection: "row",
-                            width: 250,
-                            justifyContent: "space-between",
-                            alignItems: "center",
+                            flex: 1, // Takes up remaining space
+                            height: 44,
+                            padding: 10,
+                            fontSize: 16,
+                            color: "white",
+                          }}
+                          placeholderTextColor="#9ca3af"
+                          value={newUsername}
+                          onChangeText={setNewUsername}
+                        />
+                        <TouchableOpacity onPress={handleUserPress}>
+                          <Ionicons
+                            name={"checkmark"}
+                            size={30}
+                            color="#3b82f6"
+                          />
+                        </TouchableOpacity>
+                      </View>
+                    </View>
+                  )}
+
+                  {!toggleamendEmail ? (
+                    <View style={{ alignItems: "center", marginBottom: 30 }}>
+                      {/* Row for Email and edit icon */}
+                      <View
+                        style={{
+                          flexDirection: "row",
+                          alignItems: "center",
+                          justifyContent: "center",
+                          gap: 10,
+                        }}
+                      >
+                        <Text
+                          style={{
+                            fontSize: 20, // Adjusted font size
+                            fontWeight: "bold",
+                            color: "white", // White text
                           }}
                         >
-                          {/* The green button */}
-                          <TouchableOpacity
-                            onPress={handlePasswordPress}
-                            style={{
-                              backgroundColor: "#10b981",
-                              paddingVertical: 12,
-                              paddingHorizontal: 20,
-                              borderRadius: 100,
-                              alignItems: "center",
-                              justifyContent: "center",
-                              shadowColor: "#000",
-                              shadowOffset: { width: 0, height: 2 },
-                              shadowOpacity: 0.25,
-                              shadowRadius: 3.84,
-                              elevation: 5,
-                              flex: 1,
-                              marginRight: 10,
-                            }}
-                          >
-                            {isChangingPassword ? (
-                              <ActivityIndicator color="white" />
-                            ) : (
-                              <Text
-                                style={{
-                                  color: "white",
-                                  fontWeight: "bold",
-                                  fontSize: 16,
-                                }}
-                              >
-                                Set Password
-                              </Text>
-                            )}
-                          </TouchableOpacity>
-
-                          {/* The new red cancel button with Ionicons */}
-                          <TouchableOpacity
-                            onPress={() => {
-                              setToggleAmendPassword(false);
-                              setNewPassword("");
-                              setOldPassword("");
-                              setConfirmPassword("");
-                            }}
-                            style={{
-                              backgroundColor: "#ef4444",
-                              padding: 12, // Adjusted padding for the icon
-                              borderRadius: 100,
-                              alignItems: "center",
-                              justifyContent: "center",
-                              shadowColor: "#000",
-                              shadowOffset: { width: 0, height: 2 },
-                              shadowOpacity: 0.25,
-                              shadowRadius: 3.84,
-                              elevation: 5,
-                            }}
-                          >
-                            <Ionicons name="close" size={24} color="white" />
-                          </TouchableOpacity>
-                        </View>
+                          Email
+                        </Text>
+                        <TouchableOpacity
+                          onPress={() => {
+                            setToggleAmendEmail(true);
+                            setToggleAmendPassword(false);
+                            setToggleAmendUsername(false);
+                            setFirstStep(true);
+                          }}
+                        >
+                          <Ionicons
+                            name={"create-outline"}
+                            size={24} // Adjusted size
+                            color="white" // White icon
+                          />
+                        </TouchableOpacity>
                       </View>
-                    </KeyboardAvoidingView>
-                  </TouchableWithoutFeedback>
-                )}
-                {!toggleDeleteAccount ? (
+
+                      {/* Text below for the email value */}
+                      <Text
+                        style={{
+                          fontSize: 16,
+                          color: "#d1d5db", // Light gray text
+                          textAlign: "center",
+                          marginTop: 10,
+                        }}
+                      >
+                        {email || "user@example.com"}
+                      </Text>
+                    </View>
+                  ) : firstStep ? (
+                    <View
+                      style={{
+                        flexDirection: "row",
+                        alignItems: "center",
+                        justifyContent: "center",
+                        marginBottom: 30,
+                      }}
+                    >
+                      <View
+                        style={{
+                          flexDirection: "row",
+                          alignItems: "center",
+                          borderBottomWidth: 2,
+                          borderBottomColor: "#3b82f6",
+                          paddingBottom: 5,
+                          width: "80%", // A fixed width to make it appear shorter
+                        }}
+                      >
+                        <TouchableOpacity
+                          onPress={() => setToggleAmendEmail(false)}
+                          style={{ marginRight: 10 }}
+                        >
+                          <Ionicons
+                            name={"close-circle-outline"}
+                            size={30}
+                            color="#3b82f6"
+                          />
+                        </TouchableOpacity>
+                        <TextInput
+                          style={{
+                            flex: 1, // Takes up remaining space
+                            height: 44,
+                            padding: 10,
+                            fontSize: 16,
+                            color: "white",
+                          }}
+                          placeholderTextColor="#9ca3af"
+                          value={newEmail}
+                          onChangeText={setNewEmail}
+                        />
+                        <TouchableOpacity onPress={handleEmailPress}>
+                          <Ionicons
+                            name={"checkmark"}
+                            size={30}
+                            color="#3b82f6"
+                          />
+                        </TouchableOpacity>
+                      </View>
+                    </View>
+                  ) : (
+                    <View
+                      style={{
+                        flexDirection: "row",
+                        alignItems: "center",
+                        justifyContent: "center",
+                        marginBottom: 30,
+                      }}
+                    >
+                      <View
+                        style={{
+                          flexDirection: "row",
+                          alignItems: "center",
+                          borderBottomWidth: 2,
+                          borderBottomColor: "#3b82f6",
+                          paddingBottom: 5,
+                          width: 180, // Reduced the container width for a compact look
+                        }}
+                      >
+                        <TouchableOpacity
+                          onPress={() => {
+                            setToggleAmendEmail(false);
+                            setNewEmail("");
+                          }}
+                          style={{ marginRight: 10 }}
+                        >
+                          <Ionicons name={"close"} size={30} color="#3b82f6" />
+                        </TouchableOpacity>
+                        <TextInput
+                          style={{
+                            flex: 1,
+                            height: 44,
+                            padding: 10,
+                            fontSize: 16,
+                            color: "white",
+                            textAlign: "center", // Center the code
+                          }}
+                          placeholder="6-digit code"
+                          placeholderTextColor="#9ca3af"
+                          value={code}
+                          onChangeText={setCode}
+                          keyboardType="number-pad" // Use the number pad for easier entry
+                          maxLength={6} // Limit input to 6 digits
+                        />
+                        <TouchableOpacity onPress={handleEmailCode}>
+                          <Ionicons
+                            name={"checkmark"}
+                            size={30}
+                            color="#3b82f6"
+                          />
+                        </TouchableOpacity>
+                      </View>
+                    </View>
+                  )}
                   <TouchableOpacity
                     style={{
-                      width: "60%",
-                      backgroundColor: "#dc2626", // Red accent
+                      backgroundColor: "#3b82f6", // Red accent
                       paddingVertical: 12, // Adjusted padding
+                      width: "60%",
                       justifyContent: "center",
                       alignItems: "center",
                       borderRadius: 30, // Pill shape
@@ -790,7 +499,7 @@ export default function ShopScreen() {
                       elevation: 5,
                       marginTop: 30, // Space above logout button
                     }}
-                    onPress={() => setToggleDeleteAccount(true)} // Added onPress handler
+                    onPress={handleLogout} // Added onPress handler
                   >
                     <Text
                       style={{
@@ -799,62 +508,347 @@ export default function ShopScreen() {
                         fontWeight: "bold",
                       }}
                     >
-                      {isDeleting ? (
-                        <ActivityIndicator color="white" />
-                      ) : (
-                        "Delete Account"
-                      )}
+                      Logout
                     </Text>
                   </TouchableOpacity>
-                ) : (
-                  <View
-                    style={{
-                      alignItems: "center",
-                      paddingHorizontal: 20,
-                      marginTop: 20,
-                    }}
-                  >
-                    <Text
+                  {!toggleamendPassword ? (
+                    <TouchableOpacity
                       style={{
-                        color: "#fff",
-                        fontSize: 16,
-                        marginBottom: 15,
-                        textAlign: "center",
+                        backgroundColor: "#10b981", // Red accent
+                        width: "60%",
+                        justifyContent: "center",
+                        alignItems: "center",
+                        paddingVertical: 12, // Adjusted padding
+                        borderRadius: 30, // Pill shape
+                        shadowColor: "#000",
+                        shadowOffset: { width: 0, height: 2 },
+                        shadowOpacity: 0.25,
+                        shadowRadius: 3.84,
+                        elevation: 5,
+                        marginTop: 30, // Space above logout button
+                      }}
+                      onPress={() => {
+                        setToggleAmendPassword(true);
+                        setToggleAmendUsername(false);
+                        setToggleAmendEmail(false);
+                      }} // Added onPress handler
+                    >
+                      <Text
+                        style={{
+                          color: "white",
+                          fontSize: 18,
+                          fontWeight: "bold",
+                        }}
+                      >
+                        Change Password
+                      </Text>
+                    </TouchableOpacity>
+                  ) : (
+                    <TouchableWithoutFeedback onPress={Keyboard.dismiss}>
+            
+                        <View
+                          style={{
+                            flex: 1,
+                            justifyContent: "center",
+                            alignItems: "center",
+                            paddingHorizontal: 20,
+                            marginTop: 30,
+                          }}
+                        >
+                          {/* Old Password Input */}
+                          <View style={{ marginBottom: 20, width: 250 }}>
+                            <Text
+                              style={{
+                                color: "#9ca3af",
+                                fontSize: 14,
+                                marginBottom: 5,
+                              }}
+                            >
+                              Old Password
+                            </Text>
+                            <View
+                              style={{
+                                flexDirection: "row",
+                                alignItems: "center",
+                                borderBottomWidth: 2,
+                                borderBottomColor: "#3b82f6",
+                                paddingBottom: 5,
+                              }}
+                            >
+                              <TextInput
+                                style={{
+                                  flex: 1,
+                                  height: 44,
+                                  padding: 10,
+                                  fontSize: 16,
+                                  color: "white",
+                                }}
+                                placeholder="••••••••"
+                                placeholderTextColor="#9ca3af"
+                                secureTextEntry={!showOldPassword}
+                                value={oldPassword}
+                                onChangeText={setOldPassword}
+                              />
+                              <TouchableOpacity
+                                onPress={() =>
+                                  setShowOldPassword(!showOldPassword)
+                                }
+                              >
+                                <Ionicons
+                                  name={showOldPassword ? "eye-off" : "eye"}
+                                  size={24}
+                                  color="#9ca3af"
+                                />
+                              </TouchableOpacity>
+                            </View>
+                          </View>
+
+                          {/* New Password Input */}
+                          <View style={{ marginBottom: 20, width: 250 }}>
+                            <Text
+                              style={{
+                                color: "#9ca3af",
+                                fontSize: 14,
+                                marginBottom: 5,
+                              }}
+                            >
+                              New Password
+                            </Text>
+                            <View
+                              style={{
+                                flexDirection: "row",
+                                alignItems: "center",
+                                borderBottomWidth: 2,
+                                borderBottomColor: "#3b82f6",
+                                paddingBottom: 5,
+                              }}
+                            >
+                              <TextInput
+                                style={{
+                                  flex: 1,
+                                  height: 44,
+                                  padding: 10,
+                                  fontSize: 16,
+                                  color: "white",
+                                }}
+                                placeholder="••••••••"
+                                placeholderTextColor="#9ca3af"
+                                secureTextEntry={!showPassword}
+                                value={newPassword}
+                                onChangeText={setNewPassword}
+                              />
+                              <TouchableOpacity
+                                onPress={() => setShowPassword(!showPassword)}
+                              >
+                                <Ionicons
+                                  name={showPassword ? "eye-off" : "eye"}
+                                  size={24}
+                                  color="#9ca3af"
+                                />
+                              </TouchableOpacity>
+                            </View>
+                          </View>
+
+                          {/* Confirm Password Input */}
+                          <View style={{ marginBottom: 40, width: 250 }}>
+                            <Text
+                              style={{
+                                color: "#9ca3af",
+                                fontSize: 14,
+                                marginBottom: 5,
+                              }}
+                            >
+                              Confirm Password
+                            </Text>
+                            <View
+                              style={{
+                                flexDirection: "row",
+                                alignItems: "center",
+                                borderBottomWidth: 2,
+                                borderBottomColor: "#3b82f6",
+                                paddingBottom: 5,
+                              }}
+                            >
+                              <TextInput
+                                style={{
+                                  flex: 1,
+                                  height: 44,
+                                  padding: 10,
+                                  fontSize: 16,
+                                  color: "white",
+                                }}
+                                placeholder="••••••••"
+                                placeholderTextColor="#9ca3af"
+                                secureTextEntry={!showConfirmPassword}
+                                value={confirmPassword}
+                                onChangeText={setConfirmPassword}
+                              />
+                              <TouchableOpacity
+                                onPress={() =>
+                                  setShowConfirmPassword(!showConfirmPassword)
+                                }
+                              >
+                                <Ionicons
+                                  name={showConfirmPassword ? "eye-off" : "eye"}
+                                  size={24}
+                                  color="#9ca3af"
+                                />
+                              </TouchableOpacity>
+                            </View>
+                          </View>
+
+                          {/* Button Container */}
+                          <View
+                            style={{
+                              flexDirection: "row",
+                              width: 250,
+                              justifyContent: "space-between",
+                              alignItems: "center",
+                            }}
+                          >
+                            {/* The green button */}
+                            <TouchableOpacity
+                              onPress={handlePasswordPress}
+                              style={{
+                                backgroundColor: "#10b981",
+                                paddingVertical: 12,
+                                paddingHorizontal: 20,
+                                borderRadius: 100,
+                                alignItems: "center",
+                                justifyContent: "center",
+                                shadowColor: "#000",
+                                shadowOffset: { width: 0, height: 2 },
+                                shadowOpacity: 0.25,
+                                shadowRadius: 3.84,
+                                elevation: 5,
+                                flex: 1,
+                                marginRight: 10,
+                              }}
+                            >
+                              {isChangingPassword ? (
+                                <ActivityIndicator color="white" />
+                              ) : (
+                                <Text
+                                  style={{
+                                    color: "white",
+                                    fontWeight: "bold",
+                                    fontSize: 16,
+                                  }}
+                                >
+                                  Set Password
+                                </Text>
+                              )}
+                            </TouchableOpacity>
+
+                            {/* The new red cancel button with Ionicons */}
+                            <TouchableOpacity
+                              onPress={() => {
+                                setToggleAmendPassword(false);
+                                setNewPassword("");
+                                setOldPassword("");
+                                setConfirmPassword("");
+                              }}
+                              style={{
+                                backgroundColor: "#ef4444",
+                                padding: 12, // Adjusted padding for the icon
+                                borderRadius: 100,
+                                alignItems: "center",
+                                justifyContent: "center",
+                                shadowColor: "#000",
+                                shadowOffset: { width: 0, height: 2 },
+                                shadowOpacity: 0.25,
+                                shadowRadius: 3.84,
+                                elevation: 5,
+                              }}
+                            >
+                              <Ionicons name="close" size={24} color="white" />
+                            </TouchableOpacity>
+                          </View>
+                        </View>
+                    </TouchableWithoutFeedback>
+                  )}
+                  {!toggleDeleteAccount ? (
+                    <TouchableOpacity
+                      style={{
+                        width: "60%",
+                        backgroundColor: "#dc2626", // Red accent
+                        paddingVertical: 12, // Adjusted padding
+                        justifyContent: "center",
+                        alignItems: "center",
+                        borderRadius: 30, // Pill shape
+                        shadowColor: "#000",
+                        shadowOffset: { width: 0, height: 2 },
+                        shadowOpacity: 0.25,
+                        shadowRadius: 3.84,
+                        elevation: 5,
+                        marginTop: 30, // Space above logout button
+                      }}
+                      onPress={() => setToggleDeleteAccount(true)} // Added onPress handler
+                    >
+                      <Text
+                        style={{
+                          color: "white",
+                          fontSize: 18,
+                          fontWeight: "bold",
+                        }}
+                      >
+                        {isDeleting ? (
+                          <ActivityIndicator color="white" />
+                        ) : (
+                          "Delete Account"
+                        )}
+                      </Text>
+                    </TouchableOpacity>
+                  ) : (
+                    <View
+                      style={{
+                        alignItems: "center",
+                        paddingHorizontal: 20,
+                        marginTop: 20,
                       }}
                     >
-                      Are you sure you want to delete your account?
-                    </Text>
-                    <View style={styles.buttonContainer}>
-                      <TouchableOpacity
-                        style={styles.noButton}
-                        onPress={() => setToggleDeleteAccount(false)}
+                      <Text
+                        style={{
+                          color: "#fff",
+                          fontSize: 16,
+                          marginBottom: 15,
+                          textAlign: "center",
+                        }}
                       >
-                        <Ionicons
-                          name="close-circle-outline"
-                          size={24}
-                          color="#f87171"
-                        />
-                        <Text style={styles.buttonText}>No</Text>
-                      </TouchableOpacity>
+                        Are you sure you want to delete your account?
+                      </Text>
+                      <View style={styles.buttonContainer}>
+                        <TouchableOpacity
+                          style={styles.noButton}
+                          onPress={() => setToggleDeleteAccount(false)}
+                        >
+                          <Ionicons
+                            name="close-circle-outline"
+                            size={24}
+                            color="#f87171"
+                          />
+                          <Text style={styles.buttonText}>No</Text>
+                        </TouchableOpacity>
 
-                      <TouchableOpacity
-                        style={styles.yesButton}
-                        onPress={handleDeleteAccount}
-                      >
-                        <Ionicons
-                          name="checkmark-circle-outline"
-                          size={24}
-                          color="#86efac"
-                        />
-                        <Text style={styles.buttonText}>Yes</Text>
-                      </TouchableOpacity>
+                        <TouchableOpacity
+                          style={styles.yesButton}
+                          onPress={handleDeleteAccount}
+                        >
+                          <Ionicons
+                            name="checkmark-circle-outline"
+                            size={24}
+                            color="#86efac"
+                          />
+                          <Text style={styles.buttonText}>Yes</Text>
+                        </TouchableOpacity>
+                      </View>
                     </View>
-                  </View>
-                )}
-              </View>
-            </TouchableWithoutFeedback>
-          </ScrollView>
-        </View>
+                  )}
+                </View>
+              </TouchableWithoutFeedback>
+            </ScrollView>
+          </View>
+        </KeyboardAvoidingView>
       )}
     </>
   );

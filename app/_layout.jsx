@@ -9,20 +9,17 @@ export default function RootLayout() {
   useEffect(() => {
     Purchases.setLogLevel(LOG_LEVEL.VERBOSE);
 
-
     if (Platform.OS === "ios") {
       Purchases.configure({
         apiKey: "ios_api_key_here",
-        appUserID: id, 
+        appUserID: id,
       });
     } else if (Platform.OS === "android") {
       Purchases.configure({
         apiKey: "goog_hdxOoCZrPEFVhacBwlIqDAXaCrq",
-        appUserID: id, 
+        appUserID: id,
       });
     }
-
-    fetchOfferings();
     getCustomerInfo();
   }, [id]);
 

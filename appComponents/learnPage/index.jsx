@@ -212,17 +212,14 @@ ${questionAndAnswerContext}`,
   // Main Return Statement
   return (
     <KeyboardAvoidingView
-      style={[styles.keyboardAvoidingView, { paddingTop: insets.top + 70 }]} // Adjusted paddingTop
-      behavior={Platform.OS === "ios" ? "padding" : "height"}
+      style={[styles.keyboardAvoidingView, { paddingTop: insets.top + 10 }]} // Adjusted paddingTop
+      behavior={Platform.OS === "ios" ? "padding" : "undefined"}
     >
       {!language ? (
         // 2. Show Language Selection Page
         <View style={styles.parentContainer}>
           <View style={styles.languageContentContainer}>
             <Text style={styles.languageTitle}>Choose Your Test Language</Text>
-            <Text style={styles.languageDescription}>
-              Select the language you wish to take the tests in:
-            </Text>
 
             <View style={styles.languageButtonsContainer}>
               {languages.map((lang) => (
@@ -251,39 +248,61 @@ ${questionAndAnswerContext}`,
           </View>
         </View>
       ) : selectedTestIndex === null ? (
-        <ScrollView contentContainerStyle={styles.testSelScrollViewContent}>
-          <TouchableOpacity
-            onPress={() => {
-              setLanguage(null);
-            }} // This now goes back to test selection
-            style={{ ...styles.backButton, marginBottom: 30 }}
+        <View style={{ flex: 1, alignItems: "center" }}>
+          <View
+            style={{
+              flexDirection: "row",
+              justifyContent: "flex-end",
+              width: "100%",
+              alignItems: "center",
+            }}
           >
-            <Text style={styles.backButtonText}>BACK</Text>
-          </TouchableOpacity>
-          <Text style={styles.testSelHeader}>Select a Test</Text>
-
-          <View style={styles.testSelButtonsContainer}>
-            {testsForSelectedLanguage.map((testSet, index) => (
-              <TouchableOpacity
-                key={index}
-                style={[
-                  styles.testSelButton,
-                  // THIS IS THE LINE FOR THE BLUE GLOW
-                  completedTests[language.toLowerCase()]?.includes(index)
-                    ? styles.testSelCompletedButton
-                    : styles.testSelIncompleteButton,
-                ]}
-                onPress={() => handleSelectSpecificTest(index)}
-              >
-                <Text style={styles.testSelButtonText}>Test {index + 1}</Text>
-                {/* THIS IS THE LINE FOR "Completed" TEXT */}
-                {completedTests[language.toLowerCase()]?.includes(index) && (
-                  <Text style={styles.testSelStatusText}>Completed</Text>
-                )}
-              </TouchableOpacity>
-            ))}
+            <TouchableOpacity
+              onPress={() => {
+                setLanguage(null);
+              }} // This now goes back to test selection
+              style={{
+                ...styles.backButton,
+                marginBottom: 30,
+                marginRight: 20,
+              }}
+            >
+              <Text style={styles.backButtonText}>BACK</Text>
+            </TouchableOpacity>
           </View>
-        </ScrollView>
+          <Text style={styles.testSelHeader}>Select a Test</Text>
+          <View
+            style={{
+              flex: 1,
+              width: "80%",
+            }}
+          >
+            <ScrollView
+              style={{ flex: 1 }}
+              contentContainerStyle={styles.testSelButtonsContainer}
+            >
+              {testsForSelectedLanguage.map((testSet, index) => (
+                <TouchableOpacity
+                  key={index}
+                  style={[
+                    styles.testSelButton,
+                    // THIS IS THE LINE FOR THE BLUE GLOW
+                    completedTests[language.toLowerCase()]?.includes(index)
+                      ? styles.testSelCompletedButton
+                      : styles.testSelIncompleteButton,
+                  ]}
+                  onPress={() => handleSelectSpecificTest(index)}
+                >
+                  <Text style={styles.testSelButtonText}>Test {index + 1}</Text>
+                  {/* THIS IS THE LINE FOR "Completed" TEXT */}
+                  {completedTests[language.toLowerCase()]?.includes(index) && (
+                    <Text style={styles.testSelStatusText}>Completed</Text>
+                  )}
+                </TouchableOpacity>
+              ))}
+            </ScrollView>
+          </View>
+        </View>
       ) : (
         // 4. Show Actual Quiz Content
         <ScrollView contentContainerStyle={styles.scrollViewContent}>
@@ -409,7 +428,8 @@ const styles = StyleSheet.create({
   keyboardAvoidingView: {
     flex: 1,
     backgroundColor: "#343541",
-    // Padding top handled by insets in the main view
+    justifyContent: "center", // Centers children vertically
+    alignItems: "center",
   },
   // --- Common Styles for Quiz Content ---
   scrollViewContent: {
@@ -695,13 +715,6 @@ const styles = StyleSheet.create({
     marginBottom: 15,
     textAlign: "center",
   },
-  languageDescription: {
-    fontSize: 16,
-    color: "#d1d5db",
-    textAlign: "center",
-    marginBottom: 25,
-    lineHeight: 22,
-  },
   languageButtonsContainer: {
     flexDirection: "row",
     flexWrap: "wrap",
@@ -746,9 +759,7 @@ const styles = StyleSheet.create({
   // --- Styles for Test Selection Section ---
   testSelScrollViewContent: {
     flexGrow: 1,
-    justifyContent: "center",
     alignItems: "center",
-    paddingVertical: 20,
     paddingHorizontal: 10,
     backgroundColor: "#343541",
   },

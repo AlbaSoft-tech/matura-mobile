@@ -1,82 +1,77 @@
+import React, { useState } from "react";
 import {
-  Keyboard,
+  ActivityIndicator,
   Platform,
+  StyleSheet,
   Text,
   TextInput,
   TouchableOpacity,
-  TouchableWithoutFeedback,
   View,
-  StyleSheet,
-    KeyboardAvoidingView,
-    ActivityIndicator
-
 } from "react-native";
-
-import { Ionicons } from "@expo/vector-icons";
-
-import { useState } from "react";
-import useAuthStore from "../../store/authStore"; // Assuming useAuthStore is a named export
+import { KeyboardAwareScrollView } from "react-native-keyboard-aware-scroll-view";
+import useAuthStore from "../../store/authStore";
 
 export default function VerifyAccount() {
-    const[code, setCode] = useState("");
-    const{verifyAccountFunction, isLoading } = useAuthStore();
+  const [code, setCode] = useState("");
+  const { verifyAccountFunction, isLoading } = useAuthStore();
 
-    const handlePress = async () => {   
-        if (!code.trim()) {
-          alert("Please enter the verification code.");
-          return;
-        }
-        const result = await verifyAccountFunction(code);
-        if (result.success) {
-          return;
-        } else {
-          alert(result.error || "Verification failed. Please try again.");
-        }
-        return;
-      }
+  const handlePress = async () => {
+    if (!code.trim()) {
+      alert("Please enter the verification code.");
+      return;
+    }
+    const result = await verifyAccountFunction(code);
+    if (result.success) {
+      return;
+    } else {
+      alert(result.error || "Verification failed. Please try again.");
+    }
+  };
 
   return (
-    <KeyboardAvoidingView
-      style={{ flex: 1 }}
-      behavior={Platform.OS === "ios" ? "padding" : "height"}
-      // keyboardVerticalOffset={Platform.OS === 'ios' ? 0 : 20} // Adjust as needed
+    <KeyboardAwareScrollView
+      contentContainerStyle={styles.container}
+      enableOnAndroid={true}
+      extraHeight={Platform.OS === "ios" ? 100 : 80} // adjusts for keyboard
+      keyboardOpeningTime={0}
+      showsVerticalScrollIndicator={false}
     >
-      <TouchableWithoutFeedback onPress={Keyboard.dismiss}>
-        <View style={styles.container}>
-          <View style={styles.card}>
+      <View style={styles.card}>
+        <Text style={styles.title}>Enter Verification Code</Text>
+        <Text style={styles.subtitle}>
+          We’ve sent a 6-digit code to your email. Please enter it below to
+          continue.
+        </Text>
 
-            <Text style={styles.title}>Enter Verification Code</Text>
-            <Text style={styles.subtitle}>
-              We’ve sent a 6-digit code to your email. Please enter it below to
-              continue.
-            </Text>
-
-            <View style={styles.inputGroup}>
-              <Text style={styles.label}>6-Digit Code</Text>
-              <TextInput
-                style={styles.input}
-                placeholder="••••••"
-                placeholderTextColor="#9ca3af" /* Changed placeholder color */
-                keyboardType="numeric"
-                maxLength={6}
-                autoCapitalize="none"
-                onChangeText={setCode}
-                value={code}
-              />
-            </View>
-
-            <TouchableOpacity style={styles.button} onPress={handlePress}>
-              <Text style={styles.buttonText}>{isLoading ? <ActivityIndicator color="white" /> : "Continue"}</Text>
-            </TouchableOpacity>
-          </View>
+        <View style={styles.inputGroup}>
+          <Text style={styles.label}>6-Digit Code</Text>
+          <TextInput
+            style={styles.input}
+            placeholder="••••••"
+            placeholderTextColor="#9ca3af"
+            keyboardType="numeric"
+            maxLength={6}
+            autoCapitalize="none"
+            onChangeText={setCode}
+            value={code}
+          />
         </View>
-      </TouchableWithoutFeedback>
-    </KeyboardAvoidingView>
+
+        <TouchableOpacity style={styles.button} onPress={handlePress}>
+          {isLoading ? (
+            <ActivityIndicator color="white" />
+          ) : (
+            <Text style={styles.buttonText}>Continue</Text>
+          )}
+        </TouchableOpacity>
+      </View>
+    </KeyboardAwareScrollView>
   );
 }
+
 const styles = StyleSheet.create({
   container: {
-    flex: 1,
+    flexGrow: 1,
     justifyContent: "center",
     alignItems: "center",
     padding: 20,
@@ -93,16 +88,6 @@ const styles = StyleSheet.create({
     shadowRadius: 8,
     shadowOffset: { width: 0, height: 4 },
     elevation: 5,
-  },
-  header: {
-    width: "100%",
-    flexDirection: "row",
-    justifyContent: "flex-start",
-    marginBottom: 20,
-  },
-  backButton: {
-    padding: 10,
-    alignSelf: "flex-start",
   },
   title: {
     fontSize: 28,

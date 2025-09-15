@@ -351,7 +351,7 @@ export default function Index() {
           width: 150,
           height: 50,
           position: "absolute",
-          top: 60,
+          top: insets.top + 10,
           left: width / 2,
           transform: [{ translateX: -75 }],
           backgroundColor: "#202123",
@@ -397,7 +397,12 @@ export default function Index() {
       </View>
       <PagerView
         style={{ flex: 1 }}
-        onPageSelected={(e) => setPageIndex(e.nativeEvent.position)}
+        onPageSelected={(e) => {
+          setPageIndex(e.nativeEvent.position);
+          if (writing) {
+            setWriting(false);
+          }
+        }}
         ref={pagerViewRef}
         initialPage={pageIndex}
       >
@@ -511,63 +516,72 @@ export default function Index() {
             </View>
           </View>
         ) : (
-          <View style={[styles.container, { paddingTop: insets.top }]}>
-            <View style={styles.cameraButtonContainer}>
-              <TouchableOpacity
-                onPress={() => setWriting(false)}
-                style={styles.cameraButton}
+          <TouchableWithoutFeedback onPress={Keyboard.dismiss}>
+            <KeyboardAvoidingView
+              style={{ flex: 1, backgroundColor: "#343541", margin: 0 }}
+              behavior={Platform.OS === "ios" ? "padding" : "undefined"}
+              keyboardVerticalOffset={Platform.OS === "ios" ? 100 : 0}
+            >
+              <View
+                style={{
+                  flex: 1,
+                  paddingTop: insets.top,
+                  justifyContent: "space-between",
+                  margin: 0,
+                }}
               >
-                <Ionicons name="camera-outline" size={50} color="white" />
-              </TouchableOpacity>
-            </View>
+                {/* Camera button */}
+                <View style={styles.cameraButtonContainer}>
+                  <TouchableOpacity
+                    onPress={() => setWriting(false)}
+                    style={styles.cameraButton}
+                  >
+                    <Ionicons name="camera-outline" size={50} color="white" />
+                  </TouchableOpacity>
+                </View>
 
-            {answered &&
-              answers && ( // Only show if answered and answers is not empty
-                <ScrollView
-                  style={styles.answersScrollView}
-                  contentContainerStyle={{ paddingBottom: 50 }}
-                >
-                  <View style={styles.answerItem}>
-                    <Text style={styles.answerText}>{answers}</Text>
+                {/* Answers scroll area */}
+                {answered && answers && (
+                  <ScrollView
+                    style={{ flex: 1, paddingHorizontal: 20 }}
+                    contentContainerStyle={{ paddingBottom: 20 }}
+                  >
+                    <View style={styles.answerItem}>
+                      <Text style={styles.answerText}>{answers}</Text>
+                    </View>
+                  </ScrollView>
+                )}
+
+                {/* Loading overlay */}
+                {loading && (
+                  <View style={styles.overlay}>
+                    <ActivityIndicator size="large" color="#3b82f6" />
                   </View>
-                </ScrollView>
-              )}
+                )}
 
-            {loading && (
-              <View style={styles.overlay}>
-                <ActivityIndicator size="large" color="#3b82f6" />
-              </View>
-            )}
-
-            <TouchableWithoutFeedback onPress={Keyboard.dismiss}>
-              <KeyboardAvoidingView
-                behavior={Platform.OS === "ios" ? "padding" : undefined}
-                style={styles.keyboardAvoidingView}
-              >
-                <View style={styles.inputContainer}>
+                {/* Input bar at the bottom */}
+                <View style={[styles.inputContainer, { margin: 0, paddingBottom: insets.bottom + 10 }]}>
                   <TextInput
                     style={styles.textInput}
                     placeholder="Shkruaje pyetjen"
                     placeholderTextColor="#9ca3af"
                     value={question}
                     onChangeText={setQuestion}
-                    multiline={true}
+                    multiline
                     numberOfLines={4}
                     maxHeight={120}
                   />
-                  <TouchableWithoutFeedback onPress={sendQuestion}>
-                    <View style={{ backgroundColor: "transparent" }}>
-                      <Ionicons
-                        name="arrow-up-circle"
-                        size={40}
-                        color="#3b82f6"
-                      />
-                    </View>
-                  </TouchableWithoutFeedback>
+                  <TouchableOpacity onPress={sendQuestion}>
+                    <Ionicons
+                      name="arrow-up-circle"
+                      size={40}
+                      color="#3b82f6"
+                    />
+                  </TouchableOpacity>
                 </View>
-              </KeyboardAvoidingView>
-            </TouchableWithoutFeedback>
-          </View>
+              </View>
+            </KeyboardAvoidingView>
+          </TouchableWithoutFeedback>
         )}
         <LearnPage></LearnPage>
         <Shop></Shop>
@@ -620,17 +634,6 @@ const styles = StyleSheet.create({
     color: "white",
     lineHeight: 22,
   },
-  keyboardAvoidingView: {
-    // THIS IS THE KEY CHANGE for positioning
-    position: "absolute", // Take it out of normal flow
-    bottom: 0, // Stick it to the very bottom
-    left: 0,
-    right: 0, // Make it span full width
-    backgroundColor: "#343541", // Match main container background
-    justifyContent: "flex-end", // Push its content (inputContainer) to the bottom of itself
-    paddingHorizontal: 0, // Ensure no extra padding on sides
-    paddingBottom: 0, // Ensure no extra padding at bottom
-  },
   inputContainer: {
     backgroundColor: "#202123",
     borderRadius: 15,
@@ -654,6 +657,7 @@ const styles = StyleSheet.create({
     flex: 1,
     marginRight: 10,
     textAlignVertical: "top",
+    // Remove extra padding at bottom
   },
   overlay: {
     ...StyleSheet.absoluteFillObject,

@@ -1,17 +1,17 @@
-import { useContext, useState } from "react";
-import useAuthStore, { authStore } from "../../../store/authStore";
 import { Ionicons } from "@expo/vector-icons";
+import { useContext, useState } from "react";
 import {
-  View,
-  Text,
-  TextInput,
-  TouchableOpacity,
-  StyleSheet,
-  TouchableWithoutFeedback,
   Keyboard,
   KeyboardAvoidingView,
   Platform,
+  StyleSheet,
+  Text,
+  TextInput,
+  TouchableOpacity,
+  TouchableWithoutFeedback,
+  View,
 } from "react-native";
+import useAuthStore from "../../../store/authStore";
 import { Context } from "../index"; // Assuming Context is defined correctly
 
 export default function SecondStep({ onContinue, goPrev }) {
@@ -58,27 +58,27 @@ export default function SecondStep({ onContinue, goPrev }) {
   return (
     <KeyboardAvoidingView
       style={{ flex: 1 }}
-      behavior={Platform.OS === "ios" ? "padding" : "height"}
+      behavior={Platform.OS === "ios" ? "padding" : undefined}
       // keyboardVerticalOffset={Platform.OS === 'ios' ? 0 : 20} // Adjust as needed
     >
       <TouchableWithoutFeedback onPress={Keyboard.dismiss}>
         <View style={styles.container}>
           <View style={styles.card}>
-            <TouchableOpacity
-              onPress={goBack}
-              style={{ alignSelf: "flex-start", padding: 10, marginBottom: 20 }}
-            >
-              <Ionicons name="arrow-back" size={40} color="#d1d5db" />
-            </TouchableOpacity>
+            <View style={{ flexDirection: "row", alignItems: "center" }}>
+              <TouchableOpacity
+                onPress={goBack}
+                style={{ alignSelf: "flex-start",marginRight:5 }}
+              >
+                <Ionicons name="close-circle" size={35} color="#d1d5db" />
+              </TouchableOpacity>
 
-            <Text style={styles.title}>Enter Verification Code</Text>
+              <Text style={styles.title}>Enter Verification Code</Text>
+            </View>
             <Text style={styles.subtitle}>
-              We’ve sent a 6-digit code to your email. Please enter it below to
-              continue.
+              Enter your 6-digit code sent to your email address
             </Text>
 
             <View style={styles.inputGroup}>
-              <Text style={styles.label}>6-Digit Code</Text>
               <TextInput
                 style={styles.input}
                 placeholder="••••••"
@@ -132,7 +132,7 @@ const styles = StyleSheet.create({
     alignSelf: "flex-start",
   },
   title: {
-    fontSize: 28,
+    fontSize: 26,
     fontWeight: "bold",
     color: "white",
     textAlign: "center",

@@ -67,7 +67,7 @@ export default function ThirdStep() {
     <TouchableWithoutFeedback onPress={Keyboard.dismiss}>
       <KeyboardAvoidingView // Changed from View to KeyboardAvoidingView
         style={styles.container}
-        behavior={Platform.OS === "ios" ? "padding" : "height"} // Apply behavior
+        behavior={Platform.OS === "ios" ? "padding" : undefined} // Apply behavior
       >
         <View style={styles.card}>
           <Text style={styles.title}>Set New Password</Text>

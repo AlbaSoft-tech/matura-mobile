@@ -321,6 +321,25 @@ const useAuthStore = create((set, get) => ({
       return { success: false, error: error.message };
     }
   },
+  updateTokens: async () => {
+    try {
+      const response = await fetch("https://matura-backend.onrender.com/api/auth/getTokens", {
+        method: "GET",
+        headers: {
+          "Content-Type": "application/json",
+          Authorization: `Bearer ${get().token}`,
+        },
+      });
+      const data = await response.json();
+      if (!response.ok) {
+        throw new Error(data.message || "Something went wrong");
+      }
+      set({ tokens: data.tokens });
+      return { success: true };
+    } catch (error) {
+      console.log(error)
+    }
+  }
 }));
 
 export default useAuthStore;

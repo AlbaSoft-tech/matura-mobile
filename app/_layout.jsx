@@ -5,7 +5,7 @@ import Purchases, { LOG_LEVEL } from "react-native-purchases";
 import useAuthStore from "../store/authStore";
 
 export default function RootLayout() {
-  const { id } = useAuthStore();
+  const { id, updateTokens } = useAuthStore();
   useEffect(() => {
     Purchases.setLogLevel(LOG_LEVEL.VERBOSE);
 
@@ -21,7 +21,19 @@ export default function RootLayout() {
       });
     }
     getCustomerInfo();
-  }, [id]);
+    const listener = Purchases.addCustomerInfoUpdateListener(() => {
+      try {
+        const getTokens = async () => {
+          await updateTokens();
+        };
+        getTokens();
+      } catch (error) {
+        console.log(error);
+      }
+    });
+
+    return () => Purchases.removeCustomerInfoUpdateListener(listener);
+  }, [id, updateTokens]);
 
   async function getCustomerInfo() {
     const customerInfo = await Purchases.getCustomerInfo();

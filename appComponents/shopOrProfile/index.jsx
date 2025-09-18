@@ -1,5 +1,5 @@
 import { Ionicons } from "@expo/vector-icons";
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import {
   ActivityIndicator,
   Dimensions,
@@ -28,7 +28,6 @@ export default function ShopScreen() {
     amend,
     setUser,
     sendEmailCode,
-    setEmail,
   } = useAuthStore();
   const insets = useSafeAreaInsets();
   const [shop, setShop] = useState(true);
@@ -210,7 +209,10 @@ export default function ShopScreen() {
           <RevenueCatUI.Paywall />
         </View>
       ) : (
-        <KeyboardAvoidingView style={{ flex: 1 }} behavior={Platform.OS === "android" ? undefined : "padding"}>
+        <KeyboardAvoidingView
+          style={{ flex: 1 }}
+          behavior={Platform.OS === "android" ? undefined : "padding"}
+        >
           <View
             style={{
               flex: 1,
@@ -545,226 +547,225 @@ export default function ShopScreen() {
                     </TouchableOpacity>
                   ) : (
                     <TouchableWithoutFeedback onPress={Keyboard.dismiss}>
-            
-                        <View
-                          style={{
-                            flex: 1,
-                            justifyContent: "center",
-                            alignItems: "center",
-                            paddingHorizontal: 20,
-                            marginTop: 30,
-                          }}
-                        >
-                          {/* Old Password Input */}
-                          <View style={{ marginBottom: 20, width: 250 }}>
-                            <Text
-                              style={{
-                                color: "#9ca3af",
-                                fontSize: 14,
-                                marginBottom: 5,
-                              }}
-                            >
-                              Old Password
-                            </Text>
-                            <View
-                              style={{
-                                flexDirection: "row",
-                                alignItems: "center",
-                                borderBottomWidth: 2,
-                                borderBottomColor: "#3b82f6",
-                                paddingBottom: 5,
-                              }}
-                            >
-                              <TextInput
-                                style={{
-                                  flex: 1,
-                                  height: 44,
-                                  padding: 10,
-                                  fontSize: 16,
-                                  color: "white",
-                                }}
-                                placeholder="••••••••"
-                                placeholderTextColor="#9ca3af"
-                                secureTextEntry={!showOldPassword}
-                                value={oldPassword}
-                                onChangeText={setOldPassword}
-                              />
-                              <TouchableOpacity
-                                onPress={() =>
-                                  setShowOldPassword(!showOldPassword)
-                                }
-                              >
-                                <Ionicons
-                                  name={showOldPassword ? "eye-off" : "eye"}
-                                  size={24}
-                                  color="#9ca3af"
-                                />
-                              </TouchableOpacity>
-                            </View>
-                          </View>
-
-                          {/* New Password Input */}
-                          <View style={{ marginBottom: 20, width: 250 }}>
-                            <Text
-                              style={{
-                                color: "#9ca3af",
-                                fontSize: 14,
-                                marginBottom: 5,
-                              }}
-                            >
-                              New Password
-                            </Text>
-                            <View
-                              style={{
-                                flexDirection: "row",
-                                alignItems: "center",
-                                borderBottomWidth: 2,
-                                borderBottomColor: "#3b82f6",
-                                paddingBottom: 5,
-                              }}
-                            >
-                              <TextInput
-                                style={{
-                                  flex: 1,
-                                  height: 44,
-                                  padding: 10,
-                                  fontSize: 16,
-                                  color: "white",
-                                }}
-                                placeholder="••••••••"
-                                placeholderTextColor="#9ca3af"
-                                secureTextEntry={!showPassword}
-                                value={newPassword}
-                                onChangeText={setNewPassword}
-                              />
-                              <TouchableOpacity
-                                onPress={() => setShowPassword(!showPassword)}
-                              >
-                                <Ionicons
-                                  name={showPassword ? "eye-off" : "eye"}
-                                  size={24}
-                                  color="#9ca3af"
-                                />
-                              </TouchableOpacity>
-                            </View>
-                          </View>
-
-                          {/* Confirm Password Input */}
-                          <View style={{ marginBottom: 40, width: 250 }}>
-                            <Text
-                              style={{
-                                color: "#9ca3af",
-                                fontSize: 14,
-                                marginBottom: 5,
-                              }}
-                            >
-                              Confirm Password
-                            </Text>
-                            <View
-                              style={{
-                                flexDirection: "row",
-                                alignItems: "center",
-                                borderBottomWidth: 2,
-                                borderBottomColor: "#3b82f6",
-                                paddingBottom: 5,
-                              }}
-                            >
-                              <TextInput
-                                style={{
-                                  flex: 1,
-                                  height: 44,
-                                  padding: 10,
-                                  fontSize: 16,
-                                  color: "white",
-                                }}
-                                placeholder="••••••••"
-                                placeholderTextColor="#9ca3af"
-                                secureTextEntry={!showConfirmPassword}
-                                value={confirmPassword}
-                                onChangeText={setConfirmPassword}
-                              />
-                              <TouchableOpacity
-                                onPress={() =>
-                                  setShowConfirmPassword(!showConfirmPassword)
-                                }
-                              >
-                                <Ionicons
-                                  name={showConfirmPassword ? "eye-off" : "eye"}
-                                  size={24}
-                                  color="#9ca3af"
-                                />
-                              </TouchableOpacity>
-                            </View>
-                          </View>
-
-                          {/* Button Container */}
+                      <View
+                        style={{
+                          flex: 1,
+                          justifyContent: "center",
+                          alignItems: "center",
+                          paddingHorizontal: 20,
+                          marginTop: 30,
+                        }}
+                      >
+                        {/* Old Password Input */}
+                        <View style={{ marginBottom: 20, width: 250 }}>
+                          <Text
+                            style={{
+                              color: "#9ca3af",
+                              fontSize: 14,
+                              marginBottom: 5,
+                            }}
+                          >
+                            Old Password
+                          </Text>
                           <View
                             style={{
                               flexDirection: "row",
-                              width: 250,
-                              justifyContent: "space-between",
                               alignItems: "center",
+                              borderBottomWidth: 2,
+                              borderBottomColor: "#3b82f6",
+                              paddingBottom: 5,
                             }}
                           >
-                            {/* The green button */}
-                            <TouchableOpacity
-                              onPress={handlePasswordPress}
+                            <TextInput
                               style={{
-                                backgroundColor: "#10b981",
-                                paddingVertical: 12,
-                                paddingHorizontal: 20,
-                                borderRadius: 100,
-                                alignItems: "center",
-                                justifyContent: "center",
-                                shadowColor: "#000",
-                                shadowOffset: { width: 0, height: 2 },
-                                shadowOpacity: 0.25,
-                                shadowRadius: 3.84,
-                                elevation: 5,
                                 flex: 1,
-                                marginRight: 10,
+                                height: 44,
+                                padding: 10,
+                                fontSize: 16,
+                                color: "white",
                               }}
-                            >
-                              {isChangingPassword ? (
-                                <ActivityIndicator color="white" />
-                              ) : (
-                                <Text
-                                  style={{
-                                    color: "white",
-                                    fontWeight: "bold",
-                                    fontSize: 16,
-                                  }}
-                                >
-                                  Set Password
-                                </Text>
-                              )}
-                            </TouchableOpacity>
-
-                            {/* The new red cancel button with Ionicons */}
+                              placeholder="••••••••"
+                              placeholderTextColor="#9ca3af"
+                              secureTextEntry={!showOldPassword}
+                              value={oldPassword}
+                              onChangeText={setOldPassword}
+                            />
                             <TouchableOpacity
-                              onPress={() => {
-                                setToggleAmendPassword(false);
-                                setNewPassword("");
-                                setOldPassword("");
-                                setConfirmPassword("");
-                              }}
-                              style={{
-                                backgroundColor: "#ef4444",
-                                padding: 12, // Adjusted padding for the icon
-                                borderRadius: 100,
-                                alignItems: "center",
-                                justifyContent: "center",
-                                shadowColor: "#000",
-                                shadowOffset: { width: 0, height: 2 },
-                                shadowOpacity: 0.25,
-                                shadowRadius: 3.84,
-                                elevation: 5,
-                              }}
+                              onPress={() =>
+                                setShowOldPassword(!showOldPassword)
+                              }
                             >
-                              <Ionicons name="close" size={24} color="white" />
+                              <Ionicons
+                                name={showOldPassword ? "eye-off" : "eye"}
+                                size={24}
+                                color="#9ca3af"
+                              />
                             </TouchableOpacity>
                           </View>
                         </View>
+
+                        {/* New Password Input */}
+                        <View style={{ marginBottom: 20, width: 250 }}>
+                          <Text
+                            style={{
+                              color: "#9ca3af",
+                              fontSize: 14,
+                              marginBottom: 5,
+                            }}
+                          >
+                            New Password
+                          </Text>
+                          <View
+                            style={{
+                              flexDirection: "row",
+                              alignItems: "center",
+                              borderBottomWidth: 2,
+                              borderBottomColor: "#3b82f6",
+                              paddingBottom: 5,
+                            }}
+                          >
+                            <TextInput
+                              style={{
+                                flex: 1,
+                                height: 44,
+                                padding: 10,
+                                fontSize: 16,
+                                color: "white",
+                              }}
+                              placeholder="••••••••"
+                              placeholderTextColor="#9ca3af"
+                              secureTextEntry={!showPassword}
+                              value={newPassword}
+                              onChangeText={setNewPassword}
+                            />
+                            <TouchableOpacity
+                              onPress={() => setShowPassword(!showPassword)}
+                            >
+                              <Ionicons
+                                name={showPassword ? "eye-off" : "eye"}
+                                size={24}
+                                color="#9ca3af"
+                              />
+                            </TouchableOpacity>
+                          </View>
+                        </View>
+
+                        {/* Confirm Password Input */}
+                        <View style={{ marginBottom: 40, width: 250 }}>
+                          <Text
+                            style={{
+                              color: "#9ca3af",
+                              fontSize: 14,
+                              marginBottom: 5,
+                            }}
+                          >
+                            Confirm Password
+                          </Text>
+                          <View
+                            style={{
+                              flexDirection: "row",
+                              alignItems: "center",
+                              borderBottomWidth: 2,
+                              borderBottomColor: "#3b82f6",
+                              paddingBottom: 5,
+                            }}
+                          >
+                            <TextInput
+                              style={{
+                                flex: 1,
+                                height: 44,
+                                padding: 10,
+                                fontSize: 16,
+                                color: "white",
+                              }}
+                              placeholder="••••••••"
+                              placeholderTextColor="#9ca3af"
+                              secureTextEntry={!showConfirmPassword}
+                              value={confirmPassword}
+                              onChangeText={setConfirmPassword}
+                            />
+                            <TouchableOpacity
+                              onPress={() =>
+                                setShowConfirmPassword(!showConfirmPassword)
+                              }
+                            >
+                              <Ionicons
+                                name={showConfirmPassword ? "eye-off" : "eye"}
+                                size={24}
+                                color="#9ca3af"
+                              />
+                            </TouchableOpacity>
+                          </View>
+                        </View>
+
+                        {/* Button Container */}
+                        <View
+                          style={{
+                            flexDirection: "row",
+                            width: 250,
+                            justifyContent: "space-between",
+                            alignItems: "center",
+                          }}
+                        >
+                          {/* The green button */}
+                          <TouchableOpacity
+                            onPress={handlePasswordPress}
+                            style={{
+                              backgroundColor: "#10b981",
+                              paddingVertical: 12,
+                              paddingHorizontal: 20,
+                              borderRadius: 100,
+                              alignItems: "center",
+                              justifyContent: "center",
+                              shadowColor: "#000",
+                              shadowOffset: { width: 0, height: 2 },
+                              shadowOpacity: 0.25,
+                              shadowRadius: 3.84,
+                              elevation: 5,
+                              flex: 1,
+                              marginRight: 10,
+                            }}
+                          >
+                            {isChangingPassword ? (
+                              <ActivityIndicator color="white" />
+                            ) : (
+                              <Text
+                                style={{
+                                  color: "white",
+                                  fontWeight: "bold",
+                                  fontSize: 16,
+                                }}
+                              >
+                                Set Password
+                              </Text>
+                            )}
+                          </TouchableOpacity>
+
+                          {/* The new red cancel button with Ionicons */}
+                          <TouchableOpacity
+                            onPress={() => {
+                              setToggleAmendPassword(false);
+                              setNewPassword("");
+                              setOldPassword("");
+                              setConfirmPassword("");
+                            }}
+                            style={{
+                              backgroundColor: "#ef4444",
+                              padding: 12, // Adjusted padding for the icon
+                              borderRadius: 100,
+                              alignItems: "center",
+                              justifyContent: "center",
+                              shadowColor: "#000",
+                              shadowOffset: { width: 0, height: 2 },
+                              shadowOpacity: 0.25,
+                              shadowRadius: 3.84,
+                              elevation: 5,
+                            }}
+                          >
+                            <Ionicons name="close" size={24} color="white" />
+                          </TouchableOpacity>
+                        </View>
+                      </View>
                     </TouchableWithoutFeedback>
                   )}
                   {!toggleDeleteAccount ? (

@@ -546,9 +546,11 @@ export default function Index() {
                     style={{ flex: 1, paddingHorizontal: 20 }}
                     contentContainerStyle={{ paddingBottom: 20 }}
                   >
-                    <View style={styles.answerItem}>
-                      <Text style={styles.answerText}>{answers}</Text>
-                    </View>
+                    <TouchableWithoutFeedback>
+                      <View style={styles.answerItem}>
+                        <Text style={styles.answerText}>{answers}</Text>
+                      </View>
+                    </TouchableWithoutFeedback>
                   </ScrollView>
                 )}
 
@@ -560,7 +562,12 @@ export default function Index() {
                 )}
 
                 {/* Input bar at the bottom */}
-                <View style={[styles.inputContainer, { margin: 0, paddingBottom: insets.bottom + 10 }]}>
+                <View
+                  style={[
+                    styles.inputContainer,
+                    { margin: 0, paddingBottom: insets.bottom + 10 },
+                  ]}
+                >
                   <TextInput
                     style={styles.textInput}
                     placeholder="Shkruaje pyetjen"

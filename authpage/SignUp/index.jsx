@@ -34,7 +34,7 @@ export default function SignUp({ onAlreadyHaveAnAccount }) {
     if (result.success) {
       return;
     } else {
-      alert(result.message || "Sign up failed. Please try again.");
+      alert(result.error || "Sign up failed. Please try again.");
     }
     return;
   };

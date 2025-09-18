@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import {
   ActivityIndicator,
+  KeyboardAvoidingView,
   Platform,
   StyleSheet,
   Text,
@@ -8,7 +9,6 @@ import {
   TouchableOpacity,
   View,
 } from "react-native";
-import { KeyboardAwareScrollView } from "react-native-keyboard-aware-scroll-view";
 import useAuthStore from "../../store/authStore";
 
 export default function VerifyAccount() {
@@ -29,12 +29,9 @@ export default function VerifyAccount() {
   };
 
   return (
-    <KeyboardAwareScrollView
-      contentContainerStyle={styles.container}
-      enableOnAndroid={true}
-      extraHeight={Platform.OS === "ios" ? 100 : 80} // adjusts for keyboard
-      keyboardOpeningTime={0}
-      showsVerticalScrollIndicator={false}
+    <KeyboardAvoidingView // Changed from View to KeyboardAvoidingView
+      style={styles.container}
+      behavior={Platform.OS === "ios" ? "padding" : undefined} // Apply behavior
     >
       <View style={styles.card}>
         <Text style={styles.title}>Enter Verification Code</Text>
@@ -65,7 +62,7 @@ export default function VerifyAccount() {
           )}
         </TouchableOpacity>
       </View>
-    </KeyboardAwareScrollView>
+    </KeyboardAvoidingView>
   );
 }
 

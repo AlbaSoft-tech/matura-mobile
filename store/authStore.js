@@ -120,7 +120,7 @@ const useAuthStore = create((set, get) => ({
       await AsyncStorage.setItem("email", JSON.stringify(result.user.email));
       await AsyncStorage.setItem("token", result.token);
       await AsyncStorage.setItem("tests", JSON.stringify(result.tests));
-      await AsyncStorage.setItem("id", result.user.id)
+      await AsyncStorage.setItem("id", result.user.id);
       return {
         success: true,
       };
@@ -133,7 +133,6 @@ const useAuthStore = create((set, get) => ({
   checkToken: async () => {
     try {
       const token = await AsyncStorage.getItem("token");
-
       if (token) {
         const response = await fetch(
           "https://matura-backend.onrender.com/api/auth/token",
@@ -162,7 +161,7 @@ const useAuthStore = create((set, get) => ({
             isAuthorised: true,
             completedTests: completedTests,
             fetchedTests: JSON.parse(tests),
-            id: result.id
+            id: result.id,
           });
           return true;
         } else {
@@ -323,13 +322,17 @@ const useAuthStore = create((set, get) => ({
   },
   updateTokens: async () => {
     try {
-      const response = await fetch("https://matura-backend.onrender.com/api/auth/getTokens", {
-        method: "GET",
-        headers: {
-          "Content-Type": "application/json",
-          Authorization: `Bearer ${get().token}`,
-        },
-      });
+      const token = await AsyncStorage.getItem("token");
+      const response = await fetch(
+        "https://matura-backend.onrender.com/api/auth/getTokens",
+        {
+          method: "GET",
+          headers: {
+            "Content-Type": "application/json",
+            Authorization: `Bearer ${token}`,
+          },
+        }
+      );
       const data = await response.json();
       if (!response.ok) {
         throw new Error(data.message || "Something went wrong");
@@ -337,9 +340,9 @@ const useAuthStore = create((set, get) => ({
       set({ tokens: data.tokens });
       return { success: true };
     } catch (error) {
-      console.log(error)
+      console.log(error);
     }
-  }
+  },
 }));
 
 export default useAuthStore;

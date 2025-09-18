@@ -1,14 +1,12 @@
 import { Stack } from "expo-router";
 import { useEffect } from "react";
 import { Platform } from "react-native";
-import Purchases, { LOG_LEVEL } from "react-native-purchases";
+import Purchases from "react-native-purchases";
 import useAuthStore from "../store/authStore";
 
 export default function RootLayout() {
   const { id, updateTokens } = useAuthStore();
   useEffect(() => {
-    Purchases.setLogLevel(LOG_LEVEL.VERBOSE);
-
     if (Platform.OS === "ios") {
       Purchases.configure({
         apiKey: "ios_api_key_here",

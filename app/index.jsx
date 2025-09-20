@@ -8,6 +8,7 @@ import {
   ActivityIndicator,
   Keyboard,
   KeyboardAvoidingView,
+  NativeModules,
   Platform,
   ScrollView,
   StyleSheet,
@@ -24,6 +25,8 @@ import Shop from "../appComponents//shopOrProfile/index";
 import LearnPage from "../appComponents/learnPage/index";
 import AuthPage from "../authpage/index";
 import useAuthStore from "../store/authStore";
+
+const { MLKitModule } = NativeModules;
 
 const convertToBase64 = async (fileUri) => {
   try {
@@ -185,73 +188,30 @@ export default function Index() {
 
     setLoadingProgress(20);
     setLoading(true);
-    const performOCR = async (base64Image) => {
-      const apiKey = "AIzaSyBBEaQrCcYVbunxsAVmcj-uPzbqUQKqEag";
-
-      const requestBody = {
-        requests: [
-          {
-            image: {
-              content: base64Image,
-            },
-            features: [
-              {
-                type: "TEXT_DETECTION",
-                maxResults: 1,
-              },
-            ],
-            imageContext: {
-              languageHints: ["sq"],
-            },
-          },
-        ],
-      };
-
-      try {
-        const response = await fetch(
-          `https://vision.googleapis.com/v1/images:annotate?key=${apiKey}`,
-          {
-            method: "POST",
-            headers: {
-              "Content-Type": "application/json",
-            },
-            body: JSON.stringify(requestBody),
-          }
-        );
-
-        const data = await response.json();
-        if (data.responses && data.responses[0].fullTextAnnotation) {
-          const detectedText = data.responses[0].fullTextAnnotation.text;
-          return detectedText;
-        } else {
-          console.error("No text detected");
-          setPhotoArray([]);
-          setLoading(false);
-          setLoadingProgress(0);
-          alert("No text detected in the images.");
-          return null;
+    const performOCR = async (image) => {
+      if (Platform.OS === "android") {
+        try {
+          const result = await MLKitModule.recognizeText(image);
+          console.log("Recognized text:", result);
+          return result; // important to return for Promise.all
+        } catch (err) {
+          console.error("Text recognition error:", err);
+          return ""; // return empty string on failure
         }
-      } catch (error) {
-        console.error("Error during OCR:", error);
-        setPhotoArray([]);
-        setLoading(false);
-        setLoadingProgress(0);
-        alert("Failed to process images. Please try again.");
-        return null;
+      } else {
+        return ""; // non-Android: return empty
       }
     };
-
     const ocrResults = await Promise.all(
       photoArray.map(async (uri) => {
-        const base64 = await convertToBase64(uri);
-        if (base64) {
-          return performOCR(base64);
+        if (uri) {
+          return performOCR(uri);
         } else {
           return "";
         }
       })
     );
-    console.log("ocr is done");
+    console.log(ocrResults);
     setLoadingProgress(50);
 
     let prompt = "";

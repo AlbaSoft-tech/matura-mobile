@@ -233,18 +233,17 @@ ${questionAndAnswerContext}`,
                 >
                   <Image
                     source={languageFlags[lang.name.toLowerCase()]}
-                    style={{ width: 100, height: 100, borderRadius: 50 }}
+                    style={{
+                      width: 100,
+                      height: 100,
+                      borderRadius: 50,
+                      borderWidth: 5,
+                      borderColor: "#3b82f6",
+                    }}
                   />
                 </TouchableOpacity>
               ))}
             </View>
-
-            {language && (
-              <Text style={styles.languageConfirmation}>
-                You have selected:{" "}
-                <Text style={styles.languageSelectedText}>{language}</Text>
-              </Text>
-            )}
           </View>
         </View>
       ) : selectedTestIndex === null ? (
@@ -696,8 +695,8 @@ const styles = StyleSheet.create({
   },
   languageContentContainer: {
     alignItems: "center",
-    justifyContent: "center",
-
+    justifyContent: "space-around",
+    height: "75%",
     padding: 25,
     backgroundColor: "#202123",
     borderRadius: 15,
@@ -722,15 +721,8 @@ const styles = StyleSheet.create({
     marginBottom: 0,
   },
   languageButton: {
-    backgroundColor: "#3b82f6",
-    paddingVertical: 5,
-    paddingHorizontal: 5,
     borderRadius: 100,
-    shadowColor: "#000",
-    shadowOffset: { width: 0, height: 2 },
-    shadowOpacity: 0.25,
-    shadowRadius: 3.84,
-    elevation: 5,
+    width: "48%",
     alignItems: "center",
     marginBottom: 20,
   },

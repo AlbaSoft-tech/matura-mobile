@@ -23,6 +23,7 @@ function FullQuizPage() {
   const [apiResponse, setApiResponse] = useState(null);
   const [loadingAI, setLoadingAI] = useState(false);
   const [showCorrectAnswers, setShowCorrectAnswers] = useState(false);
+  const [englishAnswers, setEnglishAnswers] = useState({});
 
   const [language, setLanguage] = useState(null); // e.g., "Albanian", "English"
   const [selectedTestIndex, setSelectedTestIndex] = useState(null); // Index of the specific test selected (e.g., 0, 1, 2)
@@ -114,7 +115,33 @@ function FullQuizPage() {
       },
     }));
   };
+  const handleSelectEnglishAnswer = (exerciseIndex, indexOrKey, answer) => {
+    setEnglishAnswers((prevAnswers) => {
+      // Create a new object to avoid direct state mutation.
+      const newAnswers = { ...prevAnswers };
 
+      // Initialize the entry for this specific exercise if it doesn't exist.
+      // The type (array vs. object) depends on the indexOrKey.
+      if (!newAnswers[exerciseIndex]) {
+        newAnswers[exerciseIndex] = typeof indexOrKey === "string" ? {} : [];
+      }
+
+      // Get a reference to the specific exercise's answers.
+      const exerciseAnswers = newAnswers[exerciseIndex];
+
+      // Check if the answers are an array (for ordered questions like multiple-choice).
+      if (Array.isArray(exerciseAnswers)) {
+        const updatedAnswers = [...exerciseAnswers];
+        updatedAnswers[indexOrKey] = answer;
+        newAnswers[exerciseIndex] = updatedAnswers;
+      } else {
+        // Otherwise, assume it's an object (for key-value pairs like matching headings).
+        exerciseAnswers[indexOrKey] = answer;
+      }
+
+      return newAnswers;
+    });
+  };
   const handleSubmitQuiz = async () => {
     let userAnswerString = "";
     let actualAnswerString = "";
@@ -125,29 +152,95 @@ function FullQuizPage() {
       Alert.alert("Error", "No quiz data to submit.");
       return;
     }
+    let englishString = "";
+    if (language === "English") {
+      quizzesToDisplay.forEach((exercise, exerciseIndex) => {
+        // Handling Text Matching and Multiple Choice
+        if (
+          exercise.title === "text_matching" ||
+          exercise.title === "multiple_choice"
+        ) {
+          exercise.questions.forEach((question, questionIndex) => {
+            const userAnswer =
+              englishAnswers[exerciseIndex]?.[questionIndex] || "blank";
+            englishString +=
+              `Question ${questionIndex + 1}. ${question.question}\n` +
+              `Correct Answer: ${question.answer}\n` +
+              `User Answer: ${userAnswer}\n\n`;
+          });
+        }
+        // Handling Paragraph Ordering
+        else if (exercise.title === "paragraph_ordering") {
+          const userAnswer = englishAnswers[exerciseIndex]?.[0] || "blank";
+          englishString +=
+            `Paragraph Ordering\n` +
+            `Correct Answer: ${exercise.correctOrder.join("")}\n` +
+            `User Answer: ${userAnswer}\n\n`;
+        }
+        // Handling Fill in the Blank
+        else if (exercise.title === "fill_in_the_blank") {
+          const correctAnswers = exercise.answers || {};
+          Object.keys(correctAnswers).forEach((blankKey) => {
+            const userAnswer =
+              englishAnswers[exerciseIndex]?.[blankKey] || "blank";
+            englishString +=
+              `Fill-in-the-blank (Blank ${blankKey})\n` +
+              `Correct Answer: ${correctAnswers[blankKey]}\n` +
+              `User Answer: ${userAnswer}\n\n`;
+          });
+        }
+        // Handling Matching Headings
+        else if (exercise.title === "matching_headings") {
+          const correctAnswers = exercise.answers || {};
+          Object.keys(exercise.paragraphs).forEach((paragraphKey) => {
+            const userAnswer =
+              englishAnswers[exerciseIndex]?.[paragraphKey] || "blank";
+            englishString +=
+              `Matching Heading for Paragraph ${paragraphKey}\n` +
+              `Correct Answer: ${correctAnswers[paragraphKey]}\n` +
+              `User Answer: ${userAnswer}\n\n`;
+          });
+        }
+        // Handling Sentence Completion (examples)
+        else if (exercise.examples && Array.isArray(exercise.examples)) {
+          exercise.examples.forEach((example, exampleIndex) => {
+            const userAnswer =
+              englishAnswers[exerciseIndex]?.[exampleIndex] || "blank";
+            englishString +=
+              `Sentence Completion Example ${exampleIndex + 1}\n` +
+              `Correct Answer: ${example.answer}\n` +
+              `User Answer: ${userAnswer}\n\n`;
+          });
+        }
+      });
+    } else {
+      quizzesToDisplay.forEach((exercise, exerciseIndex) => {
+        if (exercise.questions && Array.isArray(exercise.questions)) {
+          exercise.questions.forEach((question, questionIndex) => {
+            flatQuestionCounter++;
 
-    quizzesToDisplay.forEach((exercise, exerciseIndex) => {
-      if (exercise.questions && Array.isArray(exercise.questions)) {
-        exercise.questions.forEach((question, questionIndex) => {
-          flatQuestionCounter++;
+            const userAns =
+              selectedAnswers[exerciseIndex]?.[questionIndex] || "blank";
+            const actualAns = question.answer || "";
 
-          const userAns =
-            selectedAnswers[exerciseIndex]?.[questionIndex] || "blank";
-          const actualAns = question.answer || "";
+            // flat numbering instead of E/Q
+            userAnswerString += `${flatQuestionCounter}. ${userAns}\n`;
+            actualAnswerString += `${flatQuestionCounter}. ${actualAns}\n`;
 
-          // flat numbering instead of E/Q
-          userAnswerString += `${flatQuestionCounter}. ${userAns}\n`;
-          actualAnswerString += `${flatQuestionCounter}. ${actualAns}\n`;
+            questionAndAnswerContext += `${flatQuestionCounter}. ${question.question}\nUser Answer: ${userAns}\nCorrect Answer: ${actualAns}\n\n`;
+          });
+        }
+      });
+    }
 
-          questionAndAnswerContext += `${flatQuestionCounter}. ${question.question}\nUser Answer: ${userAns}\nCorrect Answer: ${actualAns}\n\n`;
-        });
-      }
-    });
-
+    if (language === "English") {
+      questionAndAnswerContext = englishString;
+    }
+    console.log(englishString);
+    console.log("User Answers:\n", englishAnswers);
     setLoadingAI(true);
     setApiResponse(null);
     setShowCorrectAnswers(false);
-
     try {
       const response = await fetch(
         "https://matura-backend.onrender.com/api/processing/compare-answers",
@@ -206,6 +299,8 @@ ${questionAndAnswerContext}`,
       setApiResponse(`Error: ${error.message}`);
     } finally {
       setLoadingAI(false);
+      setEnglishAnswers({});
+      setSelectedAnswers({});
     }
   };
 
@@ -322,78 +417,460 @@ ${questionAndAnswerContext}`,
           </View>
 
           {Array.isArray(quizzesToDisplay) && quizzesToDisplay.length > 0 ? (
-            quizzesToDisplay.map((exercise, exerciseIndex) => (
-              <View key={exerciseIndex} style={styles.exerciseSection}>
-                {exercise.title && (
-                  <Text style={styles.exerciseTitle}>{exercise.title}</Text>
-                )}
-                {exercise.text && (
-                  <Text style={styles.exerciseText}>{exercise.text}</Text>
-                )}
+            quizzesToDisplay.map((exercise, exerciseIndex) => {
+              if (language === "English") {
+                return (
+                  <View key={exerciseIndex} style={styles.exerciseSection}>
+                    {/* Show instructions if exist */}
+                    {exercise.instructions && (
+                      <Text style={styles.exerciseTitle}>
+                        {exercise.instructions}
+                      </Text>
+                    )}
 
-                {/* Check if the current exercise has questions before mapping */}
-                {exercise.questions &&
-                  exercise.questions.map((q, questionIndex) => (
-                    <View
-                      key={`${exerciseIndex}-${questionIndex}`}
-                      style={styles.questionBlock}
-                    >
-                      <Text style={styles.questionText}>{q.question}</Text>
-                      {q.options ? (
-                        <View style={styles.optionsContainer}>
-                          {q.options.map((option, optionIndex) => (
-                            <TouchableOpacity
-                              key={`${exerciseIndex}-${questionIndex}-${optionIndex}`}
-                              onPress={() =>
+                    {/* Show texts for text_matching */}
+                    {exercise.texts && typeof exercise.texts === "object" && (
+                      <View style={{ marginBottom: 20 }}>
+                        {Object.entries(exercise.texts).map(([key, text]) => (
+                          <Text key={key} style={styles.exerciseText}>
+                            {key}. {text}
+                          </Text>
+                        ))}
+                        {exercise.questions &&
+                          exercise.questions.map((q, questionIndex) => (
+                            <View
+                              key={questionIndex}
+                              style={styles.questionBlock}
+                            >
+                              <Text style={styles.questionText}>
+                                {q.question}
+                              </Text>
+
+                              {Array.isArray(q.options) &&
+                                q.options.length > 0 && (
+                                  <View style={styles.optionsContainer}>
+                                    {q.options.map((option, optionIndex) => {
+                                      const isSelected =
+                                        englishAnswers[exerciseIndex]?.[
+                                          questionIndex
+                                        ] === option;
+
+                                      // Add the logic to check if the option is correct
+                                      const isCorrect =
+                                        showCorrectAnswers &&
+                                        q.answer === option;
+
+                                      return (
+                                        <TouchableOpacity
+                                          key={optionIndex}
+                                          onPress={() =>
+                                            handleSelectEnglishAnswer(
+                                              exerciseIndex,
+                                              questionIndex,
+                                              option
+                                            )
+                                          }
+                                          style={[
+                                            styles.optionButton,
+                                            isSelected && styles.selectedOption,
+                                            isCorrect && styles.correctOption, // Use a new style for correct answers
+                                          ]}
+                                        >
+                                          <Text
+                                            style={[
+                                              styles.optionText,
+                                              isSelected && {
+                                                fontWeight: "bold",
+                                              },
+                                              isCorrect && {
+                                                color: "white",
+                                                fontWeight: "bold",
+                                              },
+                                            ]}
+                                          >
+                                            {option}
+                                          </Text>
+                                        </TouchableOpacity>
+                                      );
+                                    })}
+                                  </View>
+                                )}
+
+                              {/* This block shows the correct answer in text format */}
+                              {showCorrectAnswers && q.answer && (
+                                <Text style={styles.correctAnswerText}>
+                                  **Correct Answer:** {q.answer}
+                                </Text>
+                              )}
+                            </View>
+                          ))}
+                      </View>
+                    )}
+
+                    {/* Show paragraphs for paragraph_ordering */}
+                    {exercise.shuffledParagraphs && (
+                      <View style={{ marginBottom: 20 }}>
+                        {Object.entries(exercise.shuffledParagraphs).map(
+                          ([key, text]) => (
+                            <Text key={key} style={styles.exerciseText}>
+                              {key}. {text}
+                            </Text>
+                          )
+                        )}
+
+                        {/* User input for paragraph order */}
+                        <TextInput
+                          value={englishAnswers[exerciseIndex]?.[0] || ""}
+                          onChangeText={(text) =>
+                            handleSelectEnglishAnswer(
+                              exerciseIndex,
+                              0,
+                              text.toUpperCase()
+                            )
+                          }
+                          placeholder="Enter the correct order (e.g., CABDE)"
+                          placeholderTextColor="#9ca3af"
+                          style={[styles.textArea, { marginTop: 10 }]}
+                        />
+
+                        {/* Show correct order */}
+                        {showCorrectAnswers && exercise.correctOrder && (
+                          <Text style={styles.correctAnswerText}>
+                            **Correct Order:** {exercise.correctOrder.join("")}
+                          </Text>
+                        )}
+                      </View>
+                    )}
+
+                    {/* Fill in the Blank Exercise */}
+                    {exercise.text && (
+                      <Text style={[styles.exerciseText, { flexWrap: "wrap" }]}>
+                        {exercise.text
+                          .split(/(\(\d+\) ________)/g)
+                          .map((part, index) => {
+                            const match = part.match(/\((\d+)\) ________/);
+                            if (match) {
+                              const blankNumber = match[1];
+                              // Get the correct answer for this specific blank. Assuming your correct answers are stored in an object like `exercise.answers`.
+                              const correctAnswer =
+                                exercise.answers?.[blankNumber] || "";
+
+                              return (
+                                <React.Fragment key={index}>
+                                  <TextInput
+                                    value={
+                                      englishAnswers[exerciseIndex]?.[
+                                        blankNumber
+                                      ] || ""
+                                    }
+                                    onChangeText={(text) =>
+                                      handleSelectEnglishAnswer(
+                                        exerciseIndex,
+                                        blankNumber,
+                                        text
+                                      )
+                                    }
+                                    placeholder={
+                                      showCorrectAnswers ? correctAnswer : ""
+                                    }
+                                    placeholderTextColor={
+                                      showCorrectAnswers ? "#4ade80" : "white"
+                                    }
+                                    style={{
+                                      borderBottomWidth: 1,
+                                      width: 60,
+                                      borderBottomColor: "white",
+                                      color: "white",
+                                      paddingHorizontal: 2,
+                                      paddingVertical: 0,
+                                      minWidth: 30,
+                                      fontSize: 16,
+                                    }}
+                                  />
+                                </React.Fragment>
+                              );
+                            } else {
+                              return (
+                                <Text key={index} style={styles.exerciseText}>
+                                  {part}
+                                </Text>
+                              );
+                            }
+                          })}
+                      </Text>
+                    )}
+
+                    {/* Matching Headings Exercise */}
+                    {exercise.paragraphs &&
+                      typeof exercise.paragraphs === "object" && (
+                        <View style={{ marginBottom: 20 }}>
+                          {Object.entries(exercise.paragraphs).map(
+                            ([key, text]) => (
+                              <View key={key} style={{ marginBottom: 15 }}>
+                                <Text style={styles.exerciseText}>
+                                  {key}. {text}
+                                </Text>
+
+                                {/* Input for user to match heading */}
+                                <TextInput
+                                  value={
+                                    englishAnswers[exerciseIndex]?.[key] || ""
+                                  }
+                                  onChangeText={(text) =>
+                                    handleSelectEnglishAnswer(
+                                      exerciseIndex,
+                                      key,
+                                      text.toUpperCase()
+                                    )
+                                  }
+                                  placeholder="Enter the matching heading (e.g., A, B, C)"
+                                  placeholderTextColor="#9ca3af"
+                                  style={styles.textArea}
+                                />
+
+                                {/* Show correct answer if requested */}
+                                {showCorrectAnswers &&
+                                  exercise.answers &&
+                                  exercise.answers[key] && (
+                                    <Text style={styles.correctAnswerText}>
+                                      **Correct Heading:**{" "}
+                                      {exercise.answers[key]}
+                                    </Text>
+                                  )}
+                              </View>
+                            )
+                          )}
+
+                          {/* Display available headings */}
+                          {exercise.headings && (
+                            <View style={{ marginTop: 10 }}>
+                              <Text
+                                style={[
+                                  styles.exerciseText,
+                                  { fontWeight: "bold" },
+                                ]}
+                              >
+                                Headings:
+                              </Text>
+                              {Object.entries(exercise.headings).map(
+                                ([letter, headingText]) => (
+                                  <Text
+                                    key={letter}
+                                    style={styles.exerciseText}
+                                  >
+                                    {letter}. {headingText}
+                                  </Text>
+                                )
+                              )}
+                            </View>
+                          )}
+                        </View>
+                      )}
+
+                    {exercise.examples && Array.isArray(exercise.examples) && (
+                      <View style={{ marginBottom: 20 }}>
+                        {exercise.examples.map((example, exampleIndex) => {
+                          return (
+                            <Text
+                              key={exampleIndex}
+                              style={[
+                                styles.exerciseText,
+                                { flexWrap: "wrap" },
+                              ]}
+                            >
+                              {example.sentence
+                                .split(/(__________)/g)
+                                .map((part, partIndex) => {
+                                  if (part === "__________") {
+                                    return (
+                                      <TextInput
+                                        key={partIndex}
+                                        // FIX IS HERE: Use exampleIndex to get the correct answer
+                                        value={
+                                          englishAnswers[exerciseIndex]?.[
+                                            exampleIndex
+                                          ] || ""
+                                        }
+                                        onChangeText={(text) =>
+                                          handleSelectEnglishAnswer(
+                                            exerciseIndex,
+                                            exampleIndex,
+                                            text
+                                          )
+                                        }
+                                        placeholder=""
+                                        placeholderTextColor="#9ca3af"
+                                        style={{
+                                          borderBottomWidth: 1,
+                                          width: 60,
+                                          borderBottomColor: "white",
+                                          color: "white",
+                                          paddingHorizontal: 2,
+                                          paddingVertical: 0,
+                                          minWidth: 30,
+                                          fontSize: 16,
+                                          marginHorizontal: 4,
+                                        }}
+                                      />
+                                    );
+                                  } else {
+                                    return (
+                                      <Text
+                                        key={partIndex}
+                                        style={styles.exerciseText}
+                                      >
+                                        {part}
+                                      </Text>
+                                    );
+                                  }
+                                })}
+                              {showCorrectAnswers && example.answer && (
+                                <Text style={styles.correctAnswerText}>
+                                  {"\n"}Correct Answer: {example.answer}
+                                </Text>
+                              )}
+                            </Text>
+                          );
+                        })}
+                      </View>
+                    )}
+                    {exercise.questions &&
+                      exercise.title === "multiple_choice" &&
+                      exercise.questions.map((q, questionIndex) => (
+                        <View key={questionIndex} style={styles.questionBlock}>
+                          <Text style={styles.questionText}>{q.question}</Text>
+
+                          {q.options && typeof q.options === "object" && (
+                            <View style={styles.optionsContainer}>
+                              {Object.entries(q.options).map(
+                                ([letter, text]) => {
+                                  const isSelected =
+                                    englishAnswers[exerciseIndex]?.[
+                                      questionIndex
+                                    ] === letter;
+
+                                  return (
+                                    <TouchableOpacity
+                                      key={letter}
+                                      onPress={() =>
+                                        handleSelectEnglishAnswer(
+                                          exerciseIndex, // <-- Correct
+                                          questionIndex,
+                                          letter
+                                        )
+                                      }
+                                      style={[
+                                        styles.optionButton,
+                                        isSelected && styles.selectedOption,
+                                      ]}
+                                    >
+                                      <Text
+                                        style={[
+                                          styles.optionText,
+                                          isSelected && { fontWeight: "bold" },
+                                        ]}
+                                      >
+                                        {letter}. {text}
+                                      </Text>
+                                    </TouchableOpacity>
+                                  );
+                                }
+                              )}
+                            </View>
+                          )}
+
+                          {showCorrectAnswers && q.answer && (
+                            <Text style={styles.correctAnswerText}>
+                              **Correct Answer:** {q.answer}
+                            </Text>
+                          )}
+                        </View>
+                      ))}
+                  </View>
+                );
+              } else {
+                // This is the existing logic for the Albanian tests.
+                return (
+                  <View key={exerciseIndex} style={styles.exerciseSection}>
+                    {exercise.title && (
+                      <Text style={styles.exerciseTitle}>{exercise.title}</Text>
+                    )}
+                    {exercise.text && (
+                      <Text style={styles.exerciseText}>{exercise.text}</Text>
+                    )}
+                    {exercise.texts &&
+                      Array.isArray(exercise.texts) &&
+                      exercise.texts.map((txt, txtIndex) => (
+                        <Text key={txtIndex} style={styles.exerciseText}>
+                          {txt}
+                        </Text>
+                      ))}
+
+                    {exercise.questions &&
+                      exercise.questions.map((q, questionIndex) => (
+                        <View
+                          key={`${exerciseIndex}-${questionIndex}`}
+                          style={styles.questionBlock}
+                        >
+                          <Text style={styles.questionText}>{q.question}</Text>
+                          {q.options ? (
+                            <View style={styles.optionsContainer}>
+                              {q.options.map((option, optionIndex) => (
+                                <TouchableOpacity
+                                  key={`${exerciseIndex}-${questionIndex}-${optionIndex}`}
+                                  onPress={() =>
+                                    handleAnswerSelect(
+                                      exerciseIndex,
+                                      questionIndex,
+                                      option
+                                    )
+                                  }
+                                  style={[
+                                    styles.optionButton,
+                                    selectedAnswers[exerciseIndex]?.[
+                                      questionIndex
+                                    ] === option && styles.selectedOption,
+                                  ]}
+                                >
+                                  <Text style={styles.optionText}>
+                                    {option}
+                                  </Text>
+                                </TouchableOpacity>
+                              ))}
+                            </View>
+                          ) : (
+                            <TextInput
+                              value={
+                                selectedAnswers[exerciseIndex]?.[
+                                  questionIndex
+                                ] || ""
+                              }
+                              onChangeText={(text) =>
                                 handleAnswerSelect(
                                   exerciseIndex,
                                   questionIndex,
-                                  option
+                                  text
                                 )
                               }
-                              style={[
-                                styles.optionButton,
-                                selectedAnswers[exerciseIndex]?.[
-                                  questionIndex
-                                ] === option && styles.selectedOption,
-                              ]}
-                            >
-                              <Text style={styles.optionText}>{option}</Text>
-                            </TouchableOpacity>
-                          ))}
+                              placeholder="Shkruaj përgjigjen këtu..."
+                              placeholderTextColor="#9ca3af"
+                              multiline
+                              numberOfLines={4}
+                              style={styles.textArea}
+                            />
+                          )}
+                          {showCorrectAnswers && (
+                            <Text style={styles.correctAnswerText}>
+                              Correct answer: {q.answer}
+                            </Text>
+                          )}
                         </View>
-                      ) : (
-                        <TextInput
-                          value={
-                            selectedAnswers[exerciseIndex]?.[questionIndex] ||
-                            ""
-                          }
-                          onChangeText={(text) =>
-                            handleAnswerSelect(
-                              exerciseIndex,
-                              questionIndex,
-                              text
-                            )
-                          }
-                          placeholder="Shkruaj përgjigjen këtu..."
-                          placeholderTextColor="#9ca3af"
-                          multiline
-                          numberOfLines={4}
-                          style={styles.textArea}
-                        />
-                      )}
-
-                      {showCorrectAnswers && (
-                        <Text style={styles.correctAnswerText}>
-                          **Përgjigja e saktë:** {q.answer}
-                        </Text>
-                      )}
-                    </View>
-                  ))}
-              </View>
-            ))
+                      ))}
+                  </View>
+                );
+              }
+            })
           ) : (
-            // Optional: Render a loading indicator or a message if quizData is not an array or is empty
             <Text>Loading quiz...</Text>
           )}
 

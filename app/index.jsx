@@ -367,13 +367,15 @@ export default function Index() {
         initialPage={pageIndex}
       >
         {!writing && hasPermission ? ( // CAMERAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
-          <View style={{ flex: 1 }}>
-            <CameraView
-              ref={cameraRef}
-              style={{
-                flex: 1,
-              }}
-            />
+          <View style={{ flex: 1, backgroundColor: "black" }}>
+            {pageIndex === 0 && (
+              <CameraView
+                ref={cameraRef}
+                style={{
+                  flex: 1,
+                }}
+              />
+            )}
 
             <View
               style={{

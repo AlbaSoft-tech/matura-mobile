@@ -532,7 +532,7 @@ export default function Index() {
                 >
                   <TextInput
                     style={styles.textInput}
-                    placeholder="Shkruaje pyetjen"
+                    placeholder="Write your question..."
                     placeholderTextColor="#9ca3af"
                     value={question}
                     onChangeText={setQuestion}

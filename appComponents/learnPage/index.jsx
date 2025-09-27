@@ -404,7 +404,7 @@ ${questionAndAnswerContext}`,
             {/* Displaying the selected test index as currentQuestionIndex is misleading
                 since all exercises/questions for the test are shown. */}
             <Text style={styles.headerText}>
-              Testi {selectedTestIndex !== null ? selectedTestIndex + 1 : ""}
+              Test {selectedTestIndex !== null ? selectedTestIndex + 1 : ""}
             </Text>
             <View style={styles.navigationButtons}>
               <TouchableOpacity
@@ -852,7 +852,7 @@ ${questionAndAnswerContext}`,
                                   text
                                 )
                               }
-                              placeholder="Shkruaj përgjigjen këtu..."
+                              placeholder="Answer here"
                               placeholderTextColor="#9ca3af"
                               multiline
                               numberOfLines={4}

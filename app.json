@@ -19,7 +19,13 @@
       },
       "edgeToEdgeEnabled": true,
       "package": "com.anonymous.matura",
-      "softwareKeyboardLayoutMode": "pan"
+      "softwareKeyboardLayoutMode": "pan",
+      "blockedPermissions": [
+        "android.permission.RECORD_AUDIO",
+        "android.permission.CAMERA"
+        
+      ]
+
     },
     "web": {
       "bundler": "metro",

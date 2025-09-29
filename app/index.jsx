@@ -133,12 +133,8 @@ export default function Index() {
         },
         {
           name: "imagePicker",
-          get: ImagePicker.getMediaLibraryPermissionsAsync({
-            mediaTypes: "Images",
-          }),
-          request: ImagePicker.requestMediaLibraryPermissionsAsync({
-            mediaTypes: "Images",
-          }),
+          get: ImagePicker.getMediaLibraryPermissionsAsync,
+          request: ImagePicker.requestMediaLibraryPermissionsAsync,
         },
       ];
 

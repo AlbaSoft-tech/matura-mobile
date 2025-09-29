@@ -1,4 +1,4 @@
-package com.matura.mlkitmodule
+package com.example.mlkitmodule
 
 import org.junit.Test
 

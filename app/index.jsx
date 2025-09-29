@@ -2,7 +2,6 @@ import { Ionicons } from "@expo/vector-icons";
 import { Camera, CameraView } from "expo-camera";
 import * as FileSystem from "expo-file-system";
 import * as ImagePicker from "expo-image-picker";
-import * as MediaLibrary from "expo-media-library";
 import { useEffect, useRef, useState } from "react";
 import {
   ActivityIndicator,
@@ -127,11 +126,6 @@ export default function Index() {
           request: Camera.requestCameraPermissionsAsync,
         },
         {
-          name: "mediaLibrary",
-          get: MediaLibrary.getPermissionsAsync,
-          request: MediaLibrary.requestPermissionsAsync,
-        },
-        {
           name: "imagePicker",
           get: ImagePicker.getMediaLibraryPermissionsAsync,
           request: ImagePicker.requestMediaLibraryPermissionsAsync,
@@ -159,13 +153,6 @@ export default function Index() {
       setPhotoArray((prev) => [...prev, photo.uri]);
     }
   };
-
-  const savePicture = async () => {
-    for (let i = 0; i < photoArray.length; ++i) {
-      await MediaLibrary.saveToLibraryAsync(photoArray[i]);
-    }
-  };
-
   const pickImage = async () => {
     const result = await ImagePicker.launchImageLibraryAsync({
       mediaTypes: ImagePicker.MediaTypeOptions.Images,
@@ -430,9 +417,8 @@ export default function Index() {
                 alignItems: "center",
               }}
             >
-              <TouchableOpacity onPress={savePicture}>
-                <Ionicons name="download-outline" size={50} color="white" />
-              </TouchableOpacity>
+              <View style={{ width: 50, height: 50 }} />
+
               <View
                 style={{
                   flexDirection: "column",

@@ -19,13 +19,7 @@
       },
       "edgeToEdgeEnabled": true,
       "package": "com.anonymous.matura",
-      "softwareKeyboardLayoutMode": "pan",
-      "permissions": [
-        "CAMERA",
-        "READ_EXTERNAL_STORAGE",
-        "READ_MEDIA_IMAGES"
-      ]
-
+      "softwareKeyboardLayoutMode": "pan"
     },
     "web": {
       "bundler": "metro",
@@ -43,16 +37,19 @@
           "backgroundColor": "#ffffff"
         }
       ],
-       [
-        "expo-media-library",
+      [
+        "expo-image-picker",
         {
-          "photosPermission": "Allow $(PRODUCT_NAME) to access your photos.",
-          "savePhotosPermission": "Allow $(PRODUCT_NAME) to save photos.",
-          "isAccessMediaLocationEnabled": false,
-          "granularPermissions": ["photo"]
+          "photosPermission": "Allow $(PRODUCT_NAME) to access your photos."
+        }
+      ],
+      [
+        "expo-camera",
+        {
+          "cameraPermission": "Allow $(PRODUCT_NAME) to access your camera",
+          "recordAudioAndroid": false
         }
       ]
-
     ],
     "experiments": {
       "typedRoutes": true

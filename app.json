@@ -19,7 +19,8 @@
       },
       "edgeToEdgeEnabled": true,
       "package": "com.anonymous.matura",
-      "softwareKeyboardLayoutMode": "pan"
+      "softwareKeyboardLayoutMode": "pan",
+      "permissions": ["CAMERA", "INTERNET", "VIBRATE", "SYSTEM_ALERT_WINDOW"]
     },
     "web": {
       "bundler": "metro",

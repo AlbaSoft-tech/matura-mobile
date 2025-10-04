@@ -173,7 +173,9 @@ const useAuthStore = create((set, get) => ({
         return false;
       }
     } catch (error) {
-      throw new Error("Something went wrong while checking the token");
+      console.error("Auth token check failed:", error);
+      set({ isAuthorised: false, token: null });
+      return false;
     }
   },
   logOut: async () => {

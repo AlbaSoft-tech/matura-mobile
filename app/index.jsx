@@ -7,6 +7,7 @@ import {
   ActivityIndicator,
   Keyboard,
   KeyboardAvoidingView,
+  Modal,
   NativeModules,
   Platform,
   ScrollView,
@@ -504,9 +505,16 @@ export default function Index() {
 
                 {/* Loading overlay */}
                 {loading && (
-                  <View style={styles.overlay}>
-                    <ActivityIndicator size="large" color="#3b82f6" />
-                  </View>
+                  <Modal
+                    transparent={true}
+                    animationType="none"
+                    visible={loading}
+                    onRequestClose={() => {}}
+                  >
+                    <View style={styles.overlay} pointerEvents="auto">
+                      <ActivityIndicator size="large" color="#3b82f6" />
+                    </View>
+                  </Modal>
                 )}
 
                 {/* Input bar at the bottom */}
@@ -616,7 +624,7 @@ const styles = StyleSheet.create({
   },
   overlay: {
     ...StyleSheet.absoluteFillObject,
-    backgroundColor: "rgba(0, 0, 0, 0.7)",
+    backgroundColor: "rgba(0, 0, 0, 0)",
     justifyContent: "center",
     alignItems: "center",
     zIndex: 1000,

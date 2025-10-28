@@ -1,5 +1,6 @@
 import { Ionicons } from "@expo/vector-icons";
 import { Camera, CameraView } from "expo-camera";
+import * as Clipboard from "expo-clipboard";
 import * as FileSystem from "expo-file-system";
 import * as ImagePicker from "expo-image-picker";
 import { useEffect, useRef, useState } from "react";
@@ -106,7 +107,6 @@ export default function Index() {
   const insets = useSafeAreaInsets();
   const [pageIndex, setPageIndex] = useState(0);
   const pagerViewRef = useRef(null);
-  const [paid, setPaid] = useState(true);
   const [answers, setAnswers] = useState(null);
   const [answered, setANswered] = useState(false);
   const [loadingProgress, setLoadingProgress] = useState(0);
@@ -497,6 +497,26 @@ export default function Index() {
                   >
                     <TouchableWithoutFeedback>
                       <View style={styles.answerItem}>
+                        {/* top row with copy icon */}
+                        <View
+                          style={{
+                            flexd: 1,
+                            flexDirection: "row",
+                            justifyContent: "flex-end",
+                          }}
+                        >
+                          <TouchableWithoutFeedback
+                            onPress={() => Clipboard.setString(answers)}
+                          >
+                            <Ionicons
+                              name="copy-outline"
+                              size={22}
+                              color="#9ca3af"
+                            />
+                          </TouchableWithoutFeedback>
+                        </View>
+
+                        {/* answer text */}
                         <Text style={styles.answerText}>{answers}</Text>
                       </View>
                     </TouchableWithoutFeedback>
@@ -578,8 +598,7 @@ const styles = StyleSheet.create({
     paddingHorizontal: 20,
   },
   answerItem: {
-    marginTop: 20,
-    marginBottom: 40, // Keep this if you want space below the last answer item within the scrollview
+    // Keep this if you want space below the last answer item within the scrollview
     backgroundColor: "#202123",
     padding: 15,
     borderRadius: 10,
@@ -596,6 +615,7 @@ const styles = StyleSheet.create({
     fontSize: 16,
     color: "white",
     lineHeight: 22,
+    paddingRight: 25,
   },
   inputContainer: {
     backgroundColor: "#202123",
